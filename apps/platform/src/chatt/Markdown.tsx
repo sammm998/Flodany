@@ -2,7 +2,7 @@
 // och länkar. Allt byggs som React-element, aldrig som HTML, så att text från modellen inte kan bli kod i sidan.
 import { Fragment, type ReactNode } from 'react';
 
-// Understreck räknas inte som kursiv: de förekommer i namn som ANTHROPIC_API_KEY och months_2026.
+// Understreck räknas inte som kursiv: de förekommer i namn på variabler och sökvägar.
 const INLINE = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)\s]+\)|\*[^*\s][^*]*\*)/g;
 
 /** Länkar bara till plattformens egna sidor och till https. */

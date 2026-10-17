@@ -8,7 +8,7 @@ export const FORBJUDNA = ['@flodia/core', '@flodia/core/*', '@flodia/kit', '@flo
 
 export default tseslint.config(
   // legacy/ är originalapparna och ska inte röras, därför lintas de inte
-  { ignores: ['legacy/', 'referens/', '**/node_modules/', '**/dist/', 'dist-klient/', 'supabase/functions/**/*.bundle.js'] },
+  { ignores: ['dist-demo/**', 'legacy/', 'referens/', '**/node_modules/', '**/dist/', 'dist-klient/', 'supabase/functions/**/*.bundle.js'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
