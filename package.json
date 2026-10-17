@@ -10,6 +10,8 @@
     "node": ">=24"
   },
   "scripts": {
+    "build": "npm run build -w @flodia/platform",
+    "start": "node scripts/serva-plattform.mjs",
     "legacy": "node scripts/serva-legacy.mjs",
     "legacy:sha256": "node scripts/legacy-sha256.mjs --skriv",
     "lint": "eslint .",

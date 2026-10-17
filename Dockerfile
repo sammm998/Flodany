@@ -17,6 +17,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=bygg /app/apps/platform/dist ./apps/platform/dist
 COPY --from=bygg /app/scripts/serva-plattform.mjs ./scripts/serva-plattform.mjs
+# Ett package.json med start, ifall Railway startar med npm start i stället för CMD.
+RUN echo '{"name":"flodia-plattform","private":true,"type":"module","scripts":{"start":"node scripts/serva-plattform.mjs"}}' > package.json
 USER node
 EXPOSE 8080
 CMD ["node", "scripts/serva-plattform.mjs"]
