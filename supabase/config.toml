@@ -436,6 +436,12 @@ enabled = true
 verify_jwt = false
 entrypoint = "./functions/motor/index.ts"
 
+# Assistenten (chatten): agenten med verktyg mot apparna. Kontrollerar själv inloggning, konto, roll och licens.
+[functions.assistent]
+enabled = true
+verify_jwt = false
+entrypoint = "./functions/assistent/index.ts"
+
 # Legacy-bryggan (fas 2e): lämnar ut legacy-apparna bara till inloggade i interna konton.
 [functions.legacy]
 enabled = true

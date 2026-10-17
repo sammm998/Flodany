@@ -10,6 +10,8 @@
   "dependencies": {
     "@flodia/api": "0.0.0",
     "@flodia/core": "0.0.0",
+    "@flodia/guides": "0.0.0",
+    "@flodia/modules": "0.0.0",
     "@flodia/kit": "0.0.0",
     "@supabase/supabase-js": "2.117.2"
   }

@@ -180,6 +180,20 @@ export const TABELLER: Tabell[] = [
     andring: () => ({ done_at: '2000-01-01T00:00:00Z' }),
     fyll: async (k, v) => { for (const r of ['admin', 'las'] as const) await infoga(v.db, 'guide_progress', { user_id: v.anv[k.namn][r].id, tenant_id: k.id, module_key: 'avrakning', step_key: 'valkommen' }); },
   },
+  {
+    // Assistentens samtal (chatten): varje användare sina egna, i egna konton. Systemtexten kan inte ändras.
+    namn: 'assistent_samtal', nyckel: ['id'], kolumner: 'id, tenant_id, user_id', kontoKolumn: 'tenant_id',
+    syns: (r, a, v) => !!a.anvandare && r.user_id === a.anvandare.id && medlem(a, r.tenant_id, v),
+    // Målraden är användarens egen (anon har ingen, då någon annans).
+    far: (_op, r) => r !== undefined,
+    ny: (k, a, _v, n) => { const rad = { id: randomUUID(), tenant_id: k.id, user_id: a.anvandare?.id ?? randomUUID(), titel: 'Samtal ' + n, system: 'Test' }; return { rad, markor: { id: rad.id } }; },
+    mal: async (k, a, v, n) => {
+      const user_id = a.anvandare?.id ?? annan(k, a, v).id;
+      return { nyckel: plocka(await infoga(v.db, 'assistent_samtal', { tenant_id: k.id, user_id, titel: 'Mål ' + n, system: 'Test' }), ['id']), tillfallig: true };
+    },
+    andring: n => ({ titel: 'Ändrad ' + n }),
+    fyll: async (k, v) => { for (const r of ['admin', 'las'] as const) await infoga(v.db, 'assistent_samtal', { tenant_id: k.id, user_id: v.anv[k.namn][r].id, titel: 'Fyll', system: 'Test' }); },
+  },
   tenantTabell('audit_log', (k, n) => ({ tenant_id: k.id, action: 'test.' + n }), ['tenant_id', 'action'], () => ({ action: 'andrad' }), aldrig,
     (r, a, v) => admin(a, r.tenant_id, v)),
   tenantTabell('usage', (k, n) => ({ tenant_id: k.id, module_key: 'avrakning', kind: 'motor', units: n + 1 }), ['tenant_id', 'units'], () => ({ units: 999999 }), aldrig,
@@ -251,6 +265,7 @@ export const RATTIGHETER: Record<string, Record<string, string[] | 'alla'>> = {
   offers: { SELECT: 'alla', INSERT: 'alla', UPDATE: 'alla', DELETE: 'alla' },
   invites: { SELECT: ['created_at', 'created_by', 'email', 'expires_at', 'id', 'modules', 'org_nr', 'parent_id', 'status'], INSERT: ['email', 'modules', 'org_nr', 'parent_id'], UPDATE: ['status'], DELETE: 'alla' },
   guide_progress: { SELECT: 'alla', INSERT: 'alla', DELETE: 'alla' },
+  assistent_samtal: { SELECT: 'alla', INSERT: 'alla', UPDATE: 'alla', DELETE: 'alla' },
   audit_log: { SELECT: 'alla' },
   usage: { SELECT: 'alla' },
   satser: {},

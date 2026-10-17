@@ -1,13 +1,13 @@
 // Vilka API-nycklar serverfunktionerna använder. Supabase sätter de nya nycklarna i miljön som JSON med nyckelns namn:
 // SUPABASE_SECRET_KEYS och SUPABASE_PUBLISHABLE_KEYS. Varje funktion har en egen secret key med samma namn som
-// funktionen (motor, legacy), så att en läcka bara kräver ett byte. Nycklarnas värden skrivs aldrig ut.
+// funktionen (motor, legacy, assistent), så att en läcka bara kräver ett byte. Nycklarnas värden skrivs aldrig ut.
 //
 // I molnet finns ingen reserv: de äldre JWT-nycklarna är avstängda sedan 2026-10-14, och saknas funktionens nyckel
 // startar funktionen inte (docs/publicera-motor.md). Molnet känns igen i första hand på FLODIA_MILJO = 'drift'
 // (vår egen hemlighet) och i andra hand på SB_REGION, som Supabase bara sätter i molnet. Ett av dem räcker.
 // Lokalt (supabase start i CI) finns inga secret keys med funktionernas namn, så där används de äldre nycklarna.
 
-export type Funktion = 'motor' | 'legacy';
+export type Funktion = 'motor' | 'legacy' | 'assistent';
 export interface Nycklar { anon: string; service: string; kalla: { lage: 'moln' | 'lokalt'; anon: string; service: string } }
 
 function lasJson(text: string | undefined): Record<string, unknown> {
