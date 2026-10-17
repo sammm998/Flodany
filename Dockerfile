@@ -20,10 +20,13 @@ ENV NODE_ENV=production
 COPY --from=bygg /app/apps/platform/dist ./apps/platform/dist
 COPY --from=bygg /app/scripts/serva-plattform.mjs ./scripts/serva-plattform.mjs
 COPY --from=bygg /app/dist-demo ./dist-demo
-# Samma upplägg som repot (en arbetsyta @flodia/platform), så att både CMD, npm start och
-# npm run start --workspace=@flodia/platform (Railways förval för en monorepo) startar servern.
-RUN echo '{"name":"flodia","private":true,"type":"module","workspaces":["apps/platform"],"scripts":{"start":"node scripts/serva-plattform.mjs"}}' > package.json \
- && echo '{"name":"@flodia/platform","private":true,"type":"module","scripts":{"start":"node ../../scripts/serva-plattform.mjs"}}' > apps/platform/package.json
+# Samma upplägg som repot (en arbetsyta @flodia/platform). Railway kan ha ett eget startkommando inställt på
+# tjänsten (till exempel npm run dev --workspace=@flodia/platform), som går före railway.json. Därför startar
+# alla vanliga skript servern: start, dev, preview och serve, både i roten och i arbetsytan, och CMD.
+RUN S='"start":"node scripts/serva-plattform.mjs","dev":"node scripts/serva-plattform.mjs","preview":"node scripts/serva-plattform.mjs","serve":"node scripts/serva-plattform.mjs"' \
+ && echo "{\"name\":\"flodia\",\"private\":true,\"type\":\"module\",\"workspaces\":[\"apps/platform\"],\"scripts\":{$S}}" > package.json \
+ && echo "{\"name\":\"@flodia/platform\",\"private\":true,\"type\":\"module\",\"scripts\":{$(echo "$S" | sed 's#node scripts#node ../../scripts#g')}}" > apps/platform/package.json \
+ && cat package.json apps/platform/package.json
 USER node
 EXPOSE 8080
 CMD ["node", "scripts/serva-plattform.mjs"]
