@@ -12,6 +12,7 @@ import { Markdown } from '../chatt/Markdown';
 import { Panelyta, panelIkon } from '../chatt/Panel';
 import { ROLL, TYP } from '../data';
 import { useKonto } from './KontoSkal';
+import { DEMO } from '../supabase';
 
 const MAX_TEXT = 4000;
 const BREDD = 'flodia:panelbredd';
@@ -96,6 +97,7 @@ function Valkomst() {
       <h1><span className="fl-assistent-ikon stor" aria-hidden="true">✳</span>{halsning()}, {k.anvandare.namn.split(' ')[0]}</h1>
       {!k.moduler.length && <TomtLage rubrik="Inga appar än" text="Kontot har inga appar. Kontakta Flödia för att komma igång. Du kan ändå fråga assistenten hur plattformen fungerar." />}
       <Skrivruta stor />
+      {DEMO && <p className="fl-hjalptext fl-demo-rad">Demo med påhittad data. Allt nollställs när servern startas om.</p>}
       <ul className="fl-forslag-lista" aria-label="Förslag">
         {forslag.map(f => <li key={f}><button type="button" className="fl-forslag-knapp" onClick={() => void c.skicka(f)}>{f}</button></li>)}
       </ul>

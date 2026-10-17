@@ -2,7 +2,8 @@
 // och länkar. Allt byggs som React-element, aldrig som HTML, så att text från modellen inte kan bli kod i sidan.
 import { Fragment, type ReactNode } from 'react';
 
-const INLINE = /(\*\*[^*]+\*\*|__[^_]+__|`[^`]+`|\[[^\]]+\]\([^)\s]+\)|\*[^*\s][^*]*\*|_[^_\s][^_]*_)/g;
+// Understreck räknas inte som kursiv: de förekommer i namn som ANTHROPIC_API_KEY och months_2026.
+const INLINE = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)\s]+\)|\*[^*\s][^*]*\*)/g;
 
 /** Länkar bara till plattformens egna sidor och till https. */
 const sakerLank = (url: string) => url.startsWith('/') && !url.startsWith('//') ? url : /^https:\/\//.test(url) ? url : null;
@@ -13,7 +14,7 @@ export function inline(text: string): ReactNode[] {
   for (const m of text.matchAll(INLINE)) {
     if (m.index > i) ut.push(text.slice(i, m.index));
     const t = m[0], k = `${m.index}`;
-    if (t.startsWith('**') || t.startsWith('__')) ut.push(<strong key={k}>{inline(t.slice(2, -2))}</strong>);
+    if (t.startsWith('**')) ut.push(<strong key={k}>{inline(t.slice(2, -2))}</strong>);
     else if (t.startsWith('`')) ut.push(<code key={k}>{t.slice(1, -1)}</code>);
     else if (t.startsWith('[')) {
       const [, namn, url] = t.match(/^\[([^\]]+)\]\(([^)\s]+)\)$/)!;

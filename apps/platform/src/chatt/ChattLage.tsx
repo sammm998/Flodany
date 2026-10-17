@@ -47,6 +47,8 @@ export function ChattLeverantor({ konto, slug, children }: { konto: string; slug
   const [arbetar, setArbetar] = useState(false), [laddar, setLaddar] = useState(false);
   const [fel, setFel] = useState<string | null>(null);
   const avbryt = useRef<AbortController | null>(null);
+  // Frågan som pågår, så att ett beslut i panelen väntar tills svaret är klart i stället för att avbryta det.
+  const pagaende = useRef<Promise<void> | null>(null);
   // Samtalet och panelerna som de är just nu, för skicka (som anropas utanför renderingen).
   const nu = useRef({ samtal, paneler, aktivPanel });
   nu.current = { samtal, paneler, aktivPanel };
@@ -75,6 +77,7 @@ export function ChattLeverantor({ konto, slug, children }: { konto: string; slug
   const skicka = useCallback(async (text: string, beslut?: Beslut) => {
     const t = text.trim();
     if (!t) return;
+    if (beslut && pagaende.current) await pagaende.current.catch(() => {});
     avbryt.current?.abort();
     const ac = new AbortController();
     avbryt.current = ac;
@@ -83,6 +86,8 @@ export function ChattLeverantor({ konto, slug, children }: { konto: string; slug
     const oppen = pl.find(p => p.id === ap);
     setMeddelanden(m => [...m, { id: 'du-' + Date.now(), roll: 'anvandare', delar: [{ typ: 'text', text: t }] }, { id: STROM, roll: 'assistent', delar: [] }]);
     const uppdatera = (f: (m: ChattMeddelande) => ChattMeddelande) => setMeddelanden(lista => lista.map(m => (m.id === STROM ? f(m) : m)));
+    let klar!: () => void;
+    pagaende.current = new Promise<void>(r => { klar = r; });
     try {
       await fraga({ konto, ...(id ? { samtal: id } : {}), text: t, vy: oppen ? { app: oppen.app, ...(oppen.typ === 'app' && oppen.vy ? { vy: oppen.vy } : {}) } : null, ...(beslut ? { beslut } : {}) }, h => {
         if (ac.signal.aborted) return;
@@ -112,6 +117,7 @@ export function ChattLeverantor({ konto, slug, children }: { konto: string; slug
       // Ett meddelande som aldrig fick ett slut får ett eget id, så att nästa svar inte skriver i det.
       setMeddelanden(lista => lista.map(m => (m.id === STROM ? { ...m, id: 'svar-' + Date.now() } : m)));
       if (avbryt.current === ac) { avbryt.current = null; setArbetar(false); }
+      klar();
       void qc.invalidateQueries({ queryKey: ['samtal', konto] });
     }
   }, [konto, slug, nav, qc]);

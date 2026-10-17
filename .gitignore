@@ -10,3 +10,5 @@ riktiga-filer/
 supabase/functions/**/*.bundle.js
 # Klientpaketet som kontrolleras i CI (npm run kontroll:klient)
 dist-klient/
+# Demoläget för Railway (npm run bygg:demo)
+dist-demo/

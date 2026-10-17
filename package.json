@@ -10,7 +10,8 @@
     "node": ">=24"
   },
   "scripts": {
-    "build": "npm run build -w @flodia/platform",
+    "build": "npm run build -w @flodia/platform && node scripts/bygg-demo.mjs",
+    "bygg:demo": "node scripts/bygg-demo.mjs",
     "start": "node scripts/serva-plattform.mjs",
     "legacy": "node scripts/serva-legacy.mjs",
     "legacy:sha256": "node scripts/legacy-sha256.mjs --skriv",
