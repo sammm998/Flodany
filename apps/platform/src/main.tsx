@@ -23,6 +23,7 @@ import { Chatt } from './sidor/Chatt';
 import { Modul } from './sidor/Modul';
 import { Brygga } from './sidor/Brygga';
 import { startaPlattformensFellogg } from './fellogg';
+import { KONFIGURERAD } from './supabase';
 
 /** Start: inloggad till senaste kontot eller kontoväljaren, annars inloggningen. */
 function Start() {
@@ -52,6 +53,17 @@ declare module '@tanstack/react-router' { interface Register { router: typeof ro
 void startaPlattformensFellogg();
 
 const qc = new QueryClient({ defaultOptions: { queries: { retry: 1, staleTime: 30_000 } } });
+/** Utan Supabase (VITE_SUPABASE_URL och VITE_SUPABASE_ANON_KEY i bygget) går ingen inloggning. */
+function EjKopplad() {
+  return (
+    <main className="fl-inloggning" id="innehall">
+      <h1>Flödia</h1>
+      <p>Plattformen är publicerad men inte kopplad till databasen än. Inloggning, chatten och apparna fungerar när Supabase är kopplat.</p>
+      <p className="fl-hjalptext">Lägg till VITE_SUPABASE_URL och VITE_SUPABASE_ANON_KEY under Variables och bygg om.</p>
+    </main>
+  );
+}
+
 createRoot(document.getElementById('rot')!).render(
-  <StrictMode><QueryClientProvider client={qc}><RouterProvider router={router} /></QueryClientProvider></StrictMode>,
+  <StrictMode>{KONFIGURERAD ? <QueryClientProvider client={qc}><RouterProvider router={router} /></QueryClientProvider> : <EjKopplad />}</StrictMode>,
 );
