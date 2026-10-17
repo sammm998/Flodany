@@ -40,3 +40,13 @@ create policy "egna samtal ändras" on public.assistent_samtal for update to aut
   with check (user_id = (select auth.uid()) and tenant_id in (select app.mina_konton()));
 create policy "egna samtal tas bort" on public.assistent_samtal for delete to authenticated
   using (user_id = (select auth.uid()) and tenant_id in (select app.mina_konton()));
+
+-- Rensning efter 90 dagar (avsnitt 14.5) för samtal som ingen skriver i längre. Servern rensar också användarens
+-- egna samtal vid varje fråga. Körs av servern (schemaläggs i drift), som rensningen av granskningsloggen.
+create function app.rensa_assistent_samtal() returns integer
+language sql security definer set search_path = '' as $$
+  with bort as (delete from public.assistent_samtal where andrad < now() - interval '90 days' returning 1)
+  select count(*)::integer from bort
+$$;
+revoke execute on function app.rensa_assistent_samtal() from public, anon, authenticated;
+grant execute on function app.rensa_assistent_samtal() to service_role;

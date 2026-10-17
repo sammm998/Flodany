@@ -14,11 +14,11 @@ Repot innehåller affärsappar som byggts som enfils-artifacts på claude.ai fö
 legacy/apps/<app>/index.html   En app = en HTML-fil med inline CSS och JS (originalet från claude.ai). Ändras inte.
 legacy/shared/claude-shim.js   Lokal ersättning för claude.ai:s runtime (window.claude.use)
 packages/core, packages/kit    Motorer, parsrar och kontrakt. Bara på servern (beslut 26)
-packages/server                Serverfunktionerna motor och legacy (Edge Functions)
+packages/server                Serverfunktionerna motor, assistent och legacy (Edge Functions)
 packages/api                   Documents-API som claude-shim.js, och anropaMotor
 packages/ui                    Designsystemet: tokens.css (spec v3 sid 14), stil och komponenter
 packages/modules, guides       Modulernas manifest och guidetexter
-apps/platform                  Plattformen (Vite, React): inloggning, kontoväljare, skal och guider
+apps/platform                  Plattformen (Vite, React): inloggning, kontoväljare, chatten med assistenten, skal och guider
 supabase/                      Konfiguration, migrationer, mejlmall och Edge Functions
 tests/                         Tester för hela repot, bl.a. att legacy/ är orörd
 scripts/                       Hjälpskript (lokal server, kontrollsummor)
@@ -58,6 +58,10 @@ Affärslogiken är värdet i produkten. Den är redan skriven som ren JS utan DO
 - `foliering`: prislistan `DEF_PRISER`, fakturanumrering, momsflödet (momsfaktura till fordonsägaren först när försäkringsbolaget betalat), påminnelseregler, SIE-export.
 
 Regel: ändra aldrig en beräkning utan att först skriva ett test som låser nuvarande beteende, och visa diffen i resultat för ägaren.
+
+## Assistenten (chatten)
+
+Kundens startsida (`/:konto`) är en chatt som i Claude: agenten svarar, hämtar data och öppnar appar i en panel till höger. Agenten körs i serverfunktionen `assistent` med användarens token och föreslår åtgärder som användaren själv godkänner. Den ändrar aldrig något själv. Se `docs/assistent.md`. Översikten med kom igång ligger på `/:konto/hem`.
 
 ## Specifikationer
 
