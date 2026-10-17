@@ -1,0 +1,153 @@
+/* packages/ui/chatt.css: chatten med assistenten, som i Claude. Bara färger och mått från tokens.css.
+   Tre delar: sidomeny med samtal och appar, samtalet i mitten och panelen till höger.
+   På smal skärm blir menyn en meny bakom en knapp och panelen täcker samtalet. */
+
+.fl-chatt {
+  --chatt-bg: var(--cream);
+  --meny-bg: var(--cream-2);
+  display: grid;
+  grid-template-columns: 264px minmax(0, 1fr);
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--chatt-bg);
+}
+.fl-chatt.med-panel { grid-template-columns: 264px minmax(340px, 1fr) 8px minmax(360px, var(--panel-bredd, 50%)); }
+.fl-chatt.panel-helskarm { grid-template-columns: 0 0 0 1fr; }
+.fl-chatt.panel-helskarm .fl-chatt-meny, .fl-chatt.panel-helskarm .fl-chatt-yta, .fl-chatt.panel-helskarm .fl-panel-kant { visibility: hidden; }
+
+/* Sidomenyn */
+.fl-chatt-meny { background: var(--meny-bg); border-right: 1px solid var(--line); padding: calc(var(--space) * 3); display: flex; flex-direction: column; gap: calc(var(--space) * 3); min-height: 0; overflow: hidden; }
+.fl-chatt-meny .fl-kontoblock { background: transparent; border-color: transparent; width: 100%; }
+.fl-chatt-meny .fl-kontoblock:hover { background: var(--white); border-color: var(--line); }
+.fl-ny-chatt { display: block; text-align: center; text-decoration: none; background: var(--white); }
+.fl-ny-chatt:hover { border-color: var(--muted); }
+.fl-menyknapp-post { font: inherit; width: 100%; text-align: left; background: none; border: 0; padding: calc(var(--space) * 2) calc(var(--space) * 3); border-radius: var(--radius-sm); color: var(--navy); cursor: pointer; }
+.fl-menyknapp-post:hover { background: var(--white); }
+.fl-samtal-lista { flex: 1; min-height: 0; overflow-y: auto; }
+.fl-samtal-lista li { display: flex; align-items: center; border-radius: var(--radius-sm); }
+.fl-samtal-lista li a { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+.fl-samtal-lista li.aktiv, .fl-samtal-lista li:hover { background: var(--white); }
+.fl-samtal-lista li.aktiv a { font-weight: 600; background: transparent; }
+.fl-ta-bort { font: inherit; background: none; border: 0; color: var(--muted); cursor: pointer; padding: 0 calc(var(--space) * 2); visibility: hidden; font-size: 18px; line-height: 1; }
+.fl-samtal-lista li:hover .fl-ta-bort, .fl-ta-bort:focus-visible { visibility: visible; }
+.fl-chatt-meny .fl-sidomeny-fot { margin-top: 0; gap: calc(var(--space) * 2); justify-items: start; }
+.fl-chatt-meny .fl-anvandare summary { display: flex; gap: calc(var(--space) * 2); align-items: center; }
+.fl-chatt-meny .fl-anvandare > div { bottom: 44px; top: auto; left: 0; right: auto; }
+
+/* Samtalet */
+.fl-chatt-yta { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.fl-chatt-topp { display: flex; align-items: center; gap: calc(var(--space) * 2); padding: calc(var(--space) * 2) calc(var(--space) * 4); min-height: 52px; }
+.fl-chatt-titel { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.fl-chatt-menyknapp { display: none; }
+.fl-chatt-flode { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; }
+.fl-chatt-kolumn { max-width: 760px; width: 100%; margin: 0 auto; padding: 0 calc(var(--space) * 5); }
+.fl-chatt-nere { padding-bottom: calc(var(--space) * 4); }
+
+.fl-meddelande { display: flex; gap: calc(var(--space) * 3); margin: calc(var(--space) * 6) 0; }
+.fl-meddelande-du { justify-content: flex-end; }
+.fl-bubbla { background: var(--cream-2); border-radius: var(--radius-lg); padding: calc(var(--space) * 3) calc(var(--space) * 4); max-width: 85%; white-space: pre-wrap; overflow-wrap: anywhere; }
+.fl-bubbla p:last-child { margin: 0; }
+.fl-assistent-ikon { flex: none; width: 28px; height: 28px; border-radius: 50%; display: inline-grid; place-items: center; color: var(--accent); font-size: 20px; line-height: 1; }
+.fl-assistent-ikon.stor { width: auto; height: auto; font-size: 34px; margin-right: calc(var(--space) * 3); vertical-align: -2px; }
+.fl-svar { flex: 1; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: calc(var(--space) * 3); line-height: 1.6; }
+.fl-svar > * { min-width: 0; }
+.fl-svar-text { overflow-wrap: anywhere; }
+.fl-svar-text > :last-child { margin-bottom: 0; }
+.fl-svar-text ul, .fl-svar-text ol { margin: 0 0 calc(var(--space) * 3); padding-left: calc(var(--space) * 6); }
+.fl-svar-text li + li { margin-top: var(--space); }
+.fl-svar-text h3, .fl-svar-text h4 { font-size: 16px; margin: calc(var(--space) * 4) 0 calc(var(--space) * 2); }
+.fl-svar-text code { font-family: var(--font-num); font-size: 13px; background: var(--cream-2); border-radius: 4px; padding: 0 4px; }
+.fl-svar-text pre { background: var(--navy); color: var(--white); border-radius: var(--radius); padding: calc(var(--space) * 3); overflow-x: auto; }
+.fl-svar-text pre code { background: none; color: inherit; padding: 0; }
+.fl-svar-text .fl-tabell { background: var(--white); border-radius: var(--radius-sm); }
+
+/* Ett verktyg i svaret: ett kort som öppnar panelen, som en artifact i Claude */
+.fl-verktyg-kort { font: inherit; display: flex; align-items: center; gap: calc(var(--space) * 3); text-align: left; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: calc(var(--space) * 3) calc(var(--space) * 4); color: var(--navy); max-width: 460px; width: 100%; }
+button.fl-verktyg-kort { cursor: pointer; }
+button.fl-verktyg-kort:hover { border-color: var(--muted); box-shadow: 0 1px 4px rgba(14, 30, 53, .08); }
+.fl-verktyg-rad { padding: calc(var(--space) * 2) calc(var(--space) * 3); background: transparent; border-style: dashed; color: var(--muted); }
+.fl-verktyg-text { flex: 1; min-width: 0; display: grid; }
+.fl-verktyg-text strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
+.fl-verktyg-text small { color: var(--muted); }
+.fl-verktyg-status { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; background: var(--subtle); }
+.fl-verktyg-status.klar { background: var(--status-klar-bg); color: var(--status-klar); }
+.fl-verktyg-status.fel { background: var(--status-avvikelse-bg); color: var(--status-avvikelse); }
+.fl-verktyg-ikon { flex: none; width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--subtle); display: grid; place-items: center; font-size: 18px; }
+
+.fl-tanker { display: flex; gap: 6px; padding: calc(var(--space) * 2) 0; }
+.fl-tanker span { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); opacity: .4; animation: fl-tank 1.2s infinite ease-in-out; }
+.fl-tanker span:nth-child(2) { animation-delay: .15s; }
+.fl-tanker span:nth-child(3) { animation-delay: .3s; }
+@keyframes fl-tank { 0%, 80%, 100% { opacity: .25; transform: translateY(0); } 40% { opacity: .9; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .fl-tanker span { animation: none; } }
+
+/* Skrivrutan */
+.fl-skrivruta { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: calc(var(--space) * 3) calc(var(--space) * 3) calc(var(--space) * 2) calc(var(--space) * 4); box-shadow: 0 2px 10px rgba(14, 30, 53, .06); }
+.fl-skrivruta:focus-within { border-color: var(--muted); }
+.fl-skrivruta textarea { font: inherit; width: 100%; border: 0; resize: none; outline: none; background: transparent; color: var(--navy); min-height: 28px; max-height: 240px; line-height: 1.5; }
+.fl-skrivruta.stor textarea { min-height: 56px; }
+.fl-skrivruta-rad { display: flex; align-items: center; gap: calc(var(--space) * 2); }
+.fl-skicka { width: 36px; height: 36px; min-height: 36px; padding: 0; border-radius: var(--radius-sm); font-size: 18px; line-height: 1; }
+
+.fl-valkomst { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 720px; width: 100%; margin: 0 auto; padding: calc(var(--space) * 5) calc(var(--space) * 5) 12vh; gap: calc(var(--space) * 5); }
+.fl-valkomst h1 { text-align: center; font-size: 40px; margin: 0; }
+.fl-forslag-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: calc(var(--space) * 2); justify-content: center; }
+.fl-forslag-knapp { font: inherit; font-size: 14px; background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: calc(var(--space) * 2) calc(var(--space) * 4); color: var(--navy); cursor: pointer; }
+.fl-forslag-knapp:hover { background: var(--white); border-color: var(--muted); }
+
+/* Panelen till höger */
+.fl-panel-kant { cursor: col-resize; position: relative; background: transparent; touch-action: none; }
+.fl-panel-kant::after { content: ""; position: absolute; inset: 0 3px; border-radius: 2px; }
+.fl-panel-kant:hover::after, .fl-panel-kant:focus-visible::after { background: var(--line); }
+.fl-panelyta { background: var(--white); border-left: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; min-height: 0; box-shadow: -4px 0 16px rgba(14, 30, 53, .04); }
+.fl-panel-huvud { display: flex; align-items: center; gap: var(--space); padding: calc(var(--space) * 2) calc(var(--space) * 3); border-bottom: 1px solid var(--line); min-height: 52px; }
+.fl-panel-huvud .fl-knapp { white-space: nowrap; min-height: 34px; padding: var(--space) calc(var(--space) * 3); text-decoration: none; display: inline-flex; align-items: center; }
+.fl-flikar { display: flex; gap: var(--space); overflow-x: auto; min-width: 0; flex: 1 1 auto; scrollbar-width: none; }
+.fl-flik { display: inline-flex; align-items: center; border-radius: var(--radius-sm); border: 1px solid transparent; flex: 0 1 auto; min-width: 72px; max-width: 220px; }
+.fl-flik.aktiv { background: var(--subtle); border-color: var(--line); }
+.fl-flik > button:first-child { overflow: hidden; font: inherit; font-size: 14px; display: inline-flex; gap: calc(var(--space) * 2); align-items: center; background: none; border: 0; padding: calc(var(--space) * 1.5) calc(var(--space) * 2); color: var(--navy); cursor: pointer; min-width: 0; }
+.fl-flik-namn { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fl-flik-ikon { color: var(--muted); }
+.fl-flik-stang { font: inherit; background: none; border: 0; color: var(--muted); cursor: pointer; padding: 0 calc(var(--space) * 2) 0 0; font-size: 16px; }
+.fl-panel-innehall { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.fl-panel-innehall[hidden] { display: none; }
+.fl-panel-sida { flex: 1; min-height: 0; overflow: auto; padding: calc(var(--space) * 5); }
+.fl-panel-ram { flex: 1; min-height: 0; display: flex; padding: calc(var(--space) * 2); }
+.fl-panel-ram .fl-brygga { border-radius: var(--radius-sm); }
+.fl-panel-verktyg { display: flex; gap: var(--space); margin-bottom: calc(var(--space) * 3); }
+.fl-panel-sida h3 { font-size: 16px; margin: calc(var(--space) * 5) 0 calc(var(--space) * 2); }
+.fl-nyckeltal { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: calc(var(--space) * 3); }
+.fl-nyckeltal .fl-kort { margin: 0; display: grid; gap: var(--space); padding: calc(var(--space) * 4); }
+.fl-nyckeltal strong { font-size: 22px; font-family: var(--font-num); font-weight: 400; }
+.fl-forslag { border-color: var(--accent); }
+.fl-forslag h3 { margin-top: 0; }
+.fl-hjalp-stycke + .fl-hjalp-stycke { border-top: 1px solid var(--line); }
+
+/* Data i panelen */
+.fl-data { font-size: 14px; }
+.fl-data-falt { margin: 0; display: grid; gap: var(--space); }
+.fl-data-falt > div { display: grid; grid-template-columns: minmax(120px, 34%) 1fr; gap: calc(var(--space) * 3); padding: var(--space) 0; border-bottom: 1px solid var(--line); }
+.fl-data-falt dt { color: var(--muted); overflow-wrap: anywhere; }
+.fl-data-falt dd { margin: 0; overflow-wrap: anywhere; }
+.fl-data-falt details { border-bottom: 1px solid var(--line); padding: var(--space) 0; }
+.fl-data-falt details > :not(summary) { margin: calc(var(--space) * 2) 0 calc(var(--space) * 2) calc(var(--space) * 4); }
+.fl-data-falt summary { cursor: pointer; }
+.fl-data-falt summary small { color: var(--muted); }
+.fl-data-lista { margin: 0; padding-left: calc(var(--space) * 5); }
+
+.fl-chatt-skymning { display: none; }
+
+@media (max-width: 900px) {
+  .fl-chatt, .fl-chatt.med-panel { grid-template-columns: minmax(0, 1fr); }
+  .fl-chatt-meny { position: fixed; inset: 0 auto 0 0; width: min(300px, 85vw); z-index: 25; transform: translateX(-100%); transition: transform .2s; visibility: hidden; }
+  .fl-chatt.meny-oppen .fl-chatt-meny { transform: none; visibility: visible; }
+  .fl-chatt.meny-oppen .fl-chatt-skymning { display: block; position: fixed; inset: 0; background: rgba(14, 30, 53, .35); z-index: 24; }
+  .fl-chatt-menyknapp { display: inline-block; }
+  .fl-panel-kant, .fl-forstora { display: none; }
+  .fl-panelyta { position: fixed; inset: 0; z-index: 20; }
+  .fl-chatt-kolumn { padding: 0 calc(var(--space) * 4); }
+  .fl-valkomst h1 { font-size: 30px; }
+  .fl-bubbla { max-width: 92%; }
+}
+@media (prefers-reduced-motion: reduce) { .fl-chatt-meny { transition: none; } }

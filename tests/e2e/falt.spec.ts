@@ -70,7 +70,7 @@ test('fält i samma rad: alla vyer i kontot', async ({ page }) => {
   await mat(page, 'Välj bolag', fel);
 
   for (const [konto, namn] of [[v.A, 'A'], [v.B, 'B']] as const) {
-    await page.goto(`/${konto.slug}`);
+    await page.goto(`/${konto.slug}/hem`);
     await mat(page, `Hem ${namn}`, fel);
     await page.getByRole('button', { name: 'Så funkar det' }).click();
     await mat(page, `Hem ${namn}, hjälppanelen`, fel);

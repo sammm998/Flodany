@@ -11,8 +11,16 @@ import { Kladfoto } from './Kladfoto';
 import { useKonto } from './KontoSkal';
 
 export function Modul() {
-  const k = useKonto();
   const { modul: nyckel } = useParams({ strict: false }) as { modul: string };
+  return <ModulInnehall nyckel={nyckel} />;
+}
+
+/**
+ * Modulens innehåll. Som egen sida, eller i chattens panel (iPanel): då visas ingen välkomstguide och ingen
+ * hjälp i sidhuvudet, och startvyn kan väljas av agenten.
+ */
+export function ModulInnehall({ nyckel, startvy = null, iPanel = false }: { nyckel: string; startvy?: string | null; iPanel?: boolean }) {
+  const k = useKonto();
   const post = k.moduler.find(m => m.modul.nyckel === nyckel);
   const guide = post ? guideFor(post.modul.nyckel, post.variant) : null;
   const steg = useGuidesteg(k.medlemskap.konto.id, nyckel);
@@ -21,13 +29,13 @@ export function Modul() {
   const visaFoto = foto.data === true && !k.exempel && (k.medlemskap.roll === 'admin' || k.medlemskap.roll === 'ekonomi');
   const [visaGuide, setVisaGuide] = useState(false), [kort, setKort] = useState(0);
   const variant = post ? post.modul.varianter[post.variant]! : null;
-  const [vy, setVy] = useState<string | null>(null);
+  const [vy, setVy] = useState<string | null>(startvy);
   const aktivVy = variant?.vyer.find(v => v.nyckel === vy) ?? variant?.vyer[0] ?? null;
-  const ejKlar = !!guide && steg.isSuccess && !steg.data.includes(VALKOMMEN_KLAR);
+  const ejKlar = !iPanel && !!guide && steg.isSuccess && !steg.data.includes(VALKOMMEN_KLAR);
 
   useEffect(() => { if (ejKlar) { setVisaGuide(true); setKort(0); } }, [ejKlar]);
   useEffect(() => {
-    if (!post || !aktivVy) return;
+    if (!post || !aktivVy || iPanel) return;
     k.setHjalp({
       rubrik: `Så funkar ${aktivVy.namn.toLowerCase()}`,
       innehall: (
@@ -38,7 +46,7 @@ export function Modul() {
       ),
     });
     return () => k.setHjalp(null);
-  }, [post?.modul.nyckel, aktivVy?.nyckel, guide, k.setHjalp]); // nycklar, inte objekt: listan skapas på nytt vid varje rendering
+  }, [post?.modul.nyckel, aktivVy?.nyckel, guide, k.setHjalp, iPanel]); // nycklar, inte objekt: listan skapas på nytt vid varje rendering
 
   if (!post || !variant) {
     const finns = modulFor(nyckel);
@@ -50,7 +58,7 @@ export function Modul() {
 
   return (
     <>
-      <h1>{variant.namn}</h1>
+      {iPanel ? null : <h1>{variant.namn}</h1>}
       <div role="group" aria-label="Vyer" className="fl-vyer">
         {variant.vyer.map(v => <Knapp key={v.nyckel} variant="diskret" aria-pressed={v.nyckel === aktivVy?.nyckel} onClick={() => setVy(v.nyckel)}>{v.namn}</Knapp>)}
       </div>

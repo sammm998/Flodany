@@ -11,7 +11,12 @@ export interface AssistentAnrop {
   text: string;
   /** Appen och vyn som är öppen i panelen, så att agenten vet vad användaren tittar på. */
   vy?: { app: string; vy?: string } | null;
+  /** Användaren har godkänt eller avböjt ett förslag i panelen. Sparas med panelen, så att den inte kan godkännas igen. */
+  beslut?: Beslut;
 }
+
+/** Beslutet om ett åtgärdsförslag. Åtgärden har redan körts av klienten mot motor, med användarens rättigheter. */
+export interface Beslut { panel: string; utfall: 'utford' | 'avbojd' | 'misslyckad'; meddelanden: string[] }
 
 /** Ett utfört eller föreslaget verktyg, som en rad i svaret. */
 export interface VerktygRad { id: string; namn: string; etikett: string; status: 'pagar' | 'klar' | 'fel' }
@@ -29,7 +34,7 @@ export type Panel =
   | { id: string; typ: 'app'; rubrik: string; app: string; vy: string | null }
   | { id: string; typ: 'data'; rubrik: string; app: string; kalla: string; data: unknown; avkortad: boolean }
   | { id: string; typ: 'berakning'; rubrik: string; app: string; kalla: string; data: unknown }
-  | { id: string; typ: 'atgard'; rubrik: string; app: string; atgard: Atgardsforslag }
+  | { id: string; typ: 'atgard'; rubrik: string; app: string; atgard: Atgardsforslag; beslut?: Beslut & { tid: string } }
   | { id: string; typ: 'hjalp'; rubrik: string; app: string; stycken: { rubrik: string; text: string }[] };
 
 /**

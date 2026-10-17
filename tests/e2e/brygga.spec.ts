@@ -44,7 +44,7 @@ test('externt konto: servern svarar 403 och ingen legacy-kod når webbläsaren',
 
 test('läs-rollen: kassorna syns inte i menyn, nås inte direkt och bryggan nekar', async ({ page }) => {
   await loggaInSom(page, v.las.email);
-  await page.goto(`/${v.A.slug}`);
+  await page.goto(`/${v.A.slug}/hem`);
   await oppnaMeny(page);
   const meny = page.getByRole('navigation', { name: 'Huvudmeny' });
   await expect(meny.getByRole('link', { name: 'Avräkning' })).toBeVisible();

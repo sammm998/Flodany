@@ -312,4 +312,4 @@ export async function anropaMotor<T = unknown>(supabase: SupabaseClient, anrop: 
 }
 export { FOTOLASNING, KLAD_STATUS, PLAGG, type FotoAnrop, type FotoLast, type FotoMediaTyp, type FotoTillagt, type GranskadRad, type KladRad, type KladStatus, type Plagg } from './fotolasning';
 export { EU_INGEST, arEuDsn, sentryVal, startaFellogg, tvattaHandelse, tvattaText, type Fellogg, type SentrySdk } from './fellogg';
-export { FORSLAG, type AssistentAnrop, type AssistentHandelse, type Atgardsforslag, type ChattMeddelande, type Del, type Kolumn, type Panel, type SamtalRad, type SparatSamtal, type VerktygRad } from './assistent';
+export { FORSLAG, type AssistentAnrop, type AssistentHandelse, type Atgardsforslag, type Beslut, type ChattMeddelande, type Del, type Kolumn, type Panel, type SamtalRad, type SparatSamtal, type VerktygRad } from './assistent';

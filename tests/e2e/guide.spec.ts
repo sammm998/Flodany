@@ -55,7 +55,7 @@ test('en annan användare i samma konto får sin egen välkomstguide, och exempe
 
 test('kom igång på Hem bockas av live när någon i kontot gör steget', async ({ page }) => {
   await loggaInSom(page, v.ekonomi.email);
-  await page.goto(`/${v.A.slug}`);
+  await page.goto(`/${v.A.slug}/hem`);
   const lista = page.getByRole('region', { name: /Kom igång/ });
   await expect(lista).toHaveAccessibleName('Kom igång 0 av 6');
   await tillganglig(page);

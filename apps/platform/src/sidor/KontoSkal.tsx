@@ -6,6 +6,7 @@ import { Dialog, Exempelbanderoll, Fellage, Kontoblock, Laddning, Skal, TomtLage
 import { synligaModuler, type ModulManifest } from '@flodia/modules';
 import { ROLL, TYP, sparaSenasteKonto, useLicenser, useMinaKonton, useSession, type Medlemskap } from '../data';
 import { loggaUt } from '../supabase';
+import { ChattLeverantor } from '../chatt/ChattLage';
 
 export interface KontoKontext {
   medlemskap: Medlemskap;
@@ -18,6 +19,10 @@ export interface KontoKontext {
   /** Helskärm i den nuvarande appen: menyn och toppraden döljs. */
   helskarm: boolean;
   setHelskarm: (pa: boolean) => void;
+  /** Öppnar kontoväljaren, hjälpen och utloggningen (chatten har eget sidhuvud). */
+  bytKonto: () => void;
+  oppnaHjalp: () => void;
+  loggaUt: () => void;
 }
 const Kontext = createContext<KontoKontext | null>(null);
 export const useKonto = () => useContext(Kontext)!;
@@ -37,6 +42,8 @@ export function KontoSkal() {
   const [helskarm, setHelskarm] = useState(false);
   // Den nuvarande appen (bryggan) fyller hela ytan till höger om menyn.
   const legacyVy = /\/legacy\/?$/.test(sokvag);
+  // Chatten (startsidan och sparade samtal) har eget skal, som Claude: meny, samtal och panel till höger.
+  const chattVy = sokvag === `/${slug}` || sokvag === `/${slug}/` || sokvag.startsWith(`/${slug}/chatt/`);
   useEffect(() => { if (!legacyVy) setHelskarm(false); }, [legacyVy]);
   const [exempel, setExempelState] = useState(() => { try { return sessionStorage.getItem('flodia:exempel') === '1'; } catch { return false; } });
   const setExempel = (pa: boolean) => { setExempelState(pa); try { sessionStorage.setItem('flodia:exempel', pa ? '1' : '0'); } catch { /* lagringen är avstängd */ } };
@@ -64,22 +71,28 @@ export function KontoSkal() {
   const moduler = licenser.data ? synligaModuler(licenser.data, medlemskap.roll) : [];
   const bas = `/${medlemskap.konto.slug}`;
   const grupper: MenyGrupp[] = [
-    { poster: [{ nyckel: 'hem', namn: 'Hem', href: bas, aktiv: sokvag === bas || sokvag === bas + '/' }] },
+    { poster: [{ nyckel: 'chatt', namn: 'Assistenten', href: bas, aktiv: chattVy }, { nyckel: 'hem', namn: 'Hem', href: `${bas}/hem`, aktiv: sokvag.startsWith(`${bas}/hem`) }] },
     { rubrik: 'Mina appar', poster: moduler.map(({ modul, variant }) => ({ nyckel: modul.nyckel, namn: modul.varianter[variant]!.namn, href: `${bas}/${modul.nyckel}`, aktiv: sokvag.startsWith(`${bas}/${modul.nyckel}`) })) },
   ];
   const aktivModul = moduler.find(m => sokvag.startsWith(`${bas}/${m.modul.nyckel}`));
   const brodsmulor = [{ namn: medlemskap.konto.name, href: bas }, ...(aktivModul ? [{ namn: aktivModul.modul.varianter[aktivModul.variant]!.namn }] : [{ namn: 'Hem' }])];
-  const ctx: KontoKontext = { medlemskap, anvandare, moduler, exempel, setExempel, setHjalp, helskarm: helskarm && legacyVy, setHelskarm };
+  const utloggning = () => void loggaUt().then(() => nav({ to: '/logga-in' }));
+  const ctx: KontoKontext = {
+    medlemskap, anvandare, moduler, exempel, setExempel, setHjalp, helskarm: helskarm && legacyVy, setHelskarm,
+    bytKonto: () => setValjare(true), oppnaHjalp: () => setHjalpOppen(true), loggaUt: utloggning,
+  };
 
   return (
     <Kontext.Provider value={ctx}>
+     <ChattLeverantor key={medlemskap.konto.id} konto={medlemskap.konto.id} slug={medlemskap.konto.slug}>
+      {chattVy ? (licenser.isLoading ? <main id="innehall"><Laddning /></main> : licenser.isError ? <main id="innehall" className="fl-inloggning"><Fellage text="Apparna kunde inte hämtas." forsokIgen={() => void licenser.refetch()} /></main> : <Outlet />) : (
       <Skal
         lank={lank}
         kontoblock={<Kontoblock namn={medlemskap.konto.name} typ={`${TYP[medlemskap.konto.type]} · ${ROLL[medlemskap.roll]}`} onClick={() => setValjare(true)} />}
         grupper={grupper}
         brodsmulor={brodsmulor}
         hjalp={() => setHjalpOppen(true)}
-        anvandare={{ namn: anvandare.namn, loggaUt: () => void loggaUt().then(() => nav({ to: '/logga-in' })) }}
+        anvandare={{ namn: anvandare.namn, loggaUt: utloggning }}
         driverAv
         fyll={legacyVy}
         helskarm={helskarm && legacyVy}
@@ -87,6 +100,8 @@ export function KontoSkal() {
       >
         {licenser.isLoading ? <Laddning /> : licenser.isError ? <Fellage text="Apparna kunde inte hämtas." forsokIgen={() => void licenser.refetch()} /> : <Outlet />}
       </Skal>
+      )}
+     </ChattLeverantor>
       <Dialog rubrik="Byt bolag" oppen={valjare} stang={() => setValjare(false)}>
         <ul className="fl-lista fl-kontolista">
           {konton.data!.map(m => (

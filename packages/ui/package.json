@@ -7,7 +7,8 @@
   "exports": {
     ".": "./index.ts",
     "./tokens.css": "./tokens.css",
-    "./stil.css": "./stil.css"
+    "./stil.css": "./stil.css",
+    "./chatt.css": "./chatt.css"
   },
   "peerDependencies": {
     "react": "19.3.0"

@@ -87,7 +87,6 @@ function tjanster(): Falsk {
     motor,
     claude: {
       modell: 'claude-opus-5-5', insats: 'medium',
-      // eslint-disable-next-line @typescript-eslint/require-await
       async *strom(anrop) {
         f.anrop.push(structuredClone(anrop));
         const s = f.svar.shift();
@@ -381,5 +380,22 @@ describe('assistenten: HTTP', () => {
     const r2 = await hanteraAssistent(req({ konto: KONTO, text: 'Hej igen' }, 'token-admin'), t);
     const rader2 = (await r2.text()).split('\n\n').filter(Boolean).map(x => JSON.parse(x.replace(/^data: /, '')) as AssistentHandelse);
     expect(rader2.at(-1)).toEqual({ typ: 'fel', kod: 'ai_fel', text: 'Assistenten är upptagen just nu. Försök igen om en stund.' });
+  });
+});
+
+describe('assistenten: beslut om förslag', () => {
+  it('beslutet sparas med panelen och kan inte skrivas över', async () => {
+    await minne.doc('arenden/a1').set({ id: 'a1', reg: 'ABC123', status: 'skickad', offert: { rader: [] } });
+    t.svar.push(strom([{ verktyg: 'foresla_atgard', id: 'f', input: { namn: 'avslag', arende: 'a1', args: [], beskrivning: 'Avslag.' } }], 'tool_use'));
+    t.svar.push(strom([{ text: 'Väntar.' }], 'end_turn'));
+    const h = await fraga('Avslå');
+    const id = (h[0] as { id: string }).id, panel = (h.find(x => x.typ === 'panel') as Extract<AssistentHandelse, { typ: 'panel' }>).panel.id;
+    const svara = async (utfall: 'utford' | 'avbojd') => {
+      t.svar.push(strom([{ text: 'Ok.' }], 'end_turn'));
+      await assistera('token-ekonomi', { konto: KONTO, samtal: id, text: 'Jag godkände.', beslut: { panel, utfall, meddelanden: ['Klart'] } }, t, () => {});
+    };
+    await svara('utford');
+    await svara('avbojd');
+    expect(t.sparade.get(id)!.paneler[0]).toMatchObject({ beslut: { utfall: 'utford', meddelanden: ['Klart'], tid: '2026-10-17T10:00:00.000Z' } });
   });
 });

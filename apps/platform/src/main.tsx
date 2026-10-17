@@ -1,4 +1,5 @@
-// Plattformen. Adresser: /logga-in, /logga-in/bekrafta, /valj-konto, /:konto (Hem), /:konto/:modul och
+// Plattformen. Adresser: /logga-in, /logga-in/bekrafta, /valj-konto, /:konto (chatten med assistenten),
+// /:konto/chatt/:samtal (ett sparat samtal), /:konto/hem (översikten), /:konto/:modul och
 // /:konto/:modul/legacy (bryggan, bara interna konton). Typsnitten ligger lokalt, inga anrop till Google.
 import '@fontsource/geist-sans/400.css';
 import '@fontsource/geist-sans/500.css';
@@ -7,6 +8,7 @@ import '@fontsource/geist-mono/400.css';
 import '@fontsource/instrument-serif/400.css';
 import '@flodia/ui/tokens.css';
 import '@flodia/ui/stil.css';
+import '@flodia/ui/chatt.css';
 import { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -17,6 +19,7 @@ import { Bekrafta, Inloggning } from './sidor/Inloggning';
 import { ValjKonto } from './sidor/ValjKonto';
 import { KontoSkal } from './sidor/KontoSkal';
 import { Hem } from './sidor/Hem';
+import { Chatt } from './sidor/Chatt';
 import { Modul } from './sidor/Modul';
 import { Brygga } from './sidor/Brygga';
 import { startaPlattformensFellogg } from './fellogg';
@@ -37,11 +40,13 @@ const loggaIn = createRoute({ getParentRoute: () => rot, path: '/logga-in', comp
 const bekrafta = createRoute({ getParentRoute: () => rot, path: '/logga-in/bekrafta', component: Bekrafta });
 const valj = createRoute({ getParentRoute: () => rot, path: '/valj-konto', component: ValjKonto });
 const konto = createRoute({ getParentRoute: () => rot, path: '/$konto', component: KontoSkal });
-const hem = createRoute({ getParentRoute: () => konto, path: '/', component: Hem });
+const chatt = createRoute({ getParentRoute: () => konto, path: '/', component: Chatt });
+const samtal = createRoute({ getParentRoute: () => konto, path: 'chatt/$samtal', component: Chatt });
+const hem = createRoute({ getParentRoute: () => konto, path: 'hem', component: Hem });
 const modul = createRoute({ getParentRoute: () => konto, path: '$modul', component: Modul });
 const brygga = createRoute({ getParentRoute: () => konto, path: '$modul/legacy', component: Brygga });
 
-const router = createRouter({ routeTree: rot.addChildren([start, loggaIn, bekrafta, valj, konto.addChildren([hem, modul, brygga])]) });
+const router = createRouter({ routeTree: rot.addChildren([start, loggaIn, bekrafta, valj, konto.addChildren([chatt, samtal, hem, modul, brygga])]) });
 declare module '@tanstack/react-router' { interface Register { router: typeof router } }
 
 void startaPlattformensFellogg();

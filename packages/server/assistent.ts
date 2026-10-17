@@ -11,7 +11,7 @@
 // Historiken till modellen är append-only: system och verktyg är desamma under hela samtalet (systemtexten sparas
 // med samtalet), och användarens sammanhang (datum, öppen panel) skrivs i hennes meddelande. Då gäller
 // tankeblocken, som skickas tillbaka oförändrade, och cachen håller.
-import type { AssistentAnrop, AssistentHandelse, Atgardsforslag, ChattMeddelande, Del, Panel, VerktygRad } from '@flodia/api';
+import type { AssistentAnrop, AssistentHandelse, Atgardsforslag, Beslut, ChattMeddelande, Del, Panel, VerktygRad } from '@flodia/api';
 import { FORKRAV } from '@flodia/core/foliering';
 import { stockholmDatum } from '@flodia/core/tid';
 import { guideFor } from '@flodia/guides';
@@ -448,6 +448,9 @@ async function kontrollera(token: string | null, kropp: unknown, t: AssistentTja
   if (typeof k.text !== 'string' || !k.text.trim()) throw new MotorFel(400, 'ogiltigt', 'Skriv en fråga.');
   if (k.text.length > MAX_TEXT) throw new MotorFel(400, 'ogiltigt', `Frågan är för lång (högst ${MAX_TEXT} tecken).`);
   const vy = k.vy && typeof k.vy === 'object' && typeof k.vy.app === 'string' ? { app: k.vy.app, ...(typeof k.vy.vy === 'string' ? { vy: k.vy.vy } : {}) } : null;
+  const b = k.beslut as Partial<Beslut> | undefined;
+  const beslut = b && typeof b.panel === 'string' && (b.utfall === 'utford' || b.utfall === 'avbojd' || b.utfall === 'misslyckad')
+    ? { panel: b.panel, utfall: b.utfall, meddelanden: (Array.isArray(b.meddelanden) ? b.meddelanden : []).slice(0, 10).map(x => String(x).slice(0, 300)) } : undefined;
 
   const roll = await t.motor.roll(token, anvandare, k.konto);
   if (!roll) throw new MotorFel(403, 'ingen_behorighet', 'Du är inte med i det här kontot.');
@@ -457,7 +460,7 @@ async function kontrollera(token: string | null, kropp: unknown, t: AssistentTja
   ]);
   // Kassorna (personuppgifter om anställda) syns inte för läs-rollen, som i menyn.
   const appar = licenser.filter((a): a is App => a !== null && !(MANIFEST.find(m => m.nyckel === a)?.kanslig && roll === 'las'));
-  return { anrop: { konto: k.konto, ...(k.samtal ? { samtal: k.samtal } : {}), text: k.text.trim(), vy }, kort: { token, anvandare, konto: k.konto, roll, intern, appar }, namn: namn ?? 'Kontot' };
+  return { anrop: { konto: k.konto, ...(k.samtal ? { samtal: k.samtal } : {}), text: k.text.trim(), vy, ...(beslut ? { beslut } : {}) }, kort: { token, anvandare, konto: k.konto, roll, intern, appar }, namn: namn ?? 'Kontot' };
 }
 
 /** Taket för frågor: samma som motor per minut och timme, plus frågor per konto och dag. */
@@ -500,6 +503,11 @@ export async function assistera(token: string | null, kropp: unknown, t: Assiste
   // Gamla samtal tas bort (90 dagar). Ett fel här stoppar inte frågan.
   await t.samtal.rensa(kort.token, new Date(t.motor.nu() - SPARAS_DAGAR * 86_400_000).toISOString()).catch(() => {});
 
+  // Beslutet om ett förslag sparas med panelen (bara visning: åtgärden kördes av klienten mot motor).
+  if (anrop.beslut) {
+    const p = post.paneler.find(x => x.id === anrop.beslut!.panel);
+    if (p?.typ === 'atgard' && !p.beslut) p.beslut = { ...anrop.beslut, tid: new Date(t.motor.nu()).toISOString() };
+  }
   skicka({ typ: 'samtal', id: post.id, titel: post.titel });
   post.visning.push({ id: t.id(), roll: 'anvandare', delar: [{ typ: 'text', text: anrop.text }] });
   post.meddelanden.push({ role: 'user', content: [{ type: 'text', text: `${sammanhang(t.motor.nu(), anrop.vy)}\n${anrop.text}` }] });

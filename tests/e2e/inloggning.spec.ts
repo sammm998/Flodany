@@ -1,6 +1,6 @@
 // Inloggning med länken från Mailpit, kontoväljaren, byte av konto och utloggning, i 1280 och 375 punkter.
 import { expect, test } from '@playwright/test';
-import { loggaInSom, mejl, oppnaMeny, skapaE2eVarld, tillganglig, type E2eVarld } from './varld';
+import { loggaInSom, mejl, skapaE2eVarld, tillganglig, type E2eVarld, oppnaChattmeny } from './varld';
 
 let v: E2eVarld;
 test.beforeAll(async () => { v = await skapaE2eVarld('in-' + test.info().project.name); });
@@ -25,21 +25,21 @@ test('inloggning med länken i mejlet, välj konto, byt konto, och A syns aldrig
 
   await page.getByRole('button', { name: new RegExp(v.A.namn) }).click();
   await expect(page).toHaveURL(new RegExp(`/${v.A.slug}$`));
+  // Startsidan är chatten med assistenten. Apparna finns i chattens meny.
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Testperson');
-  await oppnaMeny(page);
-  const meny = page.getByRole('navigation', { name: 'Huvudmeny' });
-  await expect(meny.getByRole('link', { name: 'Avräkning' })).toBeVisible();
-  await expect(meny.getByRole('link', { name: 'Lön och kassa' })).toBeVisible();
-  await expect(meny.getByRole('link', { name: 'Verkstad' })).toHaveCount(0);
+  const meny = await oppnaChattmeny(page);
+  await expect(meny.getByRole('button', { name: 'Avräkning', exact: true })).toBeVisible();
+  await expect(meny.getByRole('button', { name: 'Lön och kassa', exact: true })).toBeVisible();
+  await expect(meny.getByRole('button', { name: 'Verkstad', exact: true })).toHaveCount(0);
   await tillganglig(page);
 
   // Byt konto i kontoblocket uppe till vänster.
   await page.getByRole('button', { name: new RegExp(`Konto: ${v.A.namn}`) }).click();
   await page.getByRole('dialog', { name: 'Byt bolag' }).getByRole('button', { name: new RegExp(v.B.namn) }).click();
   await expect(page).toHaveURL(new RegExp(`/${v.B.slug}$`));
-  await oppnaMeny(page);
-  await expect(meny.getByRole('link', { name: 'Verkstad' })).toBeVisible();
-  await expect(meny.getByRole('link', { name: 'Avräkning' })).toHaveCount(0);
+  await oppnaChattmeny(page);
+  await expect(meny.getByRole('button', { name: 'Verkstad', exact: true })).toBeVisible();
+  await expect(meny.getByRole('button', { name: 'Avräkning', exact: true })).toHaveCount(0);
   await expect(page.getByText(v.A.namn)).toHaveCount(0);
 });
 

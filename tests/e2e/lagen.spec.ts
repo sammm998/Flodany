@@ -15,7 +15,7 @@ test('laddning och felläge när apparna inte går att hämta, och försök igen
     if (fel) { await new Promise(x => setTimeout(x, 400)); await r.fulfill({ status: 500, contentType: 'application/json', body: '{"message":"fel"}' }); }
     else await r.continue();
   });
-  await page.goto(`/${v.A.slug}`);
+  await page.goto(`/${v.A.slug}/hem`);
   await expect(page.getByRole('status').filter({ hasText: 'Laddar' })).toBeVisible();
   await expect(page.getByRole('alert')).toContainText('Apparna kunde inte hämtas.');
   await tillganglig(page);
@@ -26,7 +26,7 @@ test('laddning och felläge när apparna inte går att hämta, och försök igen
 
 test('tomt läge säger vad nästa steg är', async ({ page }) => {
   await loggaInSom(page, v.tom.email);
-  await page.goto(`/${v.C.slug}`);
+  await page.goto(`/${v.C.slug}/hem`);
   await expect(page.getByRole('region', { name: 'Inga appar än' })).toContainText('Kontakta Flödia');
   await tillganglig(page);
 });
@@ -34,7 +34,7 @@ test('tomt läge säger vad nästa steg är', async ({ page }) => {
 test('lång session: token förnyas och livevisningen fortsätter', async ({ page }) => {
   await page.clock.install({ time: new Date() });
   const forsta = await loggaInSom(page, v.ekonomi.email);
-  await page.goto(`/${v.A.slug}`);
+  await page.goto(`/${v.A.slug}/hem`);
   const lista = page.getByRole('region', { name: /Kom igång/ });
   await expect(lista).toHaveAccessibleName('Kom igång 0 av 6');
 

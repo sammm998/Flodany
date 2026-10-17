@@ -91,6 +91,15 @@ export async function oppnaMeny(page: Page) {
   await expect(meny).toBeVisible();
 }
 
+/** Chattens meny (startsidan): apparna och samtalen. På smal skärm bakom knappen Meny. Svarar med navigeringen Appar. */
+export async function oppnaChattmeny(page: Page) {
+  const appar = page.getByRole('navigation', { name: 'Appar' }), knapp = page.getByRole('button', { name: 'Meny' });
+  await expect(appar.or(knapp).first()).toBeVisible();
+  if (!(await appar.isVisible())) await knapp.click();
+  await expect(appar).toBeVisible();
+  return appar;
+}
+
 /** Tillgänglighet (WCAG 2.2 AA): inga allvarliga fynd. */
 export async function tillganglig(page: Page) {
   // @axe-core/playwright har typer från en nyare Playwright-version. Sidan är densamma.

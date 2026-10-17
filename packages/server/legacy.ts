@@ -18,8 +18,11 @@ export const LEGACY_APPAR = ['avrakning', 'akarkassan', 'tripkassan', 'foliering
 export type LegacyApp = typeof LEGACY_APPAR[number];
 
 export const SHIM_TAGG = '<script src="../../shared/claude-shim.js"></script>';
-/** Hämtar window.claude från plattformen som visar appen i en iframe. Öppnad direkt finns ingen databas. */
-export const BRYGG_TAGG = '<script>window.claude = window.parent !== window ? window.parent.flodiaClaude : undefined;</script>';
+/**
+ * Hämtar window.claude från plattformen som visar appen i en iframe. Öppnad direkt finns ingen databas.
+ * Ramen kan ha data-flodia (chattens panel kan visa flera appar samtidigt): då hämtas appens egen runtime.
+ */
+export const BRYGG_TAGG = '<script>window.claude = window.parent !== window ? ((window.frameElement && window.parent.flodiaClaudeRam && window.parent.flodiaClaudeRam[window.frameElement.getAttribute("data-flodia")]) || window.parent.flodiaClaude) : undefined;</script>';
 
 /** Legacy-filen med bryggan i stället för shimmen. Kräver exakt en shim-tagg. */
 export function medBrygga(html: string): string {
