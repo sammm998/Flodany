@@ -17,8 +17,10 @@ WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=bygg /app/apps/platform/dist ./apps/platform/dist
 COPY --from=bygg /app/scripts/serva-plattform.mjs ./scripts/serva-plattform.mjs
-# Ett package.json med start, ifall Railway startar med npm start i stället för CMD.
-RUN echo '{"name":"flodia-plattform","private":true,"type":"module","scripts":{"start":"node scripts/serva-plattform.mjs"}}' > package.json
+# Samma upplägg som repot (en arbetsyta @flodia/platform), så att både CMD, npm start och
+# npm run start --workspace=@flodia/platform (Railways förval för en monorepo) startar servern.
+RUN echo '{"name":"flodia","private":true,"type":"module","workspaces":["apps/platform"],"scripts":{"start":"node scripts/serva-plattform.mjs"}}' > package.json \
+ && echo '{"name":"@flodia/platform","private":true,"type":"module","scripts":{"start":"node ../../scripts/serva-plattform.mjs"}}' > apps/platform/package.json
 USER node
 EXPOSE 8080
 CMD ["node", "scripts/serva-plattform.mjs"]
