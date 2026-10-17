@@ -1,0 +1,27 @@
+{
+  "varde": {
+    "L": {
+      "namn": "",
+      "lang": "",
+      "vx": ""
+    },
+    "perBil": [],
+    "bolag": [],
+    "kund": [],
+    "kontroll": [],
+    "kpi": {
+      "kundTotal": 0,
+      "kundAntal": 0,
+      "korningar": 0,
+      "kort": 0,
+      "app": 0,
+      "vx": 0,
+      "serv": 0,
+      "skuldPos": 0,
+      "skuldNeg": 0,
+      "utbet": 0,
+      "inbet": 0,
+      "fel": 0
+    }
+  }
+}

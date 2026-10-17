@@ -1,0 +1,2 @@
+-- Påhittad data för lokal utveckling. Kärnans tester skapar sin egen data (tests/db).
+-- Inga riktiga personuppgifter här, i tester eller i den lokala databasen.

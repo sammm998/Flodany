@@ -1,0 +1,2038 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Avräkning Taxi Malmö</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: arbetsyta i en kolumn. Filer överst, nyckeltal, diagram, flikar med tabeller. Bred max 1240px. */
+/* Layout: gul varumärkesband med logga och rutmönster, därunder arbetsyta i en kolumn (max 1240px). */
+:root{
+  --brand:#FFB400; --brand-ink:#141414; --checker:#141414;
+  --bg:#F5F4F0; --surface:#FFFFFF; --sunk:#EFEDE7; --ink:#17191C; --muted:#5E6268; --line:#E1DED6;
+  --accent:#23282E; --accent-soft:#ECEAE4; --mark:#E9A200; --mark-ink:#8A5A00; --mark-soft:#FFF1CC;
+  --primary-bg:#141414; --primary-fg:#FFB400;
+  --good:#1D7A4E; --good-soft:#E2F2E9; --bad:#B42318; --bad-soft:#FBE7E4; --warn:#8A5A00; --warn-soft:#FFF1CC;
+  --f-display:"Archivo","Arial Black",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-data:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111214; --surface:#1A1C1F; --sunk:#222529; --ink:#EDEBE6; --muted:#9EA2A8; --line:#2E3136;
+  --accent:#D5D9DE; --accent-soft:#2A2D32; --mark:#FFB400; --mark-ink:#FFC940; --mark-soft:#3A2E0E;
+  --primary-bg:#FFB400; --primary-fg:#141414;
+  --good:#5CC592; --good-soft:#14301F; --bad:#F2877A; --bad-soft:#3A1B17; --warn:#FFC940; --warn-soft:#3A2E0E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111214; --surface:#1A1C1F; --sunk:#222529; --ink:#EDEBE6; --muted:#9EA2A8; --line:#2E3136;
+  --accent:#D5D9DE; --accent-soft:#2A2D32; --mark:#FFB400; --mark-ink:#FFC940; --mark-soft:#3A2E0E;
+  --primary-bg:#FFB400; --primary-fg:#141414;
+  --good:#5CC592; --good-soft:#14301F; --bad:#F2877A; --bad-soft:#3A1B17; --warn:#FFC940; --warn-soft:#3A2E0E; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 var(--f-body);margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:34px;padding-top:14px;font-size:12px;color:var(--muted)}
+.band{background:var(--brand);color:var(--brand-ink)}
+.band-in{max-width:1240px;margin:0 auto;padding-inline:20px;padding-block:22px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px 28px;flex-wrap:wrap}
+.brandline{display:flex;align-items:center;gap:22px;flex-wrap:wrap;min-width:0}
+.brandline img{display:block;width:240px;max-width:100%;height:auto}
+.brandline .sep{width:2px;align-self:stretch;background:var(--brand-ink);opacity:.85}
+.titles small{display:block;font:700 11px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;opacity:.75}
+.titles h1{font:800 30px/1.02 var(--f-display);margin:0;letter-spacing:-.015em;text-wrap:balance;text-transform:uppercase}
+.checker{height:14px;background:repeating-conic-gradient(var(--checker) 0 25%,var(--brand) 0 50%) 0 0/14px 14px;margin-bottom:26px}
+.band .chip{background:rgba(255,255,255,.55);border-color:rgba(20,20,20,.25);color:var(--brand-ink)}
+.band .chip b{color:var(--brand-ink)}
+.band button.primary{background:var(--brand-ink);border-color:var(--brand-ink);color:var(--brand)}
+.period{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:12.5px;color:var(--muted)}
+.chip b{color:var(--ink);font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted)} .dot.ok{background:var(--good)} .dot.bad{background:var(--bad)}
+h2{font:700 19px/1.2 var(--f-display);margin:0 0 12px;letter-spacing:.005em}
+h3{font:700 15px/1.25 var(--f-display);margin:0 0 8px}
+.lbl{font:600 11px/1.2 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+.num,td.n,th.n{font-family:var(--f-data);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.neg{color:var(--ink)} .pos{color:var(--mark-ink)}
+button,.btn{font:500 13.5px/1 var(--f-body);border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 14px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--primary-bg);border-color:var(--primary-bg);color:var(--primary-fg);font-weight:600}
+button.primary:hover{filter:brightness(1.08)}
+button.ghost{background:transparent}
+button:disabled{opacity:.5;cursor:not-allowed}
+input,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 8px;min-width:0}
+input.cnt{width:62px;text-align:right;font-family:var(--f-data)} input.amt{width:120px;text-align:right;font-family:var(--f-data)}
+
+/* Filer */
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:12px}
+.slot{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:6px;min-width:0;position:relative}
+.slot.done{border-color:color-mix(in srgb,var(--good) 45%,var(--line))}
+.slot .st{font-size:12.5px;color:var(--muted);min-height:19px;overflow-wrap:anywhere}
+.slot.done .st{color:var(--good)}
+.slot .step{font:600 11px/1 var(--f-data);color:var(--muted)}
+.slot label.pick{margin-top:auto;align-self:flex-start}
+.slot input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+.drop{border:1.5px dashed var(--line);border-radius:10px;padding:16px;text-align:center;color:var(--muted);margin-bottom:26px;transition:background .15s,border-color .15s}
+.drop.over{background:var(--mark-soft);border-color:var(--mark);color:var(--ink)}
+.drop b{color:var(--ink)}
+
+/* KPI */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:22px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.kpi{border-top:3px solid var(--brand)}
+.kpi .v{font:500 24px/1.15 var(--f-data);margin:6px 0 2px;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .s{font-size:12.5px;color:var(--muted)}
+.kpi.alert{border-color:color-mix(in srgb,var(--bad) 50%,var(--line));background:var(--bad-soft)}
+.kpi.clear{border-color:color-mix(in srgb,var(--good) 45%,var(--line))}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:22px;min-width:0}
+.chart{overflow-x:auto} .chart svg{display:block;max-width:100%;height:auto}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* Flikar */
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto}
+.tabs button{border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;padding:10px 14px;color:var(--muted);font-weight:500;white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--mark)}
+.tabs .badge{display:inline-block;min-width:18px;padding:1px 6px;border-radius:9px;background:var(--bad);color:var(--surface);font:600 11px/16px var(--f-data);margin-left:6px}
+.tabs .badge.zero{background:var(--good)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font:600 11.5px/1.25 var(--f-body);color:var(--muted);text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);background:var(--sunk);position:sticky;top:0;white-space:nowrap}
+td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tr.sum td{font-weight:600;background:var(--sunk)}
+tr.click{cursor:pointer} tr.click:hover td{background:var(--mark-soft)}
+tr.open td{background:var(--mark-soft)}
+tr.detail>td{background:var(--bg);padding:14px}
+.rows{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px}
+@media (max-width:820px){.rows{grid-template-columns:1fr}}
+.manual{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+.manual label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px}
+.pill{display:inline-block;border-radius:999px;padding:2px 9px;font:600 11px/1.5 var(--f-body);letter-spacing:.03em}
+.pill.fel{background:var(--bad-soft);color:var(--bad)} .pill.info{background:var(--accent-soft);color:var(--accent)} .pill.ok{background:var(--good-soft);color:var(--good)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.toolbar .grow{flex:1}
+.empty{padding:34px 18px;text-align:center;color:var(--muted)}
+.empty h3{color:var(--ink)}
+.note{font-size:12.5px;color:var(--muted);margin:8px 0 0;max-width:80ch}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:13px;box-shadow:0 6px 24px rgba(0,0,0,.18);z-index:10;max-width:calc(100% - 32px)}
+.sets{display:grid;gap:22px}
+.set-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.tbl input{width:100%;min-width:70px}
+.tbl input.cnt{width:62px;min-width:0} .manual input.amt{width:130px;flex:none}
+.tbl input.w-s{min-width:60px;width:70px} .tbl input.w-l{min-width:180px}
+details.help{margin-top:10px} details.help summary{cursor:pointer;color:var(--accent);font-size:13px}
+.search{min-width:min(280px,100%)}
+/* Övriga rader (v37) */
+.xrow{display:grid;grid-template-columns:70px 1fr;grid-template-areas:"art txt" "ant pr" "mo ft";gap:6px;border-top:1px solid var(--line);padding-top:10px}
+.xrow .x-art{grid-area:art}.xrow .x-txt{grid-area:txt}.xrow .x-ant{grid-area:ant;text-align:right;font-family:var(--f-data)}.xrow .x-pr{grid-area:pr;text-align:right;font-family:var(--f-data)}.xrow .x-mo{grid-area:mo}
+.xrow .x-ft{grid-area:ft;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.xrow .x-ft label{display:flex;gap:6px;align-items:center;font-size:12.5px;color:var(--muted)}
+.xrow input,.xrow select{width:100%;min-width:0}.xrow input[type=checkbox]{width:auto}
+/* Inställningstabeller (v40): ryms i bredden utan sidledsscroll */
+.sets{grid-template-columns:minmax(0,1fr)}.sets>*{min-width:0}
+@media (min-width:701px){
+  .tbl[data-tbl]{overflow-x:visible}
+  .tbl[data-tbl] table{table-layout:fixed;width:100%}
+  .tbl[data-tbl] th{white-space:normal;font-size:11px;line-height:1.25;vertical-align:bottom;padding:8px 5px}
+  .tbl[data-tbl] td{padding:5px}
+  .tbl[data-tbl] input{min-width:0!important;width:100%!important;padding:6px 6px;font-size:13px}
+  .tbl[data-tbl] th.c-w-s{width:7%}.tbl[data-tbl] th.c-m{width:9%}.tbl[data-tbl] th.c-w-l{width:auto}
+  .tbl[data-tbl] th.c-x{width:74px}.tbl[data-tbl] td:last-child button{padding:7px 8px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* Mobil (v36): tabeller blir kort, flikar fästa överst, inga sidledsscroll */
+@media (max-width:700px){
+  .wrap{padding-inline:12px}
+  .band-in{padding-inline:12px;padding-block:14px 12px;gap:10px}
+  .brandline{gap:12px}.brandline img{width:150px}.brandline .sep{display:none}
+  .titles small{font-size:10px;margin-bottom:4px}.titles h1{font-size:20px}
+  .period{width:100%}.period .chip{flex:1;min-width:0}.period .chip span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .checker{margin-bottom:16px;height:10px;background-size:10px 10px}
+  h2{font-size:17px}
+  input,select{font-size:16px}
+  button,.btn{min-height:40px;padding:10px 14px}
+  .files{grid-template-columns:1fr 1fr;gap:8px}
+  .slot{padding:10px;gap:4px}.slot h3{font-size:13px}.slot .st{font-size:12px}
+  .drop{display:none}
+  .kpis{grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+  .kpi{padding:10px 12px}.kpi .v{font-size:17px}.kpi .s{font-size:11.5px}
+  .panel{padding:12px;border-radius:10px}
+  #tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin-inline:-12px;padding-inline:8px;scrollbar-width:none}
+  #tabs::-webkit-scrollbar{display:none}
+  .tabs button{padding:12px 12px;min-height:44px}
+  .toolbar{gap:8px}.toolbar .grow{display:none}.toolbar .search,.toolbar input[type=search]{flex:1 1 100%;width:100%}
+  .set-head .toolbar{width:100%}
+  .manual label{flex-wrap:wrap}
+  /* Tabeller som kort */
+  .tbl{overflow:visible;border:0;background:transparent;border-radius:0}
+  .tbl table,.tbl tbody{display:block}
+  .tbl thead{display:none}
+  .tbl tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+  .tbl td{display:block;padding:0;border:0;text-align:left!important;white-space:normal;min-width:0!important;overflow-wrap:anywhere}
+  .tbl td::before{content:attr(data-l);display:block;font:500 11px/1.3 var(--f-body);color:var(--muted);margin-bottom:1px}
+  .tbl td.m-e{display:none}
+  .tbl td.m-w{grid-column:1/-1}
+  .tbl td.m-t{grid-column:1/-1;font:600 15px/1.3 var(--f-body);padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:2px}
+  .tbl td.m-t::before,.tbl td.m-nl::before{display:none}
+  .tbl td input:not([type=checkbox]),.tbl td select{width:100%!important;min-width:0!important;text-align:left}
+  .tbl td button,.tbl td .btn{margin:2px 6px 2px 0}
+  .tbl tr.m-pair{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 12px}
+  .tbl tr.m-pair td{flex:0 1 auto}.tbl tr.m-pair td.m-t{border:0;padding:0;margin:0;font-size:13.5px;font-weight:500;flex:1}
+  .tbl tr.m-pair td:not(.m-t){text-align:right!important;flex:none;max-width:55%}
+  .tbl tr.m-pair td::before{display:none}
+  .tbl tr.sum{background:var(--sunk)}
+  .tbl tr.sum td{background:transparent}
+  .tbl tr.open{border-color:var(--mark);background:var(--mark-soft)}
+  .tbl tr.open td{background:transparent}
+  .tbl tr.click{position:relative;padding-right:30px}
+  .tbl tr.click::after{content:"";position:absolute;right:13px;top:16px;width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg)}
+  .tbl tr.click.open::after{transform:rotate(-135deg);top:19px}
+  .tbl tr.detail,.tbl tr.m-full{display:block;padding:0;border:0;background:transparent;margin:-2px 0 14px}
+  .tbl tr.detail>td,.tbl tr.m-full>td{display:block;padding:10px 0 0 10px;border-left:3px solid var(--mark);background:transparent}
+  .tbl tr.m-full>td::before{display:none}
+  .tbl tr.detail .tbl tr{margin-bottom:6px}
+  .chart{overflow:visible}
+  .kpi .s{overflow-wrap:anywhere}
+  .tbl tr{grid-auto-flow:row dense}
+  .tbl td.m-t{order:-2}
+  .tbl tr.m-pair td:not(.m-t){max-width:45%}
+  /* Körningslistor: tätare kort, datum och tid på samma rad */
+  .tbl[data-tbl] tr{grid-auto-flow:row;align-items:end}
+  .tbl td input[type=checkbox]{width:22px;height:22px;min-width:0;margin:2px 0}
+  .tbl td label{justify-content:flex-start}
+  .tbl tr.m-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .tbl tr.m-trip{padding:8px 12px;gap:3px 12px;margin-bottom:6px;grid-auto-flow:row}
+  .tbl tr.m-trip td.n{font-weight:600}
+  .tbl tr.m-trip td.m-t{grid-column:auto;border:0;padding:0;margin:0;font:600 13.5px/1.3 var(--f-data)}
+  .tbl tr.m-trip td.m-tid{order:-1;text-align:right!important;font:600 13.5px/1.3 var(--f-data)}
+  .tbl tr.m-trip td::before{font-size:10.5px}
+  /* Filrutor fällbara på mobil */
+  #filH{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  #filH .mf{font:500 12.5px/1 var(--f-body);color:var(--muted);display:flex;align-items:center;gap:8px}
+  #filH .mf::after{content:"";width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(-135deg);margin-top:3px}
+  .mfold #filH .mf::after{transform:rotate(45deg);margin-top:-3px}
+  .mfold .files{display:none}
+}
+#filH .mf{display:none}
+@media (max-width:700px){#filH .mf{display:flex}}
+</style>
+<header class="band"><div class="band-in">
+  <div class="brandline"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAABCCAYAAABAWTEHAAAOdUlEQVR42u2dX4wV1R3Hv3cvNgVWTUxcILQPmIJi0gRZ2xRNG+oiD8oiNu1jqTYpbdRarQoI1MaGVfyLVrRV0wJq1AebItgHK+ySNBKtKH1pVSz9lwiITdrq7toou7cPM9N7dpyZ852Z3529d/1+ks3ee+fMb85vzpnzO79zfudM7YwzzoAQQgjB0qVbIIQQQoZDCCFEy5hmLO80AFcDWAzgLAB1AH8FcBDANgD/0S0XQojOpmYwx/EIgO/kPOdRAGt0+4UQ4pNlOI4BmG2Qh1MBDKsohBCiMygyx7EPQMPIaADA+wAOqyiEEKIzyDPHcTqAf7coH/NDY7QAwFsqFiGE6HyPY0kLjYbLYQBfU7EIIURnG44vAThQYZ5+BeC7KhohhGhPfJPj8zF58w8XVmywhBBCGBiOxmTnT0UkhBDtRdZQ1Wgb5K+hIhJCiPYiLapqPoDpzve7AdxUUZ4uAPCi830NgkWGeTkfwO2h11IDMAbglPB/ZJRqofHcCmBPwfwuBnAnkW5ZiXuyHcBnPWm2AdjlfJ8F4OlQ3zqAcec+vAxgk6q/EKIIaUNV8Z7+PQBurChPS/DxuY0iQ1Z5vZUyw2LMtT4AMKOA7D8BWFgg/ys8xlDDgEKIQiQNVX3OoBEuQz3ht1U5ZfQXuO7mMgaYSDMd+Yf/biWNxixVZSHEZBqOV8nGvFWMJ/z265wydhe47say3htpPPaS8gYA3EKk6wVwQlVZCDGZhuM0sjFvFWW9m/4S564oee0vEGn6APyE0GEDIet8AK/lKFshhDA3HKe3QZ7Seu6rWuhtROwpmfeDoQfg40ehR5HEYlKHLSneYcSYqrcQogrD8cuUdDeEnoDv72jGtYZIGS+mnM9EAa30HB8FMOhJc2nJe/oaaTw2JOR3sccYRAwAuNmTpq7qLYRoSe8+FlU1iolhuJYeA9sbLyI7wjfM1QPgXSKdRcTRALjhpvMA/IHMPwDsBHAFke4yTAzPbYWOQgh5HKWNRqsb4yx8kUWjodEAgq3hfY1uWTYifTjK5RCCuRXGaIyQRgMAPlL1FkJUYTg6mSOe4/Ocz77FeLuM8rQJwA4iHTO3MgKgO8e1p6l6CyFkONKZA2Cmp9GNh6wOeWT2G+XtSgDvGcjpVnUVQshw2OF7+VPSosaLPOfsNszf6QhWjhdF8xFCCBkOQ3oIb+N4yjHfYrxew3zOKHiejIYQoq0NRzu/tnU45Xff3Mb8jGMXe879nWH+FxU8b6eqqRCinQ1HOzdSL6R4G1lj/6MAjnnkZkVYTQcw28hoHCp47mpw0VlCCFEJSbvjlt3yI21o5VUEC9yKcmqC1zEM/zDVKwA+RLAgrobm9uK1UNclyB5GGg6vXZReBGtYyjKAfFuhrwTwbIFyEkKITDopZDNuNHyRVAiPLy153e7wWscKnn/QSP+NAJ5Bc7GgEEJMCkmT47tadK0ynkzS5PaRCu/T4RbqPBL2/m8j0h7K4bVpk0MhRGWG4/IKr8UyJ+H79ArvU3dCHiyMxjCaczTsSnN2yE+bHAohKm3Mj7aZx2HlAVR1TVbX+NzJJvi3Q4mMhzwOIURbGY65bZTHWooHUDXd4N60N1xCLyDYDmXEwDh9qOothKjScADAXW2Qv2cSfvMt2rsczaipvH8+w+CbVxmFf8I+y2i4RooxQFnGQ9uqCyFa05tPCMeN955n5pWZ8vtrCLYQLyur1Vui+7aWT5O/F8Hb/WCYv0aJ+9SP7G1TFI4rhDD3OKKe76QZtYTffOP/qwyuO89zPMnj2UwajfONjHCcERkGIUS7eBx5e76tNBpVeBtFrrMZQUSUj16kvx/c4v7/N+YprUD2du0yLEKIQrALAGsVGo+0Bm2W43E0nPyPh9/XGeahF8AdoUfWcLyz6FrugsAlCF5HG61KT9JnbQmjEcnwze3E83UQwH4EYbl1NFfMjwF4WVVfCNFqjyNiH/zbkRflMICzVSRCCNHe5I3170P2brNFOVtGQwghpqbhAIA/IxjyuNDg+mtCWYdVFEIIMXUNR8QBNNc/3JPjvB3OeY+qCIQQorPIO8chhBBCHocQQgghwyGEEKIiwzGIYD2A/vTXTn9Z9JAyNhPPg0V+LOW0o257jeQsIuVcZaQbs/fbG0a69ZJy+jtQt0TDMS5b2hGsQnOhZA3AZVNYV1/E3Q9JOZuM8rOlQt3vNNKth5TDvA+mz0i3H5DpHvIcn0XKuY9IY7Uk4G4y3R7CADGsNdJthFWwk14dK5r0O0a+H8DXp7CuvgfeaseAzWS6eyvU/VtGcq4l0z1odL3HiTRXVGzIfcZ1NimHeVPnUiPdrjEyrj1Gz9r/iUdVsTu8ClEVvj21GPea2ZWA3Qnal59XwG1muY7wKBjdXgCw3JPGt+Mzq9saAA8TcmYBOGGg2w4AVxrIYXRj95z7DIC3DfL0BIBvVqTbdtJQ0/vXxYeq6hkCk/6yeDPlnBUFG4+8109ilXPuPpSjSJ52pJzTT5w3B/neLTKAqU8/me5GIg1jNN4g0rA7IPuMBjv8eDORhjEabxJp7ifz5DMaV5NyHjCqJ0NEmutIWW8b6XaTkW6PVejdpRoO5j3VPaQr9ZWUc7oMC30op6yTLWrAFpOurNt76iUt/XB43vGcedpEutXtjK8x+z4pZ0+O8svipxXqfjuZ7lUj3Rjj+mkj48o2rr6NQavuODDGlX0Bnu95voqUc79RfcvVkWY9Dhf3LXhpY6IjTq9jDoAnc17Dxd1UcSBmLPJuuNiq8GP34U1zdwdjFf4uMl/xvcFmA1gJ4NJQTj+AS8Lf4o3ERnQ2N3iOX2x0HdYA/cxzfDkph9liZ6GRbuxE7XOe44tIOduMdBs11M1ngHqN6qOld3eNkW6scV2bp1JNK+BxdCMYD4wmm7YAWB9Lc1bMkh3NeY2I12PfN6RYSnZeppVbw/c7Pdu9CN4d7uLm8SkAL5H5Oh7zsJYSeZkq79r4jYEMxuuycuWfJ9P59nmbY6jbV410u55M55tgZ6OgthJpFhjpdodRfWQNEDMExxjXDwx1y/Xah6I9cLcnmzTGeiLjBuRp1FyPwo16cd9NsaygDtaN69MZPWE3zronwS1mDdpSCNf7rNKVf8ww7/9ss2GKHUSa1RU30lZRUMz1rAKCWC/Byrgy5b+wFQ9fmXDclWi+0/pxNCMEXNfotyXkD8d62xszCpr1OroMjGYaMzDxRUofOG6r64H9RW0+TZZBfS8s9+hlW42ETsFFAN4hrrPPqRMnAZwS844Xhg3n6gr0AoKh3kEnXd3JT/RSNVa3ITRDt+uOTtHnc0OPy+d1HQ1HABrhuSfD9uNk+L0RPoM+3f4e3u9Ip5MJHTlGDpzyH8PEdU2NUOfPI4he84VsHwfwx9j9qTn1oUbm6V9OXYrLaoTylpK6DSbUafelcueGIz3rPXLeRDCh34jlq8upF4xut7ltcBnD8axTWKsdw/FcRs87DwtSvA0kDActA7+it5UcBnBq+HleWCGHAbyb4W24DYPg2Qb/HA5b3j6vdSdpNHxe7CxwQQ4PwB8txermmwdkQzXneo7PwcQh6TSeRPKQcyvKbS/pmfiGBnsRvFHTx3oAjxjoNkp0hN8gPZNzPMcXwx9gAcTeGlq2131ezPq73satJRrGEafnDgDfINzLwZyGoxURVt1ORX0nrAALYg9NEh/JDuSmE4dpriPTbTW6XpWhmmwEn89osPM7zMI/qyEoNgrMZzTmknKY6D2rVe5s9N5u90vZleMvhkM0Sdb/FufzWE65ZxW4SYy71WWoexpPOPdiZkZF7ipgWEed+/1Jx7dW4HuknJuN8sMYoPVGurHzO2sr1M3KALGN9L0V6nal0bU2G9XJMw2N+fIiipRtPKdj4rh+XiuW5m2cKHiub67DNSwH0JrJ5r4Mt9llvIBrPjP05L7snB+NVdYA/MOwkrczbxFp2FBNq3h6q8VqrxNp2H2e3mkz3Zi1AmwI+btGxnWDkW5VGtfrKy637Vk98KIcIXpWeYaq5sUMUJ6dQX1DCmOxCupbfT1U8J48TxiUWooR8T1sP0Ywbr0s/Is+9yUYjUumqOFghqmYBV1MOCO7xsMXzriIlLPOSDdmrci1RrqxawWsVkszurHG9ZiRB2TVSDMBRayX7OsUsR7Q+lYYjviClxUlZA3HehKMa+/2UI4ie+HQKTnzU3S34OVE76dBen4X5XgwXWbDZh1EO+ILZ2RXSzM7655DpGF2FbXaMdVylbvVjqlsiO0hz/Few3Kz2kKm6lXuVot2Ga/8OlLWx0aApmX0guPDLHWkz1U0nJ5x0lDN0vB4A8AFGRmM9pDqAh/LHFXul0L5WZEtTyEYogKSw9KikLlGhi4RQ+H5ad7U+wg2vBtPkdMX3tcagC969IsmpvbDP180hoLjllMI1kv4uec4O1F7H5Gmr2LdHjTSjZknWUg+o1bG1dchWmR0j1jdmPdhsMbVF71luYUMY1wTDVB8d1x2ZbIQk8V2AN/2pLHaVXQA3Bg4s5i03XaDfQz+3VkZOWwY7hbYhRj78vQLoo4wcmbDP5QFBIEYDxvoNoxmOH8ag+B2A/DpxoYYX42EbdvjHsfWsIc8DUGIaNLiqjEAn0JzkU2UyYbz2V04U4vdPFemuzCm5vSmG04epiV4BLXwN3fxT80jP/IO3O9IyH89vG4tvHZSD7/u3J+ak7foc5p8N5/jyL96ve7ci/FY+bnl4XpU4wiG6MaIBuBEqJebPsurqpo66cpHi97chXPjTvk3yKGcY6EHXEPyAsMuAH8j5JyJjy8MqyfUkfU5dRtPaJRq4CKOXg7LPFrM1xWTMU4ahI9IT5jxJvbH2g1Xr2hk4L4c5RYfQXCf0d+TdW4/JgaiRM+Z+zwzW83vS2gn44vymHmSA85IidvOuvWJ0a2BiYtDo/sb1a2oDXuI8TiEEEKITP4HAz0KAAUOvP4AAAAASUVORK5CYII=" alt="Taxi Malmö" width="398" height="66"><span class="sep" aria-hidden="true"></span>
+    <div class="titles"><small>Avräkning åkare och kunder</small><h1 id="hMonth">Månadsavräkning</h1></div></div>
+  <div class="period"><span class="chip"><span class="dot" id="dbDot"></span><span id="dbState">Ansluter till inställningar…</span></span>
+    <button id="btnExcel" class="primary" disabled>Ladda ner Excel</button></div>
+</div></header>
+<div class="checker" aria-hidden="true"></div>
+<div class="wrap">
+
+<section aria-labelledby="filH">
+  <h2 id="filH">Månadens filer</h2>
+  <div class="files">
+    <div class="slot" id="slot-tc"><span class="step">1 · TaxiCaller</span><h3>Kontofakturor (PDF eller CSV)</h3><div class="st">Debiteringskörningar per konto och bil.</div>
+      <label class="pick btn" for="f-tc">Välj fil</label><input type="file" id="f-tc" accept=".pdf,.csv,.txt,.xlsx,.xls"></div>
+    <div class="slot" id="slot-bamb"><span class="step">2 · Bambora</span><h3>Sales-export (xlsx)</h3><div class="st">Kortköp i Taxi Malmös terminaler. Återbetalningar dras från bilen.</div>
+      <label class="pick btn" for="f-bamb">Välj fil</label><input type="file" id="f-bamb" accept=".pdf,.csv,.txt,.xlsx,.xls"></div>
+    <div class="slot" id="slot-app"><span class="step">3 · TaxiCaller</span><h3>Appbetalningar (CSV)</h3><div class="st">Kortbetalningar i appen per bil.</div>
+      <label class="pick btn" for="f-app">Välj fil</label><input type="file" id="f-app" accept=".pdf,.csv,.txt,.xlsx,.xls"></div>
+    <div class="slot" id="slot-bro"><span class="step">4 · Øresundsbro</span><h3>Bro och CPH parkering (PDF)</h3><div class="st">Samlingsfakturan från Øresundsbro Konsortiet. Räknas per bil.</div>
+      <label class="pick btn" for="f-bro">Välj fil</label><input type="file" id="f-bro" accept=".pdf,.csv,.txt,.xlsx,.xls"></div>
+    <div class="slot" id="slot-sturup"><span class="step">5 · Swedavia</span><h3>Sturup parkering (PDF)</h3><div class="st">Månadsfakturan från Swedavia Malmö Airport. Räknas per bil och pris.</div>
+      <label class="pick btn" for="f-sturup">Välj fil</label><input type="file" id="f-sturup" accept=".pdf,.csv,.txt,.xlsx,.xls"></div>
+    <div class="slot" id="slot-resk"><span class="step">6 · Visma</span><h3>Kundreskontra (PDF)</h3><div class="st">Kundreskontralista per sista dagen i månaden. Ger tidigare skulder per åkare.</div>
+      <label class="muted" style="font-size:12.5px;display:flex;gap:6px;align-items:center"><input type="checkbox" id="skuldMed"> Räkna in tidigare skulder</label>
+      <label class="pick btn" for="f-resk">Välj fil</label><input type="file" id="f-resk" accept=".pdf,.csv,.txt,.xlsx,.xls"></div>
+    <div class="slot" id="slot-visma"><span class="step">8 · Visma</span><h3>Avräkningar efter inmatning (PDF)</h3><div class="st">Facit: Vismas fakturor för månaden. Jämförs per faktura under Kontroll.</div>
+      <label class="pick btn" for="f-visma">Välj fil</label><input type="file" id="f-visma" accept=".pdf"></div>
+    <div class="slot" id="slot-bank"><span class="step">7 · Handelsbanken</span><h3>Kontoutdrag (förskott)</h3><div class="st">Kontotransaktioner för månaden, alla poster. Öppnar fliken Förskott.</div>
+      <label class="pick btn" for="f-bank7">Välj fil</label><input type="file" id="f-bank7" accept=".pdf,.csv,.txt,.xlsx,.xls"></div>
+  </div>
+  <div class="drop" id="drop">Dra och släpp filerna här, eller välj dem ovan. Alla rutor tar PDF, CSV och Excel, sidan känner igen filtypen själv. <b>Filerna läses bara i din webbläsare</b> och skickas inte vidare. Det som sparas är inställningar och månadens manuella poster.</div>
+</section>
+
+<div id="result" hidden>
+  <div class="kpis" id="kpis"></div>
+  <section class="panel" aria-labelledby="chH">
+    <div class="set-head"><h2 id="chH" style="margin:0">Att betala per bolag</h2><span class="muted" style="font-size:12.5px">Inkl moms och manuella poster. Klicka på en stapel för fakturaraderna.</span></div>
+    <div class="chart" id="chart"></div>
+    <div class="legend"><span><i style="background:var(--accent)"></i>Taxi Malmö betalar åkaren</span><span><i style="background:var(--mark)"></i>Åkaren betalar Taxi Malmö</span></div>
+  </section>
+</div>
+
+<nav class="tabs" role="tablist" id="tabs">
+  <button role="tab" data-t="akare" aria-selected="true">Åkaravräkning</button>
+  <button role="tab" data-t="kund">Kundfakturor</button>
+  <button role="tab" data-t="bil">Per bil</button>
+  <button role="tab" data-t="spec">Åkarspec</button>
+  <button role="tab" data-t="mail">Utskick</button>
+  <button role="tab" data-t="kontroll">Kontroll <span class="badge zero" id="kBadge">0</span></button>
+  <button role="tab" data-t="forsk">Förskott</button>
+  <button role="tab" data-t="hist">Historik</button>
+  <button role="tab" data-t="inst">Inställningar</button>
+</nav>
+<section id="view"></section>
+<footer class="foot"><span>Taxi Malmö AB · Fosievägen 6, Malmö · 040-911 911</span><span>Filerna läses lokalt i webbläsaren. Inställningar och manuella poster sparas för alla med åtkomst.</span></footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="../../shared/claude-shim.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+// ===== Kärnlogik: avräkning Taxi Malmö (ren JS, inga DOM-beroenden) =====
+const MANAD = ['JANUARI','FEBRUARI','MARS','APRIL','MAJ','JUNI','JULI','AUGUSTI','SEPTEMBER','OKTOBER','NOVEMBER','DECEMBER'];
+const MAN3 = ['JAN','FEB','MARS','APR','MAJ','JUNI','JULI','AUG','SEP','OKT','NOV','DEC'];
+const r2 = x => Math.round((x + Number.EPSILON) * 100) / 100;
+
+function groupLines(items) {
+  const rows = [];
+  items.filter(i => i.str && i.str.trim()).sort((a, b) => a.y - b.y || a.x - b.x).forEach(it => {
+    let r = rows.find(r => Math.abs(r.y - it.y) < 2.5);
+    if (!r) { r = { y: it.y, items: [] }; rows.push(r); }
+    r.items.push(it);
+  });
+  rows.sort((a, b) => a.y - b.y); rows.forEach(r => r.items.sort((a, b) => a.x - b.x));
+  return rows;
+}
+
+// pages: [[{str,x,y}]] med y nedåt
+function parseTaxiCaller(pages) {
+  const trips = [], fakt = {}; let acct = null, col = null, cur = null, period = null, datum = null;
+  const close = () => { if (cur) trips.push(cur); cur = null; };
+  for (const items of pages) {
+    for (const r of groupLines(items)) {
+      const text = r.items.map(i => i.str).join(' ');
+      const pm = text.match(/period:\s*(\d{4})-(\d\d)-\d\d/); if (pm && !period) period = pm[1] + '-' + pm[2];
+      const m = text.match(/Konto #(\d+)\s*-\s*(.*)$/); if (m) { close(); acct = { nr: +m[1], namn: m[2].trim() }; continue; }
+      const f = text.match(/Fakturabelopp\s+(-?[\d.]+)/); if (f && acct) fakt[acct.nr] = +f[1];
+      if (/^Start\b/.test(r.items[0].str.trim()) && /Passagerare/.test(text)) {
+        const x = n => { const it = r.items.find(i => i.str.trim().toLowerCase().startsWith(n)); return it ? it.x : null; };
+        col = { pass: x('passagerare'), rutt: x('rutt'), bil: x('bil'), forare: x('förare'), betal: x('betal') }; continue;
+      }
+      if (!col) continue;
+      if (/^\d{4}-\d\d-\d\d$/.test(text.trim())) { close(); datum = text.trim(); continue; }
+      if (/Totalt pris|Kostnadsställe|TaxiCaller|Sida \d/.test(text)) { close(); continue; }
+      const first = r.items[0];
+      const isTrip = /^\d\d:\d\d(\s|$)/.test(first.str.trim());
+      if (isTrip && /#\d{6,}/.test(text)) {
+        close();
+        const nums = r.items.filter(i => /^-?\d+\.\d\d$/.test(i.str.trim()));
+        const bilIt = r.items.find(i => i.x >= col.bil - 8 && i.x < col.forare - 3 && /^\d{1,6}$/.test(i.str.trim()));
+        let bil = bilIt ? +bilIt.str.trim() : null;
+        if (bil == null) { const mm = text.match(/\s(\d{1,6})\s+[^\d#]+?\s+[A-Z]{1,2}\s+-?[\d.]+\s/); if (mm) bil = +mm[1]; }
+        let pass = '', rutt = '';
+        for (const i of r.items) {
+          if (i === first) { pass += i.str.replace(/^\s*\d\d:\d\d\s*/, '') + ' '; continue; }
+          if (i.x < col.rutt - 3 && !/#\d{6,}/.test(i.str)) pass += i.str + ' ';
+          else if (i.x < col.bil - 3 || /#\d/.test(i.str)) rutt += i.str + ' ';
+        }
+        const inF = i => col.forare != null && i.x >= col.forare - 3 && i.x < (col.betal ?? 1e9) - 3;
+        const forare = r.items.filter(i => i !== first && inF(i)).map(i => i.str.trim()).join(' ');
+        cur = { konto: acct, bil, belopp: nums.length ? +nums[nums.length - 1].str : 0, pass, rutt, datum, forare, tid: (first.str.match(/\d\d:\d\d/) || [''])[0] };
+        continue;
+      }
+      if (cur) {
+        for (const i of r.items) {
+          const s = i.str;
+          if (i.x < col.rutt - 3) {
+            const k = s.search(/\s(till:|från:|Info:)/);
+            if (k >= 0) { cur.pass += ' ' + s.slice(0, k); cur.rutt += ' ' + s.slice(k); } else cur.pass += ' ' + s;
+          } else if (i.x < col.bil - 3) cur.rutt += ' ' + s;
+          else if (col.forare != null && i.x >= col.forare - 3 && i.x < (col.betal ?? 1e9) - 3 && cur.forare) cur.forare += ' ' + s.trim();
+        }
+      }
+    }
+  }
+  close();
+  for (const t of trips) {
+    t.bud = t.pass.toUpperCase().replace(/\s/g, '').includes('BUD');
+    const rr = t.rutt.split('Info:')[0].split('Id:')[0].toLowerCase();
+    t.utland = ['danmark', 'denmark', 'kastrup', 'københavn', 'kobenhavn', 'copenhagen', 'köpenhamn'].some(k => rr.includes(k));
+    t.typ = t.utland ? 'utland' : (t.bud ? 'bud' : 'person');
+    t.forare = String(t.forare || '').replace(/\s+,/g, ',').replace(/\s+/g, ' ').trim();
+  }
+  // Förarnamn som bröts på två rader och tappade andra raden: ersätt med det längre namnet på samma bil
+  const fn = [...new Set(trips.map(t => t.forare).filter(Boolean))];
+  for (const t of trips) { if (!t.forare) continue; const m = fn.find(n => n !== t.forare && n.startsWith(t.forare + ' ') && trips.some(x => x.forare === n && x.bil === t.bil)); if (m) t.forare = m; }
+  return { trips, fakt, period };
+}
+
+// Bambora: rader som objekt med rubriker från flik Sales
+function parseBambora(rows) {
+  // Bara transaktioner som gått igenom (STATE Cleared). Sale krediteras åkaren.
+  // Refund (återbetalning till kunden) dras från åkaren på samma bil (beslut 10 okt 2026).
+  return rows.filter(r => r['STATE'] === 'Cleared' && (r['TYPE'] == null || r['TYPE'] === 'Sale' || r['TYPE'] === 'Refund')).map(r => ({
+    tid: String(r['TERMINAL ID'] ?? '').trim(), kassor: parseInt(r['CASHIER ID'], 10),
+    belopp: Math.abs(+r['SALE AMOUNT'] || 0), dricks: r['TYPE'] === 'Refund' ? 0 : (+r['TIP'] || 0), datum: String(r['TRANSACTION DATE'] ?? ''),
+    ...(r['TYPE'] === 'Refund' ? { refund: true } : {})
+  }));
+}
+
+// TaxiCaller debiteringskunder (CSV): Körnings-id, Vehicle number, konto Nr, Totalsumma, Passagerare, Lämnad, Upphämtningsplats, Avlämningsaddress
+function parseTcCsv(rows, namn = {}) {
+  const trips = [];
+  for (const r of rows) {
+    const nr = String(r['konto Nr'] ?? '').trim(); if (!nr) continue;
+    const l = String(r['Lämnad'] || '').trim();
+    trips.push({ konto: { nr: /^\d+$/.test(nr) ? +nr : nr, namn: namn[nr] || 'Konto ' + nr }, bil: parseInt(r['Vehicle number'], 10), belopp: parseFloat(String(r['Totalsumma'] ?? '').replace(',', '.')) || 0,
+      pass: String(r['Passagerare'] || '').trim(), rutt: 'från: ' + String(r['Upphämtningsplats'] || '').trim() + ' till: ' + String(r['Avlämningsaddress'] || '').trim(), datum: l.slice(0, 10), tid: l.slice(11, 16) });
+  }
+  for (const t of trips) {
+    t.bud = t.pass.toUpperCase().replace(/\s/g, '').includes('BUD');
+    const rr = t.rutt.toLowerCase();
+    t.utland = ['danmark', 'denmark', 'kastrup', 'københavn', 'kobenhavn', 'copenhagen', 'köpenhamn'].some(k => rr.includes(k));
+    t.typ = t.utland ? 'utland' : (t.bud ? 'bud' : 'person');
+  }
+  const ds = trips.map(t => t.datum).filter(d => /^\d{4}-\d\d/.test(d)).sort();
+  return { trips, fakt: {}, period: ds.length ? ds[Math.floor(ds.length / 2)].slice(0, 7) : null, csv: true };
+}
+
+// TaxiCaller appbetalningar (CSV)
+function parseApp(rows) {
+  const ut = [], ej = [];
+  for (const r of rows) {
+    const bil = parseInt(r['Vehicle number'], 10), p = parseFloat(r['Price']) || 0, typ = String(r['Payment'] || '');
+    if (r['Skede'] && !/^(levererad|delivered)$/i.test(String(r['Skede']).trim())) continue;
+    const col = re => { const k = Object.keys(r).find(k => re.test(k)); return k ? String(r[k] ?? '').trim() : ''; };
+    (/app/i.test(typ) ? ut : ej).push({ bil, belopp: p, typ, datum: r['Lämnad'], id: String(r['id'] ?? r['\ufeffid'] ?? col(/^\W*id$/i)), forare: col(/förare|driver/i).replace(/\s+,/g, ','), fran: col(/upphämtning|pickup|från/i), till: col(/avlämning|dropoff|destination|till/i) });
+  }
+  return { app: ut, ejApp: ej };
+}
+
+// Öresundsbron / Sturup / CPH: räknar förekomster av reg nr eller "bil NNN" i text eller tabell
+function countPassages(text, bilar) {
+  const reg = {}; bilar.forEach(b => { if (b.reg) reg[b.reg.replace(/\s/g, '').toUpperCase()] = b.bil; });
+  const cnt = {}, okanda = {};
+  const T = text.toUpperCase();
+  const re = /\b([A-Z]{3})\s?(\d{2}[A-Z0-9])\b/g; let m;
+  while ((m = re.exec(T))) {
+    const k = m[1] + m[2];
+    if (reg[k] != null) cnt[reg[k]] = (cnt[reg[k]] || 0) + 1; else okanda[k] = (okanda[k] || 0) + 1;
+  }
+  return { cnt, okanda };
+}
+
+// Spec per förare: frivillig tjänst, aktiv från bolagets fsFrom (ÅÅÅÅ-MM)
+const fsAktiv = (B, p) => !!(B && B.fsFrom && p && p >= B.fsFrom);
+// Provmånad: alla får förarna i PDF och mail utan debitering (settings/params.fsGratis = 'ÅÅÅÅ-MM')
+const fsProv = p => !!(typeof S !== 'undefined' && S.params && S.params.fsGratis && p === S.params.fsGratis);
+const fsVisa = (B, p) => fsAktiv(B, p) || fsProv(p);
+const ymAdd = (p, n) => { const [y, m] = p.split('-').map(Number); return new Date(Date.UTC(y, m - 1 + n, 1)).toISOString().slice(0, 7); };
+function monthLabels(period) {
+  const [y, mo] = period.split('-').map(Number);
+  const vxM = (mo - 1 + 2) % 12, vxY = y + Math.floor((mo - 1 + 2) / 12);
+  return { namn: MANAD[mo - 1].charAt(0) + MANAD[mo - 1].slice(1).toLowerCase() + ' ' + y,
+    lang: MANAD[mo - 1] + y, vx: MAN3[vxM] + String(vxY).slice(2) };
+}
+
+// S = inställningar {params, bilar[], terminaler[], kassor[], bolag[]}
+// D = {tc, bamb, app, bro:{bil:antal}, sturup:{}, cph:{}, manuellt:{bolag:{forskott, oppna, rabatt}}}
+function compute(S, D) {
+  const P = S.params, period = D.tc?.period || D.period;
+  const O0 = D.oresund, cphPris = O0?.kostCph && O0?.nCph ? Math.max(P.cph, Math.ceil(O0.kostCph / O0.nCph * 100) / 100) : P.cph;
+  const L = period ? monthLabels(period) : { namn: '', lang: '', vx: '' };
+  const bilar = new Map(); S.bilar.forEach(b => bilar.set(+b.bil, { ...b, avr: (b.avr || b.bolag || '').trim() }));
+  const term = new Map(S.terminaler.map(t => [String(t.id).trim(), t.bil == null || t.bil === '' ? null : +t.bil]));
+  const kass = new Map(S.kassor.map(k => [+k.kassor, +k.bil]));
+  const pb = new Map(); const bil = b => { if (!pb.has(b)) pb.set(b, { bil: b, kort: 0, refund: 0, dricks: 0, person: 0, bud: 0, utland: 0, app: 0, bro: 0, sturup: 0, cph: 0 }); return pb.get(b); };
+  const kontroll = [];
+  const okandTerm = {};
+  for (const t of (D.bamb || [])) {
+    let b = term.has(t.tid) ? term.get(t.tid) : (kass.has(t.kassor) ? kass.get(t.kassor) : t.kassor);
+    if (b == null || !bilar.has(b)) { const k = '…' + t.tid.slice(-6) + ' / kassör ' + t.kassor; okandTerm[k] = (okandTerm[k] || 0) + (t.refund ? -t.belopp : t.belopp); continue; }
+    const x = bil(b);
+    // kort = netto (köp minus återbetalningar), refund = återbetalt belopp
+    if (t.refund) { x.kort -= t.belopp; x.refund += t.belopp; } else { x.kort += t.belopp; x.dricks += t.dricks; }
+  }
+  for (const t of (D.tc?.trips || [])) bil(t.bil)[t.typ] += t.belopp;
+  for (const a of (D.app?.app || [])) bil(a.bil).app += a.belopp;
+  for (const k of ['bro', 'sturup', 'cph']) for (const [b, n] of Object.entries(D[k] || {})) if (n) bil(+b)[k] += +n;
+  for (const [b, pr] of Object.entries(D.sturupRad || {})) if (!(D.sturup && D.sturup[b] != null)) bil(+b).sturup += Object.values(pr).reduce((a, n) => a + n, 0);
+  for (const [b, x] of pb) {
+    const inf = bilar.get(b);
+    x.reg = inf?.reg || ''; x.bolag = inf ? inf.avr : '(saknas i bilregistret)';
+    if (!inf) kontroll.push({ niva: 'fel', typ: 'Bil saknas i bilregistret', vad: 'Bil ' + b, belopp: x.kort + x.person + x.bud + x.utland + x.app, atgard: 'Lägg till bilen under Inställningar, Bilar.' });
+  }
+  for (const [k, v] of Object.entries(okandTerm)) kontroll.push({ niva: 'fel', typ: 'Kortbetalningar utan bil', vad: 'Terminal ' + k, belopp: v, atgard: 'Koppla terminalen till en bil under Inställningar, Terminaler.' });
+
+  const man = D.manuellt || {};
+  const RK = D.skuldMed ? D.reskontra : null, rkBy = {};
+  if (D.reskontra && !D.skuldMed) kontroll.push({ niva: 'info', typ: 'Tidigare skulder räknas inte med', vad: 'Kundreskontra ' + (D.reskontra.datum || '') + ' är inläst men används inte denna månad', belopp: null, atgard: 'Bocka i "Räkna in tidigare skulder" i ruta 6 först när ekonomen har registrerat alla betalningar i Visma.' });
+  if (RK) for (const p of RK.poster) (rkBy[String(p.kn)] = rkBy[String(p.kn)] || []).push(p);
+  const nrm = s => deacc(s).replace(/[^A-ZÅÄÖ0-9]/g, '').replace(/AKTIEBOLAG$|AB$/, '');
+  const used = new Set();
+  const reskFor = B => {
+    if (!RK) return [];
+    const out = [];
+    const kns = [String(B.kn ?? ''), ...String(B.kn2 ?? '').split(/[,\s]+/)].filter(Boolean);
+    for (const k of kns) for (const p of (rkBy[k] || [])) { out.push(p); used.add(k); }
+    for (const [k, L] of Object.entries(rkBy)) if (!kns.includes(k) && (!k.startsWith('9119') || !B.kn) && L[0] && nrm(L[0].namn) === nrm(B.namn)) { L.forEach(p => out.push({ ...p, via: true })); used.add(k); }
+    return out.sort((a, b) => a.fdat.localeCompare(b.fdat));
+  };
+  const bolag = [];
+  const bolagNamn = new Set(S.bolag.map(b => b.namn));
+  for (const B of S.bolag) {
+    const cars = [...pb.values()].filter(x => x.bolag === B.namn).sort((a, b) => a.bil - b.bil);
+    const sum = k => cars.reduce((a, x) => a + x[k], 0);
+    const rows = [];
+    const add = (art, text, antal, apris, moms) => { const s = r2(antal * apris); if (Math.abs(s) >= 0.005) rows.push({ art, text, antal, apris: r2(apris), summa: s, moms }); };
+    const M = man[B.namn] || {};
+    // Växelavgift tas i förskott: avräkningsmånad M tar ut avgiften för M+2 (samma linje för alla).
+    // Undantag vxInn (INNEVARANDE): M+1. Gratis t.o.m. jämförs mot avgiftsmånaden.
+    // Efterdebitering: antal bilar som saknades på förra avräkningen (förra avgiftsmånaden), räknat per bil.
+    const off = +B.vxInn ? 1 : 2, inn = +B.vxInn ? ' INNEVARANDE' : '';
+    const vxP = period ? ymAdd(period, off) : null, vxPrev = period ? ymAdd(period, off - 1) : null;
+    const lab = q => MAN3[+q.slice(5, 7) - 1] + q.slice(2, 4);
+    const gratisFor = p => B.gratisTom === 'alltid' || (!!B.gratisTom && !!p && p <= B.gratisTom);
+    const vxAntal = gratisFor(vxP) ? 0 : (+B.vx || 0), rabPct = Math.min(100, Math.max(0, +B.vxRab || 0));
+    const vxBrutto = r2(vxAntal * P.vx * (1 - rabPct / 100));
+    const vxSumma = r2(vxBrutto - (+M.rabatt || 0));
+    const prevB = D.prevSummary ? (D.prevSummary.bolag || []).find(x => String(x.kn) === String(B.kn) || x.namn === B.namn) : null;
+    const prevHar = !!(prevB && (prevB.rows || []).length);
+    // Antal bilar med ordinarie växelavgift på förra avräkningen (oavsett hur månaden är skriven i texten; efterdebiteringar räknas inte)
+    const nPrevVx = prevHar ? prevB.rows.filter(r => r.art === 1 && !/efterdeb/i.test(String(r.text))).reduce((a, r) => a + (+r.antal || 0), 0) : 0;
+    const nPrevTl = prevHar ? prevB.rows.filter(r => r.art === 8 && !/saknades|kredit/i.test(String(r.text))).reduce((a, r) => a + (+r.antal || 0), 0) : 0;
+    const ovr = v => v !== undefined && v !== null && v !== '';
+    let nBak = vxAntal && prevHar && !gratisFor(vxPrev) ? Math.max(0, vxAntal - nPrevVx) : 0;
+    if (+M.ejBak) nBak = 0; if (ovr(M.vxBak)) nBak = Math.max(0, +M.vxBak || 0);
+    const bak = nBak > 0;
+    if (bak) rows.push({ art: 1, text: 'Växelavgift Åkare ' + lab(vxPrev) + inn + ' (efterdebitering)', antal: nBak, apris: P.vx, summa: r2(nBak * P.vx * (1 - rabPct / 100)), moms: 25, bak: true, ...(rabPct ? { rabattPct: rabPct } : {}) });
+    if (vxAntal) rows.push({ art: 1, text: 'Växelavgift Åkare ' + lab(vxP) + inn, antal: vxAntal, apris: P.vx, summa: vxSumma, moms: 25, rabatt: +M.rabatt || 0, ...(rabPct ? { rabattPct: rabPct } : {}) });
+    add(8, 'Taklampa hyra', B.tl, P.tl, 25);
+    let nTlBak = (+B.tl || 0) && prevHar && nPrevVx > 0 ? Math.max(0, (+B.tl || 0) - nPrevTl) : 0;
+    if (ovr(M.tlBak)) nTlBak = Math.max(0, +M.tlBak || 0);
+    if (nTlBak) { add(8, 'Taklampa hyra ' + lab(ymAdd(period, 1)) + ' saknades', nTlBak, P.tl, 25); rows[rows.length - 1].bak = true; }
+    if (fsAktiv(B, period)) { const nb = cars.filter(x => x.person + x.bud + x.utland + x.app !== 0).length; add(57, 'Specifikation per förare ' + L.lang, nb, P.fs ?? 99, 25); }
+    add(50, 'Krediter persontransport', 1, -sum('person') / (1 + P.m6), 6);
+    add(51, 'Krediter bud', 1, -sum('bud') / (1 + P.m25), 25);
+    add(54, 'Krediter Utland', 1, -sum('utland'), 0);
+    for (const x of cars) add(52, 'Kontokort bil ' + x.bil, 1, -(x.kort + x.refund), 0);
+    for (const x of cars) if (x.refund) { add(52, 'Återbetalning kort bil ' + x.bil, 1, x.refund, 0); kontroll.push({ niva: 'info', typ: 'Återbetalning kort dras från åkaren', vad: B.namn + ', bil ' + x.bil, belopp: r2(x.refund), atgard: 'Refund i Bambora (pengarna gick tillbaka till kunden). Egen rad art 52, 0 % moms. Ligger felet hos centralen: lägg en kreditrad under Övriga rader.' }); }
+    for (const x of cars) add(56, 'Dricks bil ' + x.bil, 1, -x.dricks, 0);
+    add(55, 'In app payment', 1, -sum('app'), 0);
+    const bas = sum('kort') + sum('person') + sum('bud') + sum('utland') + sum('app');
+    add(53, 'Service avgifter', 1, P.sa * bas, 25);
+    for (const x of cars) {
+      const fp = D.broRad?.[x.bil];
+      if (fp && Object.values(fp).reduce((a, n) => a + n, 0) === x.bro) for (const [p, n] of Object.entries(fp).sort((a, b) => +a[0] - +b[0])) add(16, 'Oresundsbron ' + L.lang + ' ' + x.bil, n, +p, 25);
+      else add(16, 'Oresundsbron ' + L.lang + ' ' + x.bil, x.bro, P.bro, 25);
+    }
+    { const pr = {};
+      for (const x of cars) {
+        const fr = D.sturupRad?.[x.bil];
+        if (fr && !(D.sturup && D.sturup[x.bil] != null)) for (const [a, n] of Object.entries(fr)) pr[a] = (pr[a] || 0) + n;
+        else if (x.sturup) pr[P.sturup.toFixed(2)] = (pr[P.sturup.toFixed(2)] || 0) + x.sturup;
+      }
+      for (const [a, n] of Object.entries(pr).sort((p, q) => +p[0] - +q[0])) add(15, 'Sturup passeringar ' + L.lang, n, +a, 25);
+    }
+    add(17, 'CPH PARKERING', sum('cph'), cphPris, 25);
+    for (const f of (D.forskottRad || []).filter(f => f.med && f.bolag === B.namn).sort((a, b) => a.datum.localeCompare(b.datum)))
+      add(59, 'FÖRSKOTTSBETALNING ' + f.datum.replace(/-/g, '.'), 1, +f.belopp, 0);
+    if (+M.forskott) add(59, 'FÖRSKOTTSBETALNING', 1, +M.forskott, 0);
+    if (+M.oppna) add(null, 'Övriga poster (manuellt)', 1, +M.oppna, 0);
+    for (const e of (M.extra || [])) { if (!e || !String(e.text || '').trim()) continue; const a = e.art === '' || e.art == null ? null : +e.art;
+      const n0 = rows.length; add(isNaN(a) ? null : a, String(e.text).trim(), +e.antal || 1, +e.apris || 0, [0, 6, 25].includes(+e.moms) ? +e.moms : 25);
+      if (rows.length > n0) { rows[n0].extra = true; if (e.skuld) rows[n0].skuld = true; } }
+    for (const p of reskFor(B)) { add(null, 'F' + p.nr + ' (' + p.fdat + ')' + (p.via ? ' kundnr ' + p.kn : ''), 1, p.saldo, 0); rows[rows.length - 1].skuld = true; }
+    const bas25 = rows.filter(r => r.moms === 25).reduce((a, r) => a + r.summa, 0);
+    const bas6 = rows.filter(r => r.moms === 6).reduce((a, r) => a + r.summa, 0);
+    const netto = rows.reduce((a, r) => a + r.summa, 0);
+    const moms25 = r2(bas25 * P.m25), moms6 = r2(bas6 * P.m6);
+    const brutto = netto + moms25 + moms6, att = Math.round(brutto);
+    const auto = rows.filter(r => r.art !== 59 && r.art !== null).reduce((a, r) => a + r.summa, 0);
+    const kredit = sum('kort') + sum('person') + sum('bud') + sum('utland') + sum('app');
+    const forsk = rows.filter(r => r.art === 59).reduce((a, r) => a + r.summa, 0);
+    const skuld = r2(rows.filter(r => r.skuld).reduce((a, r) => a + r.summa, 0));
+    bolag.push({ ...B, forsk, skuld, manad: Math.round(att - skuld), bilar: cars.map(x => x.bil), rows, netto: r2(netto), moms25, moms6, oresavr: r2(att - brutto), att,
+      kredit, kort: sum('kort'), deb: sum('person') + sum('bud') + sum('utland'), app: sum('app'), bro: sum('bro'), sturup: sum('sturup'), cph: sum('cph'), aktiv: rows.length > 0 });
+    if (B.gratisTom === 'alltid') kontroll.push({ niva: 'info', typ: 'Gratis växelavgift (alltid)', vad: B.namn, belopp: null, atgard: 'Avtalad gratis växelavgift utan slutdatum.' });
+    else if (B.gratisTom && gratisFor(vxP)) { if (rows.length) kontroll.push({ niva: 'info', typ: 'Gratis växelavgift', vad: B.namn + ' t.o.m. ' + B.gratisTom, belopp: null, atgard: 'Avgiften för ' + L.vx + ' tas inte ut. Första avgiften tas i avräkningen två månader före första betalmånaden.' }); }
+    else if (B.gratisTom && !B.vx) kontroll.push({ niva: 'fel', typ: 'Gratis växelavgift har gått ut', vad: B.namn + ' (gratis t.o.m. ' + B.gratisTom + ')', belopp: null, atgard: 'Sätt antal växelavgift under Inställningar, Bolag.' });
+    else if (!B.vx && kredit > 0) kontroll.push({ niva: 'info', typ: 'Krediter men ingen växelavgift', vad: B.namn, belopp: kredit, atgard: 'Kontrollera om bolaget ska avräknas denna månad.' });
+    if (fsAktiv(B, period) && rows.some(r => r.art === 57)) kontroll.push({ niva: 'info', typ: 'Spec per förare debiteras', vad: B.namn, belopp: rows.find(r => r.art === 57).summa, atgard: 'Art 57, antal bilar med körningar i månaden.' });
+    if (bak) kontroll.push({ niva: 'info', typ: 'Växelavgift efterdebiteras', vad: B.namn + ': ' + nBak + ' st ' + lab(vxPrev) + ' saknades i förra avräkningen' + (prevHar ? ' (där fanns ' + nPrevVx + ' av ' + vxAntal + ')' : ''), belopp: r2(nBak * P.vx * (1 - rabPct / 100)), atgard: 'Tas med som extra rad art 1. Stämmer det inte: skriv rätt antal i "Efterdebitering växelavgift, antal" under bolagets manuella poster (0 = ingen).' });
+    if (nTlBak) kontroll.push({ niva: 'info', typ: 'Taklampa efterdebiteras', vad: B.namn + ': ' + nTlBak + ' st saknades i förra avräkningen (där fanns ' + nPrevTl + ' av ' + B.tl + ')', belopp: r2(nTlBak * P.tl), atgard: 'Extra rad art 8. Stämmer det inte: skriv rätt antal i "Efterdebitering taklampa, antal" (0 = ingen).' });
+    if (rabPct) kontroll.push({ niva: 'info', typ: 'Rabatt på växelavgift', vad: B.namn + ': ' + rabPct + ' %', belopp: null, atgard: 'Skriv rabatten i Vismas rabattkolumn på raden art 1.' });
+  }
+  if (RK) {
+    const [py, pm] = (period || '0000-00').split('-').map(Number), last = period ? new Date(Date.UTC(py, pm, 0)).toISOString().slice(0, 10) : null;
+    if (last && RK.datum !== last) kontroll.push({ niva: 'info', typ: 'Kundreskontran har annat datum', vad: 'Reskontradatum ' + RK.datum + ', avräkningsmånaden slutar ' + last, belopp: null, atgard: 'Ta ut kundreskontralistan per sista dagen i avräkningsmånaden.' });
+    const prev = D.prevSummary ? Object.fromEntries((D.prevSummary.bolag || []).map(b => [b.namn, b.skuld || 0])) : null;
+    for (const b of bolag) {
+      if (!b.skuld) continue;
+      if (b.skuld >= (P.skuldGrans || 50000)) kontroll.push({ niva: 'fel', typ: 'Hög skuld hos åkare', vad: b.namn, belopp: b.skuld, atgard: 'Obetalda avräkningar enligt kundreskontran. Följ upp betalning eller kvitta mot kommande utbetalningar.' });
+      if (prev && prev[b.namn] != null && b.skuld > prev[b.namn] + 1) kontroll.push({ niva: 'info', typ: 'Skulden har ökat', vad: b.namn + ': ' + r2(prev[b.namn]) + ' kr blir ' + b.skuld + ' kr', belopp: r2(b.skuld - prev[b.namn]), atgard: 'Kontrollera varför förra avräkningen inte är betald.' });
+      if (b.skuld < 0) kontroll.push({ niva: 'info', typ: 'Taxi Malmö har obetald skuld till åkare', vad: b.namn, belopp: b.skuld, atgard: 'Tidigare avräkning är inte utbetald. Den räknas med i Att betala.' });
+    }
+    const bolagKn = new Set(S.bolag.flatMap(b => [String(b.kn ?? ''), ...String(b.kn2 ?? '').split(/[,\s]+/)]).filter(Boolean));
+    for (const [k, L] of Object.entries(rkBy)) if (k.startsWith('9119') && !bolagKn.has(k) && !used.has(k)) {
+      const s = r2(L.reduce((a, p) => a + p.saldo, 0)); if (s) kontroll.push({ niva: 'info', typ: 'Tidigare åkare med öppet saldo', vad: k + ' ' + L[0].namn + ' (' + L.length + ' fakturor, äldsta ' + L[0].fdat + ')', belopp: s, atgard: s > 0 ? 'Gammal fordran. Överväg inkasso eller bortskrivning.' : 'Taxi Malmö är skyldig. Kontrollera och betala ut.' });
+    }
+  }
+  const perBolagKredit = {};
+  for (const x of pb.values()) perBolagKredit[x.bolag] = (perBolagKredit[x.bolag] || 0) + x.kort + x.person + x.bud + x.utland + x.app;
+  for (const [n, v] of Object.entries(perBolagKredit)) if (v && !bolagNamn.has(n) && n !== 'IGNORERA' && n !== '(saknas i bilregistret)')
+    kontroll.push({ niva: 'fel', typ: 'Bolag saknas under Bolag', vad: n, belopp: v, atgard: 'Lägg till bolaget under Inställningar, Bolag, annars faktureras det inte.' });
+  { const ej = {}; for (const e of (D.app?.ejApp || [])) { const x = ej[e.bil] = ej[e.bil] || { n: 0, s: 0 }; x.n++; x.s += +e.belopp || 0; }
+    for (const [b, x] of Object.entries(ej)) kontroll.push({ niva: 'info', typ: 'Kortbetalning utanför appen (räknas inte)', vad: 'Bil ' + b + ', ' + x.n + ' st', belopp: r2(x.s), atgard: 'Troligen egen terminal. Ingen åtgärd om det stämmer.' }); }
+  if (D.oresund) {
+    const O = D.oresund, nb = Object.values(D.bro || {}).reduce((a, x) => a + (+x || 0), 0), nc = Object.values(D.cph || {}).reduce((a, x) => a + (+x || 0), 0);
+    for (const [r, n] of Object.entries(O.okandaBro || {})) kontroll.push({ niva: 'fel', typ: 'Bropassager på okänt reg nr', vad: r + ', ' + n + ' passager', belopp: n * P.bro, atgard: 'Lägg till bilen med reg nr under Inställningar, Bilar, annars faktureras passagerna inte.' });
+    for (const [r, n] of Object.entries(O.okandaCph || {})) kontroll.push({ niva: 'fel', typ: 'CPH-hämtningar på okänt reg nr', vad: r + ', ' + n + ' st', belopp: n * P.cph, atgard: 'Lägg till bilen med reg nr under Inställningar, Bilar.' });
+    if (O.manader?.length && period && !O.manader.includes(period))
+      kontroll.push({ niva: 'info', typ: 'Brofakturan avser andra månader', vad: 'Faktura ' + (O.fakturadatum || '') + ', passager ' + O.manader.join(', '), belopp: null, atgard: 'Kontrollera att det är rätt brofaktura för ' + L.namn + '.' });
+    const kontor = Object.entries(O.ovriga || {}).filter(([k]) => k.startsWith('bro|')).reduce((s, [, n]) => s + n, 0) * P.bro;
+    if (O.prisAndring) kontroll.push({ niva: 'info', typ: 'Öresundsbron: nytt pris', vad: 'Fakturan har ' + O.prisAndring.till + ' kr per passage (tidigare ' + O.prisAndring.fran + ' kr)', belopp: null, atgard: 'Priset under Inställningar är uppdaterat. Åkarna debiteras fakturans pris.' });
+    const nbx = bolag.reduce((s, b) => s + b.rows.filter(r => r.art === 16).reduce((a, r) => a + r.summa, 0), 0);
+    if (O.kostBro != null) { const d = r2(nbx + kontor - O.kostBro);
+      kontroll.push({ niva: Math.abs(d) > 1 ? 'fel' : 'info', typ: 'Öresundsbron: vidarefakturerat mot kostnad', vad: nb + ' passager, ' + r2(nbx) + ' kr' + (kontor ? ' + kontorets brickor ' + kontor + ' kr' : '') + ' mot fakturans ' + O.kostBro + ' kr exkl moms', belopp: d, atgard: d ? 'Passager saknas eller är fel kopplade. Diff ska vara 0.' : 'Stämmer.' }); }
+    if (O.kostCph != null) kontroll.push({ niva: r2(nc * cphPris - O.kostCph) < -1 ? 'fel' : 'info', typ: 'CPH parkering: vidarefakturerat mot kostnad', vad: nc + ' st x ' + cphPris + ' kr mot fakturans ' + O.kostCph + ' kr exkl moms', belopp: r2(nc * cphPris - O.kostCph), atgard: 'Priset per hämtning följer fakturans kostnad (avrundat uppåt), så Taxi Malmö lägger aldrig ut.' });
+  }
+  if (D.oresund?.ovriga) for (const [k, n] of Object.entries(D.oresund.ovriga)) { const [t, o] = k.split('|');
+    kontroll.push({ niva: 'info', typ: (t === 'bro' ? 'Bropassager' : 'CPH') + ' utan bil (kontorets bricka)', vad: o + ', ' + n + ' st', belopp: n * (t === 'bro' ? P.bro : P.cph), atgard: 'Faktureras inte vidare. Kontrollera att brickan är Taxi Malmös egen.' }); }
+  if (D.sturupInfo) { const I = D.sturupInfo;
+    for (const o of I.okanda || []) kontroll.push({ niva: 'fel', typ: 'Sturup: bil saknas i bilregistret', vad: 'Bil ' + o.bil + ' ' + o.reg + ', ' + o.antal + ' passager', belopp: o.belopp, atgard: 'Lägg till bilen under Inställningar, Bilar, annars faktureras passagerna inte.' });
+    for (const a of I.avvik || []) kontroll.push({ niva: 'info', typ: 'Sturup: reg nr och bilnummer stämmer inte', vad: a.bilFil != null ? `Filen säger bil ${a.bilFil} med ${a.regFil}, registret säger bil ${a.bil}` : `Bil ${a.bil}: filen har ${a.regFil}, registret har ${a.regReg}`, belopp: null, atgard: a.bilFil != null ? 'Avräknat på bilen enligt reg nr. Kontrollera.' : 'Avräknat på bilnumret. Uppdatera reg nr i bilregistret om bilen bytts.' });
+    if (I.period && period && I.period !== period) kontroll.push({ niva: 'info', typ: 'Sturupfakturan avser annan månad', vad: 'Passager ' + I.period, belopp: null, atgard: 'Kontrollera att det är rätt fil för ' + L.namn + '.' });
+  }
+  // Avstämning mot Visma (facit inläst för månaden): per faktura och artikel
+  if (D.visma?.bolag) {
+    const AN = { 1: 'växelavgift', 8: 'taklampa', 15: 'Sturup', 16: 'bron', 17: 'CPH', 50: 'krediter person', 51: 'krediter bud', 52: 'kontokort', 53: 'serviceavgift', 54: 'krediter utland', 55: 'app', 56: 'dricks', 57: 'spec per förare', 59: 'förskott' };
+    const used = new Set();
+    for (const b of bolag.filter(x => x.aktiv)) {
+      const v = D.visma.bolag.find(x => String(x.kn) === String(b.kn)); if (!v) { kontroll.push({ niva: 'fel', typ: 'Saknas i Visma', vad: b.namn + ' (kundnr ' + b.kn + ')', belopp: b.att, atgard: 'Avräkningen finns inte bland Vismas fakturor för månaden.' }); continue; }
+      used.add(v);
+      const d = Math.round(b.att - v.att); if (Math.abs(d) < 2) continue;
+      const sa = {}, sv = {}; for (const r of b.rows) { const k = r.art == null ? (r.skuld ? 'skuld' : 'övrigt') : r.art; sa[k] = (sa[k] || 0) + r.summa; }
+      for (const r of v.rows || []) { const k = r.art == null ? (/^F\d{5}/.test(r.text) ? 'skuld' : 'övrigt') : r.art; sv[k] = (sv[k] || 0) + (+r.summa || 0); }
+      const det = [...new Set([...Object.keys(sa), ...Object.keys(sv)])].map(k => [k, r2((sa[k] || 0) - (sv[k] || 0))]).filter(([, x]) => Math.abs(x) >= 1).map(([k, x]) => (AN[k] || (isNaN(+k) ? k : 'art ' + k)) + ' ' + (x > 0 ? '+' : '') + x).join(', ');
+      kontroll.push({ niva: 'fel', typ: 'Avviker mot Visma', vad: b.namn + ', faktura ' + (v.nr || '') + (det ? ': ' + det + ' (exkl moms)' : ''), belopp: d, atgard: 'Sidan minus Visma, inkl moms. Rätta i Visma eller lägg mellanskillnaden på nästa månad.' });
+    }
+    for (const v of D.visma.bolag) if (!used.has(v)) kontroll.push({ niva: 'info', typ: 'Finns bara i Visma', vad: (v.namn || '') + ' faktura ' + (v.nr || '') + ' (kundnr ' + v.kn + ')', belopp: v.att, atgard: 'Kontrollera bolaget under Inställningar, Bolag (kundnr).' });
+  }
+  const tip = [...pb.values()].reduce((a, x) => a + x.dricks, 0);
+  if (tip) kontroll.push({ niva: 'info', typ: 'Dricks krediteras åkarna (art 56, 0 % moms)', vad: 'Alla bilar', belopp: tip, atgard: 'Åkeriet betalar ut dricksen till föraren som lön.' });
+
+  // Kundfakturor
+  const kon = new Map();
+  for (const t of (D.tc?.trips || [])) {
+    const k = t.konto?.nr; if (!kon.has(k)) kon.set(k, { nr: k, namn: t.konto?.namn, n: 0, person: 0, bud: 0, utland: 0 });
+    const x = kon.get(k); x.n++; x[t.typ] += t.belopp;
+    (x.korn = x.korn || []).push({ d: t.datum, t: t.tid, p: t.pass.replace(/\s+/g, ' ').trim().slice(0, 60), r: t.rutt.split('Info:')[0].split('Id:')[0].replace(/#\d+\s*/, '').replace(/\s+/g, ' ').trim().slice(0, 160), b: t.bil, s: t.belopp, y: t.typ[0], f: String(t.forare || '').replace(/\s+/g, ' ').trim() });
+  }
+  const kund = [...kon.values()].map(x => {
+    const tot = x.person + x.bud + x.utland, tcb = D.tc?.fakt?.[x.nr];
+    const o = { ...x, r592: r2(x.person / (1 + P.m6)), r593: r2(x.bud / (1 + P.m25)), r594: r2(x.utland), total: r2(tot), taxicaller: tcb ?? null, diff: tcb == null ? null : r2(tot - tcb) };
+    if (o.diff) kontroll.push({ niva: 'fel', typ: 'Kundfaktura avviker mot TaxiCaller', vad: 'Konto ' + x.nr + ' ' + x.namn, belopp: o.diff, atgard: 'Kontrollera körningarna i TaxiCaller.' });
+    return o;
+  }).sort((a, b) => (a.namn || '').localeCompare(b.namn || '', 'sv'));
+
+  const aktiva = bolag.filter(b => b.aktiv);
+  const kpi = {
+    kundTotal: r2(kund.reduce((a, k) => a + k.total, 0)), kundAntal: kund.length, korningar: (D.tc?.trips || []).length,
+    kort: r2(bolag.reduce((a, b) => a + b.kort, 0)), app: r2(bolag.reduce((a, b) => a + b.app, 0)),
+    vx: aktiva.reduce((a, b) => a + b.rows.filter(r => r.art === 1).reduce((s, r) => s + r.summa, 0), 0),
+    serv: r2(aktiva.reduce((a, b) => a + (b.rows.find(r => r.art === 53)?.summa || 0), 0)),
+    skuldPos: aktiva.reduce((a, b) => a + Math.max(0, b.skuld || 0), 0), skuldNeg: aktiva.reduce((a, b) => a + Math.min(0, b.skuld || 0), 0),
+    utbet: aktiva.filter(b => b.att < 0).reduce((a, b) => a + b.att, 0), inbet: aktiva.filter(b => b.att > 0).reduce((a, b) => a + b.att, 0),
+    fel: kontroll.filter(k => k.niva === 'fel').length
+  };
+  return { period, L, perBil: [...pb.values()].sort((a, b) => a.bil - b.bil), bolag, kund, kontroll, kpi };
+}
+
+if (typeof module !== 'undefined') module.exports = { parseTcCsv, parseTaxiCaller, parseBambora, parseApp, countPassages, compute, monthLabels, groupLines };
+
+// Øresundsbro Konsortiet samlingsfaktura (bro + CPH parkering)
+function parseOresund(pages) {
+  const lines = pages.flatMap(p => groupLines(p).map(r => r.items.map(i => i.str).join(' ').replace(/\s+/g, ' ').trim()));
+  const txt = lines.join('\n');
+  if (!/Øresundsbro|Oresundsbro|oresundpay/i.test(txt)) return null;
+  const num = s => +String(s).replace(/\s/g, '').replace(',', '.');
+  const fd = (txt.match(/Fakturadatum:?\s*(\d{4}-\d\d-\d\d)/) || [])[1] || null;
+  const kb = txt.match(/Øresundsbro Konsortiet SEK (\d{1,3}(?: \d{3})*,\d\d)/);
+  const kc = txt.match(/CPH Parkering[^\n]*?\s(\d{1,3}(?: \d{3})*,\d\d)\s*$/m);
+  const bro = {}, cph = {}, tag = {}, man = {}, ovriga = {}, broPris = {};
+  let sect = 'bro';
+  for (const l of lines) {
+    if (/Leverantör/.test(l) && /CPH/.test(l)) sect = 'cph';
+    else if (/Leverantör/.test(l) && /Øresundsbro/.test(l)) sect = 'bro';
+    const d = l.match(/(\d{4}-\d\d)-\d\d \d\d:\d\d/);
+    if (!d || !/Klass|Pick-up|fee/i.test(l)) continue;
+    const t = /Klass/.test(l) ? 'bro' : 'cph';
+    man[d[1]] = (man[d[1]] || 0) + 1;
+    const m = l.match(/\b([A-Z]{3}\s?\d{2}[A-Z0-9])\s?\/\s?(?:ID|BIL)?\s?(\d*)/);
+    if (m) {
+      const reg = m[1].replace(/\s/g, '');
+      (t === 'bro' ? bro : cph)[reg] = ((t === 'bro' ? bro : cph)[reg] || 0) + 1;
+      if (t === 'bro') { const pm = l.match(/(\d{1,3}(?: \d{3})*,\d\d)\s*$/); if (pm) { const p = (+pm[1].replace(/\s/g, '').replace(',', '.')).toFixed(2); (broPris[reg] = broPris[reg] || {})[p] = (broPris[reg][p] || 0) + 1; } }
+      if (m[2] && m[2].length >= 3) tag[reg] = +m[2];
+    } else {
+      const o = (l.match(/\/\s*([^\d/][^/]*?)\s+25,00/) || [])[1] || 'okänd bricka';
+      const k = t + '|' + o.trim(); ovriga[k] = (ovriga[k] || 0) + 1;
+    }
+  }
+  return { fakturadatum: fd, manader: Object.keys(man).sort(), bro, cph, tag, ovriga, broPris,
+    kostBro: kb ? num(kb[1]) : null, kostCph: kc ? num(kc[1]) : null };
+}
+// reg -> bil via bilregistret, annars bilnumret i fakturans text
+function mapRegCounts(counts, tag, bilar) {
+  const reg = {}; bilar.forEach(b => { if (b.reg) reg[String(b.reg).replace(/\s/g, '').toUpperCase()] = +b.bil; });
+  const nr = new Set(bilar.map(b => +b.bil));
+  const ut = {}, okanda = {};
+  for (const [r, n] of Object.entries(counts)) {
+    const b = reg[r] ?? (tag[r] && nr.has(tag[r]) ? tag[r] : null);
+    if (b != null) ut[b] = (ut[b] || 0) + n; else okanda[r + (tag[r] ? ' (bil ' + tag[r] + ')' : '')] = n;
+  }
+  return { ut, okanda };
+}
+
+// Swedavia Malmö Airport (Sturup): block per bil med passager och pris inkl moms
+function parseSturup(pages) {
+  const lines = pages.flatMap(p => groupLines(p).map(r => r.items.map(i => i.str).join(' ').replace(/\s+/g, ' ').trim()));
+  const txt = lines.join('\n');
+  if (!/Swedavia|Malmö Airport/i.test(txt)) return null;
+  const pm = txt.match(/Debiteras[^:]*:\s*(\d\d)\.(\d\d)\.(\d\d)/);
+  const period = pm ? '20' + pm[3] + '-' + pm[2] : null;
+  const cars = []; let cur = null;
+  for (const l of lines) {
+    // Rubrik per bil: "Bil 466 ABC11A (320) Taxi klass 2", "Bil 447 ABC22B (626) Taxi (faktureras)", "Bil ? ABC33C (1735) ...", " ABC44D (1635) ..."
+    const h = l.match(/^(?:Bil\s+(\d+|\?)\s+)?([A-Z]{3}\s?\d{2}[A-Z0-9])\s*\(\d+\)\s*Taxi\s*(?:klass\s*(\d)|\(faktureras\))/);
+    if (h) { const reg = h[2].replace(/\s/g, ''), bn = h[1] && h[1] !== '?' ? +h[1] : null; cur = cars.find(c => c.reg === reg); if (!cur) { cur = { bil: bn, reg, klass: h[3] ? +h[3] : null, priser: [] }; cars.push(cur); } continue; }
+    const r = l.match(/^P\d.*?\d\d\.\d\d\.\d\d \d\d:\d\d.*?(\d+,\d\d)\s*-+\s*$/);
+    if (r && cur) cur.priser.push(+r[1].replace(',', '.'));
+  }
+  const total = cars.reduce((a, c) => a + c.priser.reduce((x, y) => x + y, 0), 0);
+  const antal = cars.reduce((a, c) => a + c.priser.length, 0);
+  if (!antal) return null;
+  return { period, cars, total: Math.round(total * 100) / 100, antal };
+}
+// Koppla Sturup-bilar: reg nr först, annars bilnumret. Ger {bil: {apris_exkl: antal}}
+function mapSturup(st, bilar, m25) {
+  const reg = {}; bilar.forEach(b => { if (b.reg) reg[String(b.reg).replace(/\s/g, '').toUpperCase()] = +b.bil; });
+  const nr = new Map(bilar.map(b => [+b.bil, b]));
+  const rad = {}, okanda = [], avvik = [];
+  for (const c of st.cars) {
+    let b = reg[c.reg];
+    if (b == null && c.bil != null && nr.has(c.bil)) { b = c.bil; avvik.push({ bil: c.bil, regFil: c.reg, regReg: nr.get(c.bil).reg }); }
+    else if (b != null && c.bil != null && b !== c.bil) avvik.push({ bil: b, regFil: c.reg, bilFil: c.bil });
+    if (b == null) { okanda.push({ bil: c.bil, reg: c.reg, antal: c.priser.length, belopp: c.priser.reduce((a, x) => a + x, 0) }); continue; }
+    rad[b] = rad[b] || {};
+    for (const p of c.priser) { const k = (Math.round(p / (1 + m25) * 100) / 100).toFixed(2); rad[b][k] = (rad[b][k] || 0) + 1; }
+  }
+  return { rad, okanda, avvik };
+}
+if (typeof module !== 'undefined') Object.assign(module.exports, { parseOresund, mapRegCounts, parseSturup, mapSturup });
+
+// ===== Kontoutdrag =====
+function parseAmount(s) {
+  if (typeof s === 'number') return s;
+  let t = String(s ?? '').replace(/\u2212/g, '-').replace(/\s|\u00a0/g, '').replace(/kr|SEK/gi, '');
+  if (!/\d/.test(t)) return null;
+  if (/,\d{1,2}$/.test(t)) t = t.replace(/\./g, '').replace(',', '.'); else t = t.replace(/,/g, '');
+  const n = parseFloat(t); return isNaN(n) ? null : n;
+}
+function parseDate(s) {
+  if (s instanceof Date) return s.toISOString().slice(0, 10);
+  if (typeof s === 'number' && s > 30000 && s < 80000) { const d = new Date(Date.UTC(1899, 11, 30) + s * 864e5); return d.toISOString().slice(0, 10); }
+  const t = String(s ?? '').trim();
+  let m = t.match(/^(\d{4})-?(\d\d)-?(\d\d)/); if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+  m = t.match(/^(\d\d)[./-](\d\d)[./-](\d{2,4})/); if (m) return `${m[3].length === 2 ? '20' + m[3] : m[3]}-${m[2]}-${m[1]}`;
+  m = t.match(/^(\d\d)(\d\d)(\d\d)$/); if (m) return `20${m[1]}-${m[2]}-${m[3]}`;
+  return null;
+}
+// rows: array av arrayer (första raderna kan vara rubriker)
+function parseBankRows(rows) {
+  let hi = -1, cD = -1, cA = -1, cT = [];
+  for (let i = 0; i < Math.min(rows.length, 30); i++) {
+    const h = rows[i].map(x => String(x ?? '').toLowerCase());
+    const d = h.findIndex(x => /(transaktions|bokförings|reskontra|valuta)?dat|bokföringsdag|^dag$/.test(x));
+    const a = h.findIndex(x => /^belopp|belopp$|^summa|amount/.test(x));
+    if (d >= 0 && a >= 0) { hi = i; cD = d; cA = a; cT = h.map((x, j) => /text|meddelande|beskrivning|mottagare|referens|namn|specifikation|avsändare/.test(x) ? j : -1).filter(j => j >= 0); break; }
+  }
+  const out = [];
+  const start = hi >= 0 ? hi + 1 : 0;
+  for (let i = start; i < rows.length; i++) {
+    const r = rows[i]; if (!r || !r.length) continue;
+    let dat, bel, txt;
+    if (hi >= 0) { dat = parseDate(r[cD]); bel = parseAmount(r[cA]); txt = (cT.length ? cT : r.map((_, j) => j).filter(j => j !== cD && j !== cA && typeof r[j] === 'string')).map(j => String(r[j] ?? '').trim()).filter((x, k, arr) => x && arr.indexOf(x) === k).join(' '); }
+    else { const di = r.findIndex(x => parseDate(x)); if (di < 0) continue; dat = parseDate(r[di]); const nums = r.map(parseAmount).map((n, j) => ({ n, j })).filter(o => o.n != null && o.j !== di); if (!nums.length) continue; bel = nums[nums.length > 1 ? nums.length - 2 : 0].n; txt = r.filter((x, j) => j !== di && typeof x === 'string' && parseAmount(x) == null).join(' '); }
+    if (dat && bel != null) out.push({ datum: dat, text: String(txt || '').replace(/\s+/g, ' ').trim(), belopp: bel });
+  }
+  return out;
+}
+function parseBankText(text) {
+  const out = [], D = String.raw`(?:\d{4}-\d\d-\d\d|\d\d\.\d\d\.\d{2,4}|\d{6})`, A = String.raw`-?\d{1,3}(?:[  ]\d{3})*,\d\d`;
+  const re = new RegExp(String.raw`^\s*(?:\d{4}\s+)?(${D})(?:\s+${D}){0,2}\s+(.*?)\s+(${A})(?:\s+(${A}))?\s*$`);
+  for (const l of text.split('\n')) {
+    const m = l.match(re);
+    if (m && m[2] && !/saldo/i.test(m[2])) out.push({ datum: parseDate(m[1]), text: m[2].trim(), belopp: parseAmount(m[3]) });
+  }
+  return out;
+}
+const STOP = new Set(['ÖRESUNDSBRO', 'FÖRSK', 'FÖRS', 'FORSK', 'ANSTÄLLD', 'AB', 'TAXI', 'TRANSPORT', 'TRANSPORTER', 'SERVICE', 'MALMÖ', 'MALMO', 'SYD', 'OCH', 'BG', 'PG', 'BANKGIRO', 'BETALNING', 'ÖVERFÖRING', 'OVERFORING', 'FÖRSKOTT', 'LÖN', 'I', 'AKTIEBOLAG', 'HB', 'KB']);
+const deacc = s => String(s || '').toUpperCase().replace(/[ÉÈÊË]/g, 'E').replace(/[ÁÀÂ]/g, 'A').replace(/Ü/g, 'U');
+const toks = s => deacc(s).replace(/[^A-ZÅÄÖÉ0-9 ]/g, ' ').split(/\s+/).filter(t => t.length >= 3 && !STOP.has(t));
+function guessBolag(text, bolag, map) {
+  const key = deacc(text).replace(/\s+/g, ' ').trim();
+  if (map && map[key]) return { bolag: map[key], kalla: 'sparad' };
+  const T = new Set(toks(text)); let best = null, bs = 0;
+  const hit = t => [...T].some(u => u === t || (Math.min(u.length, t.length) >= 4 && (u.startsWith(t) || t.startsWith(u) || u.includes(t))));
+  for (const b of bolag) { const s = toks(b).filter(hit).length; if (s > bs) { bs = s; best = b; } }
+  return best ? { bolag: best, kalla: 'gissad' } : { bolag: '', kalla: '' };
+}
+if (typeof module !== 'undefined') Object.assign(module.exports, { parseBankRows, parseBankText, guessBolag, parseAmount, parseDate });
+
+function mapRegPrices(pris, tag, bilar) {
+  const reg = {}; bilar.forEach(b => { if (b.reg) reg[String(b.reg).replace(/\s/g, '').toUpperCase()] = +b.bil; });
+  const nr = new Set(bilar.map(b => +b.bil)); const ut = {};
+  for (const [r, pp] of Object.entries(pris || {})) {
+    const b = reg[r] ?? (tag[r] && nr.has(tag[r]) ? tag[r] : null); if (b == null) continue;
+    ut[b] = ut[b] || {}; for (const [p, n] of Object.entries(pp)) ut[b][p] = (ut[b][p] || 0) + n;
+  }
+  return ut;
+}
+if (typeof module !== 'undefined') Object.assign(module.exports, { mapRegPrices });
+
+// Visma Administration: Kundreskontralista (Uppgifter per faktura)
+function parseReskontra(pages) {
+  const lines = pages.flatMap(p => groupLines(p).map(r => r.items.map(i => i.str).join(' ').replace(/\s+/g, ' ').trim()));
+  const txt = lines.join('\n'); if (!/Kundreskontralista/i.test(txt)) return null;
+  const datum = (txt.match(/Reskontradatum:\s*(\d{4}-\d\d-\d\d)/) || [])[1] || null;
+  const A = String.raw`(-?\d{1,3}(?: \d{3})*,\d\d)`, num = s => +s.replace(/\s/g, '').replace(',', '.');
+  const poster = []; let kund = null, inv = null;
+  for (const l of lines) {
+    let m = l.match(/^(\d{3,8}) ([^\d].*)$/);
+    if (m && !/\d\d-\d\d-\d\d/.test(l) && !/Sida|Antal|Fakturerat|Kundfordran/.test(l)) { kund = { kn: m[1], namn: m[2].trim() }; inv = null; continue; }
+    m = l.match(new RegExp(String.raw`^(\d+) (\d\d-\d\d-\d\d) (\d\d-\d\d-\d\d) .*?(Faktura|Kredit\w*) ` + A + '$'));
+    if (m && kund) { inv = { kn: kund.kn, namn: kund.namn, nr: m[1], fdat: '20' + m[2], typ: m[4], belopp: num(m[5]), saldo: null }; poster.push(inv); continue; }
+    m = l.match(new RegExp('Saldo: ' + A));
+    if (m && inv && inv.saldo == null) inv.saldo = num(m[1]);
+  }
+  const open = poster.filter(p => p.saldo);
+  return { datum, antal: poster.length, poster: open.map(({ kn, namn, nr, fdat, saldo }) => ({ kn, namn, nr, fdat, saldo })) };
+}
+if (typeof module !== 'undefined') Object.assign(module.exports, { parseReskontra });
+
+// Visma Administration: utskrift av skickade fakturor (en eller flera, flersidiga). Ger facit per faktura och rad.
+function parseVismaFakturor(pages) {
+  const num = s => { const t = String(s).replace(/\s/g, '').replace(',', '.'); const n = parseFloat(t); return isNaN(n) ? null : n; };
+  const out = new Map();
+  for (const items of pages) {
+    const L = groupLines(items), txt = L.map(r => r.items.map(i => i.str).join(' ')).join('\n');
+    if (!/Fakturanummer/.test(txt) || !/Artnr/.test(txt)) continue;
+    const nr = (txt.match(/Fakturanummer\s+(\d+)/) || [])[1]; if (!nr) continue;
+    let f = out.get(nr);
+    if (!f) {
+      const ai = L.findIndex(r => /Fakturaadress/.test(r.items.map(i => i.str).join(' ')));
+      const namn = ai >= 0 ? (r => r.items.filter(i => i.x > 380).map(i => i.str).join(' ').trim())(L[ai]) : '';
+      f = { nr, kn: (txt.match(/Kundnummer\s+(\d+)/) || [])[1] || '', namn, datum: (txt.match(/Fakturadatum\s+(\d{4}-\d\d-\d\d)/) || [])[1] || '', att: null, rows: [] };
+      out.set(nr, f);
+    }
+    let inRows = false, last = null;
+    for (const r of L) {
+      const t = r.items.map(i => i.str).join(' ');
+      if (/^Artnr\b/.test(t.trim()) && /Benämning/.test(t)) { inRows = true; continue; }
+      if (!inRows) continue;
+      if (/^Netto\b/.test(t.trim()) || /Forts\.\.\./.test(t) || /Tel:/.test(t)) { inRows = false; continue; }
+      if (/^SJÄLVFAKTURA$/.test(t.trim())) continue;
+      const col = (a, b) => r.items.filter(i => i.x >= a && i.x < b).map(i => i.str.trim()).join('');
+      const art = col(0, 120), ben = r.items.filter(i => i.x >= 120 && i.x < 318).map(i => i.str.trim()).join(' ').trim();
+      const antal = col(318, 372), apris = col(372, 470), mid = col(470, 494), summa = col(494, 600);
+      const pct = (r.items.find(i => /%\s*$/.test(i.str) && i.x >= 420) || {}).str;
+      if (!art && !antal && !summa && ben && last) { last.text += ' ' + ben; continue; }
+      if (!ben && !summa) continue;
+      last = { art: /^\d+$/.test(art) ? +art : null, text: ben, antal: num(antal), apris: num(apris), summa: num(summa) };
+      if (pct) last.rabattPct = num(pct.replace('%', ''));
+      if (last.summa == null && last.antal != null && last.apris != null) last.summa = Math.round(last.antal * last.apris * (1 - (last.rabattPct || 0) / 100) * 100) / 100;
+      f.rows.push(last);
+    }
+    const ab = L.find(r => /^ATT BETALA$/.test(r.items.filter(i => i.x < 480).map(i => i.str).join(' ').trim()));
+    if (ab) f.att = num(ab.items.filter(i => i.x >= 480).map(i => i.str.trim()).join(''));
+  }
+  return [...out.values()];
+}
+if (typeof module !== 'undefined') Object.assign(module.exports, { parseVismaFakturor });
+
+
+// ===== Sidans logik =====
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const nf2 = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const nf0 = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 0 });
+const f2 = x => (x == null || x === '' ? '' : nf2.format(x));
+const f0 = x => (x == null || x === '' ? '' : nf0.format(x));
+const sgn = x => x < 0 ? 'neg' : (x > 0 ? 'pos' : '');
+const toast = (t, ms = 2600) => { const e = $('#toast'); e.textContent = t; e.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => e.hidden = true, ms); };
+const clone = o => JSON.parse(JSON.stringify(o ?? null));
+
+const DEFAULT_PARAMS = { vx: 8900, tl: 250, sa: 0.03, m6: 0.06, m25: 0.25, bro: 201, sturup: 32.6, cph: 15, fs: 99 };
+let db = null, dlc = null;
+const S = { params: { ...DEFAULT_PARAMS }, bilar: [], terminaler: [], kassor: [], bolag: [] };
+const loaded = { params: false, bilar: false, terminaler: false, bolag: false };
+const D = { tc: null, bamb: null, app: null, bro: {}, sturup: {}, cph: {}, manuellt: {}, period: null };
+const files = {};
+let lastSpec = '', specCache = {};
+const MOB = matchMedia('(max-width:700px)');
+let R = null, tab = 'akare', openB = new Set(), months = {}, monthsLoaded = false, monthApplied = null, lastSaved = '', saveT = null, filter = '';
+
+// ---------- Filinläsning ----------
+if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+async function pdfPages(buf) {
+  const doc = await pdfjsLib.getDocument({ data: new Uint8Array(buf), isEvalSupported: false }).promise;
+  const pages = [];
+  for (let p = 1; p <= doc.numPages; p++) {
+    const pg = await doc.getPage(p), vp = pg.getViewport({ scale: 1 }), tc = await pg.getTextContent();
+    pages.push(tc.items.map(i => { const t = pdfjsLib.Util.transform(vp.transform, i.transform); return { str: i.str, x: t[4], y: t[5] }; }));
+  }
+  return pages;
+}
+const pagesText = pages => pages.map(p => groupLines(p).map(r => r.items.map(i => i.str).join(' ')).join('\n')).join('\n');
+const readText = f => f.arrayBuffer().then(b => new TextDecoder('utf-8').decode(b));
+function sheetRows(buf, opts = {}) { const wb = XLSX.read(buf, { type: 'array', ...opts }); return wb; }
+
+const SLOT0 = {}; document.querySelectorAll('.slot').forEach(s => SLOT0[s.id.slice(5)] = s.querySelector('.st').textContent);
+function setSlot(id, ok, text) { const s = $('#slot-' + id); s.classList.toggle('done', !!ok); s.querySelector('.st').textContent = text; }
+
+// Kontonamn från tidigare månader (CSV-filen har bara kontonummer)
+function kontoNamn() { const m = {}; for (const k of Object.keys(months).sort()) for (const x of (months[k].summary?.kund || [])) if (x.namn && !/^Konto \d+$/.test(x.namn)) m[String(x.nr)] = x.namn; return m; }
+const unknownFile = n => toast(`Känner inte igen ${n}. Inget ändrades. Är det rätt fil? Annars skicka den till Claude.`, 9000);
+async function handleFile(f, forced) {
+  const name = f.name.toLowerCase();
+  try {
+    if (name.endsWith('.pdf')) {
+      const pages = await pdfPages(await f.arrayBuffer());
+      const txt = pagesText(pages.slice(0, 2));
+      if (/Kontotransaktioner/i.test(txt) && /Kontohavare|Bokföringsdag/i.test(txt)) { await readBank(f); return; }
+      if (forced === 'visma' && !/Fakturanummer/.test(txt)) { toast(`${f.name} ser inte ut som Vismas fakturautskrift (Utskrifter, Faktura, Skickade fakturor). Inget ändrades.`, 9000); return; }
+      if (/Körnings-id/.test(txt) && /Totalsum/.test(txt)) { toast(`${f.name} är listan Deb kunder utskriven som PDF (utan kontonamn och fakturabelopp). Använd fakturorna från TaxiCaller ("Konto #... Fakturanummer") eller listan sparad som CSV.`, 12000); return; }
+      if (/Fakturanummer/.test(txt) && /Artnr/.test(txt) && /Faktura - Kopia|SJÄLVFAKTURA|Fakturaadress/.test(pagesText(pages))) { await vismaFile(f.name, parseVismaFakturor(pages)); recompute(); return; }
+      const rk = parseReskontra(pages);
+      const ore = rk ? null : parseOresund(pages);
+      if (rk) await reskontraFile(f.name, rk);
+      else if (ore) { await oresundFile(f.name, ore); }
+      else if (/Konto #\d+/.test(txt)) {
+        const tc = parseTaxiCaller(pages); await onPeriod(tc.period);
+        D.tc = tc; files.tc = f.name; (D.src = D.src || {}).tc = { period: tc.period, fakt: tc.fakt, n: tc.trips.length };
+        if (db && months[tc.period]?.last && months[tc.period]?.summary?.kpi?.korningar === tc.trips.length) { db.doc('forare/' + tc.period).set(packForare(tripsByKonto(tc.trips))).then(() => { forareCache[tc.period] = undefined; toast('Månaden är låst. Förarna är sparade, avräkningen är oförändrad.', 6000); }).catch(() => {}); }
+        setSlot('tc', true, `${f.name}: ${D.tc.trips.length} körningar, ${Object.keys(D.tc.fakt).length} konton`);
+      } else {
+        const st = parseSturup(pages);
+        if (st) await sturupFile(f.name, st); else if (forced === 'sturup') await passageFile(f.name, pagesText(pages)); else unknownFile(f.name);
+      }
+    } else if (/\.(xlsx|xls)$/.test(name)) {
+      const wb = sheetRows(await f.arrayBuffer());
+      if (wb.Sheets['Sales']) {
+        const bamb = parseBambora(XLSX.utils.sheet_to_json(wb.Sheets['Sales']));
+        const bp = String(bamb[0]?.datum || '').slice(0, 7); if (/^\d{4}-\d\d$/.test(bp)) await onPeriod(bp);
+        D.bamb = bamb; files.bamb = f.name;
+        const rf = bamb.filter(t => t.refund), nk = bamb.length - rf.length, rtot = rf.reduce((a, t) => a + t.belopp, 0);
+        const tot = bamb.reduce((a, t) => a + (t.refund ? -t.belopp : t.belopp), 0);
+        (D.src = D.src || {}).bamb = { agg: aggBamb(bamb), n: nk, nRefund: rf.length, refund: r2(rtot), tot: r2(tot) };
+        setSlot('bamb', true, `${f.name}: ${nk} köp` + (rf.length ? `, ${rf.length} återbetalningar ${f0(rtot)} kr` : '') + `, netto ${f0(tot)} kr`);
+      } else if (forced === 'sturup') await passageFile(f.name, wb.SheetNames.map(n => XLSX.utils.sheet_to_csv(wb.Sheets[n])).join('\n')); else unknownFile(f.name);
+    } else {
+      const text = await readText(f), h0 = text.split('\n')[0];
+      if (/konto Nr/i.test(h0) && /Totalsumma/i.test(h0)) {
+        const wb = XLSX.read(text, { type: 'string', raw: true });
+        const tc = parseTcCsv(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { raw: false }), kontoNamn());
+        if (!tc.trips.length) { toast(`${f.name} har inga körningar.`, 6000); return; }
+        await onPeriod(tc.period);
+        D.tc = tc; files.tc = f.name; (D.src = D.src || {}).tc = { period: tc.period, fakt: {}, n: tc.trips.length, csv: true };
+        setSlot('tc', true, `${f.name}: ${tc.trips.length} körningar, ${new Set(tc.trips.map(t => t.konto.nr)).size} konton, ${f0(tc.trips.reduce((a, t) => a + t.belopp, 0))} kr`);
+      } else if (/Vehicle number/i.test(h0)) {
+        const wb = XLSX.read(text, { type: 'string', raw: true });
+        const app = parseApp(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { raw: false }));
+        if (!app.app.length) { toast(`${f.name} har inga appbetalningar (Payment = app). Fel fil? Välj appbetalningarna från TaxiCaller.`, 8000); return; }
+        const ap = String(app.app[0]?.datum || '').slice(0, 7); if (/^\d{4}-\d\d$/.test(ap)) await onPeriod(ap);
+        D.app = app; D.appRad = app.app; files.app = f.name;
+        if (db && months[ap]?.last) { const mb = new Set((months[ap]?.summary?.bolag || []).flatMap(b => (b.bilar || []).map(Number))); const sm = months[ap]?.src?.app?.tot ?? months[ap]?.summary?.kpi?.app, at = months[ap]?.src?.app?.tot != null ? app.app.reduce((a, x) => a + x.belopp, 0) : app.app.filter(x => mb.has(+x.bil)).reduce((a, x) => a + x.belopp, 0);
+          if (sm != null && Math.abs(sm - at) < 1) db.doc('appspec/' + ap).set(packApp(app.app)).then(() => { appCache[ap] = undefined; toast('Månaden är låst. Appspecifikationen är sparad, avräkningen är oförändrad.', 6000); render(); }).catch(() => {});
+          else toast('Appfilen stämmer inte med den låsta månadens appsumma. Inget sparades.', 8000); }
+        const atot = app.app.reduce((a, x) => a + x.belopp, 0), per = {};
+        for (const a of app.app) per[a.bil] = (per[a.bil] || 0) + a.belopp;
+        (D.src = D.src || {}).app = { app: Object.entries(per).map(([b, v]) => ({ bil: +b, belopp: r2(v) })), ejApp: app.ejApp.map(e => ({ bil: e.bil, belopp: e.belopp, datum: e.datum || '' })), n: app.app.length, tot: r2(atot) };
+        setSlot('app', true, `${f.name}: ${D.app.app.length} appbetalningar, ${f0(atot)} kr`);
+      } else if (forced === 'sturup') await passageFile(f.name, text); else unknownFile(f.name);
+    }
+  } catch (e) { console.error(e); toast('Kunde inte läsa ' + f.name + ' (' + (e?.name || 'fel') + ': ' + String(e?.message || e).slice(0, 140) + '). Är filen färdigsparad? Prova igen, annars skicka felet till Claude.', 9000); }
+  recompute();
+}
+
+async function oresundFile(fname, o) {
+  let op = null;
+  if (o.fakturadatum) { const [y, mo] = o.fakturadatum.split('-').map(Number); op = new Date(Date.UTC(y, mo - 2, 1)).toISOString().slice(0, 7); }
+  else if (o.manader?.length) op = o.manader[o.manader.length - 1];
+  await onPeriod(op);
+  const b = mapRegCounts(o.bro, o.tag, S.bilar), c = mapRegCounts(o.cph, o.tag, S.bilar);
+  D.bro = b.ut; D.cph = c.ut; D.broRad = mapRegPrices(o.broPris, o.tag, S.bilar);
+  const pc = {}; for (const pp of Object.values(o.broPris || {})) for (const [p, n] of Object.entries(pp)) pc[p] = (pc[p] || 0) + n;
+  const dom = Object.entries(pc).sort((x, y) => y[1] - x[1])[0];
+  let prisAndring = null;
+  if (dom && Math.abs(+dom[0] - S.params.bro) > 0.004) {
+    prisAndring = { fran: S.params.bro, till: +dom[0] };
+    if (db) db.doc('settings/params').set({ ...S.params, bro: +dom[0] }).then(() => toast(`Brons pris är ändrat från ${f2(prisAndring.fran)} till ${f2(prisAndring.till)} kr enligt fakturan.`, 6000)).catch(() => {});
+  }
+  const nb = Object.values(o.bro).reduce((a, x) => a + x, 0), nc = Object.values(o.cph).reduce((a, x) => a + x, 0);
+  D.oresund = { fil: fname, fakturadatum: o.fakturadatum, manader: o.manader, kostBro: o.kostBro, kostCph: o.kostCph, nBro: nb, nCph: nc, okandaBro: b.okanda, okandaCph: c.okanda, ovriga: o.ovriga, priser: pc, prisAndring };
+  const ok = Object.keys(b.okanda).length + Object.keys(c.okanda).length;
+  setSlot('bro', true, `${fname}: ${nb} bropassager, ${nc} CPH-hämtningar` + (ok ? `, ${ok} okända reg nr` : ''));
+  files.bro = fname; queueSave(true);
+}
+
+// Vismas avräkningar (facit). Sparas på månaden även om den är låst (bara fältet visma ändras).
+async function vismaFile(fname, F) {
+  const A = (F || []).filter(f => /^9119/.test(String(f.kn)) || S.bolag.some(b => String(b.kn) === String(f.kn)));
+  if (!A.length) { toast(`Hittade inga åkaravräkningar i ${fname}. Inget ändrades.`, 8000); return; }
+  const ds = A.map(f => f.datum).filter(Boolean).sort(), fd = ds[Math.floor(ds.length / 2)] || null;
+  const per = fd ? ymAdd(fd.slice(0, 7), -1) : D.period;
+  await onPeriod(per);
+  const momsFor = r => r.art == null ? (/^F\d{5}/.test(r.text) ? 0 : 25) : ([50, 592].includes(r.art) ? 6 : ([52, 54, 55, 56, 59, 594, 500].includes(r.art) ? 0 : 25));
+  D.visma = { fil: fname, datum: fd, inlast: new Date().toISOString(), bolag: A.map(f => ({ namn: f.namn, kn: f.kn, nr: f.nr, att: f.att, rows: f.rows.map(r => ({ ...r, moms: momsFor(r) })) })) };
+  const sum = A.reduce((a, f) => a + (f.att || 0), 0);
+  setSlot('visma', true, `${fname}: ${A.length} avräkningar ${A.map(f => f.nr).sort()[0]} till ${A.map(f => f.nr).sort().pop()}, netto ${f0(sum)} kr`);
+  files.visma = fname;
+  if (db && months[per]?.last) { try { await db.doc('months/' + per).update({ visma: clone(D.visma) }); toast('Vismas avräkningar är sparade som facit för den låsta månaden.', 6000); } catch { toast('Kunde inte spara Visma-facit.'); } }
+  else queueSave(true);
+}
+async function reskontraFile(fname, rk) {
+  if (rk.datum) await onPeriod(rk.datum.slice(0, 7));
+  D.reskontra = { fil: fname, datum: rk.datum, poster: rk.poster };
+  const s = rk.poster.filter(p => p.kn.startsWith('9119')).reduce((a, p) => a + p.saldo, 0);
+  setSlot('resk', true, `${fname}: ${rk.poster.length} öppna fakturor per ${rk.datum}, åkare netto ${f0(s)} kr`);
+  files.resk = fname; queueSave(true);
+}
+async function sturupFile(fname, st) {
+  if (!st || !st.antal) { toast(`Hittade inga Sturup-passager i ${fname}. Inget ändrades.`, 8000); return; }
+  await onPeriod(st.period);
+  const m = mapSturup(st, S.bilar, S.params.m25);
+  D.sturupRad = m.rad; D.sturup = {};
+  D.sturupInfo = { fil: fname, period: st.period, antal: st.antal, total: st.total, okanda: m.okanda, avvik: m.avvik };
+  setSlot('sturup', true, `${fname}: ${st.antal} passager, ${f2(st.total)} kr inkl moms` + (m.okanda.length ? `, ${m.okanda.length} okända bilar` : ''));
+  files.sturup = fname; queueSave(true);
+}
+
+async function passageFile(fname, text) {
+  const typ = 'sturup', namn = 'Sturup';
+  const { cnt, okanda } = countPassages(text, S.bilar);
+  const n = Object.values(cnt).reduce((a, b) => a + b, 0);
+  if (!n) { toast(`Hittade inga kända reg nr i ${fname}. Skriv in antal under Per bil, eller skicka filen till Claude så anpassas inläsningen.`, 6000); return; }
+  D[typ] = cnt;
+  const ok = Object.keys(okanda).length;
+  setSlot('sturup', true, `${namn}: ${n} passager på ${Object.keys(cnt).length} bilar` + (ok ? `, ${ok} okända reg nr` : ''));
+  if (ok) D._okandaReg = { ...(D._okandaReg || {}), [namn]: okanda };
+  queueSave(true);
+}
+
+async function onPeriod(p) {
+  if (!p || D.period === p) return;
+  if (D.period) resetMonth();
+  D.period = p; applyMonth();
+}
+// Ny månad: töm allt från förra månaden så att inget blandas
+function resetMonth() {
+  for (const k of ['tc', 'bamb', 'app', 'appRad', 'oresund', 'sturupRad', 'sturupInfo', 'broRad', 'reskontra', 'forskottRad', 'prevSummary', '_okandaReg', 'visma']) D[k] = null;
+  D.bro = {}; D.sturup = {}; D.cph = {}; D.manuellt = {}; D.src = {}; D.skuldMed = null;
+  for (const k of Object.keys(files)) delete files[k];
+  monthApplied = null; lastSaved = ''; lastSpec = ''; BANK.rows = null; BANK.fil = null; BANK.from = null; BANK.to = null;
+  for (const [id, t] of Object.entries(SLOT0)) setSlot(id, false, t);
+}
+function aggBamb(rows) {
+  const m = new Map();
+  for (const t of rows) { const k = t.tid + '|' + t.kassor + (t.refund ? '|R' : ''); const x = m.get(k) || { tid: t.tid, kassor: t.kassor, belopp: 0, dricks: 0, ...(t.refund ? { refund: true } : {}) }; x.belopp += t.belopp; x.dricks += t.dricks; m.set(k, x); }
+  return [...m.values()].map(x => ({ ...x, belopp: r2(x.belopp), dricks: r2(x.dricks) }));
+}
+// Visa sparade filer i rutorna
+function restoreSlots() {
+  const s = D.src || {}, sv = ' (sparad)';
+  if (D.tc && s.tc) setSlot('tc', true, `${files.tc || 'TaxiCaller'}: ${D.tc.trips.length} körningar, ${Object.keys(D.tc.fakt || {}).length} konton` + sv);
+  if (D.bamb && s.bamb) setSlot('bamb', true, `${files.bamb || 'Bambora'}: ${s.bamb.n} köp` + (s.bamb.nRefund ? `, ${s.bamb.nRefund} återbetalningar ${f0(s.bamb.refund)} kr` : '') + `, netto ${f0(s.bamb.tot)} kr` + sv);
+  if (D.app && s.app) setSlot('app', true, `${files.app || 'Appbetalningar'}: ${s.app.n} appbetalningar, ${f0(s.app.tot)} kr` + sv);
+  if (D.oresund) setSlot('bro', true, `${D.oresund.fil || files.bro || 'Øresundsbro'}: ${D.oresund.nBro} bropassager, ${D.oresund.nCph} CPH-hämtningar` + sv);
+  if (D.sturupInfo) setSlot('sturup', true, `${D.sturupInfo.fil || files.sturup || 'Sturup'}: ${D.sturupInfo.antal} passager, ${f2(D.sturupInfo.total)} kr inkl moms` + sv);
+  if (D.forskottRad?.length && !BANK.rows) setSlot('bank', true, `${D.forskottRad.length} förskott sparade, ${f0(D.forskottRad.reduce((a, x) => a + (+x.belopp || 0), 0))} kr` + sv);
+  if (D.visma) setSlot('visma', true, `${D.visma.fil || 'Visma'}: ${(D.visma.bolag || []).length} avräkningar (facit)` + sv);
+  if (D.reskontra) setSlot('resk', true, `${D.reskontra.fil || files.resk || 'Kundreskontra'}: ${(D.reskontra.poster || []).length} öppna fakturor per ${D.reskontra.datum || ''}` + sv);
+}
+function applyMonth() {
+  if (!D.period || !monthsLoaded || monthApplied === D.period) return;
+  monthApplied = D.period;
+  const m = months[D.period];
+  if (m) {
+    for (const k of ['bro', 'sturup', 'cph']) D[k] = { ...(m[k] || {}), ...D[k] };
+    D.manuellt = { ...clone(m.manuellt || {}), ...D.manuellt };
+    if (m.visma) D.visma = clone(m.visma);
+    if (!D.oresund && m.oresund) D.oresund = clone(m.oresund);
+    if (!D.sturupRad && m.sturupRad) { D.sturupRad = clone(m.sturupRad); D.sturupInfo = clone(m.sturupInfo); }
+    if (!D.broRad && m.broRad) D.broRad = clone(m.broRad);
+    if (!D.reskontra && m.reskontra) D.reskontra = clone(m.reskontra);
+    if (D.skuldMed == null) D.skuldMed = !!m.skuldMed;
+    if (!D.forskottRad && m.forskottRad) D.forskottRad = clone(m.forskottRad);
+    for (const [k, v] of Object.entries(m.files || {})) if (!files[k]) files[k] = v;
+    const src = m.src || {};
+    D.src = { ...clone(src), ...(D.src || {}) };
+    if (!D.bamb && src.bamb?.agg) D.bamb = clone(src.bamb.agg);
+    if (!D.app && src.app?.app) D.app = { app: clone(src.app.app), ejApp: clone(src.app.ejApp || []) };
+    if (!D.tc && src.tc && db) {
+      const p = D.period;
+      Promise.all([db.doc('spec/' + p).get(), db.doc('forare/' + p).get().catch(() => null)]).then(([sn, fs]) => {
+        if (D.tc || D.period !== p || !sn.exists) return;
+        const kund = sn.data().kund || {}; applyForare(kund, fs?.exists ? fs.data() : null); const namn = Object.fromEntries((m.summary?.kund || []).map(k => [String(k.nr), k.namn]));
+        const typ = { p: 'person', b: 'bud', u: 'utland' }, trips = [];
+        for (const [nr, L] of Object.entries(kund)) for (const x of L) trips.push({ konto: { nr: /^\d+$/.test(nr) ? +nr : nr, namn: namn[nr] || '' }, bil: x.b, belopp: x.s, pass: x.p || '', rutt: x.r || '', datum: x.d, tid: x.t, forare: x.f || '', typ: typ[x.y] || 'person' });
+        D.tc = { period: p, fakt: clone(src.tc.fakt || {}), trips, restored: true };
+        setSlot('tc', true, `${files.tc || 'TaxiCaller'}: ${trips.length} körningar, ${Object.keys(D.tc.fakt).length} konton (sparad)`);
+        recompute();
+      }).catch(() => {});
+    }
+    restoreSlots();
+  }
+}
+
+$('#skuldMed').addEventListener('change', e => { D.skuldMed = e.target.checked; recompute(); queueSave(true); });
+$('#f-bank7').addEventListener('change', e => { const f = e.target.files[0]; if (f) readBank(f); e.target.value = ''; });
+['tc', 'bamb', 'app', 'bro', 'sturup', 'resk', 'visma'].forEach(k => $('#f-' + k).addEventListener('change', e => { [...e.target.files].forEach(f => handleFile(f, k === 'sturup' || k === 'visma' ? k : null)); e.target.value = ''; }));
+const drop = $('#drop');
+['dragenter', 'dragover'].forEach(ev => document.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave', 'drop'].forEach(ev => document.addEventListener(ev, e => { e.preventDefault(); if (ev === 'drop' || e.target === drop) drop.classList.remove('over'); }));
+document.addEventListener('drop', e => { [...(e.dataTransfer?.files || [])].forEach(f => handleFile(f)); });
+
+// ---------- Beräkning och rendering ----------
+function recompute() {
+  { const c = $('#skuldMed'); if (c) { c.checked = !!D.skuldMed; c.disabled = !D.reskontra; } }
+  const have = D.tc || D.bamb || D.app;
+  $('#btnExcel').disabled = !have || !S.bolag.length;
+  if (!have || !loaded.bolag) { R = null; $('#result').hidden = true; render(); return; }
+  if (D.period) { const [y, mo] = D.period.split('-').map(Number); const pp = new Date(Date.UTC(y, mo - 2, 1)).toISOString().slice(0, 7); D.prevSummary = months[pp]?.visma?.bolag ? months[pp].visma : (months[pp]?.summary || null); }
+  R = compute(S, D);
+  $('#hMonth').textContent = R.L.namn || 'Månadsavräkning';
+  $('#result').hidden = false;
+  renderKpis(); renderChart(); render(); queueSave(false);
+}
+
+function renderKpis() {
+  const k = R.kpi, ut = -k.utbet;
+  const nb = R.bolag.filter(b => b.aktiv).length;
+  $('#kpis').innerHTML = `
+  <div class="kpi"><div class="lbl">Kundfakturor</div><div class="v">${f0(k.kundTotal)} kr</div><div class="s">${k.kundAntal} konton, ${k.korningar} körningar</div></div>
+  <div class="kpi"><div class="lbl">Utbetalas till åkare</div><div class="v neg">${f0(ut)} kr</div><div class="s">${R.bolag.filter(b => b.aktiv && b.att < 0).length} av ${nb} bolag</div></div>
+  <div class="kpi"><div class="lbl">Åkare betalar in</div><div class="v pos">${f0(k.inbet)} kr</div><div class="s">Växelavgifter ${f0(k.vx)} kr exkl moms</div></div>
+  ${D.reskontra && D.skuldMed ? `<div class="kpi"><div class="lbl">Tidigare skulder hos åkare</div><div class="v pos">${f0(k.skuldPos)} kr</div><div class="s">Taxi Malmö skyldig ${f0(-k.skuldNeg)} kr. Reskontra ${esc(D.reskontra.datum || '')}</div></div>` : ''}
+  <div class="kpi ${k.fel ? 'alert' : 'clear'}"><div class="lbl">Kontroll</div><div class="v">${k.fel ? k.fel + ' att åtgärda' : 'Inga fel'}</div><div class="s">${R.kontroll.length - k.fel} informationspunkter</div></div>`;
+  const b = $('#kBadge'); b.textContent = k.fel; b.classList.toggle('zero', !k.fel);
+  if (months[D.period]?.last) $('#kpis').insertAdjacentHTML('afterbegin', `<div class="kpi" style="grid-column:1/-1;border-top-color:var(--accent)"><div class="lbl">Låst månad</div><div class="s">${esc(R.L.namn)} är skickad och låst. Du kan titta och räkna, men inget sparas över historiken.</div></div>`);
+}
+
+function renderChart() {
+  const list = R.bolag.filter(b => b.aktiv).sort((a, b) => a.att - b.att);
+  if (!list.length) { $('#chart').innerHTML = '<p class="muted">Inga bolag att visa.</p>'; return; }
+  const mob = MOB.matches, W = mob ? 420 : 960, lab = mob ? 150 : 230, pad = mob ? 56 : 90, rowH = mob ? 26 : 22, top = 24, H = top + list.length * rowH + 12;
+  const min = Math.min(0, ...list.map(b => b.att)), max = Math.max(0, ...list.map(b => b.att));
+  const span = (max - min) || 1, sx = v => lab + pad + (v - min) / span * (W - lab - pad * 2), z = sx(0);
+  const nT = mob ? 2 : 4, tick = Math.pow(10, Math.floor(Math.log10(span / nT))) * ([1, 2, 5].find(m => span / nT / Math.pow(10, Math.floor(Math.log10(span / nT))) <= m) || 10);
+  let g = '';
+  for (let t = Math.ceil(min / tick) * tick; t <= max; t += tick) {
+    const x = sx(t);
+    g += `<line x1="${x}" x2="${x}" y1="${top - 6}" y2="${H - 8}" stroke="var(--line)" stroke-width="1"/><text x="${x}" y="${top - 10}" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${t === 0 ? '0' : nf0.format(t / 1000) + ' tkr'}</text>`;
+  }
+  list.forEach((b, i) => {
+    const y = top + i * rowH, x1 = Math.min(z, sx(b.att)), w = Math.max(1.5, Math.abs(sx(b.att) - z));
+    const c = b.att < 0 ? 'var(--accent)' : 'var(--mark)';
+    const vx = b.att < 0 ? x1 - 6 : x1 + w + 6, anc = b.att < 0 ? 'end' : 'start';
+    g += `<g class="bar" data-b="${esc(b.namn)}" style="cursor:pointer"><rect x="0" y="${y}" width="${W}" height="${rowH}" fill="transparent"/>
+      <text x="${lab - 8}" y="${y + 15}" text-anchor="end" font-size="12" fill="var(--ink)" font-family="IBM Plex Sans,sans-serif">${esc(b.namn.length > (mob ? 21 : 30) ? b.namn.slice(0, mob ? 20 : 29) + '…' : b.namn)}</text>
+      <rect x="${x1}" y="${y + 4}" width="${w}" height="${rowH - 8}" rx="2" fill="${c}"/>
+      <text x="${vx}" y="${y + 15}" text-anchor="${anc}" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${f0(b.att)}</text></g>`;
+  });
+  g += `<line x1="${z}" x2="${z}" y1="${top - 6}" y2="${H - 8}" stroke="var(--ink)" stroke-width="1"/>`;
+  $('#chart').innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="Att betala per bolag">${g}</svg>`;
+  $('#chart').querySelectorAll('.bar').forEach(el => el.addEventListener('click', () => { openB.add(el.dataset.b); setTab('akare'); setTimeout(() => document.getElementById('b-' + slug(el.dataset.b))?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 30); }));
+}
+const slug = s => String(s).replace(/[^a-z0-9]+/gi, '-');
+
+function setTab(t) { tab = t; document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.t === t)); render(); }
+$('#tabs').addEventListener('click', e => { const b = e.target.closest('button[data-t]'); if (b) setTab(b.dataset.t); });
+// ===== Mobilvy (v36): etiketter på tabellceller så att CSS kan visa raderna som kort =====
+const M_TITEL = ['Bolag', 'Åkare', 'Namn', 'Benämning', 'Förare', 'Text i banken', 'Vad', 'Månad', 'Datum', 'Bil'];
+function mobLabel(root) {
+  root.querySelectorAll('.tbl table').forEach(tb => {
+    const heads = [];
+    if (tb.tHead && tb.tHead.rows[0]) for (const th of tb.tHead.rows[0].cells) for (let i = 0; i < (th.colSpan || 1); i++) heads.push(th.textContent.trim());
+    const prio = M_TITEL.map(h => heads.indexOf(h)).filter(i => i >= 0);
+    for (const body of tb.tBodies) for (const tr of body.rows) {
+      const cells = [...tr.cells];
+      tr.classList.remove('m-full', 'm-pair', 'm-3');
+      if (cells.length === 1) { tr.classList.add('m-full'); continue; }
+      let col = 0; const info = cells.map(td => { const x = { td, col, ctl: !!td.querySelector('input,select,button,a.btn'), txt: td.textContent.trim() }; col += td.colSpan || 1; return x; });
+      for (const x of info) {
+        x.td.classList.remove('m-e', 'm-w', 'm-t', 'm-nl', 'm-tid');
+        x.td.dataset.l = heads[x.col] || '';
+        if (!x.ctl && !x.txt) x.td.classList.add('m-e');
+        if (!x.td.dataset.l) x.td.classList.add('m-nl');
+        if (x.td.colSpan > 1 || x.txt.length > 26 || ['Mail', 'Åtgärd', 'Text i banken'].includes(x.td.dataset.l) || x.td.querySelector('button,a.btn,input.w-l')) x.td.classList.add('m-w');
+      }
+      const ok = x => x && !x.ctl && x.txt;
+      let t = null;
+      for (const i of prio) { const x = info.find(y => y.col === i); if (ok(x)) { t = x; break; } }
+      if (!t && !prio.length) t = info.find(ok);
+      if (!t) t = info.find(y => ok(y) && !y.td.classList.contains('n'));
+      if (t) t.td.classList.add('m-t');
+      const iT = heads.indexOf('Tid'), tid = iT >= 0 && info.find(y => y.col === iT && y.txt);
+      tr.classList.toggle('m-trip', !!(t && tid && heads[t.col] === 'Datum'));
+      if (tr.classList.contains('m-trip')) { tid.td.classList.add('m-tid', 'm-nl'); for (const y of info) if (['Kund', 'Från', 'Till', 'Förare', 'Passagerare', 'Rutt'].includes(heads[y.col])) y.td.classList.add('m-w'); }
+      if (info.filter(y => !y.td.classList.contains('m-e')).length <= 2 && t) tr.classList.add('m-pair');
+      tr.classList.toggle('m-3', !tr.classList.contains('m-trip') && !tb.closest('[data-tbl]') && info.filter(y => !/m-(e|t|w)\b/.test(y.td.className)).length >= 5);
+    }
+  });
+}
+let mobRaf = 0;
+new MutationObserver(() => { cancelAnimationFrame(mobRaf); mobRaf = requestAnimationFrame(() => mobLabel($('#view'))); }).observe($('#view'), { childList: true, subtree: true });
+MOB.addEventListener('change', () => { if (R) renderChart(); if (tab === 'hist') render(); });
+{ const fs = $('#filH').parentElement, mf = document.createElement('span'); mf.className = 'mf'; $('#filH').append(mf);
+  const upd = () => { const n = fs.querySelectorAll('.slot.done').length; mf.textContent = fs.classList.contains('mfold') ? (n ? n + ' av 8 inlästa, visa' : 'Visa') : 'Dölj'; };
+  fs.classList.add('mfold'); upd();
+  $('#filH').setAttribute('role', 'button'); $('#filH').tabIndex = 0;
+  const tg = () => { if (!MOB.matches) return; fs.classList.toggle('mfold'); upd(); };
+  $('#filH').addEventListener('click', tg); $('#filH').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tg(); } });
+  new MutationObserver(upd).observe($('.files'), { attributes: true, subtree: true, attributeFilter: ['class'] }); }
+
+
+function needFiles() {
+  return `<div class="panel empty"><h3>Ladda upp månadens filer</h3><p>Lägg in TaxiCallers kontofakturor, Bambora-exporten och appbetalningarna ovan.<br>Sidan räknar då ut alla åkaravräkningar och kundfakturor med fakturarader för Visma.</p>
+  <p class="muted">${loaded.bolag ? `Inställningar: ${S.bilar.length} bilar, ${S.bolag.length} bolag, ${S.terminaler.length + S.kassor.length} terminalkopplingar.` : 'Inställningarna laddas…'}</p></div>`;
+}
+
+function render() {
+  const v = $('#view');
+  if (tab === 'inst') return renderInst(v);
+  if (tab === 'hist') return renderHist(v);
+  if (tab === 'forsk') return renderForsk(v);
+  if (tab === 'spec') return renderSpec(v);
+  if (tab === 'mail') return renderMail(v);
+  if (!R) { if (tab === 'akare' && D.period && loaded.bolag && S.bolag.length && monthsLoaded) return renderForhand(v); v.innerHTML = needFiles(); return; }
+  if (tab === 'akare') return renderAkare(v);
+  if (tab === 'kund') return renderKund(v);
+  if (tab === 'bil') return renderBil(v);
+  if (tab === 'kontroll') return renderKontroll(v);
+}
+
+function searchBar(ph) { return `<input type="search" id="q" class="search" placeholder="${ph}" value="${esc(filter)}" aria-label="Sök">`; }
+function bindSearch(v) { const q = v.querySelector('#q'); if (q) q.addEventListener('input', () => { filter = q.value; const pos = q.selectionStart; render(); const n = $('#q'); n.focus(); n.setSelectionRange(pos, pos); }); }
+const match = (...s) => !filter || s.some(x => String(x ?? '').toLowerCase().includes(filter.toLowerCase()));
+
+function renderAkare(v) {
+  const act = R.bolag.filter(b => b.aktiv && match(b.namn, b.kn, b.bilar.join(' ')));
+  const passiv = R.bolag.filter(b => !b.aktiv).length;
+  const T = k => act.reduce((a, b) => a + (b[k] || 0), 0);
+  let h = `<div class="toolbar">${searchBar('Sök bolag, kundnr eller bil')}<span class="grow"></span><span class="muted">${act.length} avräkningar${passiv ? `, ${passiv} bolag utan rader` : ''}</span></div>
+  <div class="tbl"><table><thead><tr><th>Bolag</th><th>Kundnr</th><th>Bilar</th><th class="n">Kontokort</th><th class="n">Deb inkl moms</th><th class="n">App</th><th class="n">Bro/Sturup/CPH</th><th class="n">Förskott</th><th class="n">Tidigare skuld</th><th class="n">Att betala</th></tr></thead><tbody>`;
+  for (const b of act) {
+    const o = openB.has(b.namn), M = D.manuellt[b.namn] || {};
+    h += `<tr class="click ${o ? 'open' : ''}" id="b-${slug(b.namn)}" data-b="${esc(b.namn)}" tabindex="0" aria-expanded="${o}"><td>${esc(b.namn)}</td><td class="num">${esc(b.kn ?? '')}</td><td class="muted">${b.bilar.join(', ')}</td>
+      <td class="n">${f0(b.kort)}</td><td class="n">${f2(b.deb)}</td><td class="n">${f2(b.app)}</td><td class="n">${b.bro || 0} / ${b.sturup || 0} / ${b.cph || 0}</td><td class="n">${b.forsk ? f0(b.forsk) : ''}</td><td class="n ${sgn(b.skuld)}">${b.skuld ? f0(b.skuld) : ''}</td><td class="n ${sgn(b.att)}"><b>${f0(b.att)}</b></td></tr>`;
+    if (o) h += `<tr class="detail"><td colspan="10">${detail(b)}</td></tr>`;
+  }
+  h += `<tr class="sum"><td>Summa</td><td></td><td></td><td class="n">${f0(T('kort'))}</td><td class="n">${f2(T('deb'))}</td><td class="n">${f2(T('app'))}</td><td class="n">${T('bro')} / ${T('sturup')} / ${T('cph')}</td><td class="n">${f0(T('forsk'))}</td><td class="n">${f0(T('skuld'))}</td><td class="n">${f0(T('att'))}</td></tr></tbody></table></div>
+  <p class="note">Negativt belopp betyder att Taxi Malmö betalar åkaren. Klicka på ett bolag för att se fakturaraderna som de ska skrivas in i Visma, och för att lägga till förskott, öppna fakturor och rabatt.</p>`;
+  v.innerHTML = h; bindSearch(v);
+  v.querySelectorAll('tr.click').forEach(tr => { const t = () => { const n = tr.dataset.b; openB.has(n) ? openB.delete(n) : openB.add(n); render(); }; tr.addEventListener('click', t); tr.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t(); } }); });
+  v.querySelectorAll('tr.detail').forEach(tr => tr.addEventListener('click', e => e.stopPropagation()));
+  bindManual(v);
+  v.querySelectorAll('button[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
+    const b = R.bolag.find(x => x.namn === btn.dataset.copy);
+    const txt = b.rows.map(r => [r.art ?? '', r.text, String(r.antal).replace('.', ','), String(r.apris).replace('.', ','), r.rabattPct ? r.rabattPct + ' %' : '', String(r.summa).replace('.', ',')].join('\t')).join('\n');
+    try { await navigator.clipboard.writeText(txt); toast('Fakturaraderna är kopierade.'); } catch { toast('Kunde inte kopiera. Markera raderna i tabellen i stället.'); }
+  }));
+}
+
+function rowsTable(b) {
+  const tr = r => `<tr><td class="num" style="text-align:left">${r.art ?? ''}</td><td>${esc(r.text)}${r.rabattPct ? ` <span class="pill warn">rabatt ${r.rabattPct} %</span>` : ''}${r.rabatt ? ` <span class="pill warn">rabatt ${f0(r.rabatt)}</span>` : ''}${r.bak ? ' <span class="pill info">efterdeb</span>' : ''}</td><td class="n">${f0(r.antal)}</td><td class="n">${f2(r.apris)}</td><td class="n">${f2(r.summa)}</td><td class="n">${r.moms} %</td></tr>`;
+  const vanliga = b.rows.filter(r => !r.skuld), skulder = b.rows.filter(r => r.skuld);
+  let t = `<div class="tbl"><table><thead><tr><th>Artnr</th><th>Benämning</th><th class="n">Antal</th><th class="n">À-pris</th><th class="n">Summa</th><th class="n">Moms</th></tr></thead><tbody>`;
+  t += vanliga.map(tr).join('');
+  if (skulder.length) t += `<tr><td></td><td colspan="5" class="lbl" style="padding-top:14px">Tidigare skulder (öppna fakturor${R?.period || b.reskDatum ? '' : ''})</td></tr>` + skulder.map(tr).join('');
+  t += `<tr class="sum"><td></td><td>Netto</td><td></td><td></td><td class="n">${f2(b.netto)}</td><td></td></tr>
+    <tr><td></td><td>Moms 25 %</td><td></td><td></td><td class="n">${f2(b.moms25)}</td><td></td></tr>
+    <tr><td></td><td>Moms 6 %</td><td></td><td></td><td class="n">${f2(b.moms6)}</td><td></td></tr>
+    <tr><td></td><td>Öresavrundning</td><td></td><td></td><td class="n">${f2(b.oresavr)}</td><td></td></tr>`;
+  if (skulder.length) t += `<tr class="sum"><td></td><td>Månadens resultat</td><td></td><td></td><td class="n ${sgn(b.manad)}">${f2(b.manad)}</td><td></td></tr>
+    <tr><td></td><td>Tidigare skulder</td><td></td><td></td><td class="n ${sgn(b.skuld)}">${f2(b.skuld)}</td><td></td></tr>`;
+  t += `<tr class="sum"><td></td><td>${skulder.length ? 'Att betala inklusive skulder' : 'Att betala'}</td><td></td><td></td><td class="n ${sgn(b.att)}">${f2(b.att)}</td><td></td></tr></tbody></table></div>`;
+  return t;
+}
+function detail(b) { return `<div class="rows">${rowsTable(b)}${manualPanel(b.namn, true)}</div>`; }
+function manualPanel(namn, copy) {
+  const M = D.manuellt[namn] || {}, b = { namn };
+  return `<div class="manual"><h3>Manuella poster</h3>
+    <label>Förskott utöver kontoutdrag <input class="amt" inputmode="decimal" data-b="${esc(b.namn)}" data-man="forskott" value="${M.forskott || ''}" placeholder="0"></label>
+    <label>Övriga poster (t.ex. foliering) <input class="amt" inputmode="decimal" data-b="${esc(b.namn)}" data-man="oppna" value="${M.oppna || ''}" placeholder="0"></label>
+    <label>Rabatt växelavgift <input class="amt" inputmode="decimal" data-b="${esc(b.namn)}" data-man="rabatt" value="${M.rabatt || ''}" placeholder="0"></label>
+    <label>Efterdebitering växelavgift, antal <input class="amt" inputmode="numeric" data-b="${esc(b.namn)}" data-man="vxBak" value="${M.vxBak ?? (+M.ejBak ? 0 : '')}" placeholder="auto"></label>
+    <label>Efterdebitering taklampa, antal <input class="amt" inputmode="numeric" data-b="${esc(b.namn)}" data-man="tlBak" value="${M.tlBak ?? ''}" placeholder="auto"></label>
+    <h3 style="margin-top:6px">Övriga rader</h3>
+    ${(M.extra || []).map((e, i) => `<div class="xrow">
+      <input class="x-art" aria-label="Artnr" placeholder="Art" data-b="${esc(b.namn)}" data-x="${i}" data-xf="art" value="${esc(e.art ?? '')}">
+      <input class="x-txt" aria-label="Benämning" placeholder="Benämning" data-b="${esc(b.namn)}" data-x="${i}" data-xf="text" value="${esc(e.text || '')}">
+      <input class="x-ant" aria-label="Antal" inputmode="decimal" data-b="${esc(b.namn)}" data-x="${i}" data-xf="antal" value="${esc(e.antal ?? 1)}">
+      <input class="x-pr" aria-label="À-pris exkl moms" inputmode="decimal" placeholder="à-pris" data-b="${esc(b.namn)}" data-x="${i}" data-xf="apris" value="${esc(e.apris ?? '')}">
+      <select class="x-mo" aria-label="Moms" data-b="${esc(b.namn)}" data-x="${i}" data-xf="moms">${[25, 6, 0].map(m => `<option value="${m}" ${+e.moms === m ? 'selected' : ''}>${m} %</option>`).join('')}</select>
+      <span class="x-ft"><label><input type="checkbox" data-b="${esc(b.namn)}" data-x="${i}" data-xf="skuld" ${e.skuld ? 'checked' : ''}> tidigare skuld</label><button class="ghost" data-xdel="${i}" data-b="${esc(b.namn)}">Ta bort</button></span></div>`).join('')}
+    <button data-xadd="${esc(b.namn)}">Lägg till rad</button>
+    <p class="note" style="margin:0">Sparas för ${esc(monthLabels(D.period).namn)} och syns för alla som öppnar sidan. Belopp och à-pris exkl moms, positivt när åkaren ska betala. Övriga rader: kläder, foliering, utbildning, krediter, återbetalningar. Bocka i skuld för en gammal faktura (räknas som tidigare skuld). Efterdebitering: tomt räknar automatiskt mot förra avräkningen, 0 tar bort.</p>
+    ${copy ? `<button data-copy="${esc(b.namn)}">Kopiera rader</button>` : ''}</div>`;
+}
+
+
+function bindManual(v) {
+  v.querySelectorAll('input[data-man]').forEach(inp => inp.addEventListener('change', () => {
+    const [n, k] = [inp.dataset.b, inp.dataset.man]; const val = parseFloat(String(inp.value).replace(/\s/g, '').replace(',', '.')) || 0;
+    const o = { ...(D.manuellt[n] || {}) };
+    if ((k === 'vxBak' || k === 'tlBak') && inp.value.trim() === '') delete o[k]; else o[k] = val;
+    if (k === 'vxBak') delete o.ejBak;
+    D.manuellt[n] = o; recompute(); queueSave(true);
+  }));
+  const xset = (n, f) => { const o = { ...(D.manuellt[n] || {}) }; o.extra = clone(o.extra || []); f(o.extra); D.manuellt[n] = o; recompute(); queueSave(true); };
+  v.querySelectorAll('button[data-xadd]').forEach(btn => btn.addEventListener('click', () => xset(btn.dataset.xadd, L => L.push({ art: '', text: '', antal: 1, apris: '', moms: 25 }))));
+  v.querySelectorAll('button[data-xdel]').forEach(btn => btn.addEventListener('click', () => xset(btn.dataset.b, L => L.splice(+btn.dataset.xdel, 1))));
+  v.querySelectorAll('[data-xf]').forEach(inp => inp.addEventListener('change', () => xset(inp.dataset.b, L => { const e = L[+inp.dataset.x]; if (!e) return; const f = inp.dataset.xf;
+    if (f === 'skuld') e.skuld = inp.checked; else if (f === 'text') e.text = inp.value; else if (f === 'art') e.art = inp.value.trim() === '' ? '' : +inp.value || '';
+    else e[f] = parseFloat(String(inp.value).replace(/\s/g, '').replace(',', '.')) || 0; })));
+}
+
+
+// ===== Förhandsposter (v42): manuella poster per bolag innan månadens filer är inlästa =====
+let fhOpen = new Set();
+function fhMonths() {
+  const L = Object.keys(months).filter(k => /^\d{4}-\d\d$/.test(k) && !months[k].last);
+  const all = Object.keys(months).filter(k => /^\d{4}-\d\d$/.test(k)).sort();
+  if (all.length) L.push(ymAdd(all[all.length - 1], 1));
+  if (D.period) L.push(D.period);
+  return [...new Set(L)].sort();
+}
+function fhAntal(M) { if (!M) return 0; return ['forskott', 'oppna', 'rabatt'].filter(k => +M[k]).length + (M.vxBak != null && M.vxBak !== '' ? 1 : 0) + (M.tlBak != null && M.tlBak !== '' ? 1 : 0) + (M.extra || []).filter(e => e && String(e.text || '').trim()).length; }
+function renderForhand(v) {
+  const p = D.period, last = !!months[p]?.last;
+  const L = S.bolag.filter(b => match(b.namn, b.kn)).slice().sort((a, c) => a.namn.localeCompare(c.namn, 'sv'));
+  const nMed = S.bolag.filter(b => fhAntal(D.manuellt[b.namn])).length;
+  let h = `<div class="panel" style="padding:14px 16px;margin-bottom:14px"><div class="set-head" style="margin:0"><h2 style="margin:0">Förhandsposter ${esc(monthLabels(p).namn)}</h2>
+    <div class="toolbar" style="margin:0"><label class="muted" for="fhM">Avräkningsmånad</label><select id="fhM">${fhMonths().map(m => `<option value="${m}" ${m === p ? 'selected' : ''}>${esc(monthLabels(m).namn)}</option>`).join('')}</select></div></div>
+    <p class="note" style="margin-top:6px">Månadens filer är inte inlästa än. Här kan du redan nu skriva in rabatt, förskott, efterdebitering och övriga rader (kläder, foliering, återkrav). Allt sparas på ${esc(monthLabels(p).namn)} och kommer med automatiskt när filerna laddas upp.${last ? ' <b>Månaden är låst och ändras inte.</b>' : ''}</p></div>
+  <div class="toolbar">${searchBar('Sök bolag eller kundnr')}<span class="grow"></span><span class="muted">${nMed} av ${S.bolag.length} bolag har poster</span></div>
+  <div class="tbl"><table><thead><tr><th>Bolag</th><th>Kundnr</th><th class="n">Bilar växel</th><th>Poster</th></tr></thead><tbody>`;
+  for (const b of L) {
+    const o = fhOpen.has(b.namn), M = D.manuellt[b.namn], n = fhAntal(M);
+    const sam = n ? [+M.rabatt ? 'rabatt ' + f0(M.rabatt) : '', +M.forskott ? 'förskott ' + f0(M.forskott) : '', +M.oppna ? 'övrigt ' + f0(M.oppna) : '', ...(M.extra || []).filter(e => e && String(e.text || '').trim()).map(e => esc(e.text))].filter(Boolean).join(', ') : '';
+    h += `<tr class="click ${o ? 'open' : ''}" data-fh="${esc(b.namn)}" tabindex="0" aria-expanded="${o}"><td>${esc(b.namn)}</td><td class="num">${esc(b.kn ?? '')}</td><td class="n">${b.vx || 0}</td><td>${n ? `<span class="pill info">${n}</span> <span class="muted">${sam}</span>` : '<span class="muted">Inga</span>'}</td></tr>`;
+    if (o) h += `<tr class="detail"><td colspan="4"><div style="max-width:460px">${manualPanel(b.namn, false)}</div></td></tr>`;
+  }
+  v.innerHTML = h + '</tbody></table></div>';
+  bindSearch(v);
+  const sel = v.querySelector('#fhM'); if (sel) sel.addEventListener('change', async () => { fhOpen = new Set(); await onPeriod(sel.value); $('#hMonth').textContent = monthLabels(sel.value).namn; render(); });
+  v.querySelectorAll('tr[data-fh]').forEach(tr => { const t = () => { const n = tr.dataset.fh; fhOpen.has(n) ? fhOpen.delete(n) : fhOpen.add(n); render(); }; tr.addEventListener('click', t); tr.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t(); } }); });
+  v.querySelectorAll('tr.detail').forEach(tr => tr.addEventListener('click', e => e.stopPropagation()));
+  if (last) v.querySelectorAll('tr.detail input, tr.detail select, tr.detail button').forEach(x => x.disabled = true);
+  bindManual(v);
+}
+
+const TYP = { p: 'Person', b: 'Bud', u: 'Utland' };
+function specTable(k) {
+  const L = (k.korn || []).slice().sort((x, y) => (x.d + x.t).localeCompare(y.d + y.t));
+  if (!L.length) return '<p class="note">Specifikationen finns inte sparad för den här månaden.</p>';
+  return `<div class="tbl"><table><thead><tr><th>Datum</th><th>Tid</th><th>Passagerare</th><th>Rutt</th><th>Bil</th><th>Typ</th><th class="n">Belopp</th></tr></thead><tbody>${L.map(t => `<tr><td class="num" style="text-align:left">${esc(t.d || '')}</td><td class="num" style="text-align:left">${esc(t.t || '')}</td><td>${esc(t.p)}</td><td class="muted" style="min-width:260px">${esc(t.r)}</td><td class="num" style="text-align:left">${t.b ?? ''}</td><td>${TYP[t.y] || ''}</td><td class="n">${f2(t.s)}</td></tr>`).join('')}
+  <tr class="sum"><td colspan="6">Summa ${L.length} körningar</td><td class="n">${f2(L.reduce((a, t) => a + t.s, 0))}</td></tr></tbody></table></div>`;
+}
+function kundTable(L, open, attr) {
+  const T = k => L.reduce((a, x) => a + (x[k] || 0), 0);
+  let h = `<div class="tbl"><table><thead><tr><th>Konto</th><th>Namn</th><th class="n">Körningar</th><th class="n">592 Taxi resor exkl moms</th><th class="n">593 Bud exkl moms</th><th class="n">594 Utland</th><th class="n">Totalt inkl moms</th><th class="n">TaxiCaller</th><th>Status</th></tr></thead><tbody>`;
+  for (const k of L) {
+    const o = open.has(String(k.nr));
+    h += `<tr class="click ${o ? 'open' : ''}" ${attr}="${k.nr}" tabindex="0"><td class="num" style="text-align:left">${k.nr}</td><td>${esc(k.namn)}</td><td class="n">${k.n}</td><td class="n">${f2(k.r592)}</td><td class="n">${f2(k.r593)}</td><td class="n">${f2(k.r594)}</td><td class="n"><b>${f2(k.total)}</b></td><td class="n">${f2(k.taxicaller)}</td><td>${k.diff ? `<span class="pill fel">diff ${f2(k.diff)}</span>` : (k.taxicaller == null ? '<span class="pill info">från CSV</span>' : '<span class="pill ok">stämmer</span>')}</td></tr>`;
+    if (o) h += `<tr class="detail"><td colspan="9"><h3>Specifikation ${esc(k.namn)}</h3>${specTable(k)}</td></tr>`;
+  }
+  return h + `<tr class="sum"><td></td><td>Summa</td><td class="n">${T('n')}</td><td class="n">${f2(T('r592'))}</td><td class="n">${f2(T('r593'))}</td><td class="n">${f2(T('r594'))}</td><td class="n">${f2(T('total'))}</td><td class="n">${f2(T('taxicaller'))}</td><td></td></tr></tbody></table></div>`;
+}
+function bindKund(v, attr, open) { v.querySelectorAll(`tr[${attr}]`).forEach(tr => { const t = () => { const n = tr.getAttribute(attr); open.has(n) ? open.delete(n) : open.add(n); render(); }; tr.addEventListener('click', t); tr.addEventListener('keydown', e => { if (e.key === 'Enter') t(); }); }); }
+let kundOpen = new Set();
+function renderKund(v) {
+  const L = R.kund.filter(k => match(k.nr, k.namn));
+  v.innerHTML = `<div class="toolbar">${searchBar('Sök konto eller namn')}<span class="grow"></span><span class="muted">${L.length} kundfakturor. Klicka för specifikation.</span></div>${kundTable(L, kundOpen, 'data-k')}
+  <p class="note">Artiklar som i Visma: 592 Taxi resor (6 %), 593 Bud körningar (25 %), 594 Taxi resor utland (0 %).</p>`;
+  bindSearch(v); bindKund(v, 'data-k', kundOpen);
+}
+
+function renderBil(v) {
+  const L = R.perBil.filter(x => match(x.bil, x.reg, x.bolag));
+  let h = `<div class="toolbar">${searchBar('Sök bil, reg nr eller bolag')}<span class="grow"></span><span class="muted">Antal passager kan skrivas in direkt och sparas för månaden.</span></div>
+  <div class="tbl"><table><thead><tr><th>Bil</th><th>Reg nr</th><th>Avräknas på</th><th class="n">Kontokort</th><th class="n">Dricks</th><th class="n">Deb person</th><th class="n">Deb bud</th><th class="n">Deb utland</th><th class="n">App</th><th class="n">Bro</th><th class="n">Sturup</th><th class="n">CPH</th></tr></thead><tbody>`;
+  for (const x of L) h += `<tr><td class="num" style="text-align:left"><b>${x.bil}</b></td><td class="num" style="text-align:left">${esc(x.reg)}</td><td>${x.bolag === 'IGNORERA' ? '<span class="pill warn">ignoreras</span>' : esc(x.bolag)}</td>
+    <td class="n">${f0(x.kort)}</td><td class="n muted">${f0(x.dricks)}</td><td class="n">${f2(x.person)}</td><td class="n">${f2(x.bud)}</td><td class="n">${f2(x.utland)}</td><td class="n">${f2(x.app)}</td>
+    ${['bro', 'sturup', 'cph'].map(k => `<td class="n"><input class="cnt" inputmode="numeric" data-bil="${x.bil}" data-k="${k}" value="${k === 'sturup' ? (D.sturup[x.bil] ?? (x.sturup || '')) : (D[k][x.bil] || '')}" placeholder="0" aria-label="${k} bil ${x.bil}"></td>`).join('')}</tr>`;
+  v.innerHTML = h + '</tbody></table></div>'; bindSearch(v);
+  v.querySelectorAll('input.cnt').forEach(inp => inp.addEventListener('change', () => { const k = inp.dataset.k, b = inp.dataset.bil, blank = inp.value.trim() === '', n = parseInt(inp.value, 10) || 0; D[k] = { ...D[k] };
+    if (k === 'sturup') { if (blank) delete D.sturup[b]; else D.sturup[b] = n; } else { if (n) D[k][b] = n; else delete D[k][b]; }
+    recompute(); }));
+}
+
+function renderKontroll(v) {
+  const L = [...R.kontroll].sort((a, b) => (a.niva === 'fel' ? 0 : 1) - (b.niva === 'fel' ? 0 : 1));
+  let h = '';
+  if (D._okandaReg) for (const [n, o] of Object.entries(D._okandaReg)) L.push({ niva: 'info', typ: n + ': reg nr utan bil', vad: Object.keys(o).slice(0, 12).join(', ') + (Object.keys(o).length > 12 ? ' …' : ''), belopp: null, atgard: 'Lägg till reg nr under Inställningar, Bilar, om bilen hör till er.' });
+  if (!L.length) { v.innerHTML = '<div class="panel empty"><h3>Inga avvikelser</h3><p>Allt i månadens filer gick att koppla till bil och bolag.</p></div>'; return; }
+  h = `<div class="tbl"><table><thead><tr><th>Nivå</th><th>Typ</th><th>Vad</th><th class="n">Belopp</th><th>Åtgärd</th></tr></thead><tbody>`;
+  for (const k of L) h += `<tr><td><span class="pill ${k.niva}">${k.niva === 'fel' ? 'Åtgärda' : 'Info'}</span></td><td>${esc(k.typ)}</td><td>${esc(k.vad)}</td><td class="n">${k.belopp == null ? '' : f2(k.belopp)}</td><td class="muted">${esc(k.atgard)}</td></tr>`;
+  v.innerHTML = h + '</tbody></table></div>';
+}
+
+function renderHist(v) {
+  const L = Object.entries(months).filter(([, m]) => m.summary).sort((a, b) => a[0].localeCompare(b[0]));
+  if (!L.length) { v.innerHTML = '<div class="panel empty"><h3>Ingen historik ännu</h3><p>Varje månad du räknar sparas här automatiskt, med totaler per bolag.</p></div>'; return; }
+  const W = MOB.matches ? 420 : 960, H = MOB.matches ? 200 : 220, l = MOB.matches ? 58 : 70, r = 20, t = 20, b = 34;
+  const ser = [['kundTotal', 'Kundfakturor', 'var(--mark)'], ['utbetAbs', 'Utbetalas till åkare', 'var(--accent)']];
+  const vals = L.map(([, m]) => ({ kundTotal: m.summary.kpi.kundTotal, utbetAbs: -m.summary.kpi.utbet }));
+  const mx = Math.max(...vals.flatMap(x => [x.kundTotal, x.utbetAbs]), 1);
+  const X = i => L.length === 1 ? (l + W - r) / 2 : l + i * (W - l - r) / (L.length - 1), Y = y => t + (1 - y / mx) * (H - t - b);
+  let g = '';
+  for (let i = 0; i <= 4; i++) { const y = mx * i / 4; g += `<line x1="${l}" x2="${W - r}" y1="${Y(y)}" y2="${Y(y)}" stroke="var(--line)"/><text x="${l - 8}" y="${Y(y) + 4}" text-anchor="end" font-size="10.5" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${nf0.format(y / 1000)} tkr</text>`; }
+  L.forEach(([p], i) => g += `<text x="${X(i)}" y="${H - 12}" text-anchor="middle" font-size="11" fill="var(--muted)">${esc(monthLabels(p).namn)}</text>`);
+  for (const [k, , c] of ser) {
+    g += `<polyline fill="none" stroke="${c}" stroke-width="2.2" points="${vals.map((x, i) => X(i) + ',' + Y(x[k])).join(' ')}"/>`;
+    vals.forEach((x, i) => g += `<circle cx="${X(i)}" cy="${Y(x[k])}" r="${i === vals.length - 1 ? 4.5 : 3}" fill="${c}"/>`);
+  }
+  let h = `<div class="panel"><h2>Utveckling per månad</h2><div class="chart"><svg viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="Historik">${g}</svg></div>
+  <div class="legend">${ser.map(s => `<span><i style="background:${s[2]}"></i>${s[1]}</span>`).join('')}</div></div>
+  <div class="tbl"><table><thead><tr><th>Månad</th><th class="n">Kundfakturor</th><th class="n">Körningar</th><th class="n">Kontokort</th><th class="n">App</th><th class="n">Växelavgifter</th><th class="n">Utbetalas</th><th class="n">Betalas in</th><th>Senast ändrad</th></tr></thead><tbody>`;
+  for (const [p, m] of L.slice().reverse()) { const k = m.summary.kpi; h += `<tr class="click ${histSel === p ? 'open' : ''}" data-m="${p}" tabindex="0"><td><b>${esc(monthLabels(p).namn)}</b></td><td class="n">${f0(k.kundTotal)}</td><td class="n">${k.korningar}</td><td class="n">${f0(k.kort)}</td><td class="n">${f0(k.app)}</td><td class="n">${f0(k.vx)}</td><td class="n neg">${f0(k.utbet)}</td><td class="n pos">${f0(k.inbet)}</td><td class="muted">${esc((m.updatedAt || '').slice(0, 16).replace('T', ' '))}</td></tr>`; }
+  h += '</tbody></table></div><p class="note">Klicka på en månad för att se alla avräkningar och fakturarader.</p>';
+  if (histSel && months[histSel]?.summary) h += histDetail(histSel, months[histSel]);
+  v.innerHTML = h;
+  v.querySelectorAll('tr[data-m]').forEach(tr => { const t = () => { histSel = histSel === tr.dataset.m ? null : tr.dataset.m; histOpen = new Set(); render(); if (histSel) setTimeout(() => $('#histD')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 30); }; tr.addEventListener('click', t); tr.addEventListener('keydown', e => { if (e.key === 'Enter') t(); }); });
+  v.querySelectorAll('button[data-hv]').forEach(b => b.addEventListener('click', () => { histView = b.dataset.hv; render(); }));
+  bindKund(v, 'data-hk', histKOpen);
+  v.querySelectorAll('tr[data-hb]').forEach(tr => tr.addEventListener('click', () => { const n = tr.dataset.hb; histOpen.has(n) ? histOpen.delete(n) : histOpen.add(n); render(); }));
+  const hqi = v.querySelector('#hq'); if (hqi) hqi.addEventListener('input', () => { histQ = hqi.value; const pos = hqi.selectionStart; render(); const n = $('#hq'); n.focus(); n.setSelectionRange(pos, pos); });
+  const hn = v.querySelector('#histAskNo'); if (hn) hn.addEventListener('click', () => { histAsk = null; render(); });
+  const hl = v.querySelector('#histLock'); if (hl) hl.addEventListener('click', async () => { if (months[histSel].last && histAsk !== histSel) { histAsk = histSel; render(); return; } histAsk = null; hl.disabled = true; try { await db.doc('months/' + histSel).update({ last: !months[histSel].last }); toast(months[histSel].last ? 'Månaden är upplåst.' : 'Månaden är låst.'); } catch { toast('Kunde inte ändra låset.'); hl.disabled = false; } });
+  const hx = v.querySelector('#histX'); if (hx) hx.addEventListener('click', () => exportExcel(histSel, months[histSel].summary.bolag, (months[histSel].summary.kund || []).map(k => ({ ...k, korn: specCache[histSel]?.[String(k.nr)] || k.korn })), null, months[histSel].summary.kontroll || []));
+}
+let histSel = null, histOpen = new Set(), histView = 'akare', histKOpen = new Set(), histAsk = null, histQ = '';
+function histDetail(p, m) {
+  const B0 = m.summary.bolag || [], k = m.summary.kpi, full = B0.some(b => b.rows);
+  const hq = histQ.trim().toLowerCase(), hm = (...x) => !hq || x.some(y => String(y ?? '').toLowerCase().includes(hq));
+  const B = B0.filter(b => hm(b.namn, b.kn, (b.bilar || []).join(' ')));
+  let h = `<section class="panel" id="histD" style="margin-top:22px"><div class="set-head"><h2 style="margin:0">${esc(monthLabels(p).namn)} ${m.last ? '<span class="pill info">låst</span>' : ''}</h2><div class="toolbar" style="margin:0">${m.last && histAsk === p ? '<button id="histAskNo">Avbryt</button>' : ''}<button id="histLock" ${m.last && histAsk === p ? 'class="primary"' : ''}>${m.last ? (histAsk === p ? 'Ja, lås upp' : 'Lås upp') : 'Lås månaden (skickad)'}</button>${full ? '<button id="histX" class="primary">Ladda ner Excel för månaden</button>' : ''}</div></div>
+  ${m.last && histAsk === p ? `<div class="kpi alert" style="margin-bottom:14px"><div class="lbl">Innan du låser upp ${esc(monthLabels(p).namn)}</div><div class="s" style="color:var(--ink);margin-top:6px">Månaden räknas om med <b>dagens inställningar</b> (bolag, bilar, terminaler, priser, gratis växelavgift) när du laddar upp filerna igen. Har något ändrats sedan månaden skickades slår det igenom här också. Ladda ner Excel för månaden först och jämför innan du låser igen.</div></div>` : ''}
+  <div class="kpis" style="margin-bottom:14px"><div class="kpi"><div class="lbl">Kundfakturor</div><div class="v">${f0(k.kundTotal)} kr</div><div class="s">${k.kundAntal} konton</div></div>
+  <div class="kpi"><div class="lbl">Utbetalas</div><div class="v neg">${f0(-k.utbet)} kr</div><div class="s">${B.filter(b => b.att < 0).length} bolag</div></div>
+  <div class="kpi"><div class="lbl">Betalas in</div><div class="v pos">${f0(k.inbet)} kr</div><div class="s">Växelavgifter ${f0(k.vx)} kr</div></div>
+  <div class="kpi"><div class="lbl">Filer</div><div class="s" style="margin-top:6px">${Object.values(m.files || {}).map(esc).join('<br>') || '-'}</div></div></div>`;
+  if (!full) h += '<p class="note">Den här månaden sparades innan detaljerna började sparas. Ladda upp månadens filer igen för att se fakturaraderna.</p>';
+  if (specCache[p] === undefined && db) { specCache[p] = null; db.doc('spec/' + p).get().then(s => { specCache[p] = s.exists ? s.data().kund || {} : {}; if (tab === 'hist') render(); }).catch(() => { specCache[p] = {}; }); }
+  const KL0 = (m.summary.kund || []).map(k => ({ ...k, korn: specCache[p]?.[String(k.nr)] || k.korn })), KL = KL0.filter(x => hm(x.nr, x.namn));
+  const cnt = (a, b) => hq ? a + ' av ' + b : String(b);
+  h += `<div class="toolbar"><input type="search" id="hq" class="search" placeholder="${histView === 'kund' ? 'Sök konto eller namn' : 'Sök bolag, kundnr eller bil'}" value="${esc(histQ)}" aria-label="Sök i månaden"><span class="grow"></span></div>
+  <div class="tabs" style="margin-bottom:12px"><button data-hv="akare" aria-selected="${histView === 'akare'}">Åkaravräkningar (${cnt(B.length, B0.length)})</button><button data-hv="kund" aria-selected="${histView === 'kund'}">Kundfakturor (${cnt(KL.length, KL0.length)})</button></div>`;
+  if (histView === 'kund') return h + (KL.length ? kundTable(KL, histKOpen, 'data-hk') : '<p class="note">Kundfakturorna sparades inte för den här månaden.</p>') + '</section>';
+  h += `<div class="tbl"><table><thead><tr><th>Bolag</th><th>Kundnr</th><th>Bilar</th><th class="n">Kontokort</th><th class="n">Deb</th><th class="n">App</th><th class="n">Förskott</th><th class="n">Tidigare skuld</th><th class="n">Att betala</th></tr></thead><tbody>`;
+  for (const b of B) {
+    h += `<tr class="${full ? 'click' : ''} ${histOpen.has(b.namn) ? 'open' : ''}" ${full ? `data-hb="${esc(b.namn)}"` : ''}><td>${esc(b.namn)}</td><td class="num">${esc(b.kn ?? '')}</td><td class="muted">${(b.bilar || []).join(', ')}</td><td class="n">${f0(b.kort)}</td><td class="n">${f2(b.deb)}</td><td class="n">${f2(b.app)}</td><td class="n">${b.forsk ? f0(b.forsk) : ''}</td><td class="n">${b.skuld ? f0(b.skuld) : ''}</td><td class="n ${sgn(b.att)}"><b>${f0(b.att)}</b></td></tr>`;
+    if (full && histOpen.has(b.namn)) h += `<tr class="detail"><td colspan="9">${rowsTable(b)}</td></tr>`;
+  }
+  h += `<tr class="sum"><td>Summa</td><td></td><td></td><td class="n">${f0(B.reduce((s, b) => s + b.kort, 0))}</td><td class="n">${f2(B.reduce((s, b) => s + b.deb, 0))}</td><td class="n">${f2(B.reduce((s, b) => s + b.app, 0))}</td><td class="n">${f0(B.reduce((s, b) => s + (b.forsk || 0), 0))}</td><td class="n">${f0(B.reduce((s, b) => s + (b.skuld || 0), 0))}</td><td class="n">${f0(B.reduce((s, b) => s + b.att, 0))}</td></tr></tbody></table></div></section>`;
+  return h;
+}
+
+// Förare per körning sparas separat (forare/<period>) så att spec/<period> håller sig under 256 kB.
+// Format {namn: [förare], k: {konto: [index i namn per körning i samma ordning som spec, -1 = saknas]}}
+function packForare(kund) {
+  const namn = [], ix = new Map(), k = {};
+  for (const x of kund) k[String(x.nr)] = (x.korn || []).map(t => { const f = String(t.f || '').trim(); if (!f) return -1; if (!ix.has(f)) { ix.set(f, namn.length); namn.push(f); } return ix.get(f); });
+  return { namn, k };
+}
+function applyForare(kundMap, F) { if (!F) return; for (const [nr, L] of Object.entries(kundMap || {})) { const a = F.k?.[nr]; if (!a || a.length !== L.length) continue; L.forEach((t, i) => { if (a[i] >= 0) t.f = F.namn[a[i]]; }); } }
+function tripsByKonto(trips) { const m = new Map(); for (const t of trips) { const k = t.konto?.nr; if (!m.has(k)) m.set(k, { nr: k, korn: [] }); m.get(k).korn.push({ f: String(t.forare || '').replace(/\s+/g, ' ').trim() }); } return [...m.values()]; }
+let forareCache = {}, appCache = {}, lastAppSaved = null;
+// Appbetalningar per körning: appspec/<period> {f: [förare], r: [[id, bil, 'ÅÅÅÅ-MM-DD HH:MM', belopp, förareindex, från, till]]}
+function packApp(rows) {
+  const f = [], ix = new Map();
+  const r = rows.map(a => { const fn = String(a.forare || '').trim(); let i = -1; if (fn) { if (!ix.has(fn)) { ix.set(fn, f.length); f.push(fn); } i = ix.get(fn); }
+    const x = [String(a.id || ''), +a.bil, String(a.datum || ''), r2(+a.belopp || 0), i]; if (a.fran || a.till) x.push(kortAdr(a.fran), kortAdr(a.till)); return x; });
+  return { f, r };
+}
+const unpackApp = A => (A?.r || []).map(x => ({ id: x[0], bil: +x[1], d: String(x[2] || '').slice(0, 10), t: String(x[2] || '').slice(11, 16), s: +x[3] || 0, f: x[4] >= 0 ? A.f[x[4]] : '', fran: x[5] || '', till: x[6] || '' }));
+
+// ---------- Åkarspec och utskick (debiteringskörningar per åkare, utan passagerarnamn) ----------
+const JSPDF_URL = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+const AUTOTABLE_URL = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js';
+let specMon = null, specOpen = new Set(), utskick = {}, mailOpen = new Set(), specView = 'bil', specPart = 'deb';
+const TYPN = { p: 'Person', b: 'Bud', u: 'Utland' };
+const specMonths = () => Object.keys(months).filter(p => /^\d{4}-\d\d$/.test(p) && months[p].summary).sort();
+function curSpecMon() {
+  const L = specMonths();
+  if (specMon && (L.includes(specMon) || (R && specMon === D.period))) return specMon;
+  return (R && D.period) || L[L.length - 1] || null;
+}
+const kortAdr = s => String(s || '').replace(/\u060c/g, ',').replace(/,\s*(Sverige|Danmark|Sweden|Denmark)\b/g, '').replace(/\s+/g, ' ').trim();
+function splitRutt(r) { const m = String(r || '').match(/från:\s*(.*?)\s*till:\s*(.*)$/i); return m ? [kortAdr(m[1]), kortAdr(m[2])] : [kortAdr(String(r || '').replace(/^\s*från:\s*/i, '')), '']; }
+// Bygger {bolag:[{namn,kn,mail,bilar:[{bil,reg,trips,sum,typ}],n,sum}]} för månaden, null medan specen laddas
+function specFor(p) {
+  if (!p) return { bolag: [] };
+  const live = R && p === D.period && D.tc;
+  let kund;
+  if (live) kund = R.kund.map(k => ({ nr: k.nr, namn: k.namn, korn: k.korn || [] }));
+  else {
+    if (specCache[p] === undefined && db) { specCache[p] = null; db.doc('spec/' + p).get().then(s => { specCache[p] = s.exists ? s.data().kund || {} : {}; render(); }).catch(() => { specCache[p] = {}; render(); }); }
+    if (forareCache[p] === undefined && db) { forareCache[p] = null; db.doc('forare/' + p).get().then(s => { forareCache[p] = s.exists ? s.data() : {}; render(); }).catch(() => { forareCache[p] = {}; render(); }); }
+    if (specCache[p] == null || (db && forareCache[p] == null)) return null;
+    const namn = Object.fromEntries((months[p]?.summary?.kund || []).map(k => [String(k.nr), k.namn]));
+    const km = clone(specCache[p]); applyForare(km, forareCache[p]);
+    kund = Object.entries(km).map(([nr, L]) => ({ nr, namn: namn[nr] || 'Konto ' + nr, korn: L || [] }));
+  }
+  // Appbetalningar: nyss inläst fil, annars appspec/<period>
+  let appRows = [];
+  if (D.appRad && D.period === p) appRows = D.appRad.map(a => ({ id: String(a.id || ''), bil: +a.bil, d: String(a.datum || '').slice(0, 10), t: String(a.datum || '').slice(11, 16), s: +a.belopp || 0, f: String(a.forare || '').trim(), fran: kortAdr(a.fran), till: kortAdr(a.till) }));
+  else if (db) {
+    if (appCache[p] === undefined) { appCache[p] = null; db.doc('appspec/' + p).get().then(s => { appCache[p] = s.exists ? s.data() : {}; render(); }).catch(() => { appCache[p] = {}; render(); }); }
+    if (appCache[p] == null) return null;
+    appRows = unpackApp(appCache[p]);
+  }
+  const bil2b = new Map();
+  if (R && p === D.period) R.perBil.forEach(x => bil2b.set(+x.bil, x.bolag));
+  else (months[p]?.summary?.bolag || []).forEach(b => (b.bilar || []).forEach(n => bil2b.set(+n, b.namn)));
+  const reg = new Map(S.bilar.map(b => [+b.bil, b.reg || ''])), avr = new Map(S.bilar.map(b => [+b.bil, (b.avr || b.bolag || '').trim()]));
+  const out = new Map();
+  const getO = bil => { const n = bil2b.get(+bil) || avr.get(+bil) || '(bil saknas i bilregistret)'; if (n === 'IGNORERA') return null;
+    if (!out.has(n)) { const B = S.bolag.find(x => x.namn === n) || {}; out.set(n, { namn: n, kn: B.kn ?? '', mail: B.mail || '', bilar: new Map(), forare: new Map(), n: 0, sum: 0, app: new Map(), appF: new Map(), an: 0, asum: 0 }); }
+    return out.get(n); };
+  for (const k of kund) for (const t of k.korn) {
+    const o = getO(t.b); if (!o) continue; if (!o.bilar.has(+t.b)) o.bilar.set(+t.b, { bil: +t.b, reg: reg.get(+t.b) || '', trips: [], sum: 0, typ: { p: 0, b: 0, u: 0 } });
+    const bb = o.bilar.get(+t.b), [fran, till] = splitRutt(t.r);
+    const trip = { d: t.d || '', t: t.t || '', kund: k.namn || '', konto: k.nr, fran, till, y: t.y, s: +t.s || 0, bil: +t.b, f: String(t.f || '').trim() || 'Förare saknas' };
+    bb.trips.push(trip);
+    if (!o.forare.has(trip.f)) o.forare.set(trip.f, { namn: trip.f, bilar: new Set(), trips: [], sum: 0, typ: { p: 0, b: 0, u: 0 } });
+    const ff = o.forare.get(trip.f); ff.bilar.add(+t.b); ff.trips.push(trip); ff.sum += trip.s; ff.typ[t.y] = (ff.typ[t.y] || 0) + trip.s;
+    bb.sum += +t.s || 0; bb.typ[t.y] = (bb.typ[t.y] || 0) + (+t.s || 0); o.n++; o.sum += +t.s || 0;
+  }
+  const debNamn = new Set(kund.flatMap(k => k.korn.map(t => String(t.f || '').trim())).filter(Boolean));
+  const vand = n => n.includes(',') ? n.split(',').slice(1).join(',').trim() + ', ' + n.split(',')[0].trim() : n;
+  for (const a of appRows) if (a.f && !debNamn.has(a.f)) a.f = vand(a.f);
+  for (const a of appRows) {
+    const o = getO(a.bil); if (!o) continue;
+    if (!o.app.has(a.bil)) o.app.set(a.bil, { bil: a.bil, reg: reg.get(a.bil) || '', rows: [], sum: 0 });
+    const x = o.app.get(a.bil); x.rows.push(a); x.sum += a.s; o.an++; o.asum += a.s;
+    const fk = a.f || 'Förare saknas'; if (!o.appF.has(fk)) o.appF.set(fk, { namn: fk, bilar: new Set(), rows: [], sum: 0 });
+    const y = o.appF.get(fk); y.bilar.add(a.bil); y.rows.push(a); y.sum += a.s;
+  }
+  const byDT = (x, y) => (x.d + x.t).localeCompare(y.d + y.t), fSort = (a, b) => (a.namn === 'Förare saknas') - (b.namn === 'Förare saknas') || a.namn.localeCompare(b.namn, 'sv');
+  const bolag = [...out.values()].map(o => ({ ...o, sum: r2(o.sum), asum: r2(o.asum),
+      bilar: [...o.bilar.values()].sort((a, b) => a.bil - b.bil).map(b => ({ ...b, sum: r2(b.sum), trips: b.trips.sort(byDT) })),
+      forare: [...o.forare.values()].map(f => ({ ...f, sum: r2(f.sum), bilar: [...f.bilar].sort((a, b) => a - b), trips: f.trips.sort(byDT) })).sort(fSort),
+      app: [...o.app.values()].sort((a, b) => a.bil - b.bil).map(x => ({ ...x, sum: r2(x.sum), rows: x.rows.sort(byDT) })),
+      appF: [...o.appF.values()].map(f => ({ ...f, sum: r2(f.sum), bilar: [...f.bilar].sort((a, b) => a - b), rows: f.rows.sort(byDT) })).sort(fSort),
+      appHarF: appRows.some(a => a.f), appHarAdr: appRows.some(a => a.fran || a.till) }))
+    .sort((a, b) => a.namn.localeCompare(b.namn, 'sv'));
+  return { bolag, appN: appRows.length };
+}
+function monthPicker(p) {
+  const L = specMonths(); if (R && D.period && !L.includes(D.period)) L.push(D.period);
+  return `<label class="muted" for="specM">Månad</label><select id="specM">${L.sort().reverse().map(m => `<option value="${m}" ${m === p ? 'selected' : ''}>${esc(monthLabels(m).namn)}${months[m]?.last ? ' (låst)' : ''}</option>`).join('')}</select>`;
+}
+function bindMonth(v) { const s = v.querySelector('#specM'); if (s) s.addEventListener('change', () => { specMon = s.value; specOpen = new Set(); mailOpen = new Set(); render(); }); }
+function bilTable(b) {
+  return `<div class="tbl" style="margin-bottom:12px"><table><thead><tr><th>Datum</th><th>Tid</th><th>Kund</th><th>Från</th><th>Till</th><th>Typ</th><th class="n">Belopp inkl moms</th></tr></thead><tbody>
+  ${b.trips.map(t => `<tr><td class="num" style="text-align:left">${esc(t.d)}</td><td class="num" style="text-align:left">${esc(t.t)}</td><td>${esc(t.kund)}</td><td class="muted">${esc(t.fran)}</td><td class="muted">${esc(t.till)}</td><td>${TYPN[t.y] || ''}</td><td class="n">${f2(t.s)}</td></tr>`).join('')}
+  <tr class="sum"><td colspan="6">Summa bil ${b.bil}, ${b.trips.length} körningar</td><td class="n">${f2(b.sum)}</td></tr></tbody></table></div>`;
+}
+function forareTable(f) {
+  return `<div class="tbl" style="margin-bottom:12px"><table><thead><tr><th>Datum</th><th>Tid</th><th>Bil</th><th>Kund</th><th>Från</th><th>Till</th><th>Typ</th><th class="n">Belopp inkl moms</th></tr></thead><tbody>
+  ${f.trips.map(t => `<tr><td class="num" style="text-align:left">${esc(t.d)}</td><td class="num" style="text-align:left">${esc(t.t)}</td><td class="num" style="text-align:left">${t.bil}</td><td>${esc(t.kund)}</td><td class="muted">${esc(t.fran)}</td><td class="muted">${esc(t.till)}</td><td>${TYPN[t.y] || ''}</td><td class="n">${f2(t.s)}</td></tr>`).join('')}
+  <tr class="sum"><td colspan="7">Summa ${esc(f.namn)}, ${f.trips.length} körningar</td><td class="n">${f2(f.sum)}</td></tr></tbody></table></div>`;
+}
+function forareOversikt(b) {
+  return `<div class="tbl" style="margin-bottom:16px"><table><thead><tr><th>Förare</th><th>Bilar</th><th class="n">Körningar</th><th class="n">Person</th><th class="n">Bud</th><th class="n">Utland</th><th class="n">Summa</th></tr></thead><tbody>
+  ${b.forare.map(f => `<tr><td>${esc(f.namn)}</td><td class="muted">${f.bilar.join(', ')}</td><td class="n">${f.trips.length}</td><td class="n">${f2(f.typ.p || 0)}</td><td class="n">${f2(f.typ.b || 0)}</td><td class="n">${f2(f.typ.u || 0)}</td><td class="n">${f2(f.sum)}</td></tr>`).join('')}
+  <tr class="sum"><td>Summa</td><td></td><td class="n">${b.n}</td><td></td><td></td><td></td><td class="n">${f2(b.sum)}</td></tr></tbody></table></div>`;
+}
+function appTable(rows, sum, titel, visaBil, harF, harAdr) {
+  return `<div class="tbl" style="margin-bottom:12px"><table><thead><tr><th>Datum</th><th>Tid</th>${visaBil ? '<th>Bil</th>' : ''}${harF && !visaBil ? '<th>Förare</th>' : ''}<th>Körnings-id</th>${harAdr ? '<th>Från</th><th>Till</th>' : ''}<th class="n">Belopp</th></tr></thead><tbody>
+  ${rows.map(a => `<tr><td class="num" style="text-align:left">${esc(a.d)}</td><td class="num" style="text-align:left">${esc(a.t)}</td>${visaBil ? `<td class="num" style="text-align:left">${a.bil}</td>` : ''}${harF && !visaBil ? `<td>${esc(a.f)}</td>` : ''}<td class="num muted" style="text-align:left">${esc(a.id)}</td>${harAdr ? `<td class="muted">${esc(a.fran)}</td><td class="muted">${esc(a.till)}</td>` : ''}<td class="n">${f2(a.s)}</td></tr>`).join('')}
+  <tr class="sum"><td colspan="${2 + (visaBil || harF ? 1 : 0) + 1 + (harAdr ? 2 : 0)}">Summa ${esc(titel)}, ${rows.length} appbetalningar</td><td class="n">${f2(sum)}</td></tr></tbody></table></div>`;
+}
+function appSection(b) {
+  if (!b.an) return '';
+  const perF = specView === 'forare' && b.appHarF;
+  return `<h2 style="margin:22px 0 10px">Appbetalningar</h2>` + (perF
+    ? b.appF.map(f => `<h3>${esc(f.namn)} <span class="muted" style="font:400 13px var(--f-data)">bil ${f.bilar.join(', ')}</span></h3>${appTable(f.rows, f.sum, f.namn, true, true, b.appHarAdr)}`).join('')
+    : b.app.map(x => `<h3>Bil ${x.bil} <span class="muted" style="font:400 13px var(--f-data)">${esc(x.reg)}</span></h3>${appTable(x.rows, x.sum, 'bil ' + x.bil, false, b.appHarF, b.appHarAdr)}`).join(''));
+}
+// Översikt (debiteringar + app) överst, sedan flikar Debiteringar / Appbetalningar
+function specDetail(b) {
+  const perF = specView === 'forare';
+  const m = new Map(), rad = (k, bilar) => { if (!m.has(k)) m.set(k, { k, bilar: new Set(), dn: 0, ds: 0, an: 0, as: 0 }); const x = m.get(k); bilar.forEach(n => x.bilar.add(n)); return x; };
+  if (perF) { b.forare.forEach(f => { const x = rad(f.namn, f.bilar); x.dn += f.trips.length; x.ds += f.sum; }); (b.appHarF ? b.appF : []).forEach(f => { const x = rad(f.namn, f.bilar); x.an += f.rows.length; x.as += f.sum; }); }
+  else { b.bilar.forEach(y => { const x = rad('Bil ' + y.bil, [y.bil]); x.dn += y.trips.length; x.ds += y.sum; }); b.app.forEach(y => { const x = rad('Bil ' + y.bil, [y.bil]); x.an += y.rows.length; x.as += y.sum; }); }
+  const L = [...m.values()].sort((a, c) => perF ? (a.k === 'Förare saknas') - (c.k === 'Förare saknas') || a.k.localeCompare(c.k, 'sv') : [...a.bilar][0] - [...c.bilar][0]);
+  let h = `<h3>Översikt per ${perF ? 'förare' : 'bil'}</h3><div class="tbl" style="margin-bottom:14px"><table><thead><tr><th>${perF ? 'Förare' : 'Bil'}</th>${perF ? '<th>Bilar</th>' : ''}<th class="n">Debiteringar</th><th class="n">Summa deb</th><th class="n">Appbetalningar</th><th class="n">Summa app</th></tr></thead><tbody>
+  ${L.map(x => `<tr><td>${esc(x.k)}</td>${perF ? `<td class="muted">${[...x.bilar].sort((a, c) => a - c).join(', ')}</td>` : ''}<td class="n">${x.dn || ''}</td><td class="n">${x.dn ? f2(x.ds) : ''}</td><td class="n">${x.an || ''}</td><td class="n">${x.an ? f2(x.as) : ''}</td></tr>`).join('')}
+  <tr class="sum"><td>Summa</td>${perF ? '<td></td>' : ''}<td class="n">${b.n}</td><td class="n">${f2(b.sum)}</td><td class="n">${b.an}</td><td class="n">${f2(b.asum)}</td></tr></tbody></table></div>`;
+  if (perF && b.an && !b.appHarF) h += '<p class="note">Appbetalningarna för månaden saknar förare (äldre export). Ladda upp TaxiCallers App Betalning med kolumnen Förare.</p>';
+  h += `<div class="tabs" style="margin:6px 0 12px"><button data-sp="deb" aria-selected="${specPart === 'deb'}">Debiteringar (${b.n})</button><button data-sp="app" aria-selected="${specPart === 'app'}">Appbetalningar (${b.an})</button></div>`;
+  if (specPart === 'app') return h + (b.an ? appSection(b).replace(/^<h2[^>]*>Appbetalningar<\/h2>/, '') : '<p class="note">Inga appbetalningar för månaden.</p>');
+  if (!b.n) return h + '<p class="note">Inga debiteringskörningar.</p>';
+  return h + (perF ? b.forare.map(f => `<h3>${esc(f.namn)} <span class="muted" style="font:400 13px var(--f-data)">bil ${f.bilar.join(', ')}</span></h3>${forareTable(f)}`).join('')
+    : b.bilar.map(x => `<h3>Bil ${x.bil} <span class="muted" style="font:400 13px var(--f-data)">${esc(x.reg)}</span></h3>${bilTable(x)}`).join(''));
+}
+function renderSpec(v) {
+  const p = curSpecMon();
+  if (!p) { v.innerHTML = '<div class="panel empty"><h3>Ingen månad att visa</h3><p>Ladda upp TaxiCallers kontofakturor för en månad först.</p></div>'; return; }
+  const X = specFor(p);
+  const head = `<div class="toolbar">${monthPicker(p)}<div class="tabs" style="margin:0;border:0"><button data-sv="bil" aria-selected="${specView === 'bil'}">Per bil</button><button data-sv="forare" aria-selected="${specView === 'forare'}">Per förare</button></div>${searchBar('Sök bolag, kundnr, bil, förare eller kund')}<span class="grow"></span>`;
+  if (!X) { v.innerHTML = head + '</div><div class="panel empty"><p>Läser specifikationen…</p></div>'; bindMonth(v); bindSearch(v); return; }
+  const L = X.bolag.filter(b => match(b.namn, b.kn, b.bilar.map(x => x.bil).join(' '), b.app.map(x => x.bil).join(' '), b.forare.map(f => f.namn).join(' '), b.appF.map(f => f.namn).join(' '), b.bilar.flatMap(x => x.trips.map(t => t.kund)).join(' ')));
+  const utanF = X.bolag.reduce((a, b) => a + (b.forare.find(f => f.namn === 'Förare saknas')?.trips.length || 0), 0);
+  let h = head + `<span class="muted">${L.length} åkare, ${L.reduce((a, b) => a + b.n, 0)} debiteringar, ${L.reduce((a, b) => a + b.an, 0)} appbetalningar</span></div>
+  <div class="tbl"><table><thead><tr><th>Åkare</th><th>Kundnr</th><th>Bilar</th><th class="n">Debiteringar</th><th class="n">Summa deb</th><th class="n">Appbetalningar</th><th class="n">Summa app</th><th></th></tr></thead><tbody>`;
+  for (const b of L) {
+    const o = specOpen.has(b.namn);
+    h += `<tr class="click ${o ? 'open' : ''}" data-sb="${esc(b.namn)}" tabindex="0" aria-expanded="${o}"><td>${esc(b.namn)}</td><td class="num">${esc(b.kn)}</td><td class="muted">${[...new Set([...b.bilar.map(x => x.bil), ...b.app.map(x => x.bil)])].sort((a, c) => a - c).join(', ')}</td><td class="n">${b.n}</td><td class="n"><b>${f2(b.sum)}</b></td><td class="n">${b.an}</td><td class="n"><b>${f2(b.asum)}</b></td><td><button data-pdf="${esc(b.namn)}">PDF</button></td></tr>`;
+    if (o) h += `<tr class="detail"><td colspan="8">${specDetail(b)}</td></tr>`;
+  }
+  h += `<tr class="sum"><td>Summa</td><td></td><td></td><td class="n">${L.reduce((a, b) => a + b.n, 0)}</td><td class="n">${f2(L.reduce((a, b) => a + b.sum, 0))}</td><td class="n">${L.reduce((a, b) => a + b.an, 0)}</td><td class="n">${f2(L.reduce((a, b) => a + b.asum, 0))}</td><td></td></tr></tbody></table></div>
+  <p class="note">Debiteringskörningar (kontokunder) per åkare, bil och förare, som åkaren krediteras på avräkningen. Utan passagerarnamn. Förare enligt TaxiCallers kontofakturor${utanF ? `, ${utanF} körningar saknar förare (ladda upp kontofakturorna igen för månaden)` : ''}. Appbetalningar (kortbetalning i appen, art 55) per bil${X.appN ? '' : ' saknas för månaden: ladda upp TaxiCallers App Betalning som CSV i ruta 3'}. Klicka på en åkare för körningarna, PDF ger specifikationen att skicka.</p>`;
+  v.innerHTML = h; bindMonth(v); bindSearch(v);
+  v.querySelectorAll('button[data-sv]').forEach(btn => btn.addEventListener('click', () => { specView = btn.dataset.sv; render(); }));
+  v.querySelectorAll('button[data-sp]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); specPart = btn.dataset.sp; render(); }));
+  v.querySelectorAll('tr[data-sb]').forEach(tr => { const t = () => { const n = tr.dataset.sb; specOpen.has(n) ? specOpen.delete(n) : specOpen.add(n); render(); }; tr.addEventListener('click', t); tr.addEventListener('keydown', e => { if (e.key === 'Enter') t(); }); });
+  v.querySelectorAll('tr.detail').forEach(tr => tr.addEventListener('click', e => e.stopPropagation()));
+  bindPdf(v, p, X);
+}
+function bindPdf(v, p, X) {
+  v.querySelectorAll('button[data-pdf]').forEach(btn => btn.addEventListener('click', async e => {
+    e.stopPropagation(); const b = X.bolag.find(x => x.namn === btn.dataset.pdf); if (!b) return;
+    btn.disabled = true; try { await savePdf(p, b); } finally { btn.disabled = false; }
+  }));
+}
+
+// Mailtext (ingen bilaga i mailto, PDF:en bifogas för hand)
+function mailText(p, b) {
+  const M = monthLabels(p).namn.toLowerCase(), N = monthLabels(ymAdd(p, 1)).namn.toLowerCase().split(' ')[0];
+  const B = S.bolag.find(x => x.namn === b.namn), pris = S.params.fs ?? 99;
+  const subject = `Specifikation ${M}, Taxi Malmö`;
+  const deb = `DEBITERINGAR (kontokunder)
+${b.n} körningar, ${f2(b.sum)} kr inkl moms.
+${b.bilar.map(x => `Bil ${x.bil}: ${x.trips.length} körningar, ${f2(x.sum)} kr`).join('\n')}`;
+  const app = b.an ? `
+
+APPBETALNINGAR
+${b.an} st, ${f2(b.asum)} kr.
+${b.app.map(x => `Bil ${x.bil}: ${x.rows.length} st, ${f2(x.sum)} kr`).join('\n')}` : '';
+  const fs = fsAktiv(B, p) ? `PDF:en är uppdelad per bil och per förare.
+Där ser ni varje förares körningar och appbetalningar.`
+    : fsProv(p) ? `NYTT: SPECIFIKATION PER FÖRARE (gratis i ${M.split(' ')[0]})
+Den här månaden är PDF:en även uppdelad per förare. Där ser ni:
+- varje förares debiteringar och appbetalningar
+- vem som körde vilken bil
+- varje körning med datum och tid
+
+Vill ni ha det varje månad?
+Det kostar ${pris} kr per bil och månad (exkl moms).
+Svara på detta mail, så lägger vi till det från ${N}.
+Annars får ni specifikationen per bil som vanligt, utan kostnad.`
+    : `PDF:en är uppdelad per bil, med datum och tid för varje körning.
+
+Vill ni ha specifikationen per förare?
+Det kostar ${pris} kr per bil och månad (exkl moms).
+Svara på detta mail, så lägger vi till det från nästa månad.`;
+  const body = `Hej,
+
+Här kommer er specifikation för ${M}.
+Den gäller ${b.namn}.
+
+${deb}${app}
+
+${fs}
+
+PDF:en är bifogad.
+Hör av er om något inte stämmer.
+
+Med vänliga hälsningar
+Taxi Malmö AB
+040-911 911`;
+  return { subject, body };
+}
+function renderMail(v) {
+  const p = curSpecMon();
+  if (!p) { v.innerHTML = '<div class="panel empty"><h3>Ingen månad att visa</h3></div>'; return; }
+  const X = specFor(p), sent = utskick[p]?.sent || {};
+  const head = `<div class="toolbar">${monthPicker(p)}${searchBar('Sök åkare eller mail')}<span class="grow"></span>`;
+  if (!X) { v.innerHTML = head + '</div><div class="panel empty"><p>Läser specifikationen…</p></div>'; bindMonth(v); bindSearch(v); return; }
+  const L = X.bolag.filter(b => match(b.namn, b.kn, b.mail));
+  const ns = L.filter(b => sent[b.namn]).length;
+  let h = head + `<span class="muted">${ns} av ${L.length} skickade</span></div>
+  <div class="panel" style="padding:14px 16px;margin-bottom:14px"><div class="lbl">Så skickar du</div><p class="note" style="margin-top:6px">1. Ladda ner PDF. 2. Öppna mail: ditt mailprogram öppnas med mottagare, ämne och text ifyllt. Bifoga PDF:en och skicka. 3. Bocka i Skickat, det sparas per månad.</p></div>
+  <div class="tbl"><table><thead><tr><th>Skickat</th><th>Åkare</th><th>Mail</th><th class="n">Debiteringar</th><th class="n">Appbetalningar</th><th></th></tr></thead><tbody>`;
+  for (const b of L) {
+    const s = sent[b.namn], o = mailOpen.has(b.namn), mt = mailText(p, b);
+    const href = b.mail ? `mailto:${encodeURIComponent(b.mail)}?subject=${encodeURIComponent(mt.subject)}&body=${encodeURIComponent(mt.body)}` : '';
+    h += `<tr class="${o ? 'open' : ''}"><td><label style="display:flex;gap:6px;align-items:center;white-space:nowrap"><input type="checkbox" data-sent="${esc(b.namn)}" ${s ? 'checked' : ''}>${s ? `<span class="muted" style="font-size:12px">${esc(s.slice(0, 10))}</span>` : ''}</label></td>
+      <td>${esc(b.namn)}${fsAktiv(S.bolag.find(x => x.namn === b.namn), p) ? ' <span class="pill ok">per förare</span>' : fsProv(p) ? ' <span class="pill info">per förare, prov</span>' : ''}</td><td>${b.mail ? esc(b.mail) : '<span class="pill warn">mail saknas</span>'}</td><td class="n">${b.n} st, ${f2(b.sum)}</td><td class="n">${b.an} st, ${f2(b.asum)}</td>
+      <td style="white-space:nowrap"><button data-pdf="${esc(b.namn)}">PDF</button> ${href ? `<a class="btn" style="text-decoration:none;display:inline-block" href="${esc(href)}" target="_blank" rel="noopener" data-mt="${esc(b.namn)}">Öppna mail</a>` : ''} <button class="ghost" data-prev="${esc(b.namn)}">${o ? 'Dölj' : 'Visa text'}</button></td></tr>`;
+    if (o) h += `<tr class="detail"><td colspan="6"><div class="lbl">Till</div><div style="margin:2px 0 8px">${esc(b.mail || 'saknas, lägg in under Inställningar, Bolag')}</div><div class="lbl">Ämne</div><div style="margin:2px 0 8px">${esc(mt.subject)}</div><div class="lbl">Text</div><pre style="white-space:pre-wrap;font:13px/1.5 var(--f-body);margin:4px 0 10px">${esc(mt.body)}</pre><button data-copymail="${esc(b.namn)}">Kopiera ämne och text</button></td></tr>`;
+  }
+  h += `</tbody></table></div><p class="note">Mail hämtas från Inställningar, Bolag. PDF:en innehåller inga passagerarnamn.</p>`;
+  v.innerHTML = h; bindMonth(v); bindSearch(v); bindPdf(v, p, X);
+  v.querySelectorAll('button[data-prev]').forEach(btn => btn.addEventListener('click', () => { const n = btn.dataset.prev; mailOpen.has(n) ? mailOpen.delete(n) : mailOpen.add(n); render(); }));
+  v.querySelectorAll('button[data-copymail]').forEach(btn => btn.addEventListener('click', async () => { const b = X.bolag.find(x => x.namn === btn.dataset.copymail); const mt = mailText(p, b); try { await navigator.clipboard.writeText(mt.subject + '\n\n' + mt.body); toast('Ämne och text är kopierade.'); } catch { toast('Kunde inte kopiera. Markera texten ovan i stället.'); } }));
+  v.querySelectorAll('a[data-mt]').forEach(a => a.addEventListener('click', () => toast('Bifoga PDF:en i mailet och skicka. Bocka sedan i Skickat.', 6000)));
+  v.querySelectorAll('input[data-sent]').forEach(c => c.addEventListener('change', async () => {
+    if (!db) return; const cur = { ...(utskick[p]?.sent || {}) };
+    if (c.checked) cur[c.dataset.sent] = new Date().toISOString(); else delete cur[c.dataset.sent];
+    utskick[p] = { ...(utskick[p] || {}), sent: cur }; render();
+    try { await db.doc('utskick/' + p).set({ sent: cur, updatedAt: new Date().toISOString() }); } catch { toast('Kunde inte spara Skickat.'); }
+  }));
+}
+
+// ---------- PDF ----------
+let pdfLibP = null;
+function loadScript(src) { return new Promise((ok, err) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = () => err(new Error('kunde inte ladda ' + src)); document.head.appendChild(s); }); }
+function pdfLib() {
+  if (!pdfLibP) pdfLibP = (async () => { if (!window.jspdf) await loadScript(JSPDF_URL); if (!window.jspdf?.jsPDF?.API?.autoTable) await loadScript(AUTOTABLE_URL); return window.jspdf.jsPDF; })().catch(e => { pdfLibP = null; throw e; });
+  return pdfLibP;
+}
+const pt = s => String(s ?? '').replace(/[\u00a0\u202f\u2009]/g, ' ').replace(/\u2212/g, '-').replace(/[\u2013\u2014]/g, '-').replace(/[^\x20-\x7e\u00a0-\u00ff]/g, '?');
+const pf2 = x => pt(f2(x));
+async function makePdf(p, b) {
+  const jsPDF = await pdfLib();
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' }), W = 210, H = 297, M = 14;
+  const Y = [255, 180, 0], INK = [23, 25, 28], MUT = [94, 98, 104], LINE = [225, 222, 214], SUNK = [245, 244, 240];
+  const mon = monthLabels(p).namn, logo = document.querySelector('.brandline img')?.src;
+  const [yy, mm] = p.split('-').map(Number), last = new Date(Date.UTC(yy, mm, 0)).toISOString().slice(0, 10);
+  // Band med logga och rutmönster
+  doc.setFillColor(...Y); doc.rect(0, 0, W, 30, 'F');
+  if (logo) doc.addImage(logo, 'PNG', M, 9.8, 62, 62 * 66 / 398);
+  doc.setTextColor(20, 20, 20); doc.setFont('helvetica', 'bold'); doc.setFontSize(8); doc.text('SPECIFIKATION DEBITERINGAR OCH APP', W - M, 12.5, { align: 'right' });
+  doc.setFontSize(17); doc.text(pt(mon.toUpperCase()), W - M, 21, { align: 'right' });
+  for (let i = 0, x = 0; x < W; i++, x += 2) { doc.setFillColor(...(i % 2 ? Y : [20, 20, 20])); doc.rect(x, 30, 2, 2, 'F'); doc.setFillColor(...(i % 2 ? [20, 20, 20] : Y)); doc.rect(x, 32, 2, 2, 'F'); }
+  // Åkare
+  let y = 46;
+  doc.setTextColor(...MUT); doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.text('ÅKERI', M, y, { charSpace: 0.5 });
+  doc.setTextColor(...INK); doc.setFontSize(15); doc.text(pt(b.namn), M, y + 7);
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(...MUT);
+  const meta = [['Kundnr', String(b.kn || '')], ['Period', p + '-01 till ' + last], ['Skapad', new Date().toISOString().slice(0, 10)]];
+  meta.forEach(([k, val], i) => { doc.text(k, W - M - 52, y + i * 5); doc.setTextColor(...INK); doc.text(pt(val), W - M, y + i * 5, { align: 'right' }); doc.setTextColor(...MUT); });
+  // Nyckeltal
+  y = 64; const bw = (W - 2 * M - 8) / 3;
+  [['Debiteringar', b.n + ' st, ' + pf2(b.sum) + ' kr'], ['Appbetalningar', b.an + ' st, ' + pf2(b.asum) + ' kr'], ['Bilar', [...new Set([...b.bilar.map(x => x.bil), ...b.app.map(x => x.bil)])].sort((a, c) => a - c).join(', ')]].forEach(([k, val], i) => {
+    const x = M + i * (bw + 4);
+    doc.setDrawColor(...LINE); doc.setFillColor(255, 255, 255); doc.rect(x, y, bw, 18, 'FD'); doc.setFillColor(...Y); doc.rect(x, y, bw, 1.2, 'F');
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(7); doc.setTextColor(...MUT); doc.text(k.toUpperCase(), x + 4, y + 7, { charSpace: 0.4 });
+    doc.setFontSize(12.5); if (doc.getTextWidth(pt(val)) > bw - 8) doc.setFontSize(Math.max(7.5, 12.5 * (bw - 8) / doc.getTextWidth(pt(val)))); doc.setTextColor(...INK); doc.text(pt(val), x + 4, y + 14);
+  });
+  const base = { theme: 'plain', margin: { top: 22, bottom: 18, left: M, right: M }, styles: { font: 'helvetica', fontSize: 8, cellPadding: { top: 1.6, bottom: 1.6, left: 2, right: 2 }, textColor: INK, lineColor: LINE, lineWidth: { bottom: 0.15 } },
+    headStyles: { fillColor: [20, 20, 20], textColor: Y, fontStyle: 'bold', fontSize: 7.5 }, footStyles: { fillColor: SUNK, textColor: INK, fontStyle: 'bold' }, alternateRowStyles: { fillColor: [250, 249, 246] } };
+  // Översikt per bil
+  const sekt = (titel, yy) => { doc.setFont('helvetica', 'bold'); doc.setFontSize(13); doc.setTextColor(...INK); doc.text(pt(titel), M, yy); doc.setDrawColor(...Y); doc.setLineWidth(0.8); doc.line(M, yy + 2, M + 24, yy + 2); doc.setLineWidth(0.2); };
+  sekt('Debiteringar (kontokunder)', y + 30);
+  doc.autoTable({ ...base, startY: y + 36, head: [['Bil', 'Reg nr', 'Körningar', 'Person', 'Bud', 'Utland', 'Summa']],
+    body: b.bilar.map(x => [x.bil, x.reg, x.trips.length, pf2(x.typ.p || 0), pf2(x.typ.b || 0), pf2(x.typ.u || 0), pf2(x.sum)]),
+    foot: [['Summa', '', b.n, pf2(b.bilar.reduce((a, x) => a + (x.typ.p || 0), 0)), pf2(b.bilar.reduce((a, x) => a + (x.typ.b || 0), 0)), pf2(b.bilar.reduce((a, x) => a + (x.typ.u || 0), 0)), pf2(b.sum)]],
+    columnStyles: { 2: { halign: 'right' }, 3: { halign: 'right' }, 4: { halign: 'right' }, 5: { halign: 'right' }, 6: { halign: 'right' } }, didParseCell: d => { if (d.section !== 'body' && d.column.index >= 2) d.cell.styles.halign = 'right'; } });
+  const fsOn = fsVisa(S.bolag.find(x => x.namn === b.namn), p);
+  const harF = fsOn && b.forare.some(f => f.namn !== 'Förare saknas');
+  const rubrik = (titel, sub) => {
+    let sy = doc.lastAutoTable.finalY + 10; if (sy > H - 50) { doc.addPage(); sy = 26; }
+    doc.setFillColor(...Y); doc.rect(M, sy - 4, 1.4, 5.5, 'F');
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(...INK); doc.text(pt(titel), M + 4, sy); const w = doc.getTextWidth(pt(titel));
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(...MUT); doc.text(pt(sub), M + 4 + w + 4, sy);
+    return sy;
+  };
+  if (harF) {
+    // Översikt per förare
+    const sy0 = rubrik('Översikt per förare', b.forare.length + ' förare');
+    doc.autoTable({ ...base, startY: sy0 + 3, head: [['Förare', 'Bilar', 'Körningar', 'Person', 'Bud', 'Utland', 'Summa']],
+      body: b.forare.map(f => [pt(f.namn), f.bilar.join(', '), f.trips.length, pf2(f.typ.p || 0), pf2(f.typ.b || 0), pf2(f.typ.u || 0), pf2(f.sum)]),
+      foot: [['Summa', '', b.n, '', '', '', pf2(b.sum)]],
+      columnStyles: { 0: { cellWidth: 52 }, 2: { halign: 'right' }, 3: { halign: 'right' }, 4: { halign: 'right' }, 5: { halign: 'right' }, 6: { halign: 'right' } }, didParseCell: d => { if (d.section !== 'body' && d.column.index >= 2) d.cell.styles.halign = 'right'; } });
+    // Körningar per förare
+    for (const f of b.forare) {
+      const sy = rubrik(f.namn, 'bil ' + f.bilar.join(', ') + '   ' + f.trips.length + ' körningar   ' + pf2(f.sum) + ' kr');
+      doc.autoTable({ ...base, startY: sy + 3, head: [['Datum', 'Tid', 'Bil', 'Kund', 'Från', 'Till', 'Typ', 'Belopp']],
+        body: f.trips.map(t => [t.d, t.t, t.bil, pt(t.kund), pt(t.fran), pt(t.till), TYPN[t.y] || '', pf2(t.s)]),
+        foot: [[{ content: 'Summa ' + pt(f.namn), colSpan: 6 }, String(f.trips.length) + ' st', pf2(f.sum)]],
+        columnStyles: { 0: { cellWidth: 19 }, 1: { cellWidth: 11.5 }, 2: { cellWidth: 10 }, 3: { cellWidth: 30 }, 6: { cellWidth: 14 }, 7: { cellWidth: 19, halign: 'right' } }, didParseCell: d => { if (d.column.index === 7) d.cell.styles.halign = 'right'; } });
+    }
+  } else {
+    // Körningar per bil (månader utan förare)
+    for (const x of b.bilar) {
+      const sy = rubrik('Bil ' + x.bil, x.reg + '   ' + x.trips.length + ' körningar   ' + pf2(x.sum) + ' kr');
+      doc.autoTable({ ...base, startY: sy + 3, head: [['Datum', 'Tid', 'Kund', 'Från', 'Till', 'Typ', 'Belopp']],
+        body: x.trips.map(t => [t.d, t.t, pt(t.kund), pt(t.fran), pt(t.till), TYPN[t.y] || '', pf2(t.s)]),
+        foot: [[{ content: 'Summa bil ' + x.bil, colSpan: 5 }, String(x.trips.length) + ' st', pf2(x.sum)]],
+        columnStyles: { 0: { cellWidth: 19 }, 1: { cellWidth: 11.5 }, 2: { cellWidth: 32 }, 5: { cellWidth: 14 }, 6: { cellWidth: 19, halign: 'right' } }, didParseCell: d => { if (d.column.index === 6) d.cell.styles.halign = 'right'; } });
+    }
+  }
+  // Appbetalningar
+  if (b.an) {
+    let ay = doc.lastAutoTable.finalY + 16; if (ay > H - 60) { doc.addPage(); ay = 30; }
+    sekt('Appbetalningar', ay);
+    doc.autoTable({ ...base, startY: ay + 6, head: [['Bil', 'Reg nr', 'Antal', 'Summa']],
+      body: b.app.map(x => [x.bil, x.reg, x.rows.length, pf2(x.sum)]), foot: [['Summa', '', b.an, pf2(b.asum)]],
+      columnStyles: { 2: { halign: 'right' }, 3: { halign: 'right' } }, didParseCell: d => { if (d.section !== 'body' && d.column.index >= 2) d.cell.styles.halign = 'right'; } });
+    const fCol = fsOn && b.appHarF, aCol = b.appHarAdr;
+    if (fCol) {
+      const sy0 = rubrik('Appbetalningar per förare', b.appF.length + ' förare');
+      doc.autoTable({ ...base, startY: sy0 + 3, head: [['Förare', 'Bilar', 'Antal', 'Summa']], body: b.appF.map(f => [pt(f.namn), f.bilar.join(', '), f.rows.length, pf2(f.sum)]), foot: [['Summa', '', b.an, pf2(b.asum)]],
+        columnStyles: { 2: { halign: 'right' }, 3: { halign: 'right' } }, didParseCell: d => { if (d.section !== 'body' && d.column.index >= 2) d.cell.styles.halign = 'right'; } });
+    }
+    const grupper = fCol ? b.appF.map(f => ({ titel: 'App ' + f.namn, sub: 'bil ' + f.bilar.join(', ') + '   ' + f.rows.length + ' st   ' + pf2(f.sum) + ' kr', rows: f.rows, sum: f.sum, bilKol: true, sumTxt: 'Summa app ' + f.namn }))
+      : b.app.map(x => ({ titel: 'App bil ' + x.bil, sub: x.reg + '   ' + x.rows.length + ' st   ' + pf2(x.sum) + ' kr', rows: x.rows, sum: x.sum, bilKol: false, sumTxt: 'Summa app bil ' + x.bil }));
+    for (const g of grupper) {
+      const sy = rubrik(g.titel, g.sub);
+      const head = ['Datum', 'Tid', ...(g.bilKol ? ['Bil'] : []), 'Körnings-id', ...(aCol ? ['Från', 'Till'] : []), 'Belopp'], last = head.length - 1;
+      doc.autoTable({ ...base, startY: sy + 3, head: [head],
+        body: g.rows.map(a => [a.d, a.t, ...(g.bilKol ? [a.bil] : []), a.id, ...(aCol ? [pt(a.fran), pt(a.till)] : []), pf2(a.s)]),
+        foot: [[{ content: pt(g.sumTxt), colSpan: last - 1 }, String(g.rows.length) + ' st', pf2(g.sum)]],
+        columnStyles: { 0: { cellWidth: 19 }, 1: { cellWidth: 11.5 }, ...(g.bilKol ? { 2: { cellWidth: 10 } } : {}), [last]: { cellWidth: 19, halign: 'right' } }, didParseCell: d => { if (d.column.index === last) d.cell.styles.halign = 'right'; } });
+    }
+  }
+  let ny = doc.lastAutoTable.finalY + 8; if (ny > H - 30) { doc.addPage(); ny = 26; }
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(...MUT);
+  doc.text(pt('Beloppen är inklusive moms och avser körningar på konto (debiteringskunder) och appbetalningar (kortbetalning i appen) som krediteras på er avräkning för ' + mon.toLowerCase() + '. Förare enligt TaxiCaller.' + (fsProv(p) && !fsAktiv(S.bolag.find(x => x.namn === b.namn), p) ? ' Uppdelningen per förare ingår utan kostnad denna månad, därefter ' + (S.params.fs ?? 99) + ' kr per bil och månad exkl moms om ni vill fortsätta.' : '') + ' Specifikationen innehåller inga passagerarnamn. Hör av er till Taxi Malmö om något inte stämmer.'), M, ny, { maxWidth: W - 2 * M });
+  // Sidhuvud på följande sidor och sidfot på alla
+  const n = doc.getNumberOfPages();
+  for (let i = 1; i <= n; i++) {
+    doc.setPage(i);
+    if (i > 1) { doc.setFillColor(...Y); doc.rect(0, 0, W, 12, 'F'); doc.setFont('helvetica', 'bold'); doc.setFontSize(8.5); doc.setTextColor(20, 20, 20); doc.text(pt('Specifikation · ' + b.namn), M, 7.8); doc.text(pt(mon), W - M, 7.8, { align: 'right' }); }
+    doc.setDrawColor(...LINE); doc.setLineWidth(0.2); doc.line(M, H - 12, W - M, H - 12);
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(7.5); doc.setTextColor(...MUT);
+    doc.text(pt('Taxi Malmö AB · Fosievägen 6, Malmö · 040-911 911'), M, H - 7.5); doc.text('Sida ' + i + ' av ' + n, W - M, H - 7.5, { align: 'right' });
+  }
+  return new Uint8Array(doc.output('arraybuffer'));
+}
+async function savePdf(p, b) {
+  let data;
+  try { data = await makePdf(p, b); } catch (e) { console.error(e); toast('PDF:en kunde inte skapas (' + String(e?.message || e).slice(0, 120) + ').', 7000); return; }
+  if (!dlc) { toast('Nedladdning är inte tillgänglig i den här vyn.'); return; }
+  const fn = `Specifikation_${p}_${b.namn.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z0-9]+/g, '_').replace(/^_|_$/g, '')}.pdf`;
+  try { const r = await dlc.save({ filename: fn, data }); if (r?.status === 'saved') toast('PDF:en är sparad: ' + fn); }
+  catch (e) { if (e?.code !== 'cancelled' && e?.code !== 'declined') toast('Filen kunde inte sparas.'); }
+}
+
+// ---------- Förskott från kontoutdrag ----------
+const BANK = { rows: null, fil: null, from: null, to: null, visaAlla: false };
+let fMap = {};
+function defaultRange(p) { const [y, m] = p.split('-').map(Number); const n = new Date(Date.UTC(y, m, 0)); return [p + '-01', n.toISOString().slice(0, 10)]; }
+const fKey = r => r.datum + '|' + String(r.text).trim().toUpperCase() + '|' + Math.abs(r.belopp);
+function otherMonthKeys() { const m = {}; for (const [p, d] of Object.entries(months)) if (p !== D.period) for (const f of (d.forskottRad || [])) if (f.med) m[fKey(f)] = p; return m; }
+function renderForsk(v) {
+  if (!D.period) {
+    const d = new Date(); d.setMonth(d.getMonth() - 1); const def = d.toISOString().slice(0, 7);
+    v.innerHTML = `<div class="panel"><h2>Förskott från kontoutdrag</h2><p class="note" style="margin-bottom:12px">Välj vilken månads avräkning förskotten gäller. Har du laddat upp TaxiCaller-filen väljs månaden automatiskt.</p>
+      <div class="toolbar"><label for="fMon">Avräkningsmånad</label><input type="month" id="fMon" value="${def}"><button class="primary" id="fGo">Fortsätt</button></div></div>`;
+    $('#fGo').addEventListener('click', async () => { const p = $('#fMon').value; if (!p) return; await onPeriod(p); $('#hMonth').textContent = monthLabels(p).namn; render(); });
+    return;
+  }
+  if (!BANK.from) [BANK.from, BANK.to] = defaultRange(D.period);
+  const names = S.bolag.map(b => b.namn);
+  const saved = (D.forskottRad || []).filter(f => f.med);
+  let h = `<div class="panel"><div class="set-head"><h2 style="margin:0">Förskott ${esc(monthLabels(D.period).namn)}</h2>
+    <div class="toolbar" style="margin:0"><label class="btn" for="f-bank">Läs in kontoutdrag</label><input type="file" id="f-bank" accept=".xlsx,.xls,.csv,.txt,.pdf" hidden></div></div>
+    <p class="note" style="margin:0 0 12px">Ladda upp kontoutdraget från banken (Excel, CSV eller PDF). Sidan visar utbetalningar i kalendermånaden (1:a till sista) och föreslår bolag. Förskott som redan ligger på en annan månad markeras och kan inte väljas igen. Bocka i det som är förskott och spara. Kopplingen mellan banktext och bolag sparas, så nästa månad hittas de automatiskt.</p>`;
+  if (saved.length) {
+    const per = {}; saved.forEach(f => per[f.bolag] = (per[f.bolag] || 0) + f.belopp);
+    h += `<h3>Sparade förskott (${saved.length} st, ${f0(saved.reduce((s, f) => s + f.belopp, 0))} kr)</h3><div class="tbl" style="margin-bottom:14px"><table><thead><tr><th>Bolag</th><th class="n">Antal</th><th class="n">Summa</th></tr></thead><tbody>${Object.entries(per).sort((x, y) => y[1] - x[1]).map(([b, s]) => `<tr><td>${esc(b)}</td><td class="n">${saved.filter(f => f.bolag === b).length}</td><td class="n">${f0(s)}</td></tr>`).join('')}</tbody></table></div>`;
+  }
+  if (!BANK.rows) { v.innerHTML = h + (saved.length ? '<p class="note">Läs in ett nytt kontoutdrag för att ändra.</p>' : '<div class="empty"><h3>Inget kontoutdrag inläst</h3><p>Förskotten dyker upp på respektive bolags avräkning som rad 59 med datum.</p></div>') + '</div>'; bindBank(v); return; }
+  const OK = otherMonthKeys(); BANK.rows.forEach(r => { r.annan = OK[fKey(r)] || null; if (r.annan) r.med = false; });
+  const L = BANK.rows.filter(r => r.datum >= BANK.from && r.datum <= BANK.to && (BANK.visaAlla || r.belopp < 0));
+  const sel = L.filter(r => r.med && !r.annan && r.bolag);
+  h += `<div class="toolbar"><label for="bFrom">Från</label><input type="date" id="bFrom" value="${BANK.from}"><label for="bTo">till</label><input type="date" id="bTo" value="${BANK.to}">
+    <label><input type="checkbox" id="bAll" ${BANK.visaAlla ? 'checked' : ''}> visa även insättningar</label><span class="grow"></span>
+    <span class="muted">${esc(BANK.fil)}: ${L.length} rader, ${sel.length} valda, ${f0(sel.reduce((s, r) => s + Math.abs(r.belopp), 0))} kr</span><button class="primary" id="bSave">Spara förskott</button></div>
+  <div class="tbl"><table><thead><tr><th>Förskott</th><th>Datum</th><th>Text i banken</th><th class="n">Belopp</th><th>Bolag</th><th></th></tr></thead><tbody>`;
+  for (const r of L) h += `<tr><td><input type="checkbox" data-i="${r.i}" class="bMed" ${r.med ? 'checked' : ''} ${r.annan ? 'disabled' : ''} aria-label="Förskott">${r.annan ? ` <span class="pill info">på ${esc(monthLabels(r.annan).namn)}</span>` : ''}</td><td class="num" style="text-align:left">${r.datum}</td><td>${esc(r.text)}</td><td class="n ${r.belopp < 0 ? 'neg' : ''}">${f2(r.belopp)}</td>
+    <td><select data-i="${r.i}" class="bBol" aria-label="Bolag"><option value="">Välj bolag</option>${names.map(n => `<option ${n === r.bolag ? 'selected' : ''}>${esc(n)}</option>`).join('')}</select></td><td>${r.kalla ? `<span class="pill ${r.kalla === 'sparad' ? 'ok' : 'warn'}">${r.kalla}</span>` : ''}</td></tr>`;
+  v.innerHTML = h + '</tbody></table></div></div>'; bindBank(v);
+  v.querySelector('#bFrom').addEventListener('change', e => { BANK.from = e.target.value; render(); });
+  v.querySelector('#bTo').addEventListener('change', e => { BANK.to = e.target.value; render(); });
+  v.querySelector('#bAll').addEventListener('change', e => { BANK.visaAlla = e.target.checked; render(); });
+  v.querySelectorAll('.bMed').forEach(x => x.addEventListener('change', () => { BANK.rows[+x.dataset.i].med = x.checked; render(); }));
+  v.querySelectorAll('.bBol').forEach(x => x.addEventListener('change', () => { const r = BANK.rows[+x.dataset.i]; r.bolag = x.value; r.kalla = x.value ? 'vald' : ''; if (x.value) r.med = true; render(); }));
+  v.querySelector('#bSave').addEventListener('click', saveForsk);
+}
+function bindBank(v) { const f = v.querySelector('#f-bank'); if (f) f.addEventListener('change', e => { if (e.target.files[0]) readBank(e.target.files[0]); e.target.value = ''; }); }
+async function readBank(f) {
+  try {
+    let rows;
+    if (/\.pdf$/i.test(f.name)) rows = parseBankText(pagesText(await pdfPages(await f.arrayBuffer())));
+    else if (/\.(csv|txt)$/i.test(f.name)) { const t = await readText(f); const wb = XLSX.read(t, { type: 'string', raw: true }); rows = parseBankRows(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1, raw: true })); }
+    else { const wb = XLSX.read(await f.arrayBuffer(), { type: 'array', cellDates: true }); rows = parseBankRows(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1, raw: true })); }
+    if (!rows.length) { toast('Hittade inga transaktioner i filen. Skicka filen till Claude så anpassas inläsningen.', 6000); return; }
+    const names = S.bolag.map(b => b.namn);
+    const prev = new Set((D.forskottRad || []).filter(x => x.med).map(x => x.datum + '|' + x.text + '|' + x.belopp));
+    BANK.rows = rows.map((r, i) => { const g = guessBolag(r.text, names, fMap); return { ...r, i, bolag: g.bolag, kalla: g.kalla, med: prev.size ? prev.has(r.datum + '|' + r.text + '|' + Math.abs(r.belopp)) : (r.belopp < 0 && !!g.bolag && (g.kalla === 'sparad' || /f(ö|o)rs(k|\b)/i.test(r.text))) }; });
+    BANK.fil = f.name; BANK.from = null;
+    const ds = rows.map(r => r.datum).filter(Boolean).sort(), ut = rows.filter(r => r.belopp < 0).length;
+    setSlot('bank', true, `${f.name}: ${rows.length} transaktioner ${ds[0] || ''} till ${ds[ds.length - 1] || ''}, ${ut} utbetalningar`);
+    if (!D.period && ds.length) await onPeriod(ds[Math.floor(ds.length / 2)].slice(0, 7));
+    setTab('forsk'); document.getElementById('tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (D.period && !rows.some(r => r.datum && r.datum.slice(0, 7) === D.period)) toast(`Kontoutdraget har inga poster i ${monthLabels(D.period).namn} (${ds[0] || ''} till ${ds[ds.length - 1] || ''}). Ta ut kontotransaktioner för rätt månad.`, 9000);
+    else toast(`${rows.length} transaktioner inlästa. Bocka i förskotten och klicka Spara förskott.`, 5000);
+  } catch (e) { console.error(e); toast('Kunde inte läsa kontoutdraget (' + String(e?.message || e).slice(0, 140) + ').', 8000); }
+}
+async function saveForsk() {
+  const sel = BANK.rows.filter(r => r.med && !r.annan && r.bolag && r.datum >= BANK.from && r.datum <= BANK.to);
+  D.forskottRad = sel.map(r => ({ datum: r.datum, text: r.text, belopp: Math.abs(r.belopp), bolag: r.bolag, med: true }));
+  const nm = { ...fMap }; for (const r of BANK.rows) if (r.bolag && r.med) nm[String(r.text).toUpperCase().replace(/\s+/g, ' ').trim()] = r.bolag;
+  try { if (db && JSON.stringify(nm) !== JSON.stringify(fMap)) await db.doc('settings/forskottMap').set({ map: nm }); } catch {}
+  if (R) { recompute(); queueSave(true); }
+  else if (db) { try { await db.doc('months/' + D.period).set({ ...(clone(months[D.period]) || {}), forskottRad: D.forskottRad, updatedAt: new Date().toISOString() }); } catch { toast('Kunde inte spara.'); return; } }
+  setSlot('bank', true, `${BANK.fil || 'Kontoutdrag'}: ${sel.length} förskott sparade, ${f0(sel.reduce((s, r) => s + Math.abs(r.belopp), 0))} kr`);
+  toast(`${sel.length} förskott sparade för ${monthLabels(D.period).namn}.`); render();
+}
+
+// ---------- Inställningar ----------
+const EDIT = { params: null, bolag: null, bilar: null, terminaler: null, kassor: null };
+function renderInst(v) {
+  for (const k of Object.keys(EDIT)) if (!EDIT[k]) EDIT[k] = clone(S[k]);
+  if (!db) { v.innerHTML = '<div class="panel empty"><h3>Inställningarna kan inte sparas här</h3><p>Öppna sidan i Claude för att läsa och spara inställningar.</p></div>'; return; }
+  const P = EDIT.params, pl = [['vx', 'Växelavgift per bil (kr exkl moms)'], ['tl', 'Taklampa per bil (kr exkl moms)'], ['sa', 'Serviceavgift (andel, 0,03 = 3 %)'], ['m6', 'Moms persontransport'], ['m25', 'Moms bud och avgifter'], ['bro', 'Öresundsbron per passage (kr)'], ['sturup', 'Sturup per passage (kr)'], ['cph', 'CPH parkering, lägsta pris per gång (kr). Följer annars fakturans kostnad.'], ['fs', 'Spec per förare, per bil och månad (kr exkl moms)'], ['fsGratis', 'Provmånad spec per förare för alla (ÅÅÅÅ-MM, utan debitering)']];
+  const tbl = (key, cols, rows) => `<div class="tbl" data-tbl="${key}"><table><thead><tr>${cols.map(c => `<th class="c-${c[2] || 'm'}">${c[1]}</th>`).join('')}<th class="c-x"></th></tr></thead><tbody>${rows.map((r, i) => `<tr data-row>${cols.map(c => `<td><input class="${c[2] || ''}" data-set="${key}" data-i="${i}" data-f="${c[0]}" value="${esc(r[c[0]] ?? '')}" aria-label="${c[1]}"></td>`).join('')}<td><button class="ghost" data-del="${key}" data-i="${i}" aria-label="Ta bort rad">Ta bort</button></td></tr>`).join('')}</tbody></table></div>`;
+  const head = (key, title, extra = '', ph = '') => `<div class="set-head"><h2 style="margin:0">${title}</h2><div class="toolbar" style="margin:0">${ph ? `<input type="search" class="search" data-q="${key}" placeholder="${ph}" value="${esc(instQ[key] || '')}" aria-label="${ph}"><span class="muted" data-qn="${key}"></span>` : ''}${extra}<button data-add="${key}">Lägg till rad</button><button class="primary" data-save="${key}">Spara</button></div></div>`;
+  v.innerHTML = `<div class="sets">
+  <div class="panel"><div class="set-head"><h2 style="margin:0">Priser och procentsatser</h2><button class="primary" data-save="params">Spara</button></div>
+    <div class="tbl"><table><tbody>${pl.map(([k, t]) => `<tr><td>${t}</td><td class="n"><input class="amt" data-p="${k}" value="${P[k] ?? ''}" aria-label="${t}"></td></tr>`).join('')}</tbody></table></div></div>
+  <div>${head('bolag', 'Bolag', '', 'Sök bolag, kundnr eller mail')}${tbl('bolag', [['namn', 'Bolag', 'w-l'], ['kn', 'Kundnr Visma'], ['mail', 'Mail', 'w-l'], ['vx', 'Antal växelavgift', 'w-s'], ['tl', 'Antal taklampa', 'w-s'], ['vxInn', 'Växel innevarande (1 = ja)', 'w-s'], ['vxRab', 'Rabatt växel %', 'w-s'], ['gratisTom', 'Gratis växelavgift t.o.m. (ÅÅÅÅ-MM eller alltid)', 'w-s'], ['fsFrom', 'Spec per förare fr.o.m. (ÅÅÅÅ-MM)', 'w-s'], ['kommentar', 'Kommentar', 'w-l']], EDIT.bolag)}
+    <p class="note">Antal växelavgift och taklampa är antal bilar som debiteras. Växelavgiften betalas i förskott och får texten för månaden två månader efter avräkningsmånaden (augusti ger OKT). Gratis växelavgift: skriv sista gratis avgiftsmånaden (ÅÅÅÅ-MM), eller alltid om den inte har något slutdatum. Antal växelavgift är antal bilar även under gratisperioden, sidan tar själv bort avgiften så länge avgiftsmånaden ligger inom perioden. Saknades avgiften (eller några bilar) i förra avräkningen tas de med som efterdebitering, likaså taklampor. Växel innevarande = 1: avgiften gäller månaden efter avräkningsmånaden med texten INNEVARANDE. Rabatt växel %: t.ex. 50 eller 100, skrivs i Vismas rabattkolumn.</p></div>
+  <div>${head('bilar', 'Bilar', '<label class="btn" for="f-reg">Läs in bilregister</label><input type="file" id="f-reg" accept=".xlsx,.xls" hidden>', 'Sök bil, reg nr eller bolag')}${tbl('bilar', [['bil', 'Bil', 'w-s'], ['reg', 'Reg nr', 'w-s'], ['bolag', 'Bolag i bilregistret', 'w-l'], ['avr', 'Avräknas på', 'w-l'], ['kommentar', 'Kommentar', 'w-l']], EDIT.bilar)}
+    <p class="note">"Avräknas på" styr vilket bolag bilen faktureras (nyttjanderätt, ägarbyte). Skriv IGNORERA för en bil som inte ska avräknas. Bilregistret (Summering Bilar TM.xlsx) uppdaterar reg nr och lägger till nya bilar.</p></div>
+  <div>${head('terminaler', 'Terminaler', '', 'Sök terminal-ID, bil eller kommentar')}${tbl('terminaler', [['id', 'Terminal-ID (Bambora)', 'w-l'], ['bil', 'Bil', 'w-s'], ['kommentar', 'Kommentar', 'w-l']], EDIT.terminaler)}
+    <p class="note">För terminaler där kassör-ID i Bambora inte är bilnumret. Lämna Bil tomt för en okänd terminal.</p></div>
+  <div>${head('kassor', 'Kassör-ID')}${tbl('kassor', [['kassor', 'Kassör-ID', 'w-s'], ['bil', 'Bil', 'w-s'], ['kommentar', 'Kommentar', 'w-l']], EDIT.kassor)}
+    <p class="note">Gäller alla terminaler med detta kassör-ID.</p></div></div>`;
+  v.querySelectorAll('input[data-p]').forEach(i => i.addEventListener('input', () => { EDIT.params[i.dataset.p] = i.dataset.p === 'fsGratis' ? (/^\d{4}-\d\d$/.test(i.value.trim()) ? i.value.trim() : '') : parseFloat(i.value.replace(',', '.')); }));
+  v.querySelectorAll('input[data-set]').forEach(i => i.addEventListener('input', () => { EDIT[i.dataset.set][+i.dataset.i][i.dataset.f] = i.value; }));
+  v.querySelectorAll('button[data-add]').forEach(b => b.addEventListener('click', () => { EDIT[b.dataset.add].push({}); render(); }));
+  v.querySelectorAll('button[data-del]').forEach(b => b.addEventListener('click', () => { EDIT[b.dataset.del].splice(+b.dataset.i, 1); render(); }));
+  v.querySelectorAll('button[data-save]').forEach(b => b.addEventListener('click', () => saveSetting(b.dataset.save, b)));
+  const fr = v.querySelector('#f-reg'); if (fr) fr.addEventListener('change', e => importReg(e.target.files[0]));
+  v.querySelectorAll('input[data-q]').forEach(q => { q.addEventListener('input', () => { instQ[q.dataset.q] = q.value; applyInstQ(v, q.dataset.q); }); applyInstQ(v, q.dataset.q); });
+}
+// Sök i inställningstabellerna: döljer rader utan träff, raderna behåller sina index så redigering och Spara påverkas inte
+const instQ = { bolag: '', bilar: '', terminaler: '' };
+function applyInstQ(v, key) {
+  const q = String(instQ[key] || '').trim().toLowerCase(), trs = [...v.querySelectorAll(`[data-tbl="${key}"] tr[data-row]`)];
+  let n = 0;
+  for (const tr of trs) { const t = [...tr.querySelectorAll('input')].map(i => i.value).join(' ').toLowerCase(); const vis = !q || !t.trim() || t.includes(q); tr.hidden = !vis; if (vis) n++; }
+  const c = v.querySelector(`[data-qn="${key}"]`); if (c) c.textContent = q ? `${n} av ${trs.length}` : '';
+}
+
+function normRows(key, rows) {
+  const n = x => x === '' || x == null ? null : (isNaN(+x) ? x : +x);
+  if (key === 'bolag') return rows.filter(r => r.namn).map(r => ({ namn: String(r.namn).trim(), kn: n(r.kn), mail: String(r.mail || '').trim(), vx: +r.vx || 0, tl: +r.tl || 0, vxInn: +r.vxInn ? 1 : 0, vxRab: Math.min(100, Math.max(0, +String(r.vxRab ?? '').replace(',', '.') || 0)), gratisTom: /^alltid$/i.test(String(r.gratisTom || '').trim()) ? 'alltid' : (/^\d{4}-\d\d$/.test(String(r.gratisTom || '').trim()) ? String(r.gratisTom).trim() : ''), fsFrom: /^\d{4}-\d\d$/.test(String(r.fsFrom || '').trim()) ? String(r.fsFrom).trim() : '', kommentar: r.kommentar || '' }));
+  if (key === 'bilar') return rows.filter(r => r.bil !== '' && r.bil != null).map(r => ({ bil: +r.bil, reg: String(r.reg || '').trim().toUpperCase(), bolag: String(r.bolag || '').trim(), avr: String(r.avr || r.bolag || '').trim(), kommentar: r.kommentar || '' })).sort((a, b) => a.bil - b.bil);
+  if (key === 'terminaler') return rows.filter(r => r.id).map(r => ({ id: String(r.id).trim(), bil: n(r.bil), kommentar: r.kommentar || '' }));
+  if (key === 'kassor') return rows.filter(r => r.kassor !== '' && r.kassor != null).map(r => ({ kassor: +r.kassor, bil: n(r.bil), kommentar: r.kommentar || '' }));
+}
+async function saveSetting(key, btn) {
+  btn.disabled = true;
+  try {
+    if (key === 'params') await db.doc('settings/params').set({ ...EDIT.params });
+    else if (key === 'terminaler' || key === 'kassor') await db.doc('settings/terminaler').set({ terminaler: normRows('terminaler', EDIT.terminaler), kassor: normRows('kassor', EDIT.kassor) });
+    else await db.doc('settings/' + key).set({ list: normRows(key, EDIT[key]) });
+    EDIT[key] = null; if (key === 'terminaler' || key === 'kassor') { EDIT.terminaler = null; EDIT.kassor = null; }
+    toast('Sparat.');
+  } catch (e) { toast(e?.code === 'not_granted' || e?.code === 'invalid_argument' ? 'Du har inte behörighet att ändra inställningarna. Be ägaren om redigeringsrätt.' : 'Kunde inte spara. Försök igen om en stund.', 5000); }
+  btn.disabled = false;
+}
+
+async function importReg(f) {
+  if (!f) return;
+  const wb = XLSX.read(await f.arrayBuffer(), { type: 'array' });
+  const rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1, raw: false });
+  const canon = {}; let upd = 0, ny = 0;
+  for (const r of rows) {
+    if (!r[0] || !/^\d+$/.test(String(r[0]).trim()) || !r[5]) continue;
+    const b = +String(r[0]).trim(), reg = String(r[1] || '').trim().toUpperCase(); let bol = String(r[5]).trim(); bol = canon[bol.toLowerCase()] ||= bol;
+    const ex = EDIT.bilar.find(x => +x.bil === b);
+    if (ex) { if (ex.reg !== reg || ex.bolag !== bol) { ex.reg = reg; ex.bolag = bol; upd++; } }
+    else { EDIT.bilar.push({ bil: b, reg, bolag: bol, avr: bol, kommentar: r[6] ? String(r[6]) : 'Ny från bilregistret' }); ny++; }
+  }
+  render(); toast(`${ny} nya bilar och ${upd} ändrade. Kontrollera och klicka Spara.`, 5000);
+}
+
+// ---------- Månadsdata ----------
+function monthBody() { return { skuldMed: !!D.skuldMed, bro: D.bro, sturup: D.sturup, cph: D.cph, manuellt: D.manuellt, oresund: D.oresund || null, reskontra: D.reskontra || null, broRad: D.broRad || null, sturupRad: D.sturupRad || null, sturupInfo: D.sturupInfo || null, forskottRad: D.forskottRad || null, src: D.src || null, visma: D.visma || null }; }
+function queueSave(now) {
+  if (!db || !D.period || !monthsLoaded || monthApplied !== D.period) return;
+  if (months[D.period]?.last) return;
+  clearTimeout(saveT);
+  saveT = setTimeout(async () => {
+    const body = monthBody();
+    const summary = !R ? (months[D.period]?.summary || null) : { kpi: R.kpi, bolag: R.bolag.filter(b => b.aktiv).map(b => ({ namn: b.namn, kn: b.kn, att: b.att, kort: b.kort, deb: b.deb, app: b.app, forsk: b.forsk, skuld: b.skuld, manad: b.manad, bilar: b.bilar, rows: b.rows, netto: b.netto, moms25: b.moms25, moms6: b.moms6, oresavr: b.oresavr })),
+      kund: R.kund.map(k => ({ nr: k.nr, namn: k.namn, n: k.n, r592: k.r592, r593: k.r593, r594: k.r594, total: k.total, taxicaller: k.taxicaller, diff: k.diff })), kontroll: R.kontroll };
+    const key = JSON.stringify({ body, summary });
+    if (key === lastSaved) return; lastSaved = key;
+    const specKey = R ? JSON.stringify(R.kund.map(k => [k.nr, k.n, k.total])) : '';
+    if (R && D.tc && !D.tc.restored && specKey !== lastSpec) { lastSpec = specKey; try { await db.doc('spec/' + D.period).set({ kund: Object.fromEntries(R.kund.map(k => [String(k.nr), (k.korn || []).map(({ f, ...t }) => t)])) }); await db.doc('forare/' + D.period).set(packForare(R.kund)); } catch {} }
+    if (D.appRad && D.appRad !== lastAppSaved) { lastAppSaved = D.appRad; try { await db.doc('appspec/' + D.period).set(packApp(D.appRad)); } catch {} }
+    try { const prevDoc = clone(months[D.period] || {}); delete prevDoc.last; await db.doc('months/' + D.period).set({ ...prevDoc, ...clone(body), summary: clone(summary), files: { ...files }, updatedAt: new Date().toISOString() }); }
+    catch (e) { if (e?.code !== 'not_granted') toast('Månadens manuella poster kunde inte sparas.', 4000); }
+  }, now ? 300 : 1200);
+}
+
+// ---------- Excel ----------
+async function exportExcel(period, bolag, kund, perBil, kontroll) {
+  const wb = XLSX.utils.book_new(), A = (n, rows, w) => { const s = XLSX.utils.aoa_to_sheet(rows); if (w) s['!cols'] = w.map(x => ({ wch: x })); XLSX.utils.book_append_sheet(wb, s, n); };
+  A('Åkaravräkning', [['Bolag', 'Kundnr', 'Bilar', 'Kontokort', 'Deb inkl moms', 'App', 'Förskott', 'Netto', 'Moms 25 %', 'Moms 6 %', 'Att betala'],
+    ...bolag.map(b => [b.namn, b.kn, (b.bilar || []).join(', '), b.kort, b.deb, b.app, b.forsk || 0, b.netto, b.moms25, b.moms6, b.att])], [32, 10, 18, 12, 12, 12, 12, 13, 11, 11, 12]);
+  A('Fakturarader', [['Kundnr', 'Bolag', 'Artnr', 'Benämning', 'Antal', 'À-pris', 'Rabatt %', 'Summa', 'Moms %'], ...bolag.flatMap(b => (b.rows || []).map(r => [b.kn, b.namn, r.art ?? '', r.text, r.antal, r.apris, r.rabattPct || '', r.summa, r.moms]))], [10, 32, 7, 36, 7, 11, 8, 12, 7]);
+  A('Kundfakturor', [['Konto', 'Namn', 'Körningar', '592 exkl moms', '593 bud exkl moms', '594 utland', 'Totalt inkl moms', 'TaxiCaller', 'Diff'], ...kund.map(k => [k.nr, k.namn, k.n, k.r592, k.r593, k.r594, k.total, k.taxicaller, k.diff])], [8, 34, 9, 13, 13, 11, 13, 12, 8]);
+  A('Specifikation', [['Konto', 'Kund', 'Datum', 'Tid', 'Passagerare', 'Rutt', 'Bil', 'Typ', 'Belopp inkl moms'], ...kund.flatMap(k => (k.korn || []).map(t => [k.nr, k.namn, t.d, t.t, t.p, t.r, t.b, TYP[t.y] || '', t.s]))], [8, 30, 11, 6, 26, 60, 6, 8, 12]);
+  if (perBil) A('Per bil', [['Bil', 'Reg nr', 'Avräknas på', 'Kontokort', 'Dricks', 'Deb person', 'Deb bud', 'Deb utland', 'App', 'Bro', 'Sturup', 'CPH'], ...perBil.map(x => [x.bil, x.reg, x.bolag, x.kort, x.dricks, x.person, x.bud, x.utland, x.app, x.bro, x.sturup, x.cph])], [6, 9, 30, 11, 8, 11, 10, 10, 10, 5, 7, 5]);
+  const fr = (period === D.period ? D.forskottRad : months[period]?.forskottRad) || [];
+  if (fr.length) A('Förskott', [['Datum', 'Text i banken', 'Bolag', 'Belopp'], ...fr.filter(f => f.med !== false).map(f => [f.datum, f.text, f.bolag, f.belopp])], [11, 40, 32, 12]);
+  // Ekonomens fil: bara noteringar som berör bokföringen. Hela Kontroll finns kvar på sidan och i Historik.
+  const NOT = [[/vidarefakturerat mot kostnad/i, 'Vidarefakturerat till åkarna mot leverantörsfakturan (belopp = differens, ska vara nära 0).'],
+    [/Dricks krediteras/i, 'Krediteras åkarna per bil på art 56 Dricks bil X, 0 % moms. Åkeriet betalar ut dricksen till föraren som lön.'],
+    [/Växelavgift efterdebiteras/i, 'Två rader art 1 på avräkningen: efterdebiterad månad och ordinarie månad.'],
+    [/Öresundsbron: nytt pris/i, 'Åkarna debiteras fakturans pris per passage.'],
+    [/Återbetalning kort/i, 'Refund i Bambora dras från åkaren på art 52 Återbetalning kort bil X, 0 % moms.']];
+  const noter = kontroll.map(k => { const m = NOT.find(([re]) => re.test(k.typ)); return m ? [k.typ, k.vad, k.belopp, m[1]] : null; }).filter(Boolean);
+  A('Noteringar', [['Typ', 'Vad', 'Belopp', 'Kommentar'], ...noter], [40, 60, 12, 70]);
+  const data = XLSX.write(wb, { type: 'array', bookType: 'xlsx' });
+  if (!dlc) { toast('Nedladdning är inte tillgänglig i den här vyn.'); return; }
+  try { const r = await dlc.save({ filename: `Avrakning_${period || 'manad'}.xlsx`, data: new Uint8Array(data) }); if (r?.status === 'saved') toast('Excel-filen är sparad.'); }
+  catch (e) { if (e?.code !== 'cancelled' && e?.code !== 'declined') toast('Filen kunde inte sparas.'); }
+}
+$('#btnExcel').addEventListener('click', () => { if (R) exportExcel(D.period, R.bolag.filter(b => b.aktiv), R.kund, R.perBil, R.kontroll); });
+
+// ---------- Start ----------
+(async () => {
+  render();
+  const setDb = (ok, t) => { $('#dbDot').className = 'dot ' + (ok ? 'ok' : 'bad'); $('#dbState').textContent = t; };
+  try { db = await window.claude?.use('db'); } catch { db = null; }
+  try { dlc = await window.claude?.use('downloads'); } catch { dlc = null; }
+  if (!db) { setDb(false, 'Inställningar ej tillgängliga'); Object.keys(loaded).forEach(k => loaded[k] = true); recompute(); return; }
+  const upd = () => {
+    const ok = Object.values(loaded).every(Boolean);
+    setDb(ok && S.bolag.length, ok ? (S.bolag.length ? `${S.bilar.length} bilar · ${S.bolag.length} bolag` : 'Inga inställningar sparade') : 'Laddar inställningar…');
+    recompute();
+  };
+  const onErr = () => setDb(false, 'Kunde inte läsa inställningar');
+  db.doc('settings/params').onSnapshot(s => { S.params = { ...DEFAULT_PARAMS, ...(s.exists ? s.data() : {}) }; loaded.params = true; EDIT.params = null; upd(); }, onErr);
+  db.doc('settings/bilar').onSnapshot(s => { S.bilar = s.exists ? clone(s.data().list || []) : []; loaded.bilar = true; EDIT.bilar = null; upd(); }, onErr);
+  db.doc('settings/bolag').onSnapshot(s => { S.bolag = s.exists ? clone(s.data().list || []) : []; loaded.bolag = true; EDIT.bolag = null; upd(); }, onErr);
+  db.doc('settings/terminaler').onSnapshot(s => { const d = s.exists ? s.data() : {}; S.terminaler = clone(d.terminaler || []); S.kassor = clone(d.kassor || []); loaded.terminaler = true; EDIT.terminaler = null; EDIT.kassor = null; upd(); }, onErr);
+  db.collection('utskick').onSnapshot(q => { utskick = {}; q.docs.forEach(d => utskick[d.id] = clone(d.data())); if (tab === 'mail') render(); }, () => {});
+  db.doc('settings/forskottMap').onSnapshot(s => { fMap = s.exists ? clone(s.data().map || {}) : {}; }, () => {});
+  db.collection('months').onSnapshot(q => {
+    months = {}; q.docs.forEach(d => months[d.id] = clone(d.data()));
+    const first = !monthsLoaded; monthsLoaded = true;
+    if (first && !D.period) { const open = Object.keys(months).filter(k => /^\d{4}-\d\d$/.test(k) && !months[k].last).sort().pop(); if (open) D.period = open; }
+    if (first && D.period) { applyMonth(); recompute(); if (!R) $('#hMonth').textContent = monthLabels(D.period).namn; }
+    if (tab === 'hist' || tab === 'spec' || tab === 'mail') render();
+  }, () => {});
+})();
+
+</script>
+
+</body></html>

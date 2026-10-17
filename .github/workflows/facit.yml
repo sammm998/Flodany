@@ -1,0 +1,30 @@
+# Skriver om lönemotorns gyllene facit från legacy (SKRIV_FACIT=1) efter ett avsiktligt byte av legacy.
+# Startas manuellt. Facit laddas upp som artefakt, granskas och committas för hand. Committar aldrig själv.
+name: Skriv facit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  facit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Skriv facit från legacy
+        run: npx vitest run packages/core/lon/jamforelse.test.ts -t "gammal och ny ger samma resultat"
+        env:
+          SKRIV_FACIT: '1'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lon-facit
+          path: packages/core/lon/fixtures/facit/

@@ -1,0 +1,15 @@
+{
+  "name": "@flodia/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Designsystemet: tokens, stil och komponenter (spec v3 del B)",
+  "exports": {
+    ".": "./index.ts",
+    "./tokens.css": "./tokens.css",
+    "./stil.css": "./stil.css"
+  },
+  "peerDependencies": {
+    "react": "19.3.0"
+  }
+}

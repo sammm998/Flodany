@@ -1,0 +1,52 @@
+{
+  "name": "flodia",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "legacy": "node scripts/serva-legacy.mjs",
+    "legacy:sha256": "node scripts/legacy-sha256.mjs --skriv",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "ci": "npm run lint && npm run typecheck && npm run test && npm run kontroll:klient",
+    "test:db": "vitest run --config vitest.db.config.ts",
+    "db:start": "supabase start -x studio,imgproxy,vector,logflare,supavisor,postgres-meta",
+    "db:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "ci:allt": "npm run ci && npm run bygg:funktioner && npm run test:db && npm run plattform:bygg && npm run e2e",
+    "bygg:funktioner": "node scripts/bygg-funktioner.mjs",
+    "kontroll:klient": "node scripts/bygg-klient.mjs",
+    "plattform:env": "node scripts/plattform-env.mjs",
+    "plattform:bygg": "npm run plattform:env && npm run build -w @flodia/platform",
+    "e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "1.63.0",
+    "@supabase/supabase-js": "2.117.2",
+    "@types/node": "^24.19.2",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "esbuild": "0.28.2",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
+    "pg": "8.23.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "supabase": "2.118.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.1",
+    "vite": "8.3.4",
+    "vitest": "^5.0.3"
+  }
+}

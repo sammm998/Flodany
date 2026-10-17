@@ -1,0 +1,24 @@
+#FLAGGA 0
+#FORMAT PC8
+#SIETYP 4
+#PROGRAM "Foliering Demo" 1.0
+#GEN 20260902
+#FNAMN "Demo Foliering AB"
+#ORGNR 559000-0001
+#RAR 0 20250901 20260831
+#KPTYP BAS2014
+#VALUTA SEK
+#KONTO 1510 "Kundfordringar"
+#KONTO 1930 "F”retagskonto"
+#KONTO 2611 "Utg†ende moms p† f”rs„ljning inom Sverige, 25 %"
+#KONTO 3001 "F”rs„ljning inom Sverige, 25 % moms"
+#VER A 1 20260825 "Inbetalning faktura 1001 ABC99Z skada SK-a2" 20260902
+{
+#TRANS 1930 {} 5501.00 20260825 "F”rs„kring 1 AB faktura 1001"
+#TRANS 3001 {} -5501.00 20260825 "Foliering faktura 1001 ABC99Z"
+}
+#VER A 2 20260831 "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31" 20260902
+{
+#TRANS 1510 {} 1375.25 20260831 "Moms fordons„gare, obetald"
+#TRANS 2611 {} -1375.25 20260831 "Utg moms 25 %, obetald"
+}

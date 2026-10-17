@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="sv">
+<body style="font-family: Geist, Arial, sans-serif; color: #0E1E35; background: #FFFFFF; margin: 0; padding: 24px;">
+  <h1 style="font-size: 20px; font-weight: 600; margin: 0 0 16px;">Logga in</h1>
+  <p style="margin: 0 0 16px;">Klicka på knappen för att logga in. Länken gäller i 15 minuter och kan bara användas en gång.</p>
+  <p style="margin: 0 0 24px;">
+    <a href="{{ .SiteURL }}/logga-in/bekrafta?token_hash={{ .TokenHash }}&amp;type=email"
+       style="display: inline-block; background: #1F4D3A; color: #FFFFFF; text-decoration: none; padding: 12px 20px; border-radius: 8px;">Logga in</a>
+  </p>
+  <p style="margin: 0 0 16px;">Eller skriv in koden: <strong style="font-family: 'Geist Mono', monospace; letter-spacing: 2px;">{{ .Token }}</strong></p>
+  <p style="margin: 0; color: #6B7385; font-size: 13px;">Har du inte bett om att logga in kan du bortse från mejlet. Ingen kan logga in utan länken eller koden.</p>
+</body>
+</html>

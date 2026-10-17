@@ -1,0 +1,16 @@
+{
+  "name": "@flodia/core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Beräkningsmotorer och parsrar, rena funktioner utan DOM",
+  "exports": {
+    "./avrakning": "./avrakning/index.ts",
+    "./lon": "./lon/index.ts",
+    "./foliering": "./foliering/index.ts",
+    "./tid": "./tid.ts"
+  },
+  "dependencies": {
+    "@flodia/kit": "0.0.0"
+  }
+}

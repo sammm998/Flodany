@@ -1,0 +1,7 @@
+Körnings-id,Vehicle number,konto Nr,Totalsumma,Passagerare,Lämnad,Upphämtningsplats,Avlämningsaddress
+5000001,101,9001,"245,50",Passagerare 1,2026-09-02 08:15,Exempelgatan 4,Centralstationen
+5000002,102,9001,"1250,00",Passagerare 2,2026-09-05 14:40,Hamnplan 1,Kastrup Lufthavn
+5000003,103,9002,"310,00",BUD Paket 7,2026-09-11 09:05,Testvägen 12,Storplan 3
+5000004,101,9002,"-45,00",Passagerare 3,2026-09-20 22:10,Centralstationen,Exempelgatan 4
+5000005,999,9003,"180,25",Passagerare 4,2026-09-28 06:30,Sjukhusentrén,Testvägen 12
+5000006,104,,"99,00",Passagerare 5,2026-09-29 10:00,Exempelgatan 4,Hamnplan 1

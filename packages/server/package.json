@@ -1,0 +1,16 @@
+{
+  "name": "@flodia/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Serverfunktionen motor: parsrar, motorer och regler körs bara här (beslut 26)",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "dependencies": {
+    "@flodia/api": "0.0.0",
+    "@flodia/core": "0.0.0",
+    "@flodia/kit": "0.0.0",
+    "@supabase/supabase-js": "2.117.2"
+  }
+}

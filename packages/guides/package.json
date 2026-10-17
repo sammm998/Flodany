@@ -1,0 +1,13 @@
+{
+  "name": "@flodia/guides",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Guidetexter per modul och variant: välkomstguide, kom igång, hjälp per vy och filhjälp",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "dependencies": {
+    "@flodia/modules": "0.0.0"
+  }
+}

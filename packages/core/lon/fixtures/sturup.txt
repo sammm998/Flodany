@@ -1,0 +1,8 @@
+Swedavia Malmö Airport, påhittad faktura för test
+Bil 650 ABC 12A (2)
+02.03.26 10:00 02.03.26 10:40 P5 Korttid 35,00 SEK
+03.03.26 13:00 03.03.26 13:20 Förbokad 28,00 SEK
+Bil 651 ABC 34B (1)
+10.03.26 07:00 10.03.26 07:15 P5 Korttid 35,00 SEK
+ABC 99Z (1)
+20.03.26 10:00 20.03.26 10:15 P5 Korttid 35,00 SEK

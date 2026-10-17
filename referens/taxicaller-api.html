@@ -1,0 +1,214 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>TaxiCaller API v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f6f6f3;--surface:#ffffff;--ink:#1c1d1a;--muted:#676a60;--line:#e2e2da;
+  --accent:#e0a800;--accent-ink:#5a4300;--chip:#f1efe4;
+  --get:#1f7a4d;--get-bg:#e3f3ea;--post:#1f5fb4;--post-bg:#e4edfa;--del:#b3362d;--del-bg:#fbe7e5;
+  --code-bg:#1c1d1a;--code-ink:#ecebe3;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--bg:#131411;--surface:#1b1c18;--ink:#ecebe3;--muted:#9a9c90;--line:#2c2e27;
+  --accent:#f2c230;--accent-ink:#f2c230;--chip:#25271f;
+  --get:#5fd39a;--get-bg:#16301f;--post:#7fb0f5;--post-bg:#172538;--del:#f08a80;--del-bg:#3a1a17;
+  --code-bg:#0c0d0b;--code-ink:#ecebe3;}}
+:root[data-theme="dark"]{
+  color-scheme:dark;--bg:#131411;--surface:#1b1c18;--ink:#ecebe3;--muted:#9a9c90;--line:#2c2e27;
+  --accent:#f2c230;--accent-ink:#f2c230;--chip:#25271f;
+  --get:#5fd39a;--get-bg:#16301f;--post:#7fb0f5;--post-bg:#172538;--del:#f08a80;--del-bg:#3a1a17;
+  --code-bg:#0c0d0b;--code-ink:#ecebe3;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:980px;margin:0 auto}
+header{padding-block:40px 20px;display:grid;gap:10px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;gap:8px;align-items:center}
+.eyebrow i{width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block}
+h1{font-size:30px;line-height:1.15;margin:0;font-weight:600;text-wrap:balance}
+.lead{color:var(--muted);margin:0;max-width:65ch}
+.lead a{color:inherit}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.pill{font:500 12px/1 var(--mono);padding:6px 9px;border-radius:5px;background:var(--chip);color:var(--ink)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:1px solid var(--line)}
+#q{flex:1 1 260px;min-width:0;font:14px var(--mono);padding:10px 12px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink)}
+#q:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.filters{display:flex;gap:6px}
+.filters button{font:500 12px var(--mono);padding:9px 11px;border-radius:7px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#count{font:12px var(--mono);color:var(--muted);margin-left:auto}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px;padding-block:14px 4px}
+nav.toc a{font-size:13px;text-decoration:none;color:var(--ink);padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+nav.toc a span{color:var(--muted);font:12px var(--mono);margin-left:4px}
+section{margin-top:30px}
+section h2{font-size:17px;font-weight:600;margin:0 0 4px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+section h2 code{font:400 12px var(--mono);color:var(--muted)}
+.desc{color:var(--muted);font-size:13.5px;margin:0 0 10px}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.row{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:10px 14px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.m{font:600 11px/1 var(--mono);text-align:center;padding:5px 0;border-radius:4px;letter-spacing:.03em}
+.m.GET{color:var(--get);background:var(--get-bg)}.m.POST{color:var(--post);background:var(--post-bg)}.m.DELETE{color:var(--del);background:var(--del-bg)}
+.p{font:13px/1.45 var(--mono);word-break:break-all}
+.p b{color:var(--accent-ink);font-weight:500}
+.s{font-size:13.5px;color:var(--muted);margin-top:2px}
+.cp{font:12px var(--mono);border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:6px;padding:6px 9px;cursor:pointer}
+.cp:hover{color:var(--ink);border-color:var(--muted)}
+.params{margin-top:8px;display:grid;gap:4px;font-size:13px}
+.params div{display:flex;gap:8px;flex-wrap:wrap}
+.params code{font:12.5px var(--mono);background:var(--chip);padding:1px 6px;border-radius:4px}
+.req{font:11px var(--mono);color:var(--del)}
+pre{background:var(--code-bg);color:var(--code-ink);font:12.5px/1.6 var(--mono);padding:14px 16px;border-radius:8px;overflow-x:auto;margin:8px 0 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:8px}
+.card h3{margin:0;font-size:15px}
+.card p{margin:0;font-size:14px;color:var(--muted);max-width:70ch}
+.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:10px;margin-top:24px}
+footer{margin-top:40px;font-size:13px;color:var(--muted)}
+footer a{color:inherit}
+@media (max-width:560px){.row{grid-template-columns:56px 1fr}.row .cp{grid-column:2;justify-self:start}h1{font-size:25px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow"><i></i>Referens · API v1</div>
+  <h1>TaxiCaller API v1</h1>
+  <p class="lead">Alla endpoints i TaxiCallers officiella API-dokumentation, samlade på en sida. Sök på sökväg eller beskrivning, filtrera på metod och kopiera sökvägen direkt. Källa: <a href="https://app.taxicaller.net/documentation/api/" target="_blank" rel="noopener">app.taxicaller.net/documentation/api</a>.</p>
+  <div class="meta">
+    <span class="pill">https://api.taxicaller.net</span>
+    <span class="pill">https://api-rc.taxicaller.net (test)</span>
+    <span class="pill">Auth: Bearer JWT</span>
+    <span class="pill" id="total"></span>
+  </div>
+</header>
+
+<div class="card">
+  <h3>Autentisering</h3>
+  <p>Hämta en JWT med er API-nyckel och skicka den som <code style="font-family:var(--mono)">Authorization: Bearer &lt;token&gt;</code> i alla andra anrop. <code style="font-family:var(--mono)">sub=*</code> ger token för alla subjects.</p>
+<pre>curl "https://api.taxicaller.net/api/v1/jwt/for-key?key=API_NYCKEL&amp;sub=*"
+
+curl -H "Authorization: Bearer $JWT" \
+  "https://api.taxicaller.net/api/v1/company/COMPANY_ID/vehicle/list"</pre>
+</div>
+
+<div class="bar">
+  <input id="q" type="search" placeholder="Sök, t.ex. vehicle, suspend, transaction" autocomplete="off" aria-label="Sök endpoint">
+  <div class="filters" role="group" aria-label="Filtrera metod">
+    <button type="button" data-m="ALL" aria-pressed="true">Alla</button>
+    <button type="button" data-m="GET" aria-pressed="false">GET</button>
+    <button type="button" data-m="POST" aria-pressed="false">POST</button>
+    <button type="button" data-m="DELETE" aria-pressed="false">DELETE</button>
+  </div>
+  <span id="count"></span>
+</div>
+
+<nav class="toc" id="toc" aria-label="Sektioner"></nav>
+<main id="main"></main>
+<div class="empty" id="empty" hidden>Inga endpoints matchar sökningen.</div>
+
+<footer>Sammanställd 27 sep 2026 från den publika dokumentationen. Dokumentationen täcker inte bokning, dispatch eller positions-API. Kontrollera alltid mot originalet innan integration.</footer>
+</div>
+
+<script>
+const API=[
+ {id:"jwt",t:"JWT",base:"/api/v1/jwt",d:"Skapa token för API-anrop.",e:[
+  ["GET","/api/v1/jwt/for-key","Create an API JWT token",[["key","string","Er API-nyckel",1],["sub","string","Önskat subject, * = alla",1]]]]},
+ {id:"reports",t:"Rapporter",base:"/api/v1/…/reports",d:"Lista rapportmallar och generera rapporter (t.ex. körningar/jobs) som JSON.",e:[
+  ["GET","/api/v1/company/{company_id}/reports/templates","List currently available reports"],
+  ["POST","/api/v1/reports/typed/generate","Generate a report",null,'{\n  "company_id": 1234,\n  "report_type": "jobs",\n  "output_format": "json",\n  "template_id": 1,\n  "search_query": {\n    "period": {\n      "@type": "custom",\n      "start": "2018-01-01T00:00:00",\n      "end": "2019-01-01T00:00:00"\n    }\n  }\n}']]},
+ {id:"users",t:"Användare / förare",base:"/api/v1/company/{company_id}/user",d:"Hantera användare och förare, inklusive avstängning.",e:[
+  ["GET","/api/v1/company/{company_id}/user/list","Gets a list of users"],
+  ["GET","/api/v1/company/{company_id}/user/ids/{user_id}","Get information about a user"],
+  ["POST","/api/v1/company/{company_id}/user/ids/{user_id}","Updates a user"],
+  ["DELETE","/api/v1/company/{company_id}/user/ids/{user_id}","Deletes a user"],
+  ["POST","/api/v1/company/{company_id}/user/ids/{user_id}/add-suspension","Suspend a driver"],
+  ["POST","/api/v1/company/{company_id}/user/ids/{user_id}/remove-suspension","Remove driver suspension"],
+  ["POST","/api/v1/company/{company_id}/user/create","Creates a user"]]},
+ {id:"vehicles",t:"Fordon",base:"/api/v1/company/{company_id}/vehicle",d:"Fordon, åtkomst per förare och avstängning.",e:[
+  ["GET","/api/v1/company/{company_id}/vehicle/list","Get paginated list of vehicles"],
+  ["GET","/api/v1/company/{company_id}/vehicle/ids/{vehicle_id}","Gets a vehicle"],
+  ["POST","/api/v1/company/{company_id}/vehicle/ids/{vehicle_id}","Updates a vehicle"],
+  ["GET","/api/v1/company/{company_id}/vehicle/ids/{vehicle_id}/access","Gets list of users with vehicle access"],
+  ["POST","/api/v1/company/{company_id}/vehicle/ids/{vehicle_id}/access","Sets list of users with vehicle access"],
+  ["POST","/api/v1/company/{company_id}/vehicle/ids/{vehicle_id}/set-suspended","Suspend or unsuspend a vehicle"],
+  ["POST","/api/v1/company/{company_id}/vehicle/create","Creates a vehicle"]]},
+ {id:"customers",t:"Kundkonton",base:"/api/v1/company/{company_id}/customer/account",d:"Företagskunder / avtalskonton.",e:[
+  ["GET","/api/v1/company/{company_id}/customer/account/list","Gets a list of customer accounts"],
+  ["GET","/api/v1/company/{company_id}/customer/account/ids/{account_id}","Gets an account"],
+  ["POST","/api/v1/company/{company_id}/customer/account/ids/{account_id}","Updates an account"],
+  ["DELETE","/api/v1/company/{company_id}/customer/account/ids/{account_id}","Deletes an account"],
+  ["POST","/api/v1/company/{company_id}/customer/account/create","Creates an account"]]},
+ {id:"clients",t:"Klienter",base:"/api/v1/company/{company_id}/client",d:"Klientinloggningar (bokare) och koppling till kundkonton.",e:[
+  ["POST","/api/v1/company/{company_id}/client","Create a new client"],
+  ["GET","/api/v1/company/{company_id}/client/{client_id}","Get client"],
+  ["POST","/api/v1/company/{company_id}/client/{client_id}","Updates a client"],
+  ["POST","/api/v1/company/{company_id}/client/{client_id}/password","Update client password"],
+  ["POST","/api/v1/company/{company_id}/client/{client_id}/link","Link account to client"],
+  ["DELETE","/api/v1/company/{company_id}/client/{client_id}/link/{link_id}","Remove account link"],
+  ["GET","/api/v1/company/{company_id}/client/list","List all clients controlled by company"]]},
+ {id:"bank",t:"Bank och överföringar",base:"/api/v1/company/{company_id}/bank",d:"Interna konton (t.ex. förar- och fordonssaldon), transaktioner och överföringsordrar.",e:[
+  ["POST","/api/v1/company/{company_id}/bank/account-group-setup","Setup account groups"],
+  ["GET","/api/v1/company/{company_id}/bank/account-group/list","Gets a list of account groups"],
+  ["POST","/api/v1/company/{company_id}/bank/account-group/create","Create a new account group"],
+  ["GET","/api/v1/company/{company_id}/bank/account-group/ids/{id}","Get an account group by id"],
+  ["POST","/api/v1/company/{company_id}/bank/account-group/ids/{id}","Update an account group"],
+  ["GET","/api/v1/company/{company_id}/bank/account-group/ids/{id}/links/type/{target_type}/id/{target_id}","Get account from linked resource"],
+  ["POST","/api/v1/company/{company_id}/bank/account-group/ids/{id}/ensure/{target_type}","Create linked bank accounts"],
+  ["GET","/api/v1/company/{company_id}/bank/account/list","Gets a list of bank accounts"],
+  ["GET","/api/v1/company/{company_id}/bank/account/ids/{account_id}","Gets an account"],
+  ["POST","/api/v1/company/{company_id}/bank/account/ids/{account_id}","Updates an account"],
+  ["GET","/api/v1/company/{company_id}/bank/account/ids/{account_id}/transaction/list","Gets a list of transactions"],
+  ["POST","/api/v1/company/{company_id}/bank/account/create","Creates an account"],
+  ["POST","/api/v1/company/{company_id}/bank/transfer-order/create","Creates a new transfer"],
+  ["GET","/api/v1/company/{company_id}/bank/transfer-order/ids/{order_id}","Gets a transfer order"],
+  ["POST","/api/v1/company/{company_id}/bank/transfer-order/ids/{order_id}","Executes a transfer order"]]},
+ {id:"documents",t:"Dokument",base:"/api/v1/company/{company_id}/document",d:"Ladda upp, hämta och radera dokument samt metadata.",e:[
+  ["GET","/api/v1/company/{company_id}/document/ids/{uid}","Download document"],
+  ["DELETE","/api/v1/company/{company_id}/document/ids/{uid}","Delete document"],
+  ["POST","/api/v1/company/{company_id}/document/upload","Upload a document"],
+  ["GET","/api/v1/company/{company_id}/document/metadata/list","Get document metadata list"],
+  ["GET","/api/v1/company/{company_id}/document/metadata/ids/{uid}","Get document metadata"]]}
+];
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const hl=p=>esc(p).replace(/\{([a-z_]+)\}/g,'<b>{$1}</b>');
+const main=document.getElementById('main'),toc=document.getElementById('toc');
+let total=0;
+API.forEach(g=>{
+  total+=g.e.length;
+  const s=document.createElement('section');s.id=g.id;
+  s.innerHTML=`<h2>${g.t}<code>${esc(g.base)}</code></h2><p class="desc">${g.d}</p><div class="list"></div>`;
+  const list=s.querySelector('.list');
+  g.e.forEach(([m,p,sum,params,body])=>{
+    const r=document.createElement('div');r.className='row';r.dataset.m=m;
+    r.dataset.k=(m+' '+p+' '+sum+' '+g.t).toLowerCase();
+    let extra='';
+    if(params)extra+='<div class="params">'+params.map(([n,t,d,rq])=>`<div><code>${n}</code><span>${t}</span>${rq?'<span class="req">required</span>':''}<span style="color:var(--muted)">${d}</span></div>`).join('')+'</div>';
+    if(body)extra+=`<pre>${esc(body)}</pre>`;
+    r.innerHTML=`<span class="m ${m}">${m}</span><div style="min-width:0"><div class="p">${hl(p)}</div><div class="s">${sum}</div>${extra}</div><button type="button" class="cp">Kopiera</button>`;
+    r.querySelector('.cp').addEventListener('click',e=>{
+      const b=e.currentTarget;
+      const done=()=>{b.textContent='Kopierad';setTimeout(()=>b.textContent='Kopiera',1400)};
+      navigator.clipboard?.writeText(p).then(done).catch(()=>{const sel=getSelection(),rg=document.createRange();rg.selectNodeContents(r.querySelector('.p'));sel.removeAllRanges();sel.addRange(rg)});
+    });
+    list.appendChild(r);
+  });
+  main.appendChild(s);
+  const a=document.createElement('a');a.href='#'+g.id;a.innerHTML=`${g.t}<span>${g.e.length}</span>`;toc.appendChild(a);
+});
+document.getElementById('total').textContent=total+' endpoints';
+let method='ALL';
+const q=document.getElementById('q'),count=document.getElementById('count');
+function apply(){
+  const v=q.value.trim().toLowerCase();let n=0;
+  document.querySelectorAll('.row').forEach(r=>{const ok=(method==='ALL'||r.dataset.m===method)&&(!v||r.dataset.k.includes(v));r.hidden=!ok;if(ok)n++;});
+  document.querySelectorAll('main section').forEach(s=>s.hidden=!s.querySelector('.row:not([hidden])'));
+  count.textContent=n+' / '+total;document.getElementById('empty').hidden=n>0;
+}
+q.addEventListener('input',apply);
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{method=b.dataset.m;document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));apply();}));
+apply();
+</script>
+
+</body></html>

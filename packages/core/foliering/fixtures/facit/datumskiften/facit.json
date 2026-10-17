@@ -1,0 +1,5907 @@
+{
+ "logg": [
+  {
+   "tid": "2026-10-15 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "skapaFaktura",
+    "id": "d1"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/d1",
+      {
+       "id": "d1",
+       "reg": "ABC12A",
+       "skadenr": "SK-d1",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-10-15",
+        "forfall": "2026-10-25",
+        "utfort": "2026-10-15",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": ""
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-10-15",
+         "t": "Faktura 1001 skapad (5 501 kr), förfaller 2026-10-25"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-10-15T08:00:00.000Z"
+      }
+     ],
+     [
+      "installningar/serie",
+      {
+       "nasta": 1002
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Faktura 1001 skapad. Registret är uppdaterat."
+    ]
+   }
+  },
+  {
+   "tid": "2026-10-21 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "skickad",
+    "id": "d4"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/d4",
+      {
+       "id": "d4",
+       "reg": "ABC12A",
+       "skadenr": "SK-d4",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "skickad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": "",
+        "skickad": "2026-10-21"
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-10-21",
+         "t": "Offert skickad till Försäkring 1 AB (5 501 kr)"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-10-21T08:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Offerten är markerad som skickad."
+    ]
+   }
+  },
+  {
+   "tid": "2026-10-25 02:30",
+   "kontroll": {
+    "idag": "2026-10-25",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "obetald",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d2",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "obetald",
+      "bd": "",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d1"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "11 002 kr",
+       "2 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt oktober",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 2,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d2",
+       "btn": "Fakturera"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAyNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAyNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAyNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-10-25 23:59",
+   "kontroll": {
+    "idag": "2026-10-25",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "obetald",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d2",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "obetald",
+      "bd": "",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d1"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "11 002 kr",
+       "2 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt oktober",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 2,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d2",
+       "btn": "Fakturera"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAyNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAyNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAyNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-10-26 00:30",
+   "kontroll": {
+    "idag": "2026-10-26",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d2",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d1"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "11 002 kr",
+       "2 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt oktober",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 4,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Faktura 1001 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2026-10-25 (1 dagar)",
+       "id": "d1",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d2",
+       "btn": "Fakturera"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 5 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAyNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAyNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAyNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-10-26 00:31",
+   "steg": {
+    "typ": "klick",
+    "act": "paminnelseKlar",
+    "id": "d1"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/d1",
+      {
+       "id": "d1",
+       "reg": "ABC12A",
+       "skadenr": "SK-d1",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-10-15",
+        "forfall": "2026-10-25",
+        "utfort": "2026-10-15",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": "2026-10-26"
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-10-15",
+         "t": "Faktura 1001 skapad (5 501 kr), förfaller 2026-10-25"
+        },
+        {
+         "d": "2026-10-26",
+         "t": "Påminnelse skickad för faktura 1001"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-10-25T23:31:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Påminnelsen är noterad."
+    ]
+   }
+  },
+  {
+   "tid": "2026-11-01 23:30",
+   "kontroll": {
+    "idag": "2026-11-01",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d2",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d1"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "11 002 kr",
+       "2 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt november",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 4,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 11 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d2",
+       "btn": "Fakturera"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      },
+      {
+       "sev": "info",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Faktura 1001 förfallen, påmind 2026-10-26",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2026-10-25 (7 dagar) · senaste påminnelse 2026-10-26 · ny påminnelse 2026-11-02",
+       "id": "d1",
+       "btn": "Öppna"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-11-02 00:30",
+   "kontroll": {
+    "idag": "2026-11-02",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d2",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d1"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "11 002 kr",
+       "2 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt november",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 4,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Faktura 1001 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2026-10-25 (8 dagar) · senaste påminnelse 2026-10-26",
+       "id": "d1",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 12 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d2",
+       "btn": "Fakturera"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-12-27 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "skapaFaktura",
+    "id": "d2"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/d2",
+      {
+       "id": "d2",
+       "reg": "ABC34B",
+       "skadenr": "SK-d2",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1002,
+        "datum": "2026-12-27",
+        "forfall": "2027-01-06",
+        "utfort": "2026-12-27",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": ""
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-12-27",
+         "t": "Faktura 1002 skapad (5 501 kr), förfaller 2027-01-06"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-12-27T09:00:00.000Z"
+      }
+     ],
+     [
+      "installningar/serie",
+      {
+       "nasta": 1003
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Faktura 1002 skapad. Registret är uppdaterat."
+    ]
+   }
+  },
+  {
+   "tid": "2026-12-31 23:59",
+   "kontroll": {
+    "idag": "2026-12-31",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d2",
+      "fak": "obetald",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1003,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "obetald",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d1"
+     },
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "5 501 kr",
+       "1 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "11 002 kr",
+       "2 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt december",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 3,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Faktura 1001 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2026-10-25 (67 dagar) · senaste påminnelse 2026-10-26",
+       "id": "d1",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 71 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTIzMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTIzMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTIzMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTIzMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTIzMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNjEyMzENCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-01-01 00:01",
+   "steg": {
+    "typ": "klick",
+    "act": "betald",
+    "id": "d1"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/d1",
+      {
+       "id": "d1",
+       "reg": "ABC12A",
+       "skadenr": "SK-d1",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-10-15",
+        "forfall": "2026-10-25",
+        "utfort": "2026-10-15",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2027-01-01",
+        "paminnelse": "2026-10-26"
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2027-01-01",
+        "forfall": "2027-01-11",
+        "till": "Ägare Ett AB",
+        "betald": false,
+        "betaldDatum": "",
+        "skickad": ""
+       },
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-10-15",
+         "t": "Faktura 1001 skapad (5 501 kr), förfaller 2026-10-25"
+        },
+        {
+         "d": "2026-10-26",
+         "t": "Påminnelse skickad för faktura 1001"
+        },
+        {
+         "d": "2027-01-01",
+         "t": "Faktura 1001 betald 2027-01-01"
+        },
+        {
+         "d": "2027-01-01",
+         "t": "Momsfaktura M-1001 klar att skicka till Ägare Ett AB (1 375,25 kr), daterad 2027-01-01"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-12-31T23:01:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Momsfaktura M-1001 är klar att skicka till Ägare Ett AB."
+    ]
+   }
+  },
+  {
+   "tid": "2027-01-01 00:02",
+   "kontroll": {
+    "idag": "2027-01-01",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "obetald",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1003,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "obetald",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "5 501 kr",
+       "1 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt januari",
+       "5 501 kr",
+       "1 fakturor betalda"
+      ]
+     ],
+     "antal": 3,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 72 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzAxMDENCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwMTAxDQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-01-06 23:59",
+   "kontroll": {
+    "idag": "2027-01-06",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "obetald",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1003,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "obetald",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "5 501 kr",
+       "1 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt januari",
+       "5 501 kr",
+       "1 fakturor betalda"
+      ]
+     ],
+     "antal": 3,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 77 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzAxMDYNCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwMTA2DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-01-07 00:01",
+   "kontroll": {
+    "idag": "2027-01-07",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1003,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "5 501 kr",
+       "1 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt januari",
+       "5 501 kr",
+       "1 fakturor betalda"
+      ]
+     ],
+     "antal": 4,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Faktura 1002 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-01-06 (1 dagar)",
+       "id": "d2",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 78 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzAxMDcNCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDEwNw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwMTA3DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-01-07 00:02",
+   "steg": {
+    "typ": "klick",
+    "act": "paminnelseKlar",
+    "id": "d2"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/d2",
+      {
+       "id": "d2",
+       "reg": "ABC34B",
+       "skadenr": "SK-d2",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1002,
+        "datum": "2026-12-27",
+        "forfall": "2027-01-06",
+        "utfort": "2026-12-27",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": "2027-01-07"
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-12-27",
+         "t": "Faktura 1002 skapad (5 501 kr), förfaller 2027-01-06"
+        },
+        {
+         "d": "2027-01-07",
+         "t": "Påminnelse skickad för faktura 1002"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2027-01-06T23:02:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Påminnelsen är noterad."
+    ]
+   }
+  },
+  {
+   "tid": "2027-01-14 00:05",
+   "kontroll": {
+    "idag": "2027-01-14",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1003,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "5 501 kr",
+       "1 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt januari",
+       "5 501 kr",
+       "1 fakturor betalda"
+      ]
+     ],
+     "antal": 4,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Faktura 1002 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-01-06 (8 dagar) · senaste påminnelse 2027-01-07",
+       "id": "d2",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 85 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzAxMTQNCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwMTE0DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-01-15 09:00",
+   "steg": {
+    "typ": "export",
+    "p": "2026-08"
+   },
+   "utfall": {
+    "spara": [],
+    "filer": [],
+    "meddelanden": [
+     "Verifikationerna balanserar inte."
+    ]
+   }
+  },
+  {
+   "tid": "2027-01-15 09:01",
+   "steg": {
+    "typ": "export",
+    "p": "2026-09"
+   },
+   "utfall": {
+    "spara": [],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2027-01-15 09:02",
+   "steg": {
+    "typ": "export",
+    "p": "2026-10"
+   },
+   "utfall": {
+    "spara": [],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2027-01-15 09:03",
+   "steg": {
+    "typ": "export",
+    "p": "2026-11"
+   },
+   "utfall": {
+    "spara": [],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2027-01-15 09:04",
+   "steg": {
+    "typ": "export",
+    "p": "2026-12"
+   },
+   "utfall": {
+    "spara": [],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2027-01-15 09:05",
+   "kontroll": {
+    "idag": "2027-01-15",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1003,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "5 501 kr",
+       "1 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt januari",
+       "5 501 kr",
+       "1 fakturor betalda"
+      ]
+     ],
+     "antal": 4,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Faktura 1002 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-01-06 (9 dagar) · senaste påminnelse 2027-01-07",
+       "id": "d2",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 86 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Godkänd offert att fakturera",
+       "s": "Försäkring 1 AB · 5 501 kr",
+       "id": "d3",
+       "btn": "Fakturera"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzAxMTUNCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDExNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwMTE1DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-03-18 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "skapaFaktura",
+    "id": "d3"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/d3",
+      {
+       "id": "d3",
+       "reg": "ABC12A",
+       "skadenr": "SK-d3",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1003,
+        "datum": "2027-03-18",
+        "forfall": "2027-03-28",
+        "utfort": "2027-03-18",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": ""
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2027-03-18",
+         "t": "Faktura 1003 skapad (5 501 kr), förfaller 2027-03-28"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2027-03-18T09:00:00.000Z"
+      }
+     ],
+     [
+      "installningar/serie",
+      {
+       "nasta": 1004
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Faktura 1003 skapad. Registret är uppdaterat."
+    ]
+   }
+  },
+  {
+   "tid": "2027-03-28 01:30",
+   "kontroll": {
+    "idag": "2027-03-28",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": "obetald",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": "faktura_1003_ABC12A_SK-d3.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1004,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1003",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2027-03-18",
+      "forfall": "2027-03-28",
+      "st": "obetald",
+      "bd": "",
+      "id": "d3"
+     },
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     },
+     {
+      "typ": "f",
+      "nr": "1003",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d3"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "11 002 kr",
+       "2 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt mars",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 3,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Faktura 1002 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-01-06 (81 dagar) · senaste påminnelse 2027-01-07",
+       "id": "d2",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 158 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01",
+     "2027-02",
+     "2027-03"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzAzMjgNCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwMzI4DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     },
+     "2027-02": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2027-03": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-03-28 03:30",
+   "kontroll": {
+    "idag": "2027-03-28",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": "obetald",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": "faktura_1003_ABC12A_SK-d3.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1004,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1003",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2027-03-18",
+      "forfall": "2027-03-28",
+      "st": "obetald",
+      "bd": "",
+      "id": "d3"
+     },
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     },
+     {
+      "typ": "f",
+      "nr": "1003",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d3"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "11 002 kr",
+       "2 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt mars",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 3,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Faktura 1002 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-01-06 (81 dagar) · senaste påminnelse 2027-01-07",
+       "id": "d2",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 158 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01",
+     "2027-02",
+     "2027-03"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzAzMjgNCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwMzI4DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     },
+     "2027-02": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2027-03": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-03-28 23:59",
+   "kontroll": {
+    "idag": "2027-03-28",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": "obetald",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": "faktura_1003_ABC12A_SK-d3.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1004,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1003",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2027-03-18",
+      "forfall": "2027-03-28",
+      "st": "obetald",
+      "bd": "",
+      "id": "d3"
+     },
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     },
+     {
+      "typ": "f",
+      "nr": "1003",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d3"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "11 002 kr",
+       "2 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt mars",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 3,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Faktura 1002 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-01-06 (81 dagar) · senaste påminnelse 2027-01-07",
+       "id": "d2",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 158 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01",
+     "2027-02",
+     "2027-03"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzAzMjgNCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwMzI4DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     },
+     "2027-02": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2027-03": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-03-29 00:30",
+   "kontroll": {
+    "idag": "2027-03-29",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": "faktura_1003_ABC12A_SK-d3.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1004,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1003",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2027-03-18",
+      "forfall": "2027-03-28",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d3"
+     },
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     },
+     {
+      "typ": "f",
+      "nr": "1003",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d3"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "11 002 kr",
+       "2 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "11 002 kr",
+       "2 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt mars",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 4,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Faktura 1002 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-01-06 (82 dagar) · senaste påminnelse 2027-01-07",
+       "id": "d2",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Faktura 1003 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-03-28 (1 dagar)",
+       "id": "d3",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 159 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01",
+     "2027-02",
+     "2027-03"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzAzMjkNCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwMzI5DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     },
+     "2027-02": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2027-03": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDMyOQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2027-03-29 00:31",
+   "steg": {
+    "typ": "klick",
+    "act": "paminnelseKlar",
+    "id": "d3"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/d3",
+      {
+       "id": "d3",
+       "reg": "ABC12A",
+       "skadenr": "SK-d3",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1003,
+        "datum": "2027-03-18",
+        "forfall": "2027-03-28",
+        "utfort": "2027-03-18",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": "2027-03-29"
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2027-03-18",
+         "t": "Faktura 1003 skapad (5 501 kr), förfaller 2027-03-28"
+        },
+        {
+         "d": "2027-03-29",
+         "t": "Påminnelse skickad för faktura 1003"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2027-03-28T22:31:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Påminnelsen är noterad."
+    ]
+   }
+  },
+  {
+   "tid": "2027-04-05 00:30",
+   "kontroll": {
+    "idag": "2027-04-05",
+    "arenden": [
+     {
+      "id": "d1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d1_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-d1.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     },
+     {
+      "id": "d2",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d2_ABC34B.pdf",
+      "fnFaktura": "faktura_1002_ABC34B_SK-d2.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d3",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d3_ABC12A.pdf",
+      "fnFaktura": "faktura_1003_ABC12A_SK-d3.pdf",
+      "fnMoms": null
+     },
+     {
+      "id": "d4",
+      "fak": null,
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-d4_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1004,
+    "momsAttSkicka": [
+     "d1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1003",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2027-03-18",
+      "forfall": "2027-03-28",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d3"
+     },
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 1375.25,
+      "datum": "2027-01-01",
+      "forfall": "2027-01-11",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "d1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1002",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-12-27",
+      "forfall": "2027-01-06",
+      "st": "forfallen",
+      "bd": "",
+      "id": "d2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-10-15",
+      "forfall": "2026-10-25",
+      "st": "betald",
+      "bd": "2027-01-01",
+      "id": "d1"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1002",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d2"
+     },
+     {
+      "typ": "f",
+      "nr": "1003",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "d3"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "5 501 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "11 002 kr",
+       "2 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "11 002 kr",
+       "2 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt april",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 4,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Faktura 1002 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-01-06 (89 dagar) · senaste påminnelse 2027-01-07",
+       "id": "d2",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Faktura 1003 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2027-03-28 (8 dagar) · senaste påminnelse 2027-03-29",
+       "id": "d3",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 166 dagar, påminn",
+       "s": "Försäkring 1 AB · 5 501 kr · skickad 2026-10-21 · giltighet har gått ut",
+       "id": "d4",
+       "btn": "Påminn"
+      },
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 1 375,25 kr · Försäkring 1 AB betalade 2027-01-01",
+       "id": "d1",
+       "btn": "Skicka"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11",
+     "2026-12",
+     "2027-01",
+     "2027-02",
+     "2027-03",
+     "2027-04"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDQwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDQwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-10": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDQwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDQwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2026-12": {
+      "V": [
+       {
+        "key": "bokslut:2026-12",
+        "datum": "2026-12-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-12-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1001 ABC12A"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001"
+         },
+         {
+          "k": 1510,
+          "b": 5501,
+          "t": "Faktura 1002 ABC34B"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1002"
+         },
+         {
+          "k": 1510,
+          "b": 2750.5,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -2750.5,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-12-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 11002,
+       "kost": 0,
+       "utg": 2750.5,
+       "ing": 0,
+       "bank": 0,
+       "res": 11002,
+       "moms": 2750.5
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDQwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwMTAxIDIwMjYxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAzMDAxICJGlHJzhGxqbmluZyBpbm9tIFN2ZXJpZ2UsIDI1ICUgbW9tcyINCiNWRVIgQSAxIDIwMjYxMjMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0xMi0zMSIgMjAyNzA0MDUNCnsNCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMSBBQkMxMkEiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSINCiNUUkFOUyAxNTEwIHt9IDU1MDEuMDAgMjAyNjEyMzEgIkZha3R1cmEgMTAwMiBBQkMzNEIiDQojVFJBTlMgMzAwMSB7fSAtNTUwMS4wMCAyMDI2MTIzMSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMiINCiNUUkFOUyAxNTEwIHt9IDI3NTAuNTAgMjAyNjEyMzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTI3NTAuNTAgMjAyNjEyMzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2027-01": {
+      "V": [
+       {
+        "key": "fbet:d1",
+        "datum": "2027-01-01",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-d1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDQwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNzAxMDEgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stZDEiIDIwMjcwNDA1DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjcwMTAxICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNzAxMDEgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMTJBIg0KfQ0K"
+     },
+     "2027-02": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDQwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2027-03": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDQwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     },
+     "2027-04": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI3MDQwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjcwMTAxIDIwMjcxMjMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  }
+ ],
+ "slut": {
+  "arenden": {
+   "d1": {
+    "id": "d1",
+    "reg": "ABC12A",
+    "skadenr": "SK-d1",
+    "forsakring": "lf",
+    "agare": "Ägare Ett AB",
+    "bil": null,
+    "storlek": "vanlig",
+    "skadedatum": "",
+    "notering": "",
+    "status": "betald",
+    "offert": {
+     "datum": "2026-08-03",
+     "giltigTom": "2026-09-02",
+     "rader": [
+      {
+       "pid": "sf-fram",
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "godkandAv": ""
+    },
+    "faktura": {
+     "nr": 1001,
+     "datum": "2026-10-15",
+     "forfall": "2026-10-25",
+     "utfort": "2026-10-15",
+     "rader": [
+      {
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "betald": true,
+     "betaldDatum": "2027-01-01",
+     "paminnelse": "2026-10-26"
+    },
+    "moms": {
+     "nr": "M-1001",
+     "datum": "2027-01-01",
+     "forfall": "2027-01-11",
+     "till": "Ägare Ett AB",
+     "betald": false,
+     "betaldDatum": "",
+     "skickad": ""
+    },
+    "logg": [
+     {
+      "d": "2026-08-03",
+      "t": "Ärendet skapat"
+     },
+     {
+      "d": "2026-10-15",
+      "t": "Faktura 1001 skapad (5 501 kr), förfaller 2026-10-25"
+     },
+     {
+      "d": "2026-10-26",
+      "t": "Påminnelse skickad för faktura 1001"
+     },
+     {
+      "d": "2027-01-01",
+      "t": "Faktura 1001 betald 2027-01-01"
+     },
+     {
+      "d": "2027-01-01",
+      "t": "Momsfaktura M-1001 klar att skicka till Ägare Ett AB (1 375,25 kr), daterad 2027-01-01"
+     }
+    ],
+    "skapad": "2026-08-03",
+    "andrad": "2026-12-31T23:01:00.000Z"
+   },
+   "d2": {
+    "id": "d2",
+    "reg": "ABC34B",
+    "skadenr": "SK-d2",
+    "forsakring": "lf",
+    "agare": "",
+    "bil": null,
+    "storlek": "vanlig",
+    "skadedatum": "",
+    "notering": "",
+    "status": "fakturerad",
+    "offert": {
+     "datum": "2026-08-03",
+     "giltigTom": "2026-09-02",
+     "rader": [
+      {
+       "pid": "sf-fram",
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "godkandAv": ""
+    },
+    "faktura": {
+     "nr": 1002,
+     "datum": "2026-12-27",
+     "forfall": "2027-01-06",
+     "utfort": "2026-12-27",
+     "rader": [
+      {
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "betald": false,
+     "betaldDatum": "",
+     "paminnelse": "2027-01-07"
+    },
+    "moms": null,
+    "logg": [
+     {
+      "d": "2026-08-03",
+      "t": "Ärendet skapat"
+     },
+     {
+      "d": "2026-12-27",
+      "t": "Faktura 1002 skapad (5 501 kr), förfaller 2027-01-06"
+     },
+     {
+      "d": "2027-01-07",
+      "t": "Påminnelse skickad för faktura 1002"
+     }
+    ],
+    "skapad": "2026-08-03",
+    "andrad": "2027-01-06T23:02:00.000Z"
+   },
+   "d3": {
+    "id": "d3",
+    "reg": "ABC12A",
+    "skadenr": "SK-d3",
+    "forsakring": "lf",
+    "agare": "",
+    "bil": null,
+    "storlek": "vanlig",
+    "skadedatum": "",
+    "notering": "",
+    "status": "fakturerad",
+    "offert": {
+     "datum": "2026-08-03",
+     "giltigTom": "2026-09-02",
+     "rader": [
+      {
+       "pid": "sf-fram",
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "godkandAv": ""
+    },
+    "faktura": {
+     "nr": 1003,
+     "datum": "2027-03-18",
+     "forfall": "2027-03-28",
+     "utfort": "2027-03-18",
+     "rader": [
+      {
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "betald": false,
+     "betaldDatum": "",
+     "paminnelse": "2027-03-29"
+    },
+    "moms": null,
+    "logg": [
+     {
+      "d": "2026-08-03",
+      "t": "Ärendet skapat"
+     },
+     {
+      "d": "2027-03-18",
+      "t": "Faktura 1003 skapad (5 501 kr), förfaller 2027-03-28"
+     },
+     {
+      "d": "2027-03-29",
+      "t": "Påminnelse skickad för faktura 1003"
+     }
+    ],
+    "skapad": "2026-08-03",
+    "andrad": "2027-03-28T22:31:00.000Z"
+   },
+   "d4": {
+    "id": "d4",
+    "reg": "ABC12A",
+    "skadenr": "SK-d4",
+    "forsakring": "lf",
+    "agare": "",
+    "bil": null,
+    "storlek": "vanlig",
+    "skadedatum": "",
+    "notering": "",
+    "status": "skickad",
+    "offert": {
+     "datum": "2026-08-03",
+     "giltigTom": "2026-09-02",
+     "rader": [
+      {
+       "pid": "sf-fram",
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "godkandAv": "",
+     "skickad": "2026-10-21"
+    },
+    "faktura": null,
+    "moms": null,
+    "logg": [
+     {
+      "d": "2026-08-03",
+      "t": "Ärendet skapat"
+     },
+     {
+      "d": "2026-10-21",
+      "t": "Offert skickad till Försäkring 1 AB (5 501 kr)"
+     }
+    ],
+    "skapad": "2026-08-03",
+    "andrad": "2026-10-21T08:00:00.000Z"
+   }
+  },
+  "fordon": {
+   "ABC12A": {
+    "reg": "ABC12A",
+    "bil": 650,
+    "agare": "Ägare Ett AB",
+    "adress": "Exempelgatan 1",
+    "epost": "agare1@example.se",
+    "id": "ABC12A"
+   },
+   "ABC34B": {
+    "reg": "ABC34B",
+    "bil": 651,
+    "agare": "Ägare Två AB",
+    "epost": "",
+    "id": "ABC34B"
+   }
+  },
+  "forsakring": {
+   "lf": {
+    "namn": "Försäkring 1 AB",
+    "kort": "F1",
+    "kontakt": "Kontakt Ett",
+    "epost": "skador@example.se",
+    "adress1": "Box 1",
+    "adress2": "100 00 Exempelstad",
+    "id": "lf"
+   },
+   "f2": {
+    "namn": "Försäkring 2 AB",
+    "kort": "F2",
+    "kontakt": "",
+    "epost": "skada@example.com",
+    "id": "f2"
+   }
+  },
+  "kostnader": {},
+  "bokforing": {},
+  "inst": {
+   "bokforing": {
+    "rarStart": 1
+   },
+   "serie": {
+    "nasta": 1004
+   }
+  }
+ }
+}

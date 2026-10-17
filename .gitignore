@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.local
+riktiga-filer/
+
+# Paketeringen av serverfunktionen byggs i CI och vid driftsättning (npm run bygg:funktioner)
+supabase/functions/**/*.bundle.js
+# Klientpaketet som kontrolleras i CI (npm run kontroll:klient)
+dist-klient/

@@ -1,0 +1,10 @@
+{
+  "name": "@flodia/kit",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Modulkitet: kontrakt för parsrar, motorer och kontrollregler (SPEC-v3.1 avsnitt 3)",
+  "exports": {
+    ".": "./index.ts"
+  }
+}

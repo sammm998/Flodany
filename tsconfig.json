@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "*.ts",
+    "tests",
+    "scripts",
+    "packages",
+    "apps"
+  ],
+  "exclude": [
+    "node_modules",
+    "legacy",
+    "referens",
+    "**/dist"
+  ]
+}

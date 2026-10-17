@@ -1,0 +1,5 @@
+# Samma radslut (LF) på Windows och Linux, så att kontrollsummor och diffar stämmer
+* text=auto eol=lf
+*.pdf binary
+# SIE-filer jämförs byte för byte (CP437, CRLF) och får inte ändras av git
+*.se binary

@@ -1,0 +1,51 @@
+#FLAGGA 0
+#FORMAT PC8
+#SIETYP 4
+#PROGRAM "Foliering Demo" 1.0
+#GEN 20260901
+#FNAMN "èngstrîm & Sîner Exempel AB - ê?"
+#ORGNR 559000-0001
+#RAR 0 20250901 20260831
+#KPTYP BAS2014
+#VALUTA SEK
+#KONTO 1510 "Kundfordringar"
+#KONTO 1930 "Fîretagskonto"
+#KONTO 2611 "UtgÜende moms pÜ fîrsÑljning inom Sverige, 25 %"
+#KONTO 2641 "Debiterad ingÜende moms"
+#KONTO 2910 "Upplupna lîner"
+#KONTO 3001 "FîrsÑljning inom Sverige, 25 % moms"
+#KONTO 4010 "Inkîp material och varor"
+#KONTO 4600 "Legoarbeten och underentreprenader"
+#KONTO 6990 "ôvriga externa kostnader"
+#KONTO 7010 "Lîner till kollektivanstÑllda"
+#VER A 1 20260805 "Folie och material ôresunds Folie AB faktura 77" 20260901
+{
+#TRANS 4010 {} 0.00 20260805 "Folie - matt, cafÇ rad tvÜ"
+#TRANS 2641 {} 308.63 20260805 "IngÜende moms"
+#TRANS 1930 {} -308.63 20260805 "ôresunds Folie AB"
+}
+#VER A 2 20260806 "Underleverantîr Underlev é AB" 20260901
+{
+#TRANS 4600 {} 500.00 20260806 "Underleverantîr"
+#TRANS 1930 {} -500.00 20260806 "Underlev é AB"
+}
+#VER A 3 20260808 "ôvrigt" 20260901
+{
+#TRANS 6990 {} 0.00 20260808 "ôvrigt"
+#TRANS 1930 {} 0.00 20260808 ""
+}
+#VER A 4 20260819 "Inbetalning faktura 1001 ABC34B skada SKè-1" 20260901
+{
+#TRANS 1930 {} 5501.00 20260819 "FîrsÑkring ô AB faktura 1001"
+#TRANS 3001 {} -5501.00 20260819 "Foliering faktura 1001 ABC34B"
+}
+#VER A 5 20260831 "Lîn augusti èéô ÜÑî" 20260901
+{
+#TRANS 7010 {} 10000.00 20260831 "Lîn augusti èéô ÜÑî"
+#TRANS 2910 {} -10000.00 20260831 "Lîn augusti èéô ÜÑî"
+}
+#VER A 6 20260831 "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31" 20260901
+{
+#TRANS 1510 {} 1375.25 20260831 "Moms fordonsÑgare, obetald"
+#TRANS 2611 {} -1375.25 20260831 "Utg moms 25 %, obetald"
+}

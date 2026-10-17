@@ -1,0 +1,40 @@
+/* packages/ui/tokens.css
+   Designtokens enligt Bolagsappar-bygg-och-designspec-v3.pdf, sid 14.
+   Ändra inte ett värde utan att specen ändrats. tokens.test.ts kontrollerar värdena. */
+
+:root {
+  /* Färger */
+  --navy: #0E1E35;        /* text, rubriker, mörka ytor */
+  --green: #1F4D3A;       /* primär knapp, aktivt, klart */
+  --green-soft: #E7F0EA;  /* salvia: aktiv meny, klart */
+  --cream: #FBF8F2;       /* hemsidans bakgrund */
+  --cream-2: #F4EEE3;     /* hemsidans sektioner */
+  --white: #FFFFFF;       /* plattformens bakgrund */
+  --line: #E7E9ED;        /* ramar i plattformen */
+  --subtle: #F7F8F9;      /* tabellhuvud, tomma lägen */
+  --muted: #6B7385;       /* sekundär text */
+
+  /* Statusfärger, samma i båda ytorna. Används bara för status.
+     Utlästa ur statusetiketterna på sid 14 (bakgrund och text). */
+  --status-klar-bg: #E7F0EA;
+  --status-klar: #183D2E;
+  --status-vantar-bg: #FCF1D6;
+  --status-vantar: #7A5300;
+  --status-avvikelse-bg: #FBE9E5;
+  --status-avvikelse: #9A3412;
+  --status-info-bg: #EAEFF6;
+  --status-info: #1E3A5F;
+  --status-utkast-bg: #F0F1F4;
+  --status-utkast: #4A5568;
+
+  /* Form och avstånd */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --space: 4px;           /* grundsteg, avstånd är multiplar av detta */
+
+  /* Typsnitt. Reservtypsnitt efter specens namn så att texten syns innan typsnittet laddats. */
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-num: "Geist Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}

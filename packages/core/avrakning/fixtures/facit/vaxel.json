@@ -1,0 +1,637 @@
+{
+  "varde": {
+    "period": "2026-09",
+    "L": {
+      "namn": "September 2026",
+      "lang": "SEPTEMBER2026",
+      "vx": "NOV26"
+    },
+    "perBil": [
+      {
+        "bil": 101,
+        "kort": 345.5,
+        "refund": 0,
+        "dricks": 20,
+        "person": 200.5,
+        "bud": 0,
+        "utland": 0,
+        "app": 519,
+        "bro": 2,
+        "sturup": 0,
+        "cph": 0,
+        "reg": "ABC11A",
+        "bolag": "Åkeri Ett AB"
+      },
+      {
+        "bil": 102,
+        "kort": 1050,
+        "refund": 150,
+        "dricks": 0,
+        "person": 0,
+        "bud": 0,
+        "utland": 1250,
+        "app": 412.5,
+        "bro": 2,
+        "sturup": 0,
+        "cph": 0,
+        "reg": "ABC 22B",
+        "bolag": "Åkeri Ett AB"
+      },
+      {
+        "bil": 103,
+        "kort": 455.75,
+        "refund": 0,
+        "dricks": 0,
+        "person": 0,
+        "bud": 310,
+        "utland": 0,
+        "app": 0,
+        "bro": 1,
+        "sturup": 0,
+        "cph": 0,
+        "reg": "ABC33C",
+        "bolag": "Åkeri Två AB"
+      },
+      {
+        "bil": 105,
+        "kort": 120,
+        "refund": 0,
+        "dricks": 10,
+        "person": 0,
+        "bud": 0,
+        "utland": 0,
+        "app": 0,
+        "bro": 0,
+        "sturup": 0,
+        "cph": 0,
+        "reg": "ABC55E",
+        "bolag": "IGNORERA"
+      }
+    ],
+    "bolag": [
+      {
+        "namn": "Åkeri Ett AB",
+        "kn": 91190001,
+        "vx": 3,
+        "tl": 3,
+        "vxRab": 20,
+        "fsFrom": "2026-09",
+        "forsk": 0,
+        "skuld": 0,
+        "manad": 43034,
+        "bilar": [
+          101,
+          102
+        ],
+        "rows": [
+          {
+            "art": 1,
+            "text": "Växelavgift Åkare OKT26 (efterdebitering)",
+            "antal": 2,
+            "apris": 8900,
+            "summa": 14240,
+            "moms": 25,
+            "bak": true,
+            "rabattPct": 20
+          },
+          {
+            "art": 1,
+            "text": "Växelavgift Åkare NOV26",
+            "antal": 3,
+            "apris": 8900,
+            "summa": 20860,
+            "moms": 25,
+            "rabatt": 500,
+            "rabattPct": 20
+          },
+          {
+            "art": 8,
+            "text": "Taklampa hyra",
+            "antal": 3,
+            "apris": 250,
+            "summa": 750,
+            "moms": 25
+          },
+          {
+            "art": 8,
+            "text": "Taklampa hyra OKT26 saknades",
+            "antal": 2,
+            "apris": 250,
+            "summa": 500,
+            "moms": 25,
+            "bak": true
+          },
+          {
+            "art": 57,
+            "text": "Specifikation per förare SEPTEMBER2026",
+            "antal": 2,
+            "apris": 99,
+            "summa": 198,
+            "moms": 25
+          },
+          {
+            "art": 50,
+            "text": "Krediter persontransport",
+            "antal": 1,
+            "apris": -189.15,
+            "summa": -189.15,
+            "moms": 6
+          },
+          {
+            "art": 54,
+            "text": "Krediter Utland",
+            "antal": 1,
+            "apris": -1250,
+            "summa": -1250,
+            "moms": 0
+          },
+          {
+            "art": 52,
+            "text": "Kontokort bil 101",
+            "antal": 1,
+            "apris": -345.5,
+            "summa": -345.5,
+            "moms": 0
+          },
+          {
+            "art": 52,
+            "text": "Kontokort bil 102",
+            "antal": 1,
+            "apris": -1200,
+            "summa": -1200,
+            "moms": 0
+          },
+          {
+            "art": 52,
+            "text": "Återbetalning kort bil 102",
+            "antal": 1,
+            "apris": 150,
+            "summa": 150,
+            "moms": 0
+          },
+          {
+            "art": 56,
+            "text": "Dricks bil 101",
+            "antal": 1,
+            "apris": -20,
+            "summa": -20,
+            "moms": 0
+          },
+          {
+            "art": 55,
+            "text": "In app payment",
+            "antal": 1,
+            "apris": -931.5,
+            "summa": -931.5,
+            "moms": 0
+          },
+          {
+            "art": 53,
+            "text": "Service avgifter",
+            "antal": 1,
+            "apris": 113.33,
+            "summa": 113.33,
+            "moms": 25
+          },
+          {
+            "art": 16,
+            "text": "Oresundsbron SEPTEMBER2026 101",
+            "antal": 2,
+            "apris": 201,
+            "summa": 402,
+            "moms": 25
+          },
+          {
+            "art": 16,
+            "text": "Oresundsbron SEPTEMBER2026 102",
+            "antal": 2,
+            "apris": 201,
+            "summa": 402,
+            "moms": 25
+          }
+        ],
+        "netto": 33679.18,
+        "moms25": 9366.33,
+        "moms6": -11.35,
+        "oresavr": -0.16,
+        "att": 43034,
+        "kredit": 3777.5,
+        "kort": 1395.5,
+        "deb": 1450.5,
+        "app": 931.5,
+        "bro": 4,
+        "sturup": 0,
+        "cph": 0,
+        "aktiv": true
+      },
+      {
+        "namn": "Åkeri Två AB",
+        "kn": "91190002",
+        "vx": "2",
+        "tl": "2",
+        "vxInn": "1",
+        "forsk": 0,
+        "skuld": 0,
+        "manad": 33514,
+        "bilar": [
+          103
+        ],
+        "rows": [
+          {
+            "art": 1,
+            "text": "Växelavgift Åkare SEP26 INNEVARANDE (efterdebitering)",
+            "antal": 1,
+            "apris": 8900,
+            "summa": 8900,
+            "moms": 25,
+            "bak": true
+          },
+          {
+            "art": 1,
+            "text": "Växelavgift Åkare OKT26 INNEVARANDE",
+            "antal": 2,
+            "apris": 8900,
+            "summa": 17800,
+            "moms": 25,
+            "rabatt": 0
+          },
+          {
+            "art": 8,
+            "text": "Taklampa hyra",
+            "antal": "2",
+            "apris": 250,
+            "summa": 500,
+            "moms": 25
+          },
+          {
+            "art": 51,
+            "text": "Krediter bud",
+            "antal": 1,
+            "apris": -248,
+            "summa": -248,
+            "moms": 25
+          },
+          {
+            "art": 52,
+            "text": "Kontokort bil 103",
+            "antal": 1,
+            "apris": -455.75,
+            "summa": -455.75,
+            "moms": 0
+          },
+          {
+            "art": 53,
+            "text": "Service avgifter",
+            "antal": 1,
+            "apris": 22.97,
+            "summa": 22.97,
+            "moms": 25
+          },
+          {
+            "art": 16,
+            "text": "Oresundsbron SEPTEMBER2026 103",
+            "antal": 1,
+            "apris": 201,
+            "summa": 201,
+            "moms": 25
+          }
+        ],
+        "netto": 26720.22,
+        "moms25": 6793.99,
+        "moms6": 0,
+        "oresavr": -0.21,
+        "att": 33514,
+        "kredit": 765.75,
+        "kort": 455.75,
+        "deb": 310,
+        "app": 0,
+        "bro": 1,
+        "sturup": 0,
+        "cph": 0,
+        "aktiv": true
+      },
+      {
+        "namn": "Åkeri Tre AB",
+        "kn": 91190003,
+        "vx": 1,
+        "tl": 1,
+        "gratisTom": "2026-12",
+        "forsk": 0,
+        "skuld": 0,
+        "manad": 313,
+        "bilar": [],
+        "rows": [
+          {
+            "art": 8,
+            "text": "Taklampa hyra",
+            "antal": 1,
+            "apris": 250,
+            "summa": 250,
+            "moms": 25
+          }
+        ],
+        "netto": 250,
+        "moms25": 62.5,
+        "moms6": 0,
+        "oresavr": 0.5,
+        "att": 313,
+        "kredit": 0,
+        "kort": 0,
+        "deb": 0,
+        "app": 0,
+        "bro": 0,
+        "sturup": 0,
+        "cph": 0,
+        "aktiv": true
+      },
+      {
+        "namn": "Åkeri Fyra AB",
+        "kn": 91190004,
+        "vx": 2,
+        "tl": 0,
+        "gratisTom": "alltid",
+        "forsk": 0,
+        "skuld": 0,
+        "manad": 0,
+        "bilar": [],
+        "rows": [],
+        "netto": 0,
+        "moms25": 0,
+        "moms6": 0,
+        "oresavr": 0,
+        "att": 0,
+        "kredit": 0,
+        "kort": 0,
+        "deb": 0,
+        "app": 0,
+        "bro": 0,
+        "sturup": 0,
+        "cph": 0,
+        "aktiv": false
+      },
+      {
+        "namn": "Åkeri Fem AB",
+        "kn": 91190005,
+        "vx": 0,
+        "gratisTom": "2026-06",
+        "forsk": 0,
+        "skuld": 0,
+        "manad": 0,
+        "bilar": [],
+        "rows": [],
+        "netto": 0,
+        "moms25": 0,
+        "moms6": 0,
+        "oresavr": 0,
+        "att": 0,
+        "kredit": 0,
+        "kort": 0,
+        "deb": 0,
+        "app": 0,
+        "bro": 0,
+        "sturup": 0,
+        "cph": 0,
+        "aktiv": false
+      },
+      {
+        "namn": "Åkeri Sex AB",
+        "kn": 91190006,
+        "vx": 4,
+        "tl": 2,
+        "forsk": 0,
+        "skuld": 0,
+        "manad": 45438,
+        "bilar": [],
+        "rows": [
+          {
+            "art": 1,
+            "text": "Växelavgift Åkare NOV26",
+            "antal": 4,
+            "apris": 8900,
+            "summa": 35600,
+            "moms": 25,
+            "rabatt": 0
+          },
+          {
+            "art": 8,
+            "text": "Taklampa hyra",
+            "antal": 2,
+            "apris": 250,
+            "summa": 500,
+            "moms": 25
+          },
+          {
+            "art": 8,
+            "text": "Taklampa hyra OKT26 saknades",
+            "antal": 1,
+            "apris": 250,
+            "summa": 250,
+            "moms": 25,
+            "bak": true
+          }
+        ],
+        "netto": 36350,
+        "moms25": 9087.5,
+        "moms6": 0,
+        "oresavr": 0.5,
+        "att": 45438,
+        "kredit": 0,
+        "kort": 0,
+        "deb": 0,
+        "app": 0,
+        "bro": 0,
+        "sturup": 0,
+        "cph": 0,
+        "aktiv": true
+      }
+    ],
+    "kund": [
+      {
+        "nr": 9001,
+        "namn": "Kundbolag A AB",
+        "n": 2,
+        "person": 245.5,
+        "bud": 0,
+        "utland": 1250,
+        "korn": [
+          {
+            "d": "2026-09-02",
+            "t": "08:15",
+            "p": "Passagerare 1",
+            "r": "från: Exempelgatan 4 till: Centralstationen",
+            "b": 101,
+            "s": 245.5,
+            "y": "p",
+            "f": "Förare 1"
+          },
+          {
+            "d": "2026-09-02",
+            "t": "14:40",
+            "p": "Passagerare 2",
+            "r": "från: Hamnplan 1 till: Kastrup Lufthavn",
+            "b": 102,
+            "s": 1250,
+            "y": "u",
+            "f": "Förare 2 Efternamn"
+          }
+        ],
+        "r592": 231.6,
+        "r593": 0,
+        "r594": 1250,
+        "total": 1495.5,
+        "taxicaller": 1495.5,
+        "diff": 0
+      },
+      {
+        "nr": 9002,
+        "namn": "Kundbolag B AB",
+        "n": 2,
+        "person": -45,
+        "bud": 310,
+        "utland": 0,
+        "korn": [
+          {
+            "d": "2026-09-11",
+            "t": "09:05",
+            "p": "BUD Paket 7",
+            "r": "från: Testvägen 12 till: Storplan 3",
+            "b": 103,
+            "s": 310,
+            "y": "b",
+            "f": "Förare 3"
+          },
+          {
+            "d": "2026-09-11",
+            "t": "22:10",
+            "p": "Passagerare 3",
+            "r": "från: Centralstationen till: Exempelgatan 4",
+            "b": 101,
+            "s": -45,
+            "y": "p",
+            "f": "Förare 2"
+          }
+        ],
+        "r592": -42.45,
+        "r593": 248,
+        "r594": 0,
+        "total": 265,
+        "taxicaller": 300,
+        "diff": -35
+      }
+    ],
+    "kontroll": [
+      {
+        "niva": "fel",
+        "typ": "Kortbetalningar utan bil",
+        "vad": "Terminal …999999 / kassör 55",
+        "belopp": 210,
+        "atgard": "Koppla terminalen till en bil under Inställningar, Terminaler."
+      },
+      {
+        "niva": "info",
+        "typ": "Återbetalning kort dras från åkaren",
+        "vad": "Åkeri Ett AB, bil 102",
+        "belopp": 150,
+        "atgard": "Refund i Bambora (pengarna gick tillbaka till kunden). Egen rad art 52, 0 % moms. Ligger felet hos centralen: lägg en kreditrad under Övriga rader."
+      },
+      {
+        "niva": "info",
+        "typ": "Spec per förare debiteras",
+        "vad": "Åkeri Ett AB",
+        "belopp": 198,
+        "atgard": "Art 57, antal bilar med körningar i månaden."
+      },
+      {
+        "niva": "info",
+        "typ": "Växelavgift efterdebiteras",
+        "vad": "Åkeri Ett AB: 2 st OKT26 saknades i förra avräkningen (där fanns 1 av 3)",
+        "belopp": 14240,
+        "atgard": "Tas med som extra rad art 1. Stämmer det inte: skriv rätt antal i \"Efterdebitering växelavgift, antal\" under bolagets manuella poster (0 = ingen)."
+      },
+      {
+        "niva": "info",
+        "typ": "Taklampa efterdebiteras",
+        "vad": "Åkeri Ett AB: 2 st saknades i förra avräkningen (där fanns 1 av 3)",
+        "belopp": 500,
+        "atgard": "Extra rad art 8. Stämmer det inte: skriv rätt antal i \"Efterdebitering taklampa, antal\" (0 = ingen)."
+      },
+      {
+        "niva": "info",
+        "typ": "Rabatt på växelavgift",
+        "vad": "Åkeri Ett AB: 20 %",
+        "belopp": null,
+        "atgard": "Skriv rabatten i Vismas rabattkolumn på raden art 1."
+      },
+      {
+        "niva": "info",
+        "typ": "Växelavgift efterdebiteras",
+        "vad": "Åkeri Två AB: 1 st SEP26 saknades i förra avräkningen (där fanns 2 av 2)",
+        "belopp": 8900,
+        "atgard": "Tas med som extra rad art 1. Stämmer det inte: skriv rätt antal i \"Efterdebitering växelavgift, antal\" under bolagets manuella poster (0 = ingen)."
+      },
+      {
+        "niva": "info",
+        "typ": "Gratis växelavgift",
+        "vad": "Åkeri Tre AB t.o.m. 2026-12",
+        "belopp": null,
+        "atgard": "Avgiften för NOV26 tas inte ut. Första avgiften tas i avräkningen två månader före första betalmånaden."
+      },
+      {
+        "niva": "info",
+        "typ": "Gratis växelavgift (alltid)",
+        "vad": "Åkeri Fyra AB",
+        "belopp": null,
+        "atgard": "Avtalad gratis växelavgift utan slutdatum."
+      },
+      {
+        "niva": "fel",
+        "typ": "Gratis växelavgift har gått ut",
+        "vad": "Åkeri Fem AB (gratis t.o.m. 2026-06)",
+        "belopp": null,
+        "atgard": "Sätt antal växelavgift under Inställningar, Bolag."
+      },
+      {
+        "niva": "info",
+        "typ": "Taklampa efterdebiteras",
+        "vad": "Åkeri Sex AB: 1 st saknades i förra avräkningen (där fanns 0 av 2)",
+        "belopp": 250,
+        "atgard": "Extra rad art 8. Stämmer det inte: skriv rätt antal i \"Efterdebitering taklampa, antal\" (0 = ingen)."
+      },
+      {
+        "niva": "info",
+        "typ": "Kortbetalning utanför appen (räknas inte)",
+        "vad": "Bil 103, 1 st",
+        "belopp": 250,
+        "atgard": "Troligen egen terminal. Ingen åtgärd om det stämmer."
+      },
+      {
+        "niva": "info",
+        "typ": "Dricks krediteras åkarna (art 56, 0 % moms)",
+        "vad": "Alla bilar",
+        "belopp": 30,
+        "atgard": "Åkeriet betalar ut dricksen till föraren som lön."
+      },
+      {
+        "niva": "fel",
+        "typ": "Kundfaktura avviker mot TaxiCaller",
+        "vad": "Konto 9002 Kundbolag B AB",
+        "belopp": -35,
+        "atgard": "Kontrollera körningarna i TaxiCaller."
+      }
+    ],
+    "kpi": {
+      "kundTotal": 1760.5,
+      "kundAntal": 2,
+      "korningar": 4,
+      "kort": 1851.25,
+      "app": 931.5,
+      "vx": 97400,
+      "serv": 136.3,
+      "skuldPos": 0,
+      "skuldNeg": 0,
+      "utbet": 0,
+      "inbet": 122299,
+      "fel": 3
+    }
+  }
+}

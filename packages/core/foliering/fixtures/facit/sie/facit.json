@@ -1,0 +1,1339 @@
+{
+ "logg": [
+  {
+   "tid": "2026-08-20 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "betald",
+    "id": "s1",
+    "form": {
+     "#betDat": "2026-08-19"
+    }
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/s1",
+      {
+       "id": "s1",
+       "reg": "ABC34B",
+       "skadenr": "SKÅ-1",
+       "forsakring": "lf",
+       "agare": "Ägare Två AB",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-08-19",
+        "paminnelse": ""
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-08-20",
+        "forfall": "2026-08-30",
+        "till": "Ägare Två AB",
+        "betald": false,
+        "betaldDatum": "",
+        "skickad": ""
+       },
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-20",
+         "t": "Faktura 1001 betald 2026-08-19"
+        },
+        {
+         "d": "2026-08-20",
+         "t": "Momsfaktura M-1001 klar att skicka till Ägare Två AB (1 375,25 kr), daterad 2026-08-20"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-08-20T08:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Momsfaktura M-1001 är klar att skicka till Ägare Två AB."
+    ]
+   }
+  },
+  {
+   "tid": "2026-08-21 10:00",
+   "steg": {
+    "typ": "manuell",
+    "p": "2026-08",
+    "bm": {
+     "datum": "2026-08-31",
+     "text": "Lön \"augusti\" ÅÄÖ åäö",
+     "bokslut": true,
+     "rader": [
+      {
+       "k": 7010,
+       "d": "10 000,00",
+       "c": ""
+      },
+      {
+       "k": "2910",
+       "d": "",
+       "c": "10000"
+      },
+      {
+       "k": "",
+       "d": "5",
+       "c": ""
+      }
+     ]
+    }
+   },
+   "utfall": {
+    "spara": [
+     [
+      "bokforing/2026-08",
+      {
+       "period": "2026-08",
+       "status": "oppen",
+       "manuella": [
+        {
+         "id": "mmt2nsow0",
+         "datum": "2026-08-31",
+         "text": "Lön \"augusti\" ÅÄÖ åäö",
+         "bokslut": true,
+         "rader": [
+          {
+           "k": 7010,
+           "b": 10000,
+           "t": "Lön \"augusti\" ÅÄÖ åäö"
+          },
+          {
+           "k": 2910,
+           "b": -10000,
+           "t": "Lön \"augusti\" ÅÄÖ åäö"
+          }
+         ],
+         "skapad": "2026-08-21T08:00:00.000Z"
+        }
+       ]
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Verifikationen är sparad i Aug 2026."
+    ]
+   }
+  },
+  {
+   "tid": "2026-08-21 10:01",
+   "steg": {
+    "typ": "manuell",
+    "p": "2026-08",
+    "bm": {
+     "datum": "2026-09-01",
+     "text": "Fel månad",
+     "bokslut": false,
+     "rader": [
+      {
+       "k": 1930,
+       "d": "1",
+       "c": ""
+      },
+      {
+       "k": 3001,
+       "d": "",
+       "c": "1"
+      }
+     ]
+    }
+   },
+   "utfall": {
+    "spara": [],
+    "filer": [],
+    "meddelanden": [
+     "Datumet ska ligga i Aug 2026."
+    ]
+   }
+  },
+  {
+   "tid": "2026-08-21 10:02",
+   "steg": {
+    "typ": "manuell",
+    "p": "2026-08",
+    "bm": {
+     "datum": "2026-08-15",
+     "text": "Balanserar inte",
+     "bokslut": false,
+     "rader": [
+      {
+       "k": 1930,
+       "d": "2",
+       "c": ""
+      },
+      {
+       "k": 3001,
+       "d": "",
+       "c": "1"
+      }
+     ]
+    }
+   },
+   "utfall": {
+    "spara": [],
+    "filer": [],
+    "meddelanden": [
+     "Verifikationen balanserar inte."
+    ]
+   }
+  },
+  {
+   "tid": "2026-08-21 10:03",
+   "steg": {
+    "typ": "manuell",
+    "p": "2026-08",
+    "bm": {
+     "datum": "2026-08-15",
+     "text": "  ",
+     "bokslut": false,
+     "rader": []
+    }
+   },
+   "utfall": {
+    "spara": [],
+    "filer": [],
+    "meddelanden": [
+     "Skriv en text för verifikationen."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-01 10:00",
+   "kontroll": {
+    "idag": "2026-09-01",
+    "arenden": [
+     {
+      "id": "s1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_FÖ_SK-1_ABC34B.pdf",
+      "fnFaktura": "faktura_1001_ABC34B_SK-1.pdf",
+      "fnMoms": "moms_M-1001_ABC34B_fak1001.pdf"
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [
+     "s1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Två AB",
+      "belopp": 1375.25,
+      "datum": "2026-08-20",
+      "forfall": "2026-08-30",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "s1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring Ö AB",
+      "belopp": 5501,
+      "datum": "2026-08-10",
+      "forfall": "2026-08-20",
+      "st": "betald",
+      "bd": "2026-08-19",
+      "id": "s1"
+     }
+    ],
+    "oppna": [],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "0 kr",
+       "0 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 1,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Två AB · moms 1 375,25 kr · Försäkring Ö AB betalade 2026-08-19",
+       "id": "s1",
+       "btn": "Skicka"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "key": "kost:k1",
+        "datum": "2026-08-05",
+        "typ": "auto",
+        "text": "Folie och material Öresunds Folie AB faktura 77",
+        "rader": [
+         {
+          "k": 4010,
+          "b": 0,
+          "t": "Folie \u2014 matt, café\nrad två"
+         },
+         {
+          "k": 2641,
+          "b": 308.63,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -308.63,
+          "t": "Öresunds Folie AB"
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 1
+       },
+       {
+        "key": "kost:k2",
+        "datum": "2026-08-06",
+        "typ": "auto",
+        "text": "Underleverantör Underlev Ä AB",
+        "rader": [
+         {
+          "k": 4600,
+          "b": 500,
+          "t": "Underleverantör"
+         },
+         {
+          "k": 1930,
+          "b": -500,
+          "t": "Underlev Ä AB"
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 2
+       },
+       {
+        "key": "kost:k4",
+        "datum": "2026-08-08",
+        "typ": "auto",
+        "text": "Övrigt",
+        "rader": [
+         {
+          "k": 6990,
+          "b": 0,
+          "t": "Övrigt"
+         },
+         {
+          "k": 1930,
+          "b": 0,
+          "t": ""
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 3
+       },
+       {
+        "key": "fbet:s1",
+        "datum": "2026-08-19",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC34B skada SKÅ-1",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring Ö AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC34B"
+         }
+        ],
+        "nr": 4
+       },
+       {
+        "id": "mmt2nsow0",
+        "datum": "2026-08-31",
+        "text": "Lön \"augusti\" ÅÄÖ åäö",
+        "bokslut": true,
+        "rader": [
+         {
+          "k": 7010,
+          "b": 10000,
+          "t": "Lön \"augusti\" ÅÄÖ åäö"
+         },
+         {
+          "k": 2910,
+          "b": -10000,
+          "t": "Lön \"augusti\" ÅÄÖ åäö"
+         }
+        ],
+        "skapad": "2026-08-21T08:00:00.000Z",
+        "key": "man:mmt2nsow0",
+        "typ": "manuell",
+        "nr": 5
+       },
+       {
+        "key": "bokslut:2026-08",
+        "datum": "2026-08-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 1375.25,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -1375.25,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 6
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "A1: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "A2: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "A3: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 5501,
+       "kost": 10500,
+       "utg": 1375.25,
+       "ing": 308.63,
+       "bank": 4692.37,
+       "res": -4999,
+       "moms": 1066.62
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwMQ0KI0ZOQU1OICKPbmdzdHKUbSAmIFOUbmVyIEV4ZW1wZWwgQUIgLSCQPyINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDI5MTAgIlVwcGx1cG5hIGyUbmVyIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNLT05UTyA0NjAwICJMZWdvYXJiZXRlbiBvY2ggdW5kZXJlbnRyZXByZW5hZGVyIg0KI0tPTlRPIDY5OTAgIpl2cmlnYSBleHRlcm5hIGtvc3RuYWRlciINCiNLT05UTyA3MDEwICJMlG5lciB0aWxsIGtvbGxla3RpdmFuc3SEbGxkYSINCiNWRVIgQSAxIDIwMjYwODA1ICJGb2xpZSBvY2ggbWF0ZXJpYWwgmXJlc3VuZHMgRm9saWUgQUIgZmFrdHVyYSA3NyIgMjAyNjA5MDENCnsNCiNUUkFOUyA0MDEwIHt9IDAuMDAgMjAyNjA4MDUgIkZvbGllIC0gbWF0dCwgY2FmgiByYWQgdHaGIg0KI1RSQU5TIDI2NDEge30gMzA4LjYzIDIwMjYwODA1ICJJbmeGZW5kZSBtb21zIg0KI1RSQU5TIDE5MzAge30gLTMwOC42MyAyMDI2MDgwNSAimXJlc3VuZHMgRm9saWUgQUIiDQp9DQojVkVSIEEgMiAyMDI2MDgwNiAiVW5kZXJsZXZlcmFudJRyIFVuZGVybGV2II4gQUIiIDIwMjYwOTAxDQp7DQojVFJBTlMgNDYwMCB7fSA1MDAuMDAgMjAyNjA4MDYgIlVuZGVybGV2ZXJhbnSUciINCiNUUkFOUyAxOTMwIHt9IC01MDAuMDAgMjAyNjA4MDYgIlVuZGVybGV2II4gQUIiDQp9DQojVkVSIEEgMyAyMDI2MDgwOCAimXZyaWd0IiAyMDI2MDkwMQ0Kew0KI1RSQU5TIDY5OTAge30gMC4wMCAyMDI2MDgwOCAimXZyaWd0Ig0KI1RSQU5TIDE5MzAge30gMC4wMCAyMDI2MDgwOCAiIg0KfQ0KI1ZFUiBBIDQgMjAyNjA4MTkgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMzNEIgc2thZGEgU0uPLTEiIDIwMjYwOTAxDQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjYwODE5ICJGlHJzhGtyaW5nIJkgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNjA4MTkgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMzRCIg0KfQ0KI1ZFUiBBIDUgMjAyNjA4MzEgIkyUbiBhdWd1c3RpII+OmSCGhJQiIDIwMjYwOTAxDQp7DQojVFJBTlMgNzAxMCB7fSAxMDAwMC4wMCAyMDI2MDgzMSAiTJRuIGF1Z3VzdGkgj46ZIIaElCINCiNUUkFOUyAyOTEwIHt9IC0xMDAwMC4wMCAyMDI2MDgzMSAiTJRuIGF1Z3VzdGkgj46ZIIaElCINCn0NCiNWRVIgQSA2IDIwMjYwODMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0wOC0zMSIgMjAyNjA5MDENCnsNCiNUUkFOUyAxNTEwIHt9IDEzNzUuMjUgMjAyNjA4MzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTEzNzUuMjUgMjAyNjA4MzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwMQ0KI0ZOQU1OICKPbmdzdHKUbSAmIFOUbmVyIEV4ZW1wZWwgQUIgLSCQPyINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-09-01 10:01",
+   "steg": {
+    "typ": "export",
+    "p": "2026-08"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "bokforing/2026-08",
+      {
+       "period": "2026-08",
+       "status": "last",
+       "exporterad": "2026-09-01T08:01:00.000Z",
+       "fil": "SIE_DemoFoliering_2026-08.se",
+       "manuella": [
+        {
+         "id": "mmt2nsow0",
+         "datum": "2026-08-31",
+         "text": "Lön \"augusti\" ÅÄÖ åäö",
+         "bokslut": true,
+         "rader": [
+          {
+           "k": 7010,
+           "b": 10000,
+           "t": "Lön \"augusti\" ÅÄÖ åäö"
+          },
+          {
+           "k": 2910,
+           "b": -10000,
+           "t": "Lön \"augusti\" ÅÄÖ åäö"
+          }
+         ],
+         "skapad": "2026-08-21T08:00:00.000Z"
+        }
+       ],
+       "keys": [
+        "kost:k1",
+        "kost:k2",
+        "kost:k4",
+        "fbet:s1",
+        "man:mmt2nsow0",
+        "bokslut:2026-08"
+       ],
+       "summa": {
+        "int": 5501,
+        "kost": 10500,
+        "utg": 1375.25,
+        "ing": 308.63,
+        "bank": 4692.37,
+        "res": -4999,
+        "moms": 1066.62
+       },
+       "ver": [
+        {
+         "nr": 1,
+         "datum": "2026-08-05",
+         "text": "Folie och material Öresunds Folie AB faktura 77",
+         "key": "kost:k1",
+         "typ": "auto",
+         "bokslut": false,
+         "rader": [
+          {
+           "k": 4010,
+           "b": 0,
+           "t": "Folie \u2014 matt, café\nrad två"
+          },
+          {
+           "k": 2641,
+           "b": 308.63,
+           "t": "Ingående moms"
+          },
+          {
+           "k": 1930,
+           "b": -308.63,
+           "t": "Öresunds Folie AB"
+          }
+         ]
+        },
+        {
+         "nr": 2,
+         "datum": "2026-08-06",
+         "text": "Underleverantör Underlev Ä AB",
+         "key": "kost:k2",
+         "typ": "auto",
+         "bokslut": false,
+         "rader": [
+          {
+           "k": 4600,
+           "b": 500,
+           "t": "Underleverantör"
+          },
+          {
+           "k": 1930,
+           "b": -500,
+           "t": "Underlev Ä AB"
+          }
+         ]
+        },
+        {
+         "nr": 3,
+         "datum": "2026-08-08",
+         "text": "Övrigt",
+         "key": "kost:k4",
+         "typ": "auto",
+         "bokslut": false,
+         "rader": [
+          {
+           "k": 6990,
+           "b": 0,
+           "t": "Övrigt"
+          },
+          {
+           "k": 1930,
+           "b": 0,
+           "t": ""
+          }
+         ]
+        },
+        {
+         "nr": 4,
+         "datum": "2026-08-19",
+         "text": "Inbetalning faktura 1001 ABC34B skada SKÅ-1",
+         "key": "fbet:s1",
+         "typ": "auto",
+         "bokslut": false,
+         "rader": [
+          {
+           "k": 1930,
+           "b": 5501,
+           "t": "Försäkring Ö AB faktura 1001"
+          },
+          {
+           "k": 3001,
+           "b": -5501,
+           "t": "Foliering faktura 1001 ABC34B"
+          }
+         ]
+        },
+        {
+         "nr": 5,
+         "datum": "2026-08-31",
+         "text": "Lön \"augusti\" ÅÄÖ åäö",
+         "key": "man:mmt2nsow0",
+         "typ": "manuell",
+         "bokslut": true,
+         "rader": [
+          {
+           "k": 7010,
+           "b": 10000,
+           "t": "Lön \"augusti\" ÅÄÖ åäö"
+          },
+          {
+           "k": 2910,
+           "b": -10000,
+           "t": "Lön \"augusti\" ÅÄÖ åäö"
+          }
+         ]
+        },
+        {
+         "nr": 6,
+         "datum": "2026-08-31",
+         "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+         "key": "bokslut:2026-08",
+         "typ": "bokslut",
+         "bokslut": true,
+         "rader": [
+          {
+           "k": 1510,
+           "b": 1375.25,
+           "t": "Moms fordonsägare, obetald"
+          },
+          {
+           "k": 2611,
+           "b": -1375.25,
+           "t": "Utg moms 25 %, obetald"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    ],
+    "filer": [
+     {
+      "namn": "SIE_DemoFoliering_2026-08.se",
+      "data": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwMQ0KI0ZOQU1OICKPbmdzdHKUbSAmIFOUbmVyIEV4ZW1wZWwgQUIgLSCQPyINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDI5MTAgIlVwcGx1cG5hIGyUbmVyIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNLT05UTyA0NjAwICJMZWdvYXJiZXRlbiBvY2ggdW5kZXJlbnRyZXByZW5hZGVyIg0KI0tPTlRPIDY5OTAgIpl2cmlnYSBleHRlcm5hIGtvc3RuYWRlciINCiNLT05UTyA3MDEwICJMlG5lciB0aWxsIGtvbGxla3RpdmFuc3SEbGxkYSINCiNWRVIgQSAxIDIwMjYwODA1ICJGb2xpZSBvY2ggbWF0ZXJpYWwgmXJlc3VuZHMgRm9saWUgQUIgZmFrdHVyYSA3NyIgMjAyNjA5MDENCnsNCiNUUkFOUyA0MDEwIHt9IDAuMDAgMjAyNjA4MDUgIkZvbGllIC0gbWF0dCwgY2FmgiByYWQgdHaGIg0KI1RSQU5TIDI2NDEge30gMzA4LjYzIDIwMjYwODA1ICJJbmeGZW5kZSBtb21zIg0KI1RSQU5TIDE5MzAge30gLTMwOC42MyAyMDI2MDgwNSAimXJlc3VuZHMgRm9saWUgQUIiDQp9DQojVkVSIEEgMiAyMDI2MDgwNiAiVW5kZXJsZXZlcmFudJRyIFVuZGVybGV2II4gQUIiIDIwMjYwOTAxDQp7DQojVFJBTlMgNDYwMCB7fSA1MDAuMDAgMjAyNjA4MDYgIlVuZGVybGV2ZXJhbnSUciINCiNUUkFOUyAxOTMwIHt9IC01MDAuMDAgMjAyNjA4MDYgIlVuZGVybGV2II4gQUIiDQp9DQojVkVSIEEgMyAyMDI2MDgwOCAimXZyaWd0IiAyMDI2MDkwMQ0Kew0KI1RSQU5TIDY5OTAge30gMC4wMCAyMDI2MDgwOCAimXZyaWd0Ig0KI1RSQU5TIDE5MzAge30gMC4wMCAyMDI2MDgwOCAiIg0KfQ0KI1ZFUiBBIDQgMjAyNjA4MTkgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMzNEIgc2thZGEgU0uPLTEiIDIwMjYwOTAxDQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjYwODE5ICJGlHJzhGtyaW5nIJkgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNjA4MTkgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMzRCIg0KfQ0KI1ZFUiBBIDUgMjAyNjA4MzEgIkyUbiBhdWd1c3RpII+OmSCGhJQiIDIwMjYwOTAxDQp7DQojVFJBTlMgNzAxMCB7fSAxMDAwMC4wMCAyMDI2MDgzMSAiTJRuIGF1Z3VzdGkgj46ZIIaElCINCiNUUkFOUyAyOTEwIHt9IC0xMDAwMC4wMCAyMDI2MDgzMSAiTJRuIGF1Z3VzdGkgj46ZIIaElCINCn0NCiNWRVIgQSA2IDIwMjYwODMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0wOC0zMSIgMjAyNjA5MDENCnsNCiNUUkFOUyAxNTEwIHt9IDEzNzUuMjUgMjAyNjA4MzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTEzNzUuMjUgMjAyNjA4MzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo=",
+      "mapp": "Bokföring"
+     }
+    ],
+    "meddelanden": [
+     "Aug 2026 är exporterad och låst."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-01 10:02",
+   "kontroll": {
+    "idag": "2026-09-01",
+    "arenden": [
+     {
+      "id": "s1",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 5501,
+      "fnOffert": "offert_FÖ_SK-1_ABC34B.pdf",
+      "fnFaktura": "faktura_1001_ABC34B_SK-1.pdf",
+      "fnMoms": "moms_M-1001_ABC34B_fak1001.pdf"
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [
+     "s1"
+    ],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Två AB",
+      "belopp": 1375.25,
+      "datum": "2026-08-20",
+      "forfall": "2026-08-30",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "s1"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring Ö AB",
+      "belopp": 5501,
+      "datum": "2026-08-10",
+      "forfall": "2026-08-20",
+      "st": "betald",
+      "bd": "2026-08-19",
+      "id": "s1"
+     }
+    ],
+    "oppna": [],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "0 kr",
+       "0 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 1,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 34B</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Två AB · moms 1 375,25 kr · Försäkring Ö AB betalade 2026-08-19",
+       "id": "s1",
+       "btn": "Skicka"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-09",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "nr": 1,
+        "datum": "2026-08-05",
+        "text": "Folie och material Öresunds Folie AB faktura 77",
+        "key": "kost:k1",
+        "typ": "auto",
+        "bokslut": false,
+        "rader": [
+         {
+          "k": 4010,
+          "b": 0,
+          "t": "Folie \u2014 matt, café\nrad två"
+         },
+         {
+          "k": 2641,
+          "b": 308.63,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -308.63,
+          "t": "Öresunds Folie AB"
+         }
+        ]
+       },
+       {
+        "nr": 2,
+        "datum": "2026-08-06",
+        "text": "Underleverantör Underlev Ä AB",
+        "key": "kost:k2",
+        "typ": "auto",
+        "bokslut": false,
+        "rader": [
+         {
+          "k": 4600,
+          "b": 500,
+          "t": "Underleverantör"
+         },
+         {
+          "k": 1930,
+          "b": -500,
+          "t": "Underlev Ä AB"
+         }
+        ]
+       },
+       {
+        "nr": 3,
+        "datum": "2026-08-08",
+        "text": "Övrigt",
+        "key": "kost:k4",
+        "typ": "auto",
+        "bokslut": false,
+        "rader": [
+         {
+          "k": 6990,
+          "b": 0,
+          "t": "Övrigt"
+         },
+         {
+          "k": 1930,
+          "b": 0,
+          "t": ""
+         }
+        ]
+       },
+       {
+        "nr": 4,
+        "datum": "2026-08-19",
+        "text": "Inbetalning faktura 1001 ABC34B skada SKÅ-1",
+        "key": "fbet:s1",
+        "typ": "auto",
+        "bokslut": false,
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring Ö AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC34B"
+         }
+        ]
+       },
+       {
+        "nr": 5,
+        "datum": "2026-08-31",
+        "text": "Lön \"augusti\" ÅÄÖ åäö",
+        "key": "man:mmt2nsow0",
+        "typ": "manuell",
+        "bokslut": true,
+        "rader": [
+         {
+          "k": 7010,
+          "b": 10000,
+          "t": "Lön \"augusti\" ÅÄÖ åäö"
+         },
+         {
+          "k": 2910,
+          "b": -10000,
+          "t": "Lön \"augusti\" ÅÄÖ åäö"
+         }
+        ]
+       },
+       {
+        "nr": 6,
+        "datum": "2026-08-31",
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+        "key": "bokslut:2026-08",
+        "typ": "bokslut",
+        "bokslut": true,
+        "rader": [
+         {
+          "k": 1510,
+          "b": 1375.25,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -1375.25,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ]
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 5501,
+       "kost": 10500,
+       "utg": 1375.25,
+       "ing": 308.63,
+       "bank": 4692.37,
+       "res": -4999,
+       "moms": 1066.62
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwMQ0KI0ZOQU1OICKPbmdzdHKUbSAmIFOUbmVyIEV4ZW1wZWwgQUIgLSCQPyINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDI5MTAgIlVwcGx1cG5hIGyUbmVyIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNLT05UTyA0NjAwICJMZWdvYXJiZXRlbiBvY2ggdW5kZXJlbnRyZXByZW5hZGVyIg0KI0tPTlRPIDY5OTAgIpl2cmlnYSBleHRlcm5hIGtvc3RuYWRlciINCiNLT05UTyA3MDEwICJMlG5lciB0aWxsIGtvbGxla3RpdmFuc3SEbGxkYSINCiNWRVIgQSAxIDIwMjYwODA1ICJGb2xpZSBvY2ggbWF0ZXJpYWwgmXJlc3VuZHMgRm9saWUgQUIgZmFrdHVyYSA3NyIgMjAyNjA5MDENCnsNCiNUUkFOUyA0MDEwIHt9IDAuMDAgMjAyNjA4MDUgIkZvbGllIC0gbWF0dCwgY2FmgiByYWQgdHaGIg0KI1RSQU5TIDI2NDEge30gMzA4LjYzIDIwMjYwODA1ICJJbmeGZW5kZSBtb21zIg0KI1RSQU5TIDE5MzAge30gLTMwOC42MyAyMDI2MDgwNSAimXJlc3VuZHMgRm9saWUgQUIiDQp9DQojVkVSIEEgMiAyMDI2MDgwNiAiVW5kZXJsZXZlcmFudJRyIFVuZGVybGV2II4gQUIiIDIwMjYwOTAxDQp7DQojVFJBTlMgNDYwMCB7fSA1MDAuMDAgMjAyNjA4MDYgIlVuZGVybGV2ZXJhbnSUciINCiNUUkFOUyAxOTMwIHt9IC01MDAuMDAgMjAyNjA4MDYgIlVuZGVybGV2II4gQUIiDQp9DQojVkVSIEEgMyAyMDI2MDgwOCAimXZyaWd0IiAyMDI2MDkwMQ0Kew0KI1RSQU5TIDY5OTAge30gMC4wMCAyMDI2MDgwOCAimXZyaWd0Ig0KI1RSQU5TIDE5MzAge30gMC4wMCAyMDI2MDgwOCAiIg0KfQ0KI1ZFUiBBIDQgMjAyNjA4MTkgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMzNEIgc2thZGEgU0uPLTEiIDIwMjYwOTAxDQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjYwODE5ICJGlHJzhGtyaW5nIJkgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNjA4MTkgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDMzRCIg0KfQ0KI1ZFUiBBIDUgMjAyNjA4MzEgIkyUbiBhdWd1c3RpII+OmSCGhJQiIDIwMjYwOTAxDQp7DQojVFJBTlMgNzAxMCB7fSAxMDAwMC4wMCAyMDI2MDgzMSAiTJRuIGF1Z3VzdGkgj46ZIIaElCINCiNUUkFOUyAyOTEwIHt9IC0xMDAwMC4wMCAyMDI2MDgzMSAiTJRuIGF1Z3VzdGkgj46ZIIaElCINCn0NCiNWRVIgQSA2IDIwMjYwODMxICJCb2tzbHV0IGtvbnRhbnRtZXRvZCwgb2JldGFsZGEga3VuZGZvcmRyaW5nYXIgMjAyNi0wOC0zMSIgMjAyNjA5MDENCnsNCiNUUkFOUyAxNTEwIHt9IDEzNzUuMjUgMjAyNjA4MzEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gLTEzNzUuMjUgMjAyNjA4MzEgIlV0ZyBtb21zIDI1ICUsIG9iZXRhbGQiDQp9DQo="
+     },
+     "2026-09": {
+      "V": [
+       {
+        "key": "rev:2026-08:5",
+        "datum": "2026-09-01",
+        "typ": "aterforing",
+        "text": "Återföring A5 Lön \"augusti\" ÅÄÖ åäö",
+        "rader": [
+         {
+          "k": 7010,
+          "b": -10000,
+          "t": "Lön \"augusti\" ÅÄÖ åäö"
+         },
+         {
+          "k": 2910,
+          "b": 10000,
+          "t": "Lön \"augusti\" ÅÄÖ åäö"
+         }
+        ],
+        "nr": 1
+       },
+       {
+        "key": "rev:2026-08:6",
+        "datum": "2026-09-01",
+        "typ": "aterforing",
+        "text": "Återföring A6 Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": -1375.25,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": 1375.25,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 2
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": -10000,
+       "utg": -1375.25,
+       "ing": 0,
+       "bank": 0,
+       "res": 10000,
+       "moms": -1375.25
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwMQ0KI0ZOQU1OICKPbmdzdHKUbSAmIFOUbmVyIEV4ZW1wZWwgQUIgLSCQPyINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNLT05UTyAyOTEwICJVcHBsdXBuYSBslG5lciINCiNLT05UTyA3MDEwICJMlG5lciB0aWxsIGtvbGxla3RpdmFuc3SEbGxkYSINCiNWRVIgQSAxIDIwMjYwOTAxICKPdGVyZpRyaW5nIEE1IEyUbiBhdWd1c3RpII+OmSCGhJQiIDIwMjYwOTAxDQp7DQojVFJBTlMgNzAxMCB7fSAtMTAwMDAuMDAgMjAyNjA5MDEgIkyUbiBhdWd1c3RpII+OmSCGhJQiDQojVFJBTlMgMjkxMCB7fSAxMDAwMC4wMCAyMDI2MDkwMSAiTJRuIGF1Z3VzdGkgj46ZIIaElCINCn0NCiNWRVIgQSAyIDIwMjYwOTAxICKPdGVyZpRyaW5nIEE2IEJva3NsdXQga29udGFudG1ldG9kLCBvYmV0YWxkYSBrdW5kZm9yZHJpbmdhciAyMDI2LTA4LTMxIiAyMDI2MDkwMQ0Kew0KI1RSQU5TIDE1MTAge30gLTEzNzUuMjUgMjAyNjA5MDEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gMTM3NS4yNSAyMDI2MDkwMSAiVXRnIG1vbXMgMjUgJSwgb2JldGFsZCINCn0NCg=="
+     }
+    }
+   }
+  }
+ ],
+ "slut": {
+  "arenden": {
+   "s1": {
+    "id": "s1",
+    "reg": "ABC34B",
+    "skadenr": "SKÅ-1",
+    "forsakring": "lf",
+    "agare": "Ägare Två AB",
+    "bil": null,
+    "storlek": "vanlig",
+    "skadedatum": "",
+    "notering": "",
+    "status": "betald",
+    "offert": {
+     "datum": "2026-08-03",
+     "giltigTom": "2026-09-02",
+     "rader": [
+      {
+       "pid": "sf-fram",
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "godkandAv": ""
+    },
+    "faktura": {
+     "nr": 1001,
+     "datum": "2026-08-10",
+     "forfall": "2026-08-20",
+     "utfort": "2026-08-10",
+     "rader": [
+      {
+       "pid": "sf-fram",
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "betald": true,
+     "betaldDatum": "2026-08-19",
+     "paminnelse": ""
+    },
+    "moms": {
+     "nr": "M-1001",
+     "datum": "2026-08-20",
+     "forfall": "2026-08-30",
+     "till": "Ägare Två AB",
+     "betald": false,
+     "betaldDatum": "",
+     "skickad": ""
+    },
+    "logg": [
+     {
+      "d": "2026-08-03",
+      "t": "Ärendet skapat"
+     },
+     {
+      "d": "2026-08-20",
+      "t": "Faktura 1001 betald 2026-08-19"
+     },
+     {
+      "d": "2026-08-20",
+      "t": "Momsfaktura M-1001 klar att skicka till Ägare Två AB (1 375,25 kr), daterad 2026-08-20"
+     }
+    ],
+    "skapad": "2026-08-03",
+    "andrad": "2026-08-20T08:00:00.000Z"
+   }
+  },
+  "fordon": {
+   "ABC12A": {
+    "reg": "ABC12A",
+    "bil": 650,
+    "agare": "Ägare Ett AB",
+    "adress": "Exempelgatan 1",
+    "epost": "agare1@example.se",
+    "id": "ABC12A"
+   },
+   "ABC34B": {
+    "reg": "ABC34B",
+    "bil": 651,
+    "agare": "Ägare Två AB",
+    "epost": "",
+    "id": "ABC34B"
+   }
+  },
+  "forsakring": {
+   "lf": {
+    "namn": "Försäkring Ö AB",
+    "kort": "FÖ",
+    "id": "lf"
+   }
+  },
+  "kostnader": {
+   "k1": {
+    "datum": "2026-08-05",
+    "typ": "material",
+    "leverantor": "Öresunds Folie AB",
+    "beskrivning": "Folie \u2014 matt, café\nrad två",
+    "fakturanr": "77",
+    "belopp": "1 234,50",
+    "moms": 308.63,
+    "id": "k1"
+   },
+   "k2": {
+    "datum": "2026-08-06",
+    "typ": "ul",
+    "leverantor": "Underlev Ä AB",
+    "beskrivning": "",
+    "belopp": 500,
+    "id": "k2"
+   },
+   "k3": {
+    "datum": "2026-08-07",
+    "typ": "lon",
+    "leverantor": "Bokförs inte",
+    "belopp": 999,
+    "id": "k3"
+   },
+   "k4": {
+    "datum": "2026-08-08",
+    "typ": "ovrigt",
+    "leverantor": "",
+    "belopp": 0.004,
+    "moms": 0,
+    "id": "k4"
+   }
+  },
+  "bokforing": {
+   "2026-08": {
+    "period": "2026-08",
+    "status": "last",
+    "exporterad": "2026-09-01T08:01:00.000Z",
+    "fil": "SIE_DemoFoliering_2026-08.se",
+    "manuella": [
+     {
+      "id": "mmt2nsow0",
+      "datum": "2026-08-31",
+      "text": "Lön \"augusti\" ÅÄÖ åäö",
+      "bokslut": true,
+      "rader": [
+       {
+        "k": 7010,
+        "b": 10000,
+        "t": "Lön \"augusti\" ÅÄÖ åäö"
+       },
+       {
+        "k": 2910,
+        "b": -10000,
+        "t": "Lön \"augusti\" ÅÄÖ åäö"
+       }
+      ],
+      "skapad": "2026-08-21T08:00:00.000Z"
+     }
+    ],
+    "keys": [
+     "kost:k1",
+     "kost:k2",
+     "kost:k4",
+     "fbet:s1",
+     "man:mmt2nsow0",
+     "bokslut:2026-08"
+    ],
+    "summa": {
+     "int": 5501,
+     "kost": 10500,
+     "utg": 1375.25,
+     "ing": 308.63,
+     "bank": 4692.37,
+     "res": -4999,
+     "moms": 1066.62
+    },
+    "ver": [
+     {
+      "nr": 1,
+      "datum": "2026-08-05",
+      "text": "Folie och material Öresunds Folie AB faktura 77",
+      "key": "kost:k1",
+      "typ": "auto",
+      "bokslut": false,
+      "rader": [
+       {
+        "k": 4010,
+        "b": 0,
+        "t": "Folie \u2014 matt, café\nrad två"
+       },
+       {
+        "k": 2641,
+        "b": 308.63,
+        "t": "Ingående moms"
+       },
+       {
+        "k": 1930,
+        "b": -308.63,
+        "t": "Öresunds Folie AB"
+       }
+      ]
+     },
+     {
+      "nr": 2,
+      "datum": "2026-08-06",
+      "text": "Underleverantör Underlev Ä AB",
+      "key": "kost:k2",
+      "typ": "auto",
+      "bokslut": false,
+      "rader": [
+       {
+        "k": 4600,
+        "b": 500,
+        "t": "Underleverantör"
+       },
+       {
+        "k": 1930,
+        "b": -500,
+        "t": "Underlev Ä AB"
+       }
+      ]
+     },
+     {
+      "nr": 3,
+      "datum": "2026-08-08",
+      "text": "Övrigt",
+      "key": "kost:k4",
+      "typ": "auto",
+      "bokslut": false,
+      "rader": [
+       {
+        "k": 6990,
+        "b": 0,
+        "t": "Övrigt"
+       },
+       {
+        "k": 1930,
+        "b": 0,
+        "t": ""
+       }
+      ]
+     },
+     {
+      "nr": 4,
+      "datum": "2026-08-19",
+      "text": "Inbetalning faktura 1001 ABC34B skada SKÅ-1",
+      "key": "fbet:s1",
+      "typ": "auto",
+      "bokslut": false,
+      "rader": [
+       {
+        "k": 1930,
+        "b": 5501,
+        "t": "Försäkring Ö AB faktura 1001"
+       },
+       {
+        "k": 3001,
+        "b": -5501,
+        "t": "Foliering faktura 1001 ABC34B"
+       }
+      ]
+     },
+     {
+      "nr": 5,
+      "datum": "2026-08-31",
+      "text": "Lön \"augusti\" ÅÄÖ åäö",
+      "key": "man:mmt2nsow0",
+      "typ": "manuell",
+      "bokslut": true,
+      "rader": [
+       {
+        "k": 7010,
+        "b": 10000,
+        "t": "Lön \"augusti\" ÅÄÖ åäö"
+       },
+       {
+        "k": 2910,
+        "b": -10000,
+        "t": "Lön \"augusti\" ÅÄÖ åäö"
+       }
+      ]
+     },
+     {
+      "nr": 6,
+      "datum": "2026-08-31",
+      "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+      "key": "bokslut:2026-08",
+      "typ": "bokslut",
+      "bokslut": true,
+      "rader": [
+       {
+        "k": 1510,
+        "b": 1375.25,
+        "t": "Moms fordonsägare, obetald"
+       },
+       {
+        "k": 2611,
+        "b": -1375.25,
+        "t": "Utg moms 25 %, obetald"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "inst": {
+   "foretag": {
+    "namn": "Ångström & Söner \"Exempel\" AB \u2013 É€"
+   }
+  }
+ }
+}

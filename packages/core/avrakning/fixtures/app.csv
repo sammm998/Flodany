@@ -1,0 +1,6 @@
+id,Vehicle number,Price,Payment,Lämnad,Förare,Upphämtningsplats,Avlämningsaddress,Skede
+700001,101,189.00,app,2026-09-03 10:12,Förare 1,Exempelgatan 4,Centralstationen,Levererad
+700002,102,412.50,App,2026-09-07 17:45,"Förare 2 , B",Hamnplan 1,Storplan 3,delivered
+700003,103,250.00,card,2026-09-09 12:00,Förare 3,Testvägen 12,Sjukhusentrén,Levererad
+700004,104,95.00,app,2026-09-15 08:30,Förare 4,Centralstationen,Exempelgatan 4,Avbokad
+700005,101,330.00,app,2026-09-21 19:20,Förare 1,Storplan 3,Hamnplan 1,

@@ -1,0 +1,892 @@
+{
+  "varde": {
+    "resultat": {
+      "cfg": {
+        "procent": 35,
+        "semester": 12,
+        "utbetDag": 25,
+        "utbetDagProv": 7,
+        "utbSamma": true,
+        "broAndel": 35,
+        "broPris": 201,
+        "cphPris": 17.04,
+        "inklPickup": true,
+        "inklSturup": true,
+        "bomBortLon": true,
+        "momsKlass": [
+          25,
+          12,
+          6,
+          0,
+          0
+        ],
+        "dagStart": 4,
+        "dagSlut": 16,
+        "redovForarandel": 40,
+        "agAvgift": 31.42,
+        "broMarginalMin": 20
+      },
+      "rows": [
+        {
+          "id": "1001",
+          "pass": 2,
+          "tim": 16,
+          "ink": 4700,
+          "exkl": 4306.04,
+          "kont": 1600,
+          "kred": 3100,
+          "kontDr": 50,
+          "kredDr": 25,
+          "km": 270,
+          "betKm": 210,
+          "bom": 120,
+          "bud": 300,
+          "broN": 1,
+          "cphN": 1,
+          "stuN": 1,
+          "broSek": 246.04,
+          "bilar": [
+            "ABC 12A"
+          ],
+          "pay": {
+            "Bolt": 350,
+            "Bomkörning": 120
+          },
+          "modell": "procent",
+          "exklMegtax": 4419.25,
+          "bomEx": 113.21,
+          "proc": 1507.11,
+          "broAvdr": 86.11,
+          "broApris": 246.04,
+          "sem": 170.52,
+          "ob": 0,
+          "bonus": 0,
+          "fast": 0,
+          "brutto": 1591.52,
+          "agAvg": 500.06,
+          "extra": [],
+          "formon": 0,
+          "skattefri": 0,
+          "extraSkatt": 0,
+          "nettoJust": 0,
+          "kontant": 1600,
+          "forskott": 0,
+          "boltProv": 0
+        },
+        {
+          "id": "1002",
+          "pass": 2,
+          "tim": 16.416666666666664,
+          "ink": 3900,
+          "exkl": 3679.25,
+          "kont": 1500,
+          "kred": 2400,
+          "kontDr": 0,
+          "kredDr": 0,
+          "km": 270,
+          "betKm": 200,
+          "bom": 0,
+          "bud": 0,
+          "broN": 1,
+          "cphN": 0,
+          "stuN": 0,
+          "broSek": 201,
+          "bilar": [
+            "ABC 12A"
+          ],
+          "pay": {},
+          "modell": "procent",
+          "exklMegtax": 3679.25,
+          "bomEx": 0,
+          "proc": 1287.74,
+          "broAvdr": 70.35,
+          "broApris": 201,
+          "sem": 146.09,
+          "ob": 0,
+          "bonus": 0,
+          "fast": 0,
+          "brutto": 1363.48,
+          "agAvg": 428.41,
+          "extra": [],
+          "formon": 0,
+          "skattefri": 0,
+          "extraSkatt": 0,
+          "nettoJust": 0,
+          "kontant": 1500,
+          "forskott": 0,
+          "boltProv": 0
+        },
+        {
+          "id": "1003",
+          "pass": 2,
+          "tim": 10.5,
+          "ink": 1950,
+          "exkl": 1838.11,
+          "kont": 800,
+          "kred": 1150,
+          "kontDr": 0,
+          "kredDr": 0,
+          "km": 170,
+          "betKm": 130,
+          "bom": 0,
+          "bud": 50,
+          "broN": 1,
+          "cphN": 0,
+          "stuN": 2,
+          "broSek": 251.4,
+          "bilar": [
+            "ABC 12A",
+            "ABC 34B"
+          ],
+          "pay": {},
+          "modell": "procent",
+          "exklMegtax": 1838.11,
+          "bomEx": 0,
+          "proc": 643.34,
+          "broAvdr": 87.99,
+          "broApris": 251.4,
+          "sem": 66.64,
+          "ob": 0,
+          "bonus": 0,
+          "fast": 0,
+          "brutto": 621.99,
+          "agAvg": 195.43,
+          "extra": [],
+          "formon": 0,
+          "skattefri": 0,
+          "extraSkatt": 0,
+          "nettoJust": 0,
+          "kontant": 800,
+          "forskott": 0,
+          "boltProv": 0
+        },
+        {
+          "id": "1004",
+          "pass": 1,
+          "tim": 4,
+          "ink": 550,
+          "exkl": 518.87,
+          "kont": 250,
+          "kred": 300,
+          "kontDr": 0,
+          "kredDr": 0,
+          "km": 60,
+          "betKm": 45,
+          "bom": 0,
+          "bud": 0,
+          "broN": 0,
+          "cphN": 0,
+          "stuN": 0,
+          "broSek": 0,
+          "bilar": [
+            "ABC 34B"
+          ],
+          "pay": {
+            "Uber": 80
+          },
+          "modell": "procent",
+          "exklMegtax": 518.87,
+          "bomEx": 0,
+          "proc": 181.6,
+          "broAvdr": 0,
+          "broApris": 0,
+          "sem": 21.79,
+          "ob": 0,
+          "bonus": 0,
+          "fast": 0,
+          "brutto": 203.39,
+          "agAvg": 63.91,
+          "extra": [],
+          "formon": 0,
+          "skattefri": 0,
+          "extraSkatt": 0,
+          "nettoJust": 0,
+          "kontant": 250,
+          "forskott": 0,
+          "boltProv": 0
+        }
+      ],
+      "bro": [
+        {
+          "ts": "2026-03-02 08:15:00",
+          "ts2": null,
+          "t": "2026-03-02T07:15:00.000Z",
+          "desc": "SV/DK Klass 1",
+          "reg": "ABC12A",
+          "typ": "bro",
+          "valuta": "SEK",
+          "belopp": 201,
+          "text": "2026-03-02 08:15:00 ABC 12A / SV/DK Klass 1 SEK 201,00",
+          "key": "2026-03-02 08:15:00|ABC12A|bro",
+          "period": "dag",
+          "shift": "650-1-2026-03-02 05:00",
+          "forare": "1001",
+          "metod": "pass",
+          "forslag": null,
+          "kost": 201,
+          "iLon": true
+        },
+        {
+          "ts": "2026-03-02 15:45:00",
+          "ts2": null,
+          "t": "2026-03-02T14:45:00.000Z",
+          "desc": "DK/SV Klass 1",
+          "reg": "ABC12A",
+          "typ": "bro",
+          "valuta": "SEK",
+          "belopp": 201,
+          "text": "2026-03-02 15:45:00 ABC 12A / DK/SV Klass 1 SEK 201,00",
+          "key": "2026-03-02 15:45:00|ABC12A|bro",
+          "period": "dag",
+          "shift": null,
+          "forare": null,
+          "metod": "omatchad",
+          "forslag": {
+            "forare": "1001",
+            "start": "2026-03-02 05:00",
+            "slut": "2026-03-02 15:30",
+            "min": 15,
+            "annan": "1002"
+          },
+          "kost": 201,
+          "iLon": true
+        },
+        {
+          "ts": "2026-03-03 12:10:00",
+          "ts2": null,
+          "t": "2026-03-03T11:10:00.000Z",
+          "desc": "SV/DK Klass 1",
+          "reg": "ABC12A",
+          "typ": "bro",
+          "valuta": "SEK",
+          "belopp": 201,
+          "text": "2026-03-03 12:10:00 ABC12A / SV/DK Klass 1 SEK 201,00",
+          "key": "2026-03-03 12:10:00|ABC12A|bro",
+          "period": "dag",
+          "shift": null,
+          "forare": null,
+          "metod": "omatchad",
+          "forslag": {
+            "forare": "1001",
+            "start": "2026-03-03 06:00",
+            "slut": "2026-03-03 12:00",
+            "min": 10,
+            "annan": "1003"
+          },
+          "kost": 201,
+          "iLon": true
+        },
+        {
+          "ts": "2026-03-10 02:50:00",
+          "ts2": null,
+          "t": "2026-03-10T01:50:00.000Z",
+          "desc": "SV/DK Klass 1",
+          "reg": "ABC34B",
+          "typ": "bro",
+          "valuta": "SEK",
+          "belopp": 201,
+          "text": "2026-03-10 02:50:00 ABC 34B / SV/DK Klass 1 SEK 201,00",
+          "key": "2026-03-10 02:50:00|ABC34B|bro",
+          "period": "dag",
+          "shift": "651-6-2026-03-10 03:00",
+          "forare": "1003",
+          "metod": "marginal",
+          "forslag": null,
+          "kost": 201,
+          "iLon": true
+        },
+        {
+          "ts": "2026-03-02 09:00:00",
+          "ts2": "09:05:00",
+          "t": "2026-03-02T08:00:00.000Z",
+          "desc": "Pick-up fee Zone1",
+          "reg": "ABC12A",
+          "typ": "avgift",
+          "valuta": "SEK",
+          "belopp": 17.04,
+          "text": "2026-03-02 09:00:00 09:05:00 ABC 12A Pick-up fee Zone1 SEK 17,04",
+          "key": "2026-03-02 09:00:00|ABC12A|avgift",
+          "period": "dag",
+          "shift": "650-1-2026-03-02 05:00",
+          "forare": "1001",
+          "metod": "pass",
+          "forslag": null,
+          "kost": 17.04,
+          "iLon": true
+        },
+        {
+          "ts": "2026-03-29 03:30:00",
+          "ts2": null,
+          "t": "2026-03-29T01:30:00.000Z",
+          "desc": "DK/SV Klass 1",
+          "reg": "ABC12A",
+          "typ": "bro",
+          "valuta": "SEK",
+          "belopp": 1201,
+          "text": "2026-03-29 03:30:00 ABC 12A / DK/SV Klass 1 SEK 1 201,00",
+          "key": "2026-03-29 03:30:00|ABC12A|bro",
+          "period": "natt",
+          "shift": "650-5-2026-03-28 22:00",
+          "forare": "1002",
+          "metod": "pass",
+          "forslag": null,
+          "kost": 201,
+          "iLon": true
+        },
+        {
+          "ts": "2026-03-02 10:00:00",
+          "t": "2026-03-02T09:00:00.000Z",
+          "ts2": null,
+          "desc": "Sturup P5",
+          "reg": "ABC12A",
+          "bil": "650",
+          "typ": "sturup",
+          "valuta": "SEK",
+          "belopp": 35,
+          "text": "02.03.26 10:00 02.03.26 10:40 P5 Korttid 35,00 SEK",
+          "key": "2026-03-02 10:00:00|ABC12A|sturup",
+          "period": "dag",
+          "shift": "650-1-2026-03-02 05:00",
+          "forare": "1001",
+          "metod": "pass",
+          "forslag": null,
+          "kost": 28,
+          "iLon": true
+        },
+        {
+          "ts": "2026-03-03 13:00:00",
+          "t": "2026-03-03T12:00:00.000Z",
+          "ts2": null,
+          "desc": "Sturup förbokad",
+          "reg": "ABC12A",
+          "bil": "650",
+          "typ": "sturup",
+          "valuta": "SEK",
+          "belopp": 28,
+          "text": "03.03.26 13:00 03.03.26 13:20 Förbokad 28,00 SEK",
+          "key": "2026-03-03 13:00:00|ABC12A|sturup",
+          "period": "natt",
+          "shift": "650-4-2026-03-03 12:30",
+          "forare": "1003",
+          "metod": "pass",
+          "forslag": null,
+          "kost": 22.4,
+          "iLon": true
+        },
+        {
+          "ts": "2026-03-10 07:00:00",
+          "t": "2026-03-10T06:00:00.000Z",
+          "ts2": null,
+          "desc": "Sturup P5",
+          "reg": "ABC34B",
+          "bil": "651",
+          "typ": "sturup",
+          "valuta": "SEK",
+          "belopp": 35,
+          "text": "10.03.26 07:00 10.03.26 07:15 P5 Korttid 35,00 SEK",
+          "key": "2026-03-10 07:00:00|ABC34B|sturup",
+          "period": "dag",
+          "shift": "651-6-2026-03-10 03:00",
+          "forare": "1003",
+          "metod": "pass",
+          "forslag": null,
+          "kost": 28,
+          "iLon": true
+        }
+      ],
+      "bilar": {
+        "ABC12A": {
+          "reg": "ABC12A",
+          "regnr": "ABC 12A",
+          "bilId": "650",
+          "dagar": {
+            "2026-03-02": {
+              "datum": "2026-03-02",
+              "vecka": 10,
+              "wd": 1,
+              "dag": {
+                "kassa": 3700,
+                "kont": 1200,
+                "kred": 2500,
+                "bro": 218.04,
+                "broN": 1,
+                "stu": 28,
+                "stuN": 1,
+                "forare": [
+                  "1001"
+                ],
+                "pass": [
+                  "650-1-2026-03-02 05:00"
+                ],
+                "exBro": 3453.96,
+                "andel": 2072.3759999999997,
+                "hosForare": -181.5840000000003
+              },
+              "natt": {
+                "kassa": 2300,
+                "kont": 800,
+                "kred": 1500,
+                "bro": 0,
+                "broN": 0,
+                "stu": 0,
+                "stuN": 0,
+                "forare": [
+                  "1002"
+                ],
+                "pass": [
+                  "650-2-2026-03-02 16:00"
+                ],
+                "exBro": 2300,
+                "andel": 1380,
+                "hosForare": -120
+              }
+            },
+            "2026-03-03": {
+              "datum": "2026-03-03",
+              "vecka": 10,
+              "wd": 2,
+              "dag": {
+                "kassa": 1000,
+                "kont": 400,
+                "kred": 600,
+                "bro": 0,
+                "broN": 0,
+                "stu": 0,
+                "stuN": 0,
+                "forare": [
+                  "1001"
+                ],
+                "pass": [
+                  "650-3-2026-03-03 06:00"
+                ],
+                "exBro": 1000,
+                "andel": 600,
+                "hosForare": 0
+              },
+              "natt": {
+                "kassa": 750,
+                "kont": 300,
+                "kred": 450,
+                "bro": 0,
+                "broN": 0,
+                "stu": 22.4,
+                "stuN": 1,
+                "forare": [
+                  "1003"
+                ],
+                "pass": [
+                  "650-4-2026-03-03 12:30"
+                ],
+                "exBro": 727.6,
+                "andel": 436.56,
+                "hosForare": 8.95999999999998
+              }
+            },
+            "2026-03-28": {
+              "datum": "2026-03-28",
+              "vecka": 13,
+              "wd": 6,
+              "dag": null,
+              "natt": {
+                "kassa": 1600,
+                "kont": 700,
+                "kred": 900,
+                "bro": 201,
+                "broN": 1,
+                "stu": 0,
+                "stuN": 0,
+                "forare": [
+                  "1002"
+                ],
+                "pass": [
+                  "650-5-2026-03-28 22:00"
+                ],
+                "exBro": 1399,
+                "andel": 839.4,
+                "hosForare": 140.4000000000001
+              }
+            }
+          }
+        },
+        "ABC34B": {
+          "reg": "ABC34B",
+          "regnr": "ABC 34B",
+          "bilId": "651",
+          "dagar": {
+            "2026-03-10": {
+              "datum": "2026-03-10",
+              "vecka": 11,
+              "wd": 2,
+              "dag": {
+                "kassa": 1200,
+                "kont": 500,
+                "kred": 700,
+                "bro": 201,
+                "broN": 1,
+                "stu": 28,
+                "stuN": 1,
+                "forare": [
+                  "1003"
+                ],
+                "pass": [
+                  "651-6-2026-03-10 03:00"
+                ],
+                "exBro": 971,
+                "andel": 582.6,
+                "hosForare": 111.60000000000002
+              },
+              "natt": null
+            },
+            "2026-03-14": {
+              "datum": "2026-03-14",
+              "vecka": 11,
+              "wd": 6,
+              "dag": null,
+              "natt": {
+                "kassa": 550,
+                "kont": 250,
+                "kred": 300,
+                "bro": 0,
+                "broN": 0,
+                "stu": 0,
+                "stuN": 0,
+                "forare": [
+                  "1004"
+                ],
+                "pass": [
+                  "651-7-2026-03-15 01:00"
+                ],
+                "exBro": 550,
+                "andel": 330,
+                "hosForare": 30
+              }
+            }
+          }
+        }
+      }
+    },
+    "lon": {
+      "1001": {
+        "rader": [
+          {
+            "kod": "020",
+            "text": "Procentlön",
+            "antal": 0.35,
+            "apris": 4306.04,
+            "belopp": 1507.11,
+            "info": false
+          },
+          {
+            "kod": "009",
+            "text": "Bro, Sturup och CPH",
+            "antal": 0.35,
+            "apris": -246.04,
+            "belopp": -86.11,
+            "info": false
+          },
+          {
+            "kod": "420",
+            "text": "Semesterersättning 12 %",
+            "antal": 1,
+            "apris": 170.52,
+            "belopp": 170.52,
+            "info": false
+          },
+          {
+            "kod": "804",
+            "text": "Inkört exkl. moms",
+            "antal": 1,
+            "apris": 4306.04,
+            "belopp": 4306.04,
+            "info": true
+          },
+          {
+            "kod": "990",
+            "text": "Avrundning",
+            "antal": 1,
+            "apris": 0.48,
+            "belopp": 0.48,
+            "info": false
+          },
+          {
+            "kod": "912",
+            "text": "Tabellskatt 33, kolumn 1",
+            "antal": 1,
+            "apris": 0,
+            "belopp": 0,
+            "info": false
+          },
+          {
+            "kod": "008",
+            "text": "Kontanter i bilen, kvittas",
+            "antal": 1,
+            "apris": -1600,
+            "belopp": -1600,
+            "info": false
+          }
+        ],
+        "brutto": 1592,
+        "formon": 0,
+        "skatt": 0,
+        "kol": 1,
+        "netto": -8,
+        "ag": {
+          "belopp": 500.21,
+          "sats": "31,42 %"
+        },
+        "fel": [
+          "Skattetabell 33 saknas"
+        ],
+        "ytd": {
+          "lon": 1592,
+          "skatt": 0
+        },
+        "p": {
+          "personnr": "19800000-0000",
+          "tabell": 33,
+          "bank": "1234-5678901"
+        }
+      },
+      "1002": {
+        "rader": [
+          {
+            "kod": "020",
+            "text": "Procentlön",
+            "antal": 0.35,
+            "apris": 3679.25,
+            "belopp": 1287.74,
+            "info": false
+          },
+          {
+            "kod": "009",
+            "text": "Bro, Sturup och CPH",
+            "antal": 0.35,
+            "apris": -201,
+            "belopp": -70.35,
+            "info": false
+          },
+          {
+            "kod": "420",
+            "text": "Semesterersättning 12 %",
+            "antal": 1,
+            "apris": 146.09,
+            "belopp": 146.09,
+            "info": false
+          },
+          {
+            "kod": "804",
+            "text": "Inkört exkl. moms",
+            "antal": 1,
+            "apris": 3679.25,
+            "belopp": 3679.25,
+            "info": true
+          },
+          {
+            "kod": "990",
+            "text": "Avrundning",
+            "antal": 1,
+            "apris": -0.48,
+            "belopp": -0.48,
+            "info": false
+          },
+          {
+            "kod": "912",
+            "text": "Tabellskatt 34, kolumn 1",
+            "antal": 1,
+            "apris": 0,
+            "belopp": 0,
+            "info": false
+          },
+          {
+            "kod": "008",
+            "text": "Kontanter i bilen, kvittas",
+            "antal": 1,
+            "apris": -1500,
+            "belopp": -1500,
+            "info": false
+          }
+        ],
+        "brutto": 1363,
+        "formon": 0,
+        "skatt": 0,
+        "kol": 1,
+        "netto": -137,
+        "ag": {
+          "belopp": 428.25,
+          "sats": "31,42 %"
+        },
+        "fel": [
+          "Skattetabell 34 saknas"
+        ],
+        "ytd": {
+          "lon": 1363,
+          "skatt": 0
+        },
+        "p": {
+          "personnr": "8500000000",
+          "tabell": 34,
+          "bank": "1234-5678901"
+        }
+      },
+      "1003": {
+        "rader": [
+          {
+            "kod": "020",
+            "text": "Procentlön",
+            "antal": 0.35,
+            "apris": 1838.11,
+            "belopp": 643.34,
+            "info": false
+          },
+          {
+            "kod": "009",
+            "text": "Bro, Sturup och CPH",
+            "antal": 0.35,
+            "apris": -251.4,
+            "belopp": -87.99,
+            "info": false
+          },
+          {
+            "kod": "420",
+            "text": "Semesterersättning 12 %",
+            "antal": 1,
+            "apris": 66.64,
+            "belopp": 66.64,
+            "info": false
+          },
+          {
+            "kod": "804",
+            "text": "Inkört exkl. moms",
+            "antal": 1,
+            "apris": 1838.11,
+            "belopp": 1838.11,
+            "info": true
+          },
+          {
+            "kod": "990",
+            "text": "Avrundning",
+            "antal": 1,
+            "apris": 0.01,
+            "belopp": 0.01,
+            "info": false
+          },
+          {
+            "kod": "912",
+            "text": "Tabellskatt 33, kolumn 1",
+            "antal": 1,
+            "apris": 0,
+            "belopp": 0,
+            "info": false
+          },
+          {
+            "kod": "008",
+            "text": "Kontanter i bilen, kvittas",
+            "antal": 1,
+            "apris": -800,
+            "belopp": -800,
+            "info": false
+          }
+        ],
+        "brutto": 622,
+        "formon": 0,
+        "skatt": 0,
+        "kol": 1,
+        "netto": -178,
+        "ag": {
+          "belopp": 195.43,
+          "sats": "31,42 %"
+        },
+        "fel": [
+          "Skattetabell 33 saknas"
+        ],
+        "ytd": {
+          "lon": 622,
+          "skatt": 0
+        },
+        "p": {
+          "personnr": "19920000-0000",
+          "tabell": 33,
+          "bank": "1234-5678901"
+        }
+      },
+      "1004": {
+        "rader": [
+          {
+            "kod": "020",
+            "text": "Procentlön",
+            "antal": 0.35,
+            "apris": 518.87,
+            "belopp": 181.6,
+            "info": false
+          },
+          {
+            "kod": "420",
+            "text": "Semesterersättning 12 %",
+            "antal": 1,
+            "apris": 21.79,
+            "belopp": 21.79,
+            "info": false
+          },
+          {
+            "kod": "804",
+            "text": "Inkört exkl. moms",
+            "antal": 1,
+            "apris": 518.87,
+            "belopp": 518.87,
+            "info": true
+          },
+          {
+            "kod": "990",
+            "text": "Avrundning",
+            "antal": 1,
+            "apris": -0.39,
+            "belopp": -0.39,
+            "info": false
+          },
+          {
+            "kod": "912",
+            "text": "Tabellskatt 33, kolumn 1",
+            "antal": 1,
+            "apris": 0,
+            "belopp": 0,
+            "info": false
+          },
+          {
+            "kod": "008",
+            "text": "Kontanter i bilen, kvittas",
+            "antal": 1,
+            "apris": -250,
+            "belopp": -250,
+            "info": false
+          }
+        ],
+        "brutto": 203,
+        "formon": 0,
+        "skatt": 0,
+        "kol": 1,
+        "netto": -47,
+        "ag": {
+          "belopp": 63.78,
+          "sats": "31,42 %"
+        },
+        "fel": [
+          "Skattetabell 33 saknas"
+        ],
+        "ytd": {
+          "lon": 203,
+          "skatt": 0
+        },
+        "p": {
+          "personnr": "19750000-0000",
+          "tabell": 33
+        }
+      }
+    },
+    "utbetalning": {
+      "1001": "-07",
+      "1002": "-07",
+      "1003": "-07",
+      "1004": "-07"
+    }
+  }
+}

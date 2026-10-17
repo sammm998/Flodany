@@ -1,0 +1,73 @@
+# CI: körs på GitHub vid varje push och pull request.
+# Jobbet ci: samma kontroller som `npm run ci` lokalt (lint, typkontroll och tester).
+# Jobbet databas: startar Supabase lokalt i runnern och kör databastesterna (fas 2a),
+# bland annat att konto A aldrig kan läsa, ändra eller ta bort konto B:s data, och plattformen i
+# webbläsaren med Playwright (fas 2e). Inga hemligheter behövs.
+# Jobbet hemsida: bygger flodia.se och kör Lighthouse i mobilläge (minst 95 i Performance, Accessibility och
+# Best Practices på varje sida).
+name: CI
+
+on:
+  push:
+    branches: [main, 'fas-*']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run ci
+
+  hemsida:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Bygg hemsidan och kör Lighthouse (mobil)
+        run: npm run lighthouse -w @flodia/hemsida
+
+  databas:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Paketera serverfunktionen motor
+        run: npm run bygg:funktioner
+      - name: Starta Supabase lokalt (migrationerna körs)
+        run: npm run db:start
+      - name: Granska SQL-funktionerna
+        run: npx supabase db lint --fail-on error
+      - name: Databastester
+        run: npm run test:db
+      - name: Bygg plattformen mot den lokala Supabase
+        run: npm run plattform:bygg
+      - name: Installera Chromium för Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Plattformen i webbläsaren (Playwright, 1280 och 375 punkter)
+        run: npm run e2e
+      - name: Realtimes logg (vid fel)
+        if: failure()
+        run: docker logs $(docker ps -q --filter name=supabase_realtime) --tail 300 2>&1 | grep -viE "heartbeat|phx_reply.*ok" | tail -150
+      - name: Stoppa Supabase
+        if: always()
+        run: npx supabase stop --no-backup

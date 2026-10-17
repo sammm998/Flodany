@@ -1,0 +1,1791 @@
+{
+ "logg": [
+  {
+   "tid": "2026-08-25 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "betald",
+    "id": "a2"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/a2",
+      {
+       "id": "a2",
+       "reg": "ABC99Z",
+       "skadenr": "SK-a2",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-08-25",
+        "paminnelse": ""
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Faktura 1001 betald 2026-08-25"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-08-25T08:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-08-25 10:01",
+   "kontroll": {
+    "idag": "2026-08-25",
+    "arenden": [
+     {
+      "id": "a2",
+      "fak": "betald",
+      "moms": null,
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-a2_ABC99Z.pdf",
+      "fnFaktura": "faktura_1001_ABC99Z_SK-a2.pdf",
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [
+     "a2"
+    ],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-08-10",
+      "forfall": "2026-08-20",
+      "st": "betald",
+      "bd": "2026-08-25",
+      "id": "a2"
+     }
+    ],
+    "oppna": [],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "0 kr",
+       "0 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt augusti",
+       "5 501 kr",
+       "1 fakturor betalda"
+      ]
+     ],
+     "antal": 1,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 99Z</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Fordonsägare saknas · moms 1 375,25 kr · Försäkring 1 AB betalade 2026-08-25",
+       "id": "a2",
+       "btn": "Skicka"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "key": "fbet:a2",
+        "datum": "2026-08-25",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC99Z skada SK-a2",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC99Z"
+         }
+        ],
+        "nr": 1
+       },
+       {
+        "key": "bokslut:2026-08",
+        "datum": "2026-08-31",
+        "typ": "bokslut",
+        "bokslut": true,
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": 1375.25,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -1375.25,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 2
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 1375.25,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 1375.25
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDgyNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNjA4MjUgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkM5OVogc2thZGEgU0stYTIiIDIwMjYwODI1DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjYwODI1ICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNjA4MjUgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDOTlaIg0KfQ0KI1ZFUiBBIDIgMjAyNjA4MzEgIkJva3NsdXQga29udGFudG1ldG9kLCBvYmV0YWxkYSBrdW5kZm9yZHJpbmdhciAyMDI2LTA4LTMxIiAyMDI2MDgyNQ0Kew0KI1RSQU5TIDE1MTAge30gMTM3NS4yNSAyMDI2MDgzMSAiTW9tcyBmb3Jkb25zhGdhcmUsIG9iZXRhbGQiDQojVFJBTlMgMjYxMSB7fSAtMTM3NS4yNSAyMDI2MDgzMSAiVXRnIG1vbXMgMjUgJSwgb2JldGFsZCINCn0NCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-08-26 10:00",
+   "steg": {
+    "typ": "text",
+    "id": "a2",
+    "f": "agare",
+    "v": "Ägare Tre"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/a2",
+      {
+       "id": "a2",
+       "reg": "ABC99Z",
+       "skadenr": "SK-a2",
+       "forsakring": "lf",
+       "agare": "Ägare Tre",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-08-25",
+        "paminnelse": ""
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Faktura 1001 betald 2026-08-25"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-08-26T08:00:00.000Z"
+      }
+     ],
+     [
+      "arenden/a2",
+      {
+       "id": "a2",
+       "reg": "ABC99Z",
+       "skadenr": "SK-a2",
+       "forsakring": "lf",
+       "agare": "Ägare Tre",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-08-25",
+        "paminnelse": ""
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Faktura 1001 betald 2026-08-25"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-08-26T08:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-08-26 10:01",
+   "steg": {
+    "typ": "klick",
+    "act": "skapaMoms",
+    "id": "a2"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/a2",
+      {
+       "id": "a2",
+       "reg": "ABC99Z",
+       "skadenr": "SK-a2",
+       "forsakring": "lf",
+       "agare": "Ägare Tre",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-08-25",
+        "paminnelse": ""
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-08-26",
+        "forfall": "2026-09-05",
+        "till": "Ägare Tre",
+        "betald": false,
+        "betaldDatum": "",
+        "skickad": ""
+       },
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Faktura 1001 betald 2026-08-25"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skapad till Ägare Tre (1 375,25 kr)"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-08-26T08:01:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-08-26 10:02",
+   "steg": {
+    "typ": "klick",
+    "act": "momsSkickad",
+    "id": "a2"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/a2",
+      {
+       "id": "a2",
+       "reg": "ABC99Z",
+       "skadenr": "SK-a2",
+       "forsakring": "lf",
+       "agare": "Ägare Tre",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-08-25",
+        "paminnelse": ""
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-08-26",
+        "forfall": "2026-09-05",
+        "till": "Ägare Tre",
+        "betald": false,
+        "betaldDatum": "",
+        "skickad": "2026-08-26"
+       },
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Faktura 1001 betald 2026-08-25"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skapad till Ägare Tre (1 375,25 kr)"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skickad till Ägare Tre"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-08-26T08:02:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Noterat i historiken."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-02 10:00",
+   "steg": {
+    "typ": "export",
+    "p": "2026-08"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "bokforing/2026-08",
+      {
+       "period": "2026-08",
+       "status": "last",
+       "exporterad": "2026-09-02T08:00:00.000Z",
+       "fil": "SIE_DemoFoliering_2026-08.se",
+       "manuella": [],
+       "keys": [
+        "fbet:a2",
+        "bokslut:2026-08"
+       ],
+       "summa": {
+        "int": 5501,
+        "kost": 0,
+        "utg": 1375.25,
+        "ing": 0,
+        "bank": 5501,
+        "res": 5501,
+        "moms": 1375.25
+       },
+       "ver": [
+        {
+         "nr": 1,
+         "datum": "2026-08-25",
+         "text": "Inbetalning faktura 1001 ABC99Z skada SK-a2",
+         "key": "fbet:a2",
+         "typ": "auto",
+         "bokslut": false,
+         "rader": [
+          {
+           "k": 1930,
+           "b": 5501,
+           "t": "Försäkring 1 AB faktura 1001"
+          },
+          {
+           "k": 3001,
+           "b": -5501,
+           "t": "Foliering faktura 1001 ABC99Z"
+          }
+         ]
+        },
+        {
+         "nr": 2,
+         "datum": "2026-08-31",
+         "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+         "key": "bokslut:2026-08",
+         "typ": "bokslut",
+         "bokslut": true,
+         "rader": [
+          {
+           "k": 1510,
+           "b": 1375.25,
+           "t": "Moms fordonsägare, obetald"
+          },
+          {
+           "k": 2611,
+           "b": -1375.25,
+           "t": "Utg moms 25 %, obetald"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    ],
+    "filer": [
+     {
+      "namn": "SIE_DemoFoliering_2026-08.se",
+      "data": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNjA4MjUgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkM5OVogc2thZGEgU0stYTIiIDIwMjYwOTAyDQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjYwODI1ICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNjA4MjUgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDOTlaIg0KfQ0KI1ZFUiBBIDIgMjAyNjA4MzEgIkJva3NsdXQga29udGFudG1ldG9kLCBvYmV0YWxkYSBrdW5kZm9yZHJpbmdhciAyMDI2LTA4LTMxIiAyMDI2MDkwMg0Kew0KI1RSQU5TIDE1MTAge30gMTM3NS4yNSAyMDI2MDgzMSAiTW9tcyBmb3Jkb25zhGdhcmUsIG9iZXRhbGQiDQojVFJBTlMgMjYxMSB7fSAtMTM3NS4yNSAyMDI2MDgzMSAiVXRnIG1vbXMgMjUgJSwgb2JldGFsZCINCn0NCg==",
+      "mapp": "Bokföring"
+     }
+    ],
+    "meddelanden": [
+     "Aug 2026 är exporterad och låst."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-03 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "obetald",
+    "id": "a2"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/a2",
+      {
+       "id": "a2",
+       "reg": "ABC99Z",
+       "skadenr": "SK-a2",
+       "forsakring": "lf",
+       "agare": "Ägare Tre",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": ""
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-08-26",
+        "forfall": "2026-09-05",
+        "till": "Ägare Tre",
+        "betald": false,
+        "betaldDatum": "",
+        "skickad": "2026-08-26"
+       },
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Faktura 1001 betald 2026-08-25"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skapad till Ägare Tre (1 375,25 kr)"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skickad till Ägare Tre"
+        },
+        {
+         "d": "2026-09-03",
+         "t": "Betalning av faktura 1001 ångrad"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-09-03T08:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-03 10:01",
+   "steg": {
+    "typ": "klick",
+    "act": "momsBetald",
+    "id": "a2",
+    "form": {
+     "#mBetDat": "2026-08-31"
+    }
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/a2",
+      {
+       "id": "a2",
+       "reg": "ABC99Z",
+       "skadenr": "SK-a2",
+       "forsakring": "lf",
+       "agare": "Ägare Tre",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": ""
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-08-26",
+        "forfall": "2026-09-05",
+        "till": "Ägare Tre",
+        "betald": true,
+        "betaldDatum": "2026-08-31",
+        "skickad": "2026-08-26"
+       },
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Faktura 1001 betald 2026-08-25"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skapad till Ägare Tre (1 375,25 kr)"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skickad till Ägare Tre"
+        },
+        {
+         "d": "2026-09-03",
+         "t": "Betalning av faktura 1001 ångrad"
+        },
+        {
+         "d": "2026-09-03",
+         "t": "Momsfaktura M-1001 betald 2026-08-31"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-09-03T08:01:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-03 10:02",
+   "kontroll": {
+    "idag": "2026-09-03",
+    "arenden": [
+     {
+      "id": "a2",
+      "fak": "forfallen",
+      "moms": "betald",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-a2_ABC99Z.pdf",
+      "fnFaktura": "faktura_1001_ABC99Z_SK-a2.pdf",
+      "fnMoms": "moms_M-1001_ABC99Z_fak1001.pdf"
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Tre",
+      "belopp": 1375.25,
+      "datum": "2026-08-26",
+      "forfall": "2026-09-05",
+      "st": "betald",
+      "bd": "2026-08-31",
+      "id": "a2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-08-10",
+      "forfall": "2026-08-20",
+      "st": "forfallen",
+      "bd": "",
+      "id": "a2"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 5501,
+      "fs": "lf",
+      "id": "a2"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "5 501 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "5 501 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 1,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 99Z</span></span> Faktura 1001 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 5 501 kr · förföll 2026-08-20 (14 dagar)",
+       "id": "a2",
+       "btn": "Påminn"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-09",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "nr": 1,
+        "datum": "2026-08-25",
+        "text": "Inbetalning faktura 1001 ABC99Z skada SK-a2",
+        "key": "fbet:a2",
+        "typ": "auto",
+        "bokslut": false,
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC99Z"
+         }
+        ]
+       },
+       {
+        "nr": 2,
+        "datum": "2026-08-31",
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+        "key": "bokslut:2026-08",
+        "typ": "bokslut",
+        "bokslut": true,
+        "rader": [
+         {
+          "k": 1510,
+          "b": 1375.25,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -1375.25,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ]
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 1375.25,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 1375.25
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwMw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNjA4MjUgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkM5OVogc2thZGEgU0stYTIiIDIwMjYwOTAzDQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjYwODI1ICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNjA4MjUgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDOTlaIg0KfQ0KI1ZFUiBBIDIgMjAyNjA4MzEgIkJva3NsdXQga29udGFudG1ldG9kLCBvYmV0YWxkYSBrdW5kZm9yZHJpbmdhciAyMDI2LTA4LTMxIiAyMDI2MDkwMw0Kew0KI1RSQU5TIDE1MTAge30gMTM3NS4yNSAyMDI2MDgzMSAiTW9tcyBmb3Jkb25zhGdhcmUsIG9iZXRhbGQiDQojVFJBTlMgMjYxMSB7fSAtMTM3NS4yNSAyMDI2MDgzMSAiVXRnIG1vbXMgMjUgJSwgb2JldGFsZCINCn0NCg=="
+     },
+     "2026-09": {
+      "V": [
+       {
+        "key": "rev:2026-08:2",
+        "datum": "2026-09-01",
+        "typ": "aterforing",
+        "text": "Återföring A2 Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": -1375.25,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": 1375.25,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       },
+       {
+        "key": "mbet:a2",
+        "datum": "2026-09-01",
+        "typ": "efterreg",
+        "text": "Efterreg. 2026-08-31: Inbetalning momsfaktura M-1001 ABC99Z",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 1375.25,
+          "t": "Ägare Tre M-1001"
+         },
+         {
+          "k": 2611,
+          "b": -1375.25,
+          "t": "Utg moms 25 % M-1001"
+         }
+        ],
+        "orig": "2026-08-31",
+        "nr": 2
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "A2: händelsen 2026-08-31 hör till en låst period och bokas nu som efterregistrering."
+       ],
+       [
+        "bad",
+        "Aug 2026 A1 (Inbetalning faktura 1001 ABC99Z skada SK-a2) är exporterad men händelsen finns inte längre i appen. Rätta med en manuell verifikation."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 1375.25,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwMw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI1ZFUiBBIDEgMjAyNjA5MDEgIo90ZXJmlHJpbmcgQTIgQm9rc2x1dCBrb250YW50bWV0b2QsIG9iZXRhbGRhIGt1bmRmb3JkcmluZ2FyIDIwMjYtMDgtMzEiIDIwMjYwOTAzDQp7DQojVFJBTlMgMTUxMCB7fSAtMTM3NS4yNSAyMDI2MDkwMSAiTW9tcyBmb3Jkb25zhGdhcmUsIG9iZXRhbGQiDQojVFJBTlMgMjYxMSB7fSAxMzc1LjI1IDIwMjYwOTAxICJVdGcgbW9tcyAyNSAlLCBvYmV0YWxkIg0KfQ0KI1ZFUiBBIDIgMjAyNjA5MDEgIkVmdGVycmVnLiAyMDI2LTA4LTMxOiBJbmJldGFsbmluZyBtb21zZmFrdHVyYSBNLTEwMDEgQUJDOTlaIiAyMDI2MDkwMw0Kew0KI1RSQU5TIDE5MzAge30gMTM3NS4yNSAyMDI2MDkwMSAijmdhcmUgVHJlIE0tMTAwMSINCiNUUkFOUyAyNjExIHt9IC0xMzc1LjI1IDIwMjYwOTAxICJVdGcgbW9tcyAyNSAlIE0tMTAwMSINCn0NCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-09-04 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "momsObetald",
+    "id": "a2"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/a2",
+      {
+       "id": "a2",
+       "reg": "ABC99Z",
+       "skadenr": "SK-a2",
+       "forsakring": "lf",
+       "agare": "Ägare Tre",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": ""
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-08-26",
+        "forfall": "2026-09-05",
+        "till": "Ägare Tre",
+        "betald": false,
+        "betaldDatum": "",
+        "skickad": "2026-08-26"
+       },
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Faktura 1001 betald 2026-08-25"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skapad till Ägare Tre (1 375,25 kr)"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skickad till Ägare Tre"
+        },
+        {
+         "d": "2026-09-03",
+         "t": "Betalning av faktura 1001 ångrad"
+        },
+        {
+         "d": "2026-09-03",
+         "t": "Momsfaktura M-1001 betald 2026-08-31"
+        },
+        {
+         "d": "2026-09-04",
+         "t": "Betalning av M-1001 ångrad"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-09-04T08:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-04 10:01",
+   "steg": {
+    "typ": "klick",
+    "act": "betald",
+    "id": "a2",
+    "form": {
+     "#betDat": "2026-09-04"
+    }
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/a2",
+      {
+       "id": "a2",
+       "reg": "ABC99Z",
+       "skadenr": "SK-a2",
+       "forsakring": "lf",
+       "agare": "Ägare Tre",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-08-03",
+        "giltigTom": "2026-09-02",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-08-10",
+        "forfall": "2026-08-20",
+        "utfort": "2026-08-10",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "text": "Foliering extra",
+          "antal": 2,
+          "apris": 750.5
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-09-04",
+        "paminnelse": ""
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-08-26",
+        "forfall": "2026-09-05",
+        "till": "Ägare Tre",
+        "betald": false,
+        "betaldDatum": "",
+        "skickad": "2026-08-26"
+       },
+       "logg": [
+        {
+         "d": "2026-08-03",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Faktura 1001 betald 2026-08-25"
+        },
+        {
+         "d": "2026-08-25",
+         "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skapad till Ägare Tre (1 375,25 kr)"
+        },
+        {
+         "d": "2026-08-26",
+         "t": "Momsfaktura M-1001 skickad till Ägare Tre"
+        },
+        {
+         "d": "2026-09-03",
+         "t": "Betalning av faktura 1001 ångrad"
+        },
+        {
+         "d": "2026-09-03",
+         "t": "Momsfaktura M-1001 betald 2026-08-31"
+        },
+        {
+         "d": "2026-09-04",
+         "t": "Betalning av M-1001 ångrad"
+        },
+        {
+         "d": "2026-09-04",
+         "t": "Faktura 1001 betald 2026-09-04"
+        }
+       ],
+       "skapad": "2026-08-03",
+       "andrad": "2026-09-04T08:01:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-04 10:02",
+   "kontroll": {
+    "idag": "2026-09-04",
+    "arenden": [
+     {
+      "id": "a2",
+      "fak": "betald",
+      "moms": "obetald",
+      "belopp": 5501,
+      "fnOffert": "offert_F1_SK-a2_ABC99Z.pdf",
+      "fnFaktura": "faktura_1001_ABC99Z_SK-a2.pdf",
+      "fnMoms": "moms_M-1001_ABC99Z_fak1001.pdf"
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Tre",
+      "belopp": 1375.25,
+      "datum": "2026-08-26",
+      "forfall": "2026-09-05",
+      "st": "obetald",
+      "bd": "",
+      "id": "a2"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 5501,
+      "datum": "2026-08-10",
+      "forfall": "2026-08-20",
+      "st": "betald",
+      "bd": "2026-09-04",
+      "id": "a2"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "m",
+      "nr": "M-1001",
+      "belopp": 1375.25,
+      "fs": "agare:Ägare Tre",
+      "id": "a2"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "0 kr",
+       "0 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "1 375,25 kr",
+       "1 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "5 501 kr",
+       "1 fakturor betalda"
+      ]
+     ],
+     "antal": 0,
+     "todo": []
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-09",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "nr": 1,
+        "datum": "2026-08-25",
+        "text": "Inbetalning faktura 1001 ABC99Z skada SK-a2",
+        "key": "fbet:a2",
+        "typ": "auto",
+        "bokslut": false,
+        "rader": [
+         {
+          "k": 1930,
+          "b": 5501,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -5501,
+          "t": "Foliering faktura 1001 ABC99Z"
+         }
+        ]
+       },
+       {
+        "nr": 2,
+        "datum": "2026-08-31",
+        "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+        "key": "bokslut:2026-08",
+        "typ": "bokslut",
+        "bokslut": true,
+        "rader": [
+         {
+          "k": 1510,
+          "b": 1375.25,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": -1375.25,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ]
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 5501,
+       "kost": 0,
+       "utg": 1375.25,
+       "ing": 0,
+       "bank": 5501,
+       "res": 5501,
+       "moms": 1375.25
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwNA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNjA4MjUgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkM5OVogc2thZGEgU0stYTIiIDIwMjYwOTA0DQp7DQojVFJBTlMgMTkzMCB7fSA1NTAxLjAwIDIwMjYwODI1ICJGlHJzhGtyaW5nIDEgQUIgZmFrdHVyYSAxMDAxIg0KI1RSQU5TIDMwMDEge30gLTU1MDEuMDAgMjAyNjA4MjUgIkZvbGllcmluZyBmYWt0dXJhIDEwMDEgQUJDOTlaIg0KfQ0KI1ZFUiBBIDIgMjAyNjA4MzEgIkJva3NsdXQga29udGFudG1ldG9kLCBvYmV0YWxkYSBrdW5kZm9yZHJpbmdhciAyMDI2LTA4LTMxIiAyMDI2MDkwNA0Kew0KI1RSQU5TIDE1MTAge30gMTM3NS4yNSAyMDI2MDgzMSAiTW9tcyBmb3Jkb25zhGdhcmUsIG9iZXRhbGQiDQojVFJBTlMgMjYxMSB7fSAtMTM3NS4yNSAyMDI2MDgzMSAiVXRnIG1vbXMgMjUgJSwgb2JldGFsZCINCn0NCg=="
+     },
+     "2026-09": {
+      "V": [
+       {
+        "key": "rev:2026-08:2",
+        "datum": "2026-09-01",
+        "typ": "aterforing",
+        "text": "Återföring A2 Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+        "rader": [
+         {
+          "k": 1510,
+          "b": -1375.25,
+          "t": "Moms fordonsägare, obetald"
+         },
+         {
+          "k": 2611,
+          "b": 1375.25,
+          "t": "Utg moms 25 %, obetald"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "bad",
+        "Aug 2026 A1 (Inbetalning faktura 1001 ABC99Z skada SK-a2) är exporterad men händelsen finns inte längre i appen. Rätta med en manuell verifikation."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": -1375.25,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": -1375.25
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwNA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxNTEwICJLdW5kZm9yZHJpbmdhciINCiNLT05UTyAyNjExICJVdGeGZW5kZSBtb21zIHCGIGaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSINCiNWRVIgQSAxIDIwMjYwOTAxICKPdGVyZpRyaW5nIEEyIEJva3NsdXQga29udGFudG1ldG9kLCBvYmV0YWxkYSBrdW5kZm9yZHJpbmdhciAyMDI2LTA4LTMxIiAyMDI2MDkwNA0Kew0KI1RSQU5TIDE1MTAge30gLTEzNzUuMjUgMjAyNjA5MDEgIk1vbXMgZm9yZG9uc4RnYXJlLCBvYmV0YWxkIg0KI1RSQU5TIDI2MTEge30gMTM3NS4yNSAyMDI2MDkwMSAiVXRnIG1vbXMgMjUgJSwgb2JldGFsZCINCn0NCg=="
+     }
+    }
+   }
+  }
+ ],
+ "slut": {
+  "arenden": {
+   "a2": {
+    "id": "a2",
+    "reg": "ABC99Z",
+    "skadenr": "SK-a2",
+    "forsakring": "lf",
+    "agare": "Ägare Tre",
+    "bil": null,
+    "storlek": "vanlig",
+    "skadedatum": "",
+    "notering": "",
+    "status": "betald",
+    "offert": {
+     "datum": "2026-08-03",
+     "giltigTom": "2026-09-02",
+     "rader": [
+      {
+       "pid": "sf-fram",
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "godkandAv": ""
+    },
+    "faktura": {
+     "nr": 1001,
+     "datum": "2026-08-10",
+     "forfall": "2026-08-20",
+     "utfort": "2026-08-10",
+     "rader": [
+      {
+       "pid": "sf-fram",
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 4000
+      },
+      {
+       "text": "Foliering extra",
+       "antal": 2,
+       "apris": 750.5
+      }
+     ],
+     "betald": true,
+     "betaldDatum": "2026-09-04",
+     "paminnelse": ""
+    },
+    "moms": {
+     "nr": "M-1001",
+     "datum": "2026-08-26",
+     "forfall": "2026-09-05",
+     "till": "Ägare Tre",
+     "betald": false,
+     "betaldDatum": "",
+     "skickad": "2026-08-26"
+    },
+    "logg": [
+     {
+      "d": "2026-08-03",
+      "t": "Ärendet skapat"
+     },
+     {
+      "d": "2026-08-25",
+      "t": "Faktura 1001 betald 2026-08-25"
+     },
+     {
+      "d": "2026-08-25",
+      "t": "Momsfaktura M-1001 kan inte skapas: fordonsägare saknas"
+     },
+     {
+      "d": "2026-08-26",
+      "t": "Momsfaktura M-1001 skapad till Ägare Tre (1 375,25 kr)"
+     },
+     {
+      "d": "2026-08-26",
+      "t": "Momsfaktura M-1001 skickad till Ägare Tre"
+     },
+     {
+      "d": "2026-09-03",
+      "t": "Betalning av faktura 1001 ångrad"
+     },
+     {
+      "d": "2026-09-03",
+      "t": "Momsfaktura M-1001 betald 2026-08-31"
+     },
+     {
+      "d": "2026-09-04",
+      "t": "Betalning av M-1001 ångrad"
+     },
+     {
+      "d": "2026-09-04",
+      "t": "Faktura 1001 betald 2026-09-04"
+     }
+    ],
+    "skapad": "2026-08-03",
+    "andrad": "2026-09-04T08:01:00.000Z"
+   }
+  },
+  "fordon": {
+   "ABC12A": {
+    "reg": "ABC12A",
+    "bil": 650,
+    "agare": "Ägare Ett AB",
+    "adress": "Exempelgatan 1",
+    "epost": "agare1@example.se",
+    "id": "ABC12A"
+   },
+   "ABC34B": {
+    "reg": "ABC34B",
+    "bil": 651,
+    "agare": "Ägare Två AB",
+    "epost": "",
+    "id": "ABC34B"
+   }
+  },
+  "forsakring": {
+   "lf": {
+    "namn": "Försäkring 1 AB",
+    "kort": "F1",
+    "kontakt": "Kontakt Ett",
+    "epost": "skador@example.se",
+    "adress1": "Box 1",
+    "adress2": "100 00 Exempelstad",
+    "id": "lf"
+   },
+   "f2": {
+    "namn": "Försäkring 2 AB",
+    "kort": "F2",
+    "kontakt": "",
+    "epost": "skada@example.com",
+    "id": "f2"
+   }
+  },
+  "kostnader": {},
+  "bokforing": {
+   "2026-08": {
+    "period": "2026-08",
+    "status": "last",
+    "exporterad": "2026-09-02T08:00:00.000Z",
+    "fil": "SIE_DemoFoliering_2026-08.se",
+    "manuella": [],
+    "keys": [
+     "fbet:a2",
+     "bokslut:2026-08"
+    ],
+    "summa": {
+     "int": 5501,
+     "kost": 0,
+     "utg": 1375.25,
+     "ing": 0,
+     "bank": 5501,
+     "res": 5501,
+     "moms": 1375.25
+    },
+    "ver": [
+     {
+      "nr": 1,
+      "datum": "2026-08-25",
+      "text": "Inbetalning faktura 1001 ABC99Z skada SK-a2",
+      "key": "fbet:a2",
+      "typ": "auto",
+      "bokslut": false,
+      "rader": [
+       {
+        "k": 1930,
+        "b": 5501,
+        "t": "Försäkring 1 AB faktura 1001"
+       },
+       {
+        "k": 3001,
+        "b": -5501,
+        "t": "Foliering faktura 1001 ABC99Z"
+       }
+      ]
+     },
+     {
+      "nr": 2,
+      "datum": "2026-08-31",
+      "text": "Bokslut kontantmetod, obetalda kundfordringar 2026-08-31",
+      "key": "bokslut:2026-08",
+      "typ": "bokslut",
+      "bokslut": true,
+      "rader": [
+       {
+        "k": 1510,
+        "b": 1375.25,
+        "t": "Moms fordonsägare, obetald"
+       },
+       {
+        "k": 2611,
+        "b": -1375.25,
+        "t": "Utg moms 25 %, obetald"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "inst": {}
+ }
+}

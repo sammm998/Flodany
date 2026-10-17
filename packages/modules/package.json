@@ -1,0 +1,8 @@
+{
+  "name": "@flodia/modules",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Modulernas manifest: namn, rutter, uppladdningar och guide. Klientkod: inga motorer (beslut 26).",
+  "exports": { ".": "./index.ts" }
+}

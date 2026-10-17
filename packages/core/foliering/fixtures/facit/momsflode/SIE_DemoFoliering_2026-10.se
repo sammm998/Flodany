@@ -1,0 +1,17 @@
+#FLAGGA 0
+#FORMAT PC8
+#SIETYP 4
+#PROGRAM "Foliering Demo" 1.0
+#GEN 20261102
+#FNAMN "Demo Foliering AB"
+#ORGNR 559000-0001
+#RAR 0 20260901 20270831
+#KPTYP BAS2014
+#VALUTA SEK
+#KONTO 1930 "F”retagskonto"
+#KONTO 2611 "Utg†ende moms p† f”rs„ljning inom Sverige, 25 %"
+#VER A 2 20261014 "Inbetalning momsfaktura M-1001 ABC12A" 20261102
+{
+#TRANS 1930 {} 2375.00 20261014 "Žgare Ett AB M-1001"
+#TRANS 2611 {} -2375.00 20261014 "Utg moms 25 % M-1001"
+}

@@ -1,0 +1,1712 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<style>
+.avov{position:fixed;inset:0;z-index:50;background:rgba(15,21,26,.55);display:flex;justify-content:center;overflow:auto;padding:max(16px,env(safe-area-inset-top)) 12px max(16px,env(safe-area-inset-bottom))}
+.avdoc{background:var(--panel);color:var(--ink);border-radius:14px;max-width:760px;width:100%;height:max-content;padding:22px 22px 28px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.avtop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:6px}
+.avtop h2{margin:4px 0 2px;font-size:22px}
+.avkick{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--accent)}
+.avtext section{padding:10px 0;border-bottom:1px solid var(--line2)}
+.avtext h3{font-size:14px;margin:4px 0 6px}
+.avtext p{font-size:14px;line-height:1.6;margin:0 0 8px;max-width:68ch}
+.avacts{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.avacts h3{margin:6px 0 0;font-size:15px}
+.sigbox{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}
+.sighead{display:flex;justify-content:space-between;align-items:center;color:#16212B;font-size:13px}
+.sigpad{width:100%;height:auto;aspect-ratio:900/280;touch-action:none;display:block;border-bottom:1.5px solid #16212B;cursor:crosshair}
+.sigline{font-size:11px;color:#6B757D;margin-top:6px}
+.avok{display:flex;gap:8px;align-items:center;font-size:13px}
+.avsigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
+.avsigs img{width:100%;max-width:300px;background:#fff;border-bottom:1px solid var(--line);border-radius:6px}
+
+tr.pending td{background:var(--accent-soft)}
+.sigbox input{margin-top:8px;width:100%}
+</style>
+<title>Åkarkassan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: arbetsbord. Smal toppram med period och import, flikar, tabeller i egna scrollytor. Registreringsskylt-blå som accent, takskyltens gul för det som kräver åtgärd. */
+:root{
+  --bg:#F1F3F0; --panel:#FFFFFF; --panel2:#F7F8F6; --ink:#16212B; --muted:#5B6670; --line:#D8DDD7; --line2:#E7EAE5;
+  --accent:#1F4F8C; --accent-ink:#FFFFFF; --accent-soft:#E3ECF7; --sign:#E2A206; --sign-soft:#FCF1D3; --sign-ink:#6B4A00;
+  --ok:#2E7D4F; --ok-soft:#E1F1E7; --bad:#B3361F; --bad-soft:#F8E3DE; --night:#3C4B8A; --night-soft:#E6E8F5;
+  --f-disp:"Archivo","Arial Narrow",system-ui,sans-serif; --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --f-num:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:10px; --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:36px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F151A; --panel:#161F27; --panel2:#1B252E; --ink:#E5EAEE; --muted:#97A3AD; --line:#2A3641; --line2:#222D37;
+  --accent:#7AA8E6; --accent-ink:#0D1A2A; --accent-soft:#1C2E45; --sign:#F2B935; --sign-soft:#3A2F12; --sign-ink:#F6D78A;
+  --ok:#6CC596; --ok-soft:#173326; --bad:#F08A73; --bad-soft:#3D1F19; --night:#A6B2F0; --night-soft:#232A4A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F151A; --panel:#161F27; --panel2:#1B252E; --ink:#E5EAEE; --muted:#97A3AD; --line:#2A3641; --line2:#222D37;
+  --accent:#7AA8E6; --accent-ink:#0D1A2A; --accent-soft:#1C2E45; --sign:#F2B935; --sign-soft:#3A2F12; --sign-ink:#F6D78A;
+  --ok:#6CC596; --ok-soft:#173326; --bad:#F08A73; --bad-soft:#3D1F19; --night:#A6B2F0; --night-soft:#232A4A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 var(--f-body);padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:var(--s4)}
+h1,h2,h3{font-family:var(--f-disp);font-stretch:112%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:22px;font-weight:800} h2{font-size:18px;font-weight:700} h3{font-size:15px;font-weight:700}
+.num,td.n,th.n{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)} .small{font-size:12px}
+.lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+button,.btn{font:600 13px var(--f-body);border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:7px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,.drop:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button.ghost{background:transparent}
+input,select{font:13px var(--f-body);color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:5px 7px;min-width:0}
+input.cell{width:92px;text-align:right;font-family:var(--f-num)}
+/* topp */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:14px 10px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3) var(--s4)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.plate{display:inline-flex;align-items:stretch;border:2px solid var(--ink);border-radius:5px;overflow:hidden;font:700 13px var(--f-num);letter-spacing:.06em}
+.plate i{background:var(--accent);color:var(--accent-ink);font-style:normal;font-size:9px;padding:2px 4px;display:flex;align-items:flex-end}
+.plate b{padding:2px 7px;background:var(--panel)}
+.co{display:flex;flex-direction:column;min-width:0}
+.co small{color:var(--muted)}
+.spacer{flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600;background:var(--panel2);border:1px solid var(--line);white-space:nowrap}
+.chip.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.chip.warn{background:var(--sign-soft);color:var(--sign-ink);border-color:transparent}
+.chip.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+.chip.dag{background:var(--sign-soft);color:var(--sign-ink);border-color:transparent}
+.chip.natt{background:var(--night-soft);color:var(--night);border-color:transparent}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+/* import */
+.imports{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s3)}
+.drop{position:relative;border:1.5px dashed var(--line);border-radius:var(--r);padding:12px 14px;background:var(--panel);display:flex;gap:12px;align-items:center;min-width:0;transition:border-color .15s,background .15s}
+.drop.on{border-color:var(--accent);background:var(--accent-soft)}
+.drop.done{border-style:solid;border-color:var(--ok)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.drop .ic{flex:none;width:34px;height:34px;border-radius:8px;display:grid;place-items:center;background:var(--panel2);font:700 11px var(--f-num);color:var(--muted)}
+.drop.done .ic{background:var(--ok-soft);color:var(--ok)}
+.drop div{min-width:0}
+.drop strong{display:block;font-size:13px}
+.drop span{display:block;font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.banner{border-radius:var(--r);padding:10px 14px;background:var(--sign-soft);color:var(--sign-ink);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.banner b{font-weight:700}
+/* flikar */
+.tabs{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--line);scrollbar-width:none}
+.tab{border:0;border-bottom:3px solid transparent;border-radius:0;background:transparent;padding:10px 14px;color:var(--muted);white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab .cnt{font:600 11px var(--f-num);background:var(--sign-soft);color:var(--sign-ink);border-radius:999px;padding:0 6px}
+section.view{display:flex;flex-direction:column;gap:var(--s4)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4);min-width:0}
+.panel-h{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2) var(--s3);margin-bottom:var(--s3)}
+/* kpi */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.kpi{background:var(--panel);padding:14px 16px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.kpi .v{font:600 22px var(--f-num);font-variant-numeric:tabular-nums;letter-spacing:-.02em;white-space:nowrap}
+.kpi .s{font-size:12px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--s4)}
+@media (max-width:860px){.grid2{grid-template-columns:minmax(0,1fr)}}
+/* tabeller */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line2);text-align:left;white-space:nowrap;vertical-align:middle}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;background:var(--panel2);position:sticky;top:0}
+td.n,th.n{text-align:right}
+tr.sum td{font-weight:700;background:var(--panel2);border-top:1px solid var(--line)}
+tr.wk td{background:var(--accent-soft);font-weight:600}
+tbody tr:hover td{background:var(--panel2)}
+td.neg{color:var(--bad)}
+.name{display:flex;flex-direction:column}
+.name small{color:var(--muted);font-family:var(--f-num);font-size:11px}
+.grpd{border-left:2px solid var(--sign)} .grpn{border-left:2px solid var(--night)}
+th.grpd{color:var(--sign-ink)} th.grpn{color:var(--night)}
+/* bars */
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar{display:grid;grid-template-columns:92px minmax(0,1fr) 112px;gap:10px;align-items:center;font-size:13px}
+.track{height:14px;border-radius:4px;background:var(--panel2);display:flex;overflow:hidden}
+.track i{display:block;height:100%}
+.track i.d{background:var(--sign)} .track i.nn{background:var(--night)}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+/* ldl-rader */
+.ldl{font:12.5px/1.6 var(--f-num);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;white-space:pre;overflow-x:auto}
+details>summary{cursor:pointer;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+.drv{border-top:1px solid var(--line2);padding-block:10px}
+.drv:first-child{border-top:0}
+.drv-h{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.drv-h .nm{min-width:180px;flex:1}
+.drv-h .fig{display:flex;flex-direction:column;align-items:flex-end;min-width:96px}
+.drv-h .fig b{font:600 14px var(--f-num)}
+.drv-b{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4);padding-top:12px}
+@media (max-width:760px){.drv-b{grid-template-columns:minmax(0,1fr)}}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.form label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--muted)}
+.form input,.form select{width:100%}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;border-radius:0;background:transparent}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.note{font-size:12px;color:var(--muted);max-width:70ch}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 14px;border-radius:8px;font-weight:600;font-size:13px;z-index:20}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:520px){.kpi .v{font-size:19px}.bar{grid-template-columns:70px minmax(0,1fr) 92px}}
+.ctip{position:absolute;background:var(--ink);color:var(--bg);padding:6px 9px;border-radius:6px;font-size:12px;line-height:1.4;pointer-events:none;white-space:nowrap;z-index:5;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="plate" aria-hidden="true"><i>S</i><b id="plateTxt">ÅKARE</b></span>
+      <div class="co"><h1>Åkarkassan</h1><small id="coName">Demo Åkeri AB</small></div>
+    </div>
+    <div class="chips" id="statusChips"></div>
+    <div class="spacer"></div>
+    <button id="btnExport" class="primary" hidden>Exportera Excel</button>
+  </header>
+
+  <div class="imports" id="imports">
+    <label class="drop" id="dropLdl"><input type="file" id="fLdl" accept=".txt,.csv,text/plain"><span class="ic">LDL</span><div><strong>Löneunderlag från Megtax</strong><span id="sLdl">Löneunderlag, 1:a till 1:a nästa månad, Skapa LDL fil</span></div></label>
+    <label class="drop" id="dropBro"><input type="file" id="fBro" accept="application/pdf,.pdf"><span class="ic">BRO</span><div><strong>Øresundsbron samlingsfaktura</strong><span id="sBro">PDF med bro och CPH-avgifter</span></div></label>
+    <label class="drop" id="dropAvr"><input type="file" id="fAvr" accept="application/pdf,.pdf"><span class="ic">TM</span><div><strong>Avräkning från Taxi Malmö</strong><span id="sAvr">Fakturan med kontokort, krediter och avgifter</span></div></label>
+    <label class="drop" id="dropStu"><input type="file" id="fStu" accept="application/pdf,.pdf"><span class="ic">MMX</span><div><strong>Sturup, Swedavia</strong><span id="sStu">PDF med passager per bil</span></div></label>
+  </div>
+  <div id="banner"></div>
+
+  <nav class="tabs" role="tablist" id="tabs"></nav>
+  <main id="main"></main>
+</div>
+<div id="toast" class="toast" hidden></div>
+
+<script src="../../shared/claude-shim.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+/* ===== Åkarkassan beräkningsmotor (ren JS, inga beroenden) ===== */
+const ENG = (() => {
+  const DEF = {
+    procent: 35, semester: 12, utbetDag: 25, utbetDagProv: 10, utbSamma: true, kontEfterFran: '2026-10', broAndel: 35, broPris: 201, cphPris: 17.04, inklPickup: true, inklSturup: true, bomBortLon: true,
+    momsKlass: [25, 12, 6, 0, 0], dagStart: 4, dagSlut: 16,
+    redovForarandel: 40, agAvgift: 31.42, broMarginalMin: 20
+  };
+  const r2 = x => Math.round((x + Number.EPSILON) * 100) / 100;
+  const pad = n => String(n).padStart(2, '0');
+  const normReg = s => String(s || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const toDate = s => { const m = String(s).match(/(\d{4})-(\d\d)-(\d\d)[ T]+(\d\d):(\d\d)(?::(\d\d))?/); return m ? new Date(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +(m[6] || 0)) : null; };
+  const dstr = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  const tstr = d => pad(d.getHours()) + ':' + pad(d.getMinutes());
+  const isoWeek = d => { const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1)); return Math.ceil(((t - y0) / 864e5 + 1) / 7); };
+
+  function decode(buf) {
+    try { return new TextDecoder('utf-8', { fatal: true }).decode(buf); }
+    catch (e) { return new TextDecoder('windows-1252').decode(buf); }
+  }
+
+  /* Megtax/FlexMate löneunderlag (LDL.txt). Belopp i öre. */
+  function parseLDL(text) {
+    const shifts = []; let cur = null; const warn = [];
+    text.split(/\r?\n/).forEach((line, i) => {
+      const f = line.split(';');
+      if (f[0] === '01' && f.length >= 30) {
+        const n = k => (+f[k] || 0) / 100;
+        const s = {
+          id: f[6] + '-' + f[1] + '-' + f[2], rap: f[1], start: f[2], slut: f[3], rast: +f[4] || 0,
+          forare: f[5], bilId: f[6], regnr: (f[7] || '').trim(), reg: normReg(f[7]), orgnr: f[8], foretag: f[9],
+          turer: +f[12] || 0, passKm: (+f[13] || 0) / 10, betKm: (+f[14] || 0) / 10,
+          kont: n(15), kred: n(16), kontDricks: n(17), kredDricks: n(18),
+          kontKl: [n(20), n(21), n(22), n(23), n(24)], kredKl: [n(25), n(26), n(27), n(28), n(29)], pay: []
+        };
+        const a = toDate(s.start), b = toDate(s.slut);
+        if (!a || !b) { warn.push('Rad ' + (i + 1) + ': kunde inte läsa tider'); cur = null; return; }
+        s.a = a; s.b = b; s.tim = Math.max(0, (b - a) / 36e5 - s.rast / 60);
+        if (s.kont + s.kred === 0 && s.turer === 0) { cur = null; return; } // tomma testpass
+        shifts.push(s); cur = s;
+      } else if (f[0] === '02' && cur) {
+        const vals = f.slice(1).map(x => x.trim()).filter(x => x !== '');
+        const count = +vals[vals.length - 1] || 0, amount = (+vals[vals.length - 2] || 0) / 100;
+        cur.pay.push({ kod: vals[0], namn: vals.slice(1, vals.length - 2).join(' ') || vals[0], belopp: amount, antal: count });
+        if (vals[0] === '999') cur.bom = (cur.bom || 0) + amount;
+      }
+    });
+    return { shifts, warn };
+  }
+
+  /* Rader från en Øresundsbro-faktura (text per rad). */
+  function parseBro(lines) {
+    let kurs = null; const rows = [];
+    for (const l of lines) {
+      const k = l.match(/DKK\s+[\d\s]+,\d\d\s+(\d{1,3},\d{2})\s+25,00/);
+      if (k && !kurs) kurs = parseFloat(k[1].replace(',', '.'));
+      const m = l.match(/(\d{4}-\d\d-\d\d \d\d:\d\d:\d\d)(?:\s+(\d\d:\d\d:\d\d))?\s+(.+?)\s+(SEK|DKK)\s+([\d\s]*\d,\d\d)\s*$/);
+      if (!m) continue;
+      const rest = m[3];
+      const regM = rest.match(/\b([A-Z]{3}\s?\d{2}[A-Z0-9])\s*\//) || rest.match(/\b([A-Z]{3}\s?\d{2}[A-Z0-9])\b/);
+      const typ = /Klass|SV\/DK|DK\/SV/i.test(rest) ? 'bro' : 'avgift';
+      const desc = (rest.match(/(SV\/DK Klass \d|DK\/SV Klass \d|Pick-up fee[^A-Z]*Zone\d|Pick-up fee)/i) || [typ === 'bro' ? 'Bro' : 'Avgift'])[0];
+      rows.push({ ts: m[1], ts2: m[2] || null, t: toDate(m[1]), desc, reg: regM ? normReg(regM[1]) : '', typ, valuta: m[4], belopp: parseFloat(m[5].replace(/\s/g, '').replace(',', '.')), text: l.trim() });
+    }
+    return { rows, kurs: kurs || null };
+  }
+
+  /* Swedavia Malmö Airport (Sturup): block per bil, rader med in- och utpassage. Pris inkl moms. */
+  function parseSturup(lines) {
+    const rows = []; let reg = '', bil = '';
+    for (const l of lines) {
+      const h = l.match(/(?:Bil\s+(\d+)\s+)?\b([A-Z]{3}\s?\d{2}[A-Z0-9])\s+\(\d+\)/);
+      if (h) { reg = normReg(h[2]); bil = h[1] || ''; continue; }
+      const m = l.match(/(\d\d)\.(\d\d)\.(\d\d)\s+(\d\d):(\d\d)\s+(\d\d)\.(\d\d)\.(\d\d)\s+(\d\d):(\d\d).*?\s(\d+,\d\d)\s/);
+      if (!m || !reg) continue;
+      const t = new Date(2000 + +m[3], +m[2] - 1, +m[1], +m[4], +m[5]);
+      const ts = dstr(t) + ' ' + tstr(t) + ':00';
+      rows.push({ ts, t, ts2: null, desc: 'Sturup ' + (/förbokad/i.test(l) ? 'förbokad' : 'P5'), reg, bil, typ: 'sturup', valuta: 'SEK', belopp: parseFloat(m[11].replace(',', '.')), text: l.trim() });
+    }
+    return { rows };
+  }
+
+
+  /* Avräkning (faktura) från Taxi Malmö AB till åkeriet. */
+  function parseAvrakning(lines) {
+    const money = t => { const m = t.match(/(-?\d{1,3}(?: \d{3})*,\d\d)$/); return m ? parseFloat(m[1].replace(/\s/g, '').replace(',', '.')) : null; };
+    const rows = []; let nr = '', datum = '', attBetala = null;
+    for (const l0 of lines) {
+      const l = l0.trim();
+      const fn = l.match(/^(?:Fakturanummer\s+)?(\d{5})\s+\d{7}\s+(\d{4}-\d\d-\d\d)/) || l.match(/^Fakturanummer\s+(\d{5})$/); if (fn && !nr) nr = fn[1];
+      const fd = l.match(/Fakturadatum\s+(\d{4}-\d\d-\d\d)/); if (fd) datum = fd[1]; if (fn && fn[2]) datum = fn[2];
+      const ab = l.match(/^ATT BETALA(?: SEK)?\s+(-?[\d ]+,\d\d)$/); if (ab) attBetala = parseFloat(ab[1].replace(/\s/g, '').replace(',', '.'));
+      const m = l.match(/^(\d{1,2})\s+(.*)$/); if (!m) continue;
+      const art = +m[1]; if (![1, 8, 15, 16, 17, 50, 51, 52, 53, 54, 55, 59].includes(art)) continue;
+      let sum = money(m[2]); if (sum == null) continue;
+      const bil = (m[2].match(/[Bb]il (\d{3})/) || m[2].match(/^\D*\d{4}\s(\d{3})\s/) || [])[1] || '';
+      let antal = null;
+      if ([1, 8, 15, 16, 17].includes(art)) {
+        const ap = art <= 8 ? m[2].match(/(?:^|\s)(\d+) (\d{1,2} \d{3},\d\d|\d{1,3},\d\d) /) : m[2].match(/(?:^|\s)(\d+) (\d{1,3},\d\d) /);
+        if (ap) { antal = +ap[1]; const apris = parseFloat(ap[2].replace(/\s/g, '').replace(',', '.'));
+          const mm = m[2].match(/\s(\d) (\d{1,3}(?: \d{3})*,\d\d)$/); // en ensam momskod före summan
+          if (mm && Math.abs(antal * apris - sum) > 1) { const alt = parseFloat(mm[2].replace(/\s/g, '').replace(',', '.')); if (Math.abs(antal * apris - alt) < Math.abs(antal * apris - sum)) sum = alt; } }
+      }
+      const text = { 1: 'Växelavgift', 8: 'Taklampa hyra', 15: 'Sturup passeringar', 16: 'Øresundsbron', 17: 'CPH parkering', 50: 'Krediter persontransport', 51: 'Krediter bud', 52: 'Kontokort', 53: 'Serviceavgifter', 54: 'Krediter utland', 55: 'Appbetalningar', 59: 'Förskottsbetalning' }[art];
+      rows.push({ art, text, bil, antal, summa: sum });
+    }
+    return { nr, datum, attBetala, rows };
+  }
+
+
+  /* ===== Skatt och avgifter ===== */
+  // Skatteverkets textfil allmanna-tabeller-manad.txt: "30B33  15201  15300 2279 2186 1215 2279 3832 3832"
+  function parseSkattetabell(text) {
+    const T = {};
+    text.split(/\r?\n/).forEach(l => {
+      if (!/^30[B%]\d\d/.test(l)) return;
+      const tab = l.slice(3, 5), typ = l[2], to = +l.slice(12, 19), cols = [0, 1, 2, 3, 4, 5].map(i => +l.slice(19 + i * 5, 24 + i * 5));
+      const t = T[tab] = T[tab] || { B: [], P: [] }; (typ === 'B' ? t.B : t.P).push([to, ...cols]);
+    });
+    return T;
+  }
+  function packTabell(t) { return t.B.map(r => r.join(',')).join(';') + '|' + t.P.map(r => r.join(',')).join(';'); }
+  function unpackTabell(s) { if (!s) return null; const [b, p] = s.split('|'); const f = x => x ? x.split(';').map(r => r.split(',').map(Number)) : []; return { B: f(b), P: f(p) }; }
+  function compactTabell(s) { // "to:c1,..;%to:.." till {B,P}
+    const t = { B: [], P: [] }; s.trim().split(';').forEach(x => { const pct = x[0] === '%'; const [to, c] = x.replace('%', '').split(':'); (pct ? t.P : t.B).push([+to, ...c.split(',').map(Number)]); }); return t;
+  }
+  function tabellSkatt(t, kol, brutto) {
+    if (!t || brutto <= 0) return 0; const k = Math.min(6, Math.max(1, kol || 1)); const b = Math.floor(brutto);
+    if (t.B.length && b <= t.B[t.B.length - 1][0]) { const r = t.B.find(r => b <= r[0]); return r ? r[k] : 0; }
+    const r = t.P.find(r => r[0] === 0 || b <= r[0]) || t.P[t.P.length - 1]; return r ? Math.floor(b * r[k] / 100) : 0;
+  }
+  function fodelsear(pnr) { const m = String(pnr || '').replace(/\D/g, ''); if (m.length === 12) return +m.slice(0, 4); if (m.length === 10) { const yy = +m.slice(0, 2); const sekel = String(pnr).includes('+') ? 1900 : (yy > (new Date().getFullYear() % 100) ? 1900 : 2000); return sekel + yy; } return null; }
+  function skattekolumn(pnr, ar) { const f = fodelsear(pnr); return f && f <= ar - 67 ? 3 : 1; }
+  // Arbetsgivaravgift efter ålder vid årets ingång och utbetalningsmånad (yyyy-mm)
+  function agAvgift(pnr, brutto, utbMan) {
+    const ar = +utbMan.slice(0, 4), f = fodelsear(pnr);
+    if (!f) return { belopp: r2(brutto * 0.3142), sats: '31,42 %' };
+    if (f <= 1937) return { belopp: 0, sats: '0 %' };
+    if (f <= ar - 67) return { belopp: r2(brutto * 0.1021), sats: '10,21 %' };
+    const ung = f >= ar - 23 && f <= ar - 19 && utbMan >= '2026-04' && utbMan <= '2027-09';
+    if (ung) { const lag = Math.min(brutto, 25000); return { belopp: r2(lag * 0.2081 + (brutto - lag) * 0.3142), sats: '20,81 % upp till 25 000 kr' }; }
+    return { belopp: r2(brutto * 0.3142), sats: '31,42 %' };
+  }
+
+  function periodOf(d, cfg) { const h = d.getHours() + d.getMinutes() / 60; return (h >= cfg.dagStart && h < cfg.dagSlut) ? 'dag' : 'natt'; }
+  /* Dag/kväll per Megtax-pass. Grund: passets mitt. Sedan inloggningsordningen i bilen: tar en förare över bilen
+     (inloggning inom 3 tim efter förra utloggningen) och båda passen hamnat på samma sida, blir det första dagpass
+     och det som tar över kvällspass. Hela passet räknas alltid till en sida, inkörningen delas aldrig vid ett klockslag. */
+  const PER = new WeakMap();
+  const midPeriod = (s, cfg) => periodOf(new Date((s.a.getTime() + s.b.getTime()) / 2), cfg);
+  function markPeriods(shifts, cfg) {
+    const by = {}; shifts.forEach(s => { PER.set(s, midPeriod(s, cfg)); (by[s.reg] = by[s.reg] || []).push(s); });
+    Object.values(by).forEach(l => { l.sort((x, y) => x.a - y.a); for (let i = 1; i < l.length; i++) {
+      const x = l[i - 1], y = l[i], gap = y.a - x.b; if (gap < -18e5 || gap > 3 * 36e5 || x.forare === y.forare) continue;
+      const px = PER.get(x), py = PER.get(y);
+      if (px === 'dag' && py === 'dag' && (dstr(y.b) !== dstr(y.a) || y.b.getHours() >= cfg.dagSlut)) PER.set(y, 'natt');
+      else if (px === 'natt' && py === 'natt' && dstr(x.a) === dstr(y.a) && x.a.getHours() >= cfg.dagStart && x.a.getHours() < cfg.dagSlut) PER.set(x, 'dag');
+    } });
+  }
+  function shiftPeriod(s, cfg) { return PER.get(s) || midPeriod(s, cfg); }
+  function exkl(s, cfg) { let e = 0; for (let c = 0; c < 5; c++) e += (s.kontKl[c] + s.kredKl[c]) / (1 + cfg.momsKlass[c] / 100); return e; }
+
+  /* Koppla passager till pass enbart på Megtax start- och sluttid för samma bil.
+     1) passagen ligger inom passet, 2) annars inom marginalen före start eller efter slut (närmaste pass vinner),
+     3) annars ingen förare: passagen läggs i "Passager utan förare" med närmaste pass som förslag. Ingen dag/natt-regel. */
+  function matchBro(passages, shifts, cfg, overrides) {
+    const byReg = {}; shifts.forEach(s => (byReg[s.reg] = byReg[s.reg] || []).push(s));
+    const mg = (cfg.broMarginalMin || 0) * 6e4;
+    const dist = (t, x) => t < x.a ? x.a - t : t > x.b ? t - x.b : 0;
+    return passages.map(p => {
+      const key = p.ts + '|' + p.reg + '|' + p.typ;
+      const o = { ...p, key, period: p.t ? periodOf(p.t, cfg) : '', shift: null, forare: null, metod: 'omatchad', forslag: null };
+      const list = byReg[p.reg] || [];
+      let s = null;
+      if (p.t) {
+        const inne = list.filter(x => p.t >= x.a && p.t <= x.b).sort((x, y) => y.a - x.a);
+        if (inne.length) { s = inne[0]; o.metod = 'pass'; }
+        else {
+          const nara = list.map(x => [x, dist(p.t, x)]).sort((x, y) => x[1] - y[1]);
+          const inom = nara.filter(x => x[1] <= mg);
+          if (inom.length === 1 || (inom.length > 1 && inom[0][0].forare === inom[1][0].forare)) { s = inom[0][0]; o.metod = 'marginal'; }
+          else if (nara.length && nara[0][1] <= 12 * 36e5) { const x = nara[0][0]; o.forslag = { forare: x.forare, start: x.start, slut: x.slut, min: Math.round(nara[0][1] / 6e4), annan: inom.length > 1 ? inom[1][0].forare : null }; }
+        }
+      }
+      if (s) { o.shift = s.id; o.forare = s.forare; o.period = shiftPeriod(s, cfg); } // dag/kväll enligt passet i Megtax, inte klockslaget
+      if (overrides && overrides[key] !== undefined) { o.forare = overrides[key] || null; o.metod = overrides[key] ? 'manuell' : 'omatchad'; }
+      return o;
+    });
+  }
+
+  /* ---------- Lönearter (register enligt LDL TaxiLöns numrering) ----------
+     REGISTERVERSION 2 (2026-10-11). Blocket är identiskt i Åkarkassan och Tripkassan och ändras i båda samtidigt.
+     Ändringslogg:
+       v2 2026-10-11  Egna lönearter per bolag (settings.cfg.lonearterEgna). lonearter(own, egna) och laRader(rader, own, manadslon, egna).
+                      En egen art får inte ha ett nummer som finns i registret, är på från början och sorteras in efter nummer.
+                      Fältet konto på en egen art används bara av Tripkassan, som har bokföring. Åkarkassan ignorerar det.
+       v1 2026-10-11  Första registret, fas 1 enligt LDL TaxiLöns numrering.
+     typ: auto = räknas av appen, belopp = fast belopp, antal = antal × à-pris, faktor = antal × månadslön × faktor.
+     sida: brutto = kontant lön (skatt, avgift, AGI 011), formon = förmån (skatt och avgift, betalas inte ut, AGI 012),
+     skattefri = betalas ut utan skatt och avgift (t.ex. traktamente AGI 051), skatt = extra skatteavdrag (AGI 001),
+     netto = justering efter skatt, info = visas bara. sem = semestergrundande. Registret är detsamma för alla bolag,
+     varje bolag slår på det det använder (settings.cfg.lonearter) och kan lägga till egna (settings.cfg.lonearterEgna). */
+  const LA = [
+    { nr: '001', namn: 'Månadslön', typ: 'auto', sida: 'brutto', agi: '011', sem: 0, fas: 1 },
+    { nr: '004', namn: 'Timlön', typ: 'antal', apris: 0, enhet: 'tim', sida: 'brutto', agi: '011', sem: 1 },
+    { nr: '005', namn: 'Per km', typ: 'antal', apris: 2.00, enhet: 'km', sida: 'brutto', agi: '011', sem: 1 },
+    { nr: '006', namn: 'Per betald km', typ: 'antal', apris: 1.33, enhet: 'km', sida: 'brutto', agi: '011', sem: 1 },
+    { nr: '007', namn: 'Per påslag', typ: 'antal', apris: 6.30, enhet: 'st', sida: 'brutto', agi: '011', sem: 1 },
+    { nr: '008', namn: 'Kontanter i bilen, kvittas', typ: 'auto', sida: 'netto', agi: '', sem: 0, fas: 1 },
+    { nr: '009', namn: 'Bro, Sturup och CPH', typ: 'auto', sida: 'brutto', agi: '011', sem: 1, fas: 1 },
+    { nr: '010', namn: 'Bonus', typ: 'auto', sida: 'brutto', agi: '011', sem: 0, fas: 1 },
+    { nr: '020', namn: 'Procentlön', typ: 'auto', sida: 'brutto', agi: '011', sem: 1, fas: 1 },
+    { nr: '025', namn: 'Garantilön', typ: 'belopp', sida: 'brutto', agi: '011', sem: 1 },
+    { nr: '081', namn: 'Beklädnadsersättning', typ: 'antal', apris: 4.59, enhet: 'dag', sida: 'brutto', agi: '011', sem: 0 },
+    { nr: '082', namn: 'Tvättillägg', typ: 'antal', apris: 3.42, enhet: 'dag', sida: 'brutto', agi: '011', sem: 0 },
+    { nr: '083', namn: 'Premiekompensation', typ: 'antal', apris: 11.00, enhet: 'st', sida: 'brutto', agi: '011', sem: 0 },
+    { nr: '084', namn: 'Verkstadsbesök', typ: 'antal', apris: 108.73, enhet: 'st', sida: 'brutto', agi: '011', sem: 1 },
+    { nr: '085', namn: 'Ersättning överskjutande pass', typ: 'antal', apris: 12.46, enhet: 'st', sida: 'brutto', agi: '011', sem: 1 },
+    { nr: '088', namn: 'Havandeskapslön', typ: 'antal', apris: 10.68, enhet: 'tim', sida: 'brutto', agi: '011', sem: 1 },
+    { nr: '090', namn: 'Sjuklön', typ: 'belopp', sida: 'brutto', agi: '011', sem: 1, fas: 1 },
+    { nr: '091', namn: 'Karensavdrag', typ: 'belopp', neg: 1, sida: 'brutto', agi: '011', sem: 1, fas: 1, hjalp: '20 % av en genomsnittlig veckas sjuklön (6 § sjuklönelagen)' },
+    { nr: '201', namn: 'OB-tillägg', typ: 'antal', apris: 24.27, enhet: 'tim', sida: 'brutto', agi: '011', sem: 1, fas: 1 },
+    { nr: '202', namn: 'Kvalificerat OB', typ: 'antal', apris: 40.58, enhet: 'tim', sida: 'brutto', agi: '011', sem: 1, fas: 1 },
+    { nr: '410', namn: 'Semesterlön', typ: 'belopp', sida: 'brutto', agi: '011', sem: 0, fas: 1 },
+    { nr: '420', namn: 'Semesterersättning', typ: 'auto', sida: 'brutto', agi: '011', sem: 0, fas: 1 },
+    { nr: '480', namn: 'Avdrag obetald semester', typ: 'faktor', faktor: -0.046, enhet: 'dag', sida: 'brutto', agi: '011', sem: 0, fas: 1, hjalp: '4,6 % av månadslönen per dag (semesterlagen 16 b §)' },
+    { nr: '485', namn: 'Semestertillägg 0,8 %', typ: 'faktor', faktor: 0.008, enhet: 'dag', sida: 'brutto', agi: '011', sem: 0, fas: 1, hjalp: '0,8 % av månadslönen per betald semesterdag (semesterlagen 16 a §)' },
+    { nr: '510', namn: 'Traktamente, skattefritt', typ: 'antal', apris: 180, enhet: 'dag', sida: 'skattefri', agi: '051', sem: 0, fas: 1, hjalp: 'Bara vid tjänsteresa med övernattning mer än 50 km från vanliga verksamhetsorten och bostaden, med reseräkning. Högst 300 kr per hel dag 2026. Redovisas med kryss i AGI-ruta 051, inte med belopp. Uppfylls inte villkoren: använd 511 (Skatteverket).' },
+    { nr: '511', namn: 'Traktamente, skattepliktigt', typ: 'belopp', sida: 'brutto', agi: '011', sem: 0, fas: 1, hjalp: 'Redovisas som lön i ruta 011 (i LDL felaktigt på 051)' },
+    { nr: '530', namn: 'Förmån', typ: 'belopp', sida: 'formon', agi: '012', sem: 0, fas: 1 },
+    { nr: '804', namn: 'Inkört exkl. moms', typ: 'auto', sida: 'info', agi: '', sem: 0, fas: 1 },
+    { nr: '912', namn: 'Tabellskatt', typ: 'auto', sida: 'skatt', agi: '001', sem: 0, fas: 1 },
+    { nr: '915', namn: 'Frivillig extra skatt', typ: 'belopp', sida: 'skatt', agi: '001', sem: 0, fas: 1 },
+    { nr: '970', namn: 'Avdrag löneförskott', typ: 'auto', sida: 'netto', agi: '', sem: 0, fas: 1 },
+    { nr: '990', namn: 'Avrundning', typ: 'auto', sida: 'brutto', agi: '011', sem: 0, fas: 1 },
+    { nr: '991', namn: 'Nettolönejustering', typ: 'belopp', sida: 'netto', agi: '', sem: 0, fas: 1 }
+  ];
+  const LA_VER = 2;
+  const LAx = Object.fromEntries(LA.map(a => [a.nr, a]));
+  /* Lönearter som bolaget använt: register + bolagets egna inställningar (aktiv, à-pris). Fas 1-arterna är på från början. */
+  /* egna = bolagets egna lönearter [{ nr, namn, typ, apris, enhet, sida, agi, sem, konto }] */
+  function lonearter(own, egna) {
+    own = own || {};
+    const E = (egna || []).filter(e => e && e.nr && !LAx[e.nr]).map(e => ({ ...e, egen: 1, fas: 1 }));
+    return [...LA, ...E].sort((x, y) => x.nr.localeCompare(y.nr)).map(a => ({ ...a, ...(own[a.nr] || {}), aktiv: own[a.nr]?.aktiv ?? !!a.fas }));
+  }
+  /* Manuella lönerader för en förare: [{ nr, antal, apris, belopp, text }] → beräknade rader. */
+  function laRader(rader, own, manadslon, egna) {
+    const L = Object.fromEntries(lonearter(own, egna).map(a => [a.nr, a]));
+    return (rader || []).map(x => {
+      const a = L[x.nr]; if (!a || a.typ === 'auto') return null;
+      let antal = 1, apris = 0, belopp = 0;
+      if (a.typ === 'antal') { antal = +x.antal || 0; apris = x.apris !== undefined && x.apris !== '' ? +x.apris : (a.apris || 0); belopp = antal * apris; }
+      else if (a.typ === 'faktor') { antal = +x.antal || 0; apris = r2((manadslon || 0) * a.faktor); belopp = antal * apris; }
+      else { belopp = a.neg ? -Math.abs(+x.belopp || 0) : (+x.belopp || 0); apris = belopp; }
+      return { kod: a.nr, text: x.text || a.namn, antal, apris: r2(apris), belopp: r2(belopp), sida: a.sida, agi: a.agi, sem: !!a.sem };
+    }).filter(Boolean);
+  }
+  function compute(shifts, passages, cfg0, month) {
+    const cfg = { ...DEF, ...(cfg0 || {}) }; month = month || {};
+    const man = month.forare || {};
+    markPeriods(shifts, cfg);
+    const bro = matchBro(passages || [], shifts, cfg, month.overrides || {});
+    const kost = p => p.typ === 'bro' ? cfg.broPris : p.typ === 'sturup' ? r2(p.belopp / 1.25) : cfg.cphPris;
+    const iLon = p => p.typ === 'bro' || (p.typ === 'sturup' ? cfg.inklSturup : cfg.inklPickup);
+    const drivers = {};
+    const D = id => drivers[id] = drivers[id] || { id, pass: 0, tim: 0, ink: 0, exkl: 0, kont: 0, kred: 0, kontDr: 0, kredDr: 0, km: 0, betKm: 0, bom: 0, bud: 0, broN: 0, cphN: 0, stuN: 0, broSek: 0, bilar: new Set(), pay: {} };
+    shifts.forEach(s => {
+      const d = D(s.forare); d.pass++; d.tim += s.tim; d.ink += s.kont + s.kred; d.exkl += exkl(s, cfg);
+      d.kont += s.kont; d.kred += s.kred; d.kontDr += s.kontDricks; d.kredDr += s.kredDricks; d.km += s.passKm; d.betKm += s.betKm; d.bom += s.bom || 0; d.bud += s.kontKl[0] + s.kredKl[0]; d.bilar.add(s.regnr);
+      s.pay.forEach(p => d.pay[p.namn] = (d.pay[p.namn] || 0) + p.belopp);
+    });
+    bro.forEach(p => { p.kost = kost(p); p.iLon = iLon(p); if (!p.forare) return; const d = D(p.forare);
+      if (p.typ === 'bro') d.broN++; else if (p.typ === 'sturup') d.stuN++; else d.cphN++;
+      if (p.iLon) d.broSek += p.kost; });
+    Object.keys(man).forEach(id => { if (man[id].modell === 'fast') D(id); }); // fast månadslön utan körpass
+    const rows = Object.values(drivers).map(d => {
+      const m = man[d.id] || {};
+      const modell = m.modell || 'procent';
+      const bomEx = cfg.bomBortLon ? r2(d.bom / (1 + cfg.momsKlass[2] / 100)) : 0;
+      const boltProv = r2((+m.boltProv || 0) + (+m.uberProv || 0)); const exk = r2(d.exkl - bomEx - boltProv); // plattformsavgift Bolt + Uber
+      const proc = modell === 'procent' ? r2(exk * cfg.procent / 100) : 0;
+      const broAvdr = modell === 'procent' ? r2(d.broSek * cfg.broAndel / 100) : 0;
+      const ob = +m.ob || 0, bonus = +m.bonus || 0, fast = modell === 'fast' ? (+m.manadslon || 0) : 0;
+      const extra = modell === 'ingen' ? [] : laRader(m.rader, cfg.lonearter, +m.manadslon || 0, cfg.lonearterEgna); const ex = k => r2(extra.filter(x => x.sida === k).reduce((a, x) => a + x.belopp, 0));
+      const exBrutto = ex('brutto'), exSem = r2(extra.filter(x => x.sida === 'brutto' && x.sem).reduce((a, x) => a + x.belopp, 0));
+      const sem = modell === 'procent' ? r2((proc - broAvdr + ob + exSem) * cfg.semester / 100) : (modell === 'fast' && m.semFast ? r2((fast + exSem) * cfg.semester / 100) : 0);
+      const brutto = r2(proc - broAvdr + sem + ob + bonus + fast + exBrutto);
+      const formon = ex('formon'), skattefri = ex('skattefri'), extraSkatt = ex('skatt'), nettoJust = ex('netto');
+      const kontant = m.kontant !== undefined && m.kontant !== '' && m.kontant !== null ? +m.kontant : r2(d.kont);
+      return { ...d, bilar: [...d.bilar], modell, exklMegtax: r2(d.exkl), bomEx, exkl: exk, proc, broAvdr, broApris: r2(d.broSek), sem, ob, bonus, fast, brutto,
+        agAvg: r2((brutto + formon) * cfg.agAvgift / 100), extra, formon, skattefri, extraSkatt, nettoJust, kontant, forskott: +m.forskott || 0, boltProv, ink: r2(d.ink) };
+    }).sort((a, b) => b.ink - a.ink);
+
+    /* Kassaredovisning per bil, dag för dag, dag/natt (som Excelmallen). */
+    const bilar = {};
+    shifts.forEach(s => {
+      const per = shiftPeriod(s, cfg); const day = new Date(s.a); if (per === 'natt' && s.a.getHours() < cfg.dagStart) day.setDate(day.getDate() - 1);
+      const b = bilar[s.reg] = bilar[s.reg] || { reg: s.reg, regnr: s.regnr, bilId: s.bilId, dagar: {} };
+      const ds = dstr(day); const dd = b.dagar[ds] = b.dagar[ds] || { datum: ds, vecka: isoWeek(day), wd: day.getDay(), dag: null, natt: null };
+      const c = dd[per] = dd[per] || { kassa: 0, kont: 0, kred: 0, bro: 0, broN: 0, stu: 0, stuN: 0, forare: new Set(), pass: [] };
+      c.kassa += s.kont + s.kred; c.kont += s.kont; c.kred += s.kred; c.forare.add(s.forare); c.pass.push(s.id);
+    });
+    bro.forEach(p => {
+      if (!p.shift) return; const s = shifts.find(x => x.id === p.shift); if (!s) return;
+      const per = shiftPeriod(s, cfg); const day = new Date(s.a); if (per === 'natt' && s.a.getHours() < cfg.dagStart) day.setDate(day.getDate() - 1);
+      const c = bilar[s.reg].dagar[dstr(day)][per];
+      if (p.typ === 'sturup') { c.stu += p.kost; c.stuN++; } else { c.bro += p.kost; if (p.typ === 'bro') c.broN++; }
+    });
+    const andel = 1 - cfg.redovForarandel / 100;
+    Object.values(bilar).forEach(b => Object.values(b.dagar).forEach(dd => ['dag', 'natt'].forEach(k => {
+      const c = dd[k]; if (!c) return; c.forare = [...c.forare];
+      c.exBro = c.kassa - c.bro - c.stu; c.andel = c.exBro * andel; c.hosForare = c.andel + c.bro + c.stu - c.kred; // = kontant minus förarens andel
+    })));
+    return { cfg, rows, bro, bilar };
+  }
+
+  return { DEF, LA, LA_VER, lonearter, laRader, parseLDL, parseBro, parseSturup, parseAvrakning, parseSkattetabell, packTabell, unpackTabell, compactTabell, tabellSkatt, fodelsear, skattekolumn, agAvgift, compute, decode, normReg, toDate, dstr, tstr, isoWeek, periodOf, shiftPeriod, exkl, r2 };
+})();
+if (typeof module !== 'undefined') module.exports = ENG;
+
+</script>
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const el = (t, a = {}, ...kids) => { const e = document.createElement(t); for (const [k, v] of Object.entries(a)) { if (v == null || v === false) continue; if (k === 'class') e.className = v; else if (k === 'html') e.innerHTML = v; else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v === true ? '' : v); } kids.flat().forEach(k => k != null && e.append(k.nodeType ? k : document.createTextNode(k))); return e; };
+const nf0 = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 0 });
+const nf2 = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const kr = (x, d) => (d ? nf2 : nf0).format(x || 0);
+const krs = (x, d) => kr(x, d) + ' kr';
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const WD = ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'];
+const MON = ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december'];
+function toast(t) { const e = $('#toast'); e.textContent = t; e.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => e.hidden = true, 2600); }
+
+/* ---------- tillstånd ---------- */
+const S = {
+  settings: { foretag: 'Demo Åkeri AB', cfg: {}, forare: {}, bilar: {} },
+  shifts: [], passages: { bro: [], stu: [] }, files: {}, month: { forare: {}, overrides: {} },
+  demo: true, tab: 'oversikt', bil: null, ldlFilter: '', db: null, uid: null
+};
+try { const t = localStorage.getItem('ak_tab'); if (t) S.tab = t; } catch (e) {}
+
+/* ---------- lagring: db per inloggad användare, annars webbläsaren ---------- */
+// Data från databasen är skrivskyddad (frusen). Kopiera innan appen ändrar i den, annars avbryts sparningen tyst.
+const clone = x => x == null ? x : JSON.parse(JSON.stringify(x));
+const stable = x => JSON.stringify(x, (k, v) => v && typeof v === 'object' && !Array.isArray(v) ? Object.keys(v).sort().reduce((o, q) => (o[q] = v[q], o), {}) : v);
+async function initStore() {
+  try {
+    const db = await window.claude?.use?.('db'); const user = await window.claude?.use?.('user');
+    if (db && user) { const uid = await user.id(); if (uid) { S.db = db; S.uid = uid; } }
+  } catch (e) {}
+  let loaded = null;
+  if (S.db) {
+    try { const d = await S.db.collection('data/users/' + S.uid).doc('settings').get(); if (d.exists) loaded = clone(d.data()); } catch (e) {}
+    if (!loaded) { try { const sd = await S.db.doc('seed/demo').get(); if (sd.exists) loaded = clone(sd.data()); } catch (e) {} }
+  }
+  if (!loaded) { try { const ls = localStorage.getItem('ak_settings'); if (ls) loaded = JSON.parse(ls); } catch (e) {} }
+  if (loaded) S.settings = { ...S.settings, ...loaded, cfg: { ...(loaded.cfg || {}) }, forare: { ...(loaded.forare || {}) }, bilar: { ...(loaded.bilar || {}) } };
+  S.hasSettings = !!loaded;
+  try { await avPreload(); } catch (e) {}
+  if (S.db) { try { const d = await S.db.collection('data/users/' + S.uid).doc('skatt').get(); if (d.exists) { const x = clone(d.data()); S.skatt = x.tabeller || {}; S.skattAr = x.ar; } } catch (e) {} }
+  if (!S.skatt) { try { const ls = localStorage.getItem('ak_skatt'); if (ls) { const x = JSON.parse(ls); S.skatt = x.tabeller; S.skattAr = x.ar; } } catch (e) {} }
+  if (S.db) { try { const d = await S.db.collection('data/users/' + S.uid).doc('ekonomi-2026').get(); if (d.exists) S.eko = clone(d.data()); } catch (e) {} }
+  if (!S.eko) { try { const ls = localStorage.getItem('ak_eko'); if (ls) S.eko = JSON.parse(ls); } catch (e) {} }
+  await listMonths();
+  if (S.months.length) { await openMonth(S.months[S.months.length - 1]); return; }
+  if (S.hasSettings) { S.demo = false; S.shifts = []; S.passages = { bro: [], stu: [] }; S.period = null; }
+  render();
+}
+let saveT = null;
+function saveSettings() {
+  clearTimeout(saveT); saveT = setTimeout(async () => {
+    try { localStorage.setItem('ak_settings', JSON.stringify(S.settings)); } catch (e) {}
+    if (S.db) {
+      const data = JSON.parse(JSON.stringify(S.settings));
+      try { await S.db.collection('data/users/' + S.uid).doc('settings').set(data); } catch (e) { S.saveFel = true; render(); toast('Kunde inte spara inställningarna: ' + (e.message || e.code)); return; }
+      try { const d = await S.db.collection('data/users/' + S.uid).doc('settings').get(); const ok = d.exists && stable(d.data().forare || {}) === stable(data.forare || {}); if (!ok) { S.saveFel = true; render(); toast('Ändringen sparades inte på kontot. Ladda om sidan och försök igen.'); return; } if (S.saveFel) { S.saveFel = false; render(); } } catch (e) {}
+    }
+  }, 500);
+}
+const monthKey = () => S.period ? 'm-' + S.period : null;
+const packP = rows => rows.map(p => [p.ts, p.desc, p.reg, p.typ, p.valuta, p.belopp]);
+const unpackP = rows => (rows || []).map(a => ({ ts: a[0], t: ENG.toDate(a[0]), desc: a[1], reg: a[2], typ: a[3], valuta: a[4], belopp: a[5] }));
+function storePassages() { const regs = ownRegs(); const own = r => regs.size ? r.filter(p => regs.has(p.reg)) : r; S.month.bro = packP(own(S.passages.bro)); S.month.stu = packP(own(S.passages.stu)); S.month.files = { ...S.files }; saveMonth(); }
+/* Felinloggade förarnummer: settings.alias = { fel: rätt }. Megtax-numret sparas i s.forareMegtax. */
+function applyAlias(shifts) { const A = S.settings.alias || {}; shifts.forEach(s => { if (s.forareMegtax == null) s.forareMegtax = s.forare; s.forare = A[s.forareMegtax] || s.forareMegtax; }); return shifts; }
+function hydrate(m) {
+  const r = ENG.parseLDL(m.ldl); S.demo = false; S.shifts = applyAlias(r.shifts.filter(s => monthOf(s.a) === S.period));
+  S.passages = { bro: unpackP(m.bro), stu: unpackP(m.stu) }; S.files = { ...(m.files || {}) }; S.avr = m.avr || null;
+}
+const monthOf = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+const prevPer = per => { const y = +per.slice(0, 4), m = +per.slice(5); return m === 1 ? (y - 1) + '-12' : y + '-' + String(m - 1).padStart(2, '0'); };
+/* Månadslön betalas ut den 25:e, innan månadens kontanter är kända. Från lönemånad cfg.kontEfterFran kvittas därför
+   förra månadens kontanter enligt Megtax i månadslönen, och månadens egna kontanter kvittas månaden efter. */
+const kontEfter = () => { const f = cfg().kontEfterFran; return !!(f && S.period && S.period >= f); };
+async function loadPrevKont(per) {
+  S.prevKont = {}; S.prevKontPer = null; if (!per) return; const pk = prevPer(per); let m = null;
+  if (S.db) { try { const d = await S.db.collection('data/users/' + S.uid).doc('m-' + pk).get(); if (d.exists) m = clone(d.data()); } catch (e) {} }
+  if (!m) { try { const ls = localStorage.getItem('ak_m-' + pk); if (ls) m = JSON.parse(ls); } catch (e) {} }
+  if (!m || !m.ldl || !m.ldl.trim()) return;
+  S.prevKontPer = pk; applyAlias(ENG.parseLDL(m.ldl).shifts.filter(s => monthOf(s.a) === pk)).forEach(s => { S.prevKont[s.forare] = ENG.r2((S.prevKont[s.forare] || 0) + s.kont); });
+}
+async function listMonths() {
+  const ks = new Set();
+  if (S.db) { try { const q = await S.db.collection('data/users/' + S.uid).get(); q.docs.forEach(d => { if (d.id.startsWith('m-')) ks.add(d.id.slice(2)); }); } catch (e) {} }
+  try { JSON.parse(localStorage.getItem('ak_months') || '[]').forEach(k => ks.add(k)); } catch (e) {}
+  S.months = [...ks].sort();
+}
+async function openMonth(per) { S.ovPending = {}; S.period = per; await loadMonth(); await loadPrevKont(per); if (S.month.ldl) hydrate(S.month); render(); }
+async function loadMonth() {
+  const k = monthKey(); if (!k) return; let m = null;
+  if (S.db) { try { const d = await S.db.collection('data/users/' + S.uid).doc(k).get(); if (d.exists) m = clone(d.data()); } catch (e) {} }
+  if (!m) { try { const ls = localStorage.getItem('ak_' + k); if (ls) m = JSON.parse(ls); } catch (e) {} }
+  S.month = { forare: {}, overrides: {}, ...(m || {}) };
+}
+let saveM = null;
+function saveMonth() {
+  const k = monthKey(); if (!k || S.demo) return;
+  clearTimeout(saveM); saveM = setTimeout(async () => {
+    try { localStorage.setItem('ak_' + k, JSON.stringify(S.month)); const ix = new Set(JSON.parse(localStorage.getItem('ak_months') || '[]')); ix.add(S.period); localStorage.setItem('ak_months', JSON.stringify([...ix])); } catch (e) {}
+    if (!(S.months || []).includes(S.period)) { S.months = [...(S.months || []), S.period].sort(); }
+    if (S.db) { try { await S.db.collection('data/users/' + S.uid).doc(k).set(JSON.parse(JSON.stringify(S.month))); } catch (e) { toast('Kunde inte spara månaden: ' + (e.message || e.code)); } }
+  }, 600);
+}
+
+/* ---------- exempeldata (fiktiv, visas tills en riktig månad importeras) ---------- */
+function demoData() {
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const bilar = [['901', 'ABC 12D'], ['902', 'XYZ 34F']]; const forare = [['100001', '100002'], ['100003', '100004']];
+  const lines = []; const pass = [];
+  for (let d = 1; d <= 14; d++) bilar.forEach(([id, reg], bi) => {
+    [['05:', 11], ['16:', 11]].forEach(([h, len], pi) => {
+      if (rnd() < .12) return;
+      const st = `2026-09-${String(d).padStart(2, '0')} ${h}${String(Math.floor(rnd() * 50)).padStart(2, '0')}`;
+      const a = ENG.toDate(st), b = new Date(a.getTime() + (len - rnd() * 2) * 36e5);
+      const kont = Math.round(rnd() * (pi ? 900 : 300)) * 100, kred = Math.round(1000 + rnd() * 2200) * 100;
+      const f = ['01', String(5000 + d * 4 + bi * 2 + pi), st, ENG.dstr(b) + ' ' + ENG.tstr(b), '0', forare[bi][pi], id, reg, '', 'EXEMPEL AB', '', '', String(8 + Math.floor(rnd() * 8)), '1500', '800', String(kont), String(kred), '0', '0', '0', '0', '0', String(kont), '0', '0', '0', '0', String(kred), '0', '0'];
+      lines.push(f.join(';')); if (kont) lines.push('02;1;KONTANT;' + kont + ';2;'); lines.push('02;4;KONTOKORT;' + kred + ';6;');
+      if (rnd() < .35) { const t = new Date(a.getTime() + 2.5 * 36e5); pass.push({ ts: ENG.dstr(t) + ' ' + ENG.tstr(t) + ':00', t, desc: 'SV/DK Klass 2', reg: ENG.normReg(reg), typ: 'bro', valuta: 'SEK', belopp: 201 }); const t2 = new Date(t.getTime() + 40 * 6e4); pass.push({ ts: ENG.dstr(t2) + ' ' + ENG.tstr(t2) + ':00', t: t2, desc: 'DK/SV Klass 2', reg: ENG.normReg(reg), typ: 'bro', valuta: 'SEK', belopp: 201 }); }
+    });
+  });
+  return { text: lines.join('\n'), pass, namn: { '100001': 'Exempel Förare A', '100002': 'Exempel Förare B', '100003': 'Exempel Förare C', '100004': 'Exempel Förare D' } };
+}
+function loadDemo() {
+  const d = demoData(); S.demo = true; S.shifts = ENG.parseLDL(d.text).shifts; S.passages = { bro: d.pass, stu: [] }; S.demoNamn = d.namn; S.period = '2026-09'; S.month = { forare: {}, overrides: {} };
+}
+
+/* ---------- import ---------- */
+async function pdfLines(file) {
+  const lib = window.pdfjsLib; if (!lib) throw new Error('PDF-läsaren laddades inte. Ladda om sidan.');
+  lib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  const doc = await lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()), isEvalSupported: false }).promise; const out = [];
+  for (let i = 1; i <= doc.numPages; i++) {
+    const tc = await (await doc.getPage(i)).getTextContent(); const L = {};
+    tc.items.forEach(it => { if (!it.str || !it.str.trim()) return; const y = Math.round(it.transform[5] / 2); (L[y] = L[y] || []).push([it.transform[4], it.str]); });
+    Object.keys(L).sort((a, b) => b - a).forEach(y => out.push(L[y].sort((a, b) => a[0] - b[0]).map(x => x[1]).join(' ').replace(/\s+/g, ' ')));
+  }
+  return out;
+}
+function ownRegs() { return new Set(S.shifts.map(s => s.reg)); }
+async function onLdl(file) {
+  const text = ENG.decode(await file.arrayBuffer()); const r = ENG.parseLDL(text);
+  if (!r.shifts.length) { toast('Filen innehöll inga körpass. Välj LDL-filen från Megtax-portalen.'); return; }
+  if (S.demo) { S.passages = { bro: [], stu: [] }; S.files = {}; S.avr = null; }
+  S.month = { forare: {}, overrides: {} };
+  S.demo = false; S.shifts = applyAlias(r.shifts); S.files.ldl = file.name + ', ' + r.shifts.length + ' pass';
+  const cnt = {}; r.shifts.forEach(s => { const k = s.a.getFullYear() + '-' + String(s.a.getMonth() + 1).padStart(2, '0'); cnt[k] = (cnt[k] || 0) + 1; });
+  S.period = Object.entries(cnt).sort((a, b) => b[1] - a[1])[0][0];
+  const utanfor = S.shifts.filter(s => monthOf(s.a) !== S.period).length; S.shifts = S.shifts.filter(s => monthOf(s.a) === S.period);
+  if (r.shifts[0].foretag && !S.settings.foretagLast) { S.settings.foretag = titleCase(r.shifts[0].foretag); saveSettings(); }
+  r.shifts.forEach(s => { if (!S.settings.bilar[s.reg]) { S.settings.bilar[s.reg] = { regnr: s.regnr, bilId: s.bilId, namn: '' }; saveSettings(); } });
+  const keep = S.passages, keepF = S.files; await loadMonth(); S.passages = (keep.bro.length || keep.stu.length) ? keep : { bro: unpackP(S.month.bro), stu: unpackP(S.month.stu) }; S.files = { ...(S.month.files || {}), ...keepF }; if (S.avr) S.month.avr = S.avr; else S.avr = S.month.avr || null; S.month.ldl = text; storePassages(); await loadPrevKont(S.period);
+  render(); toast('Löneunderlaget är inläst' + (utanfor ? ', ' + utanfor + ' pass från annan månad togs bort' : ''));
+}
+function titleCase(s) { return String(s).toLowerCase().replace(/(^|\s)(\S)/g, (m, a, b) => a + b.toUpperCase()).replace(/\bAb\b/, 'AB'); }
+async function onBro(file) {
+  try { const r = ENG.parseBro(await pdfLines(file)); if (!r.rows.length) { toast('Hittade inga passager i PDF:en. Är det Øresundsbrons samlingsfaktura?'); return; }
+    S.passages.bro = r.rows; S.broKurs = r.kurs; S.files.bro = file.name + ', ' + r.rows.length + ' rader'; if (!S.demo) storePassages(); render(); toast('Brofakturan är inläst'); }
+  catch (e) { toast('Kunde inte läsa PDF:en: ' + e.message); }
+}
+async function onAvr(file) {
+  try { const r = ENG.parseAvrakning(await pdfLines(file)); if (!r.rows.length) { toast('Hittade inga rader. Är det avräkningen från Taxi Malmö?'); return; }
+    S.avr = r; S.files.avr = file.name + ', faktura ' + (r.nr || ''); if (!S.demo) { S.month.avr = r; storePassages(); } S.tab = 'avr'; render(); toast('Avräkningen är inläst'); }
+  catch (e) { toast('Kunde inte läsa PDF:en: ' + e.message); }
+}
+async function onStu(file) {
+  try { const r = ENG.parseSturup(await pdfLines(file)); if (!r.rows.length) { toast('Hittade inga passager. Är det Swedavias Sturupfaktura?'); return; }
+    S.passages.stu = r.rows; S.files.stu = file.name + ', ' + r.rows.length + ' passager'; if (!S.demo) storePassages(); render(); toast('Sturupfakturan är inläst'); }
+  catch (e) { toast('Kunde inte läsa PDF:en: ' + e.message); }
+}
+function wireDrop(id, input, fn) {
+  const d = $(id), i = $(input);
+  i.addEventListener('change', () => { if (i.files[0]) fn(i.files[0]); i.value = ''; });
+  ['dragenter', 'dragover'].forEach(ev => d.addEventListener(ev, e => { e.preventDefault(); d.classList.add('on'); }));
+  ['dragleave', 'drop'].forEach(ev => d.addEventListener(ev, e => { e.preventDefault(); d.classList.remove('on'); }));
+  d.addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if (f) fn(f); });
+}
+
+/* ---------- beräkning ---------- */
+function cfg() { return { ...ENG.DEF, ...S.settings.cfg }; }
+function namnFor(id) { const f = S.settings.forare[id]; return (f && f.namn) || (S.demo && S.demoNamn?.[id]) || ''; }
+function modell(id) { const f = S.settings.forare[id]; return (f && f.modell) || 'procent'; }
+/* Anställd under perioden: från startdatum till slutdatum. Före start räknas ingen lön, varken fast eller provision. */
+function anstalld(id, per) { const f = S.settings.forare[id] || {}; if (!per) return true; const fr = per + '-01', ti = per + '-31'; return (!f.start || f.start <= ti) && (!f.slut || f.slut >= fr); }
+function result() {
+  const regs = ownRegs(); const pas = [...S.passages.bro, ...S.passages.stu].filter(p => regs.has(p.reg));
+  const man = {}; const ids = new Set([...S.shifts.map(s => s.forare), ...(S.demo ? [] : Object.entries(S.settings.forare || {}).filter(([k, f]) => f.modell === 'fast' && !f.slutat && anstalld(k, S.period)).map(([k]) => k))]);
+  ids.forEach(id => { const f = S.settings.forare[id] || {}; man[id] = { ...(S.month.forare[id] || {}), modell: anstalld(id, S.period) ? (f.modell || 'procent') : 'ingen', manadslon: f.manadslon || 0, semFast: !!f.semFast };
+    const mk = man[id]; if (mk.modell === 'fast' && kontEfter() && (mk.kontant === undefined || mk.kontant === '' || mk.kontant === null)) mk.kontant = (S.prevKont || {})[id] || 0; });
+  return ENG.compute(S.shifts, pas, S.settings.cfg, { forare: man, overrides: S.month.overrides });
+}
+
+/* ---------- vyer ---------- */
+const TABS = [['oversikt', 'Översikt'], ['eko', 'Ekonomi'], ['lon', 'Lön'], ['pers', 'Personal'], ['kassa', 'Kassaredovisning'], ['avg', 'Bro och Sturup'], ['avr', 'Avräkning'], ['pass', 'Körpass'], ['inst', 'Inställningar']];
+function render() {
+  const R = result(); S.R = R;
+  const om = R.bro.filter(p => !p.forare).length; const noName = R.rows.filter(r => !namnFor(r.id)).length;
+  // topp
+  $('#coName').textContent = S.demo ? 'Exempeldata' : (S.settings.foretag || '');
+  $('#plateTxt').textContent = S.period ? (MON[+S.period.slice(5) - 1].slice(0, 3).toUpperCase() + ' ' + S.period.slice(2, 4)) : 'ÅKARE';
+  const ch = $('#statusChips'); ch.replaceChildren();
+  const mlist = S.demo ? [] : (S.months || []);
+  if (mlist.length > 1) ch.append(el('select', { id: 'monthSel', 'aria-label': 'Välj månad', onchange: e => openMonth(e.target.value) }, mlist.map(k => el('option', { value: k, selected: k === S.period }, MON[+k.slice(5) - 1] + ' ' + k.slice(0, 4)))));
+  else if (S.period) ch.append(el('span', { class: 'chip' }, MON[+S.period.slice(5) - 1] + ' ' + S.period.slice(0, 4)));
+  ch.append(el('span', { class: 'chip' }, S.shifts.length + ' pass'), el('span', { class: 'chip' }, Object.keys(R.bilar).length + ' bilar'), el('span', { class: 'chip' }, R.rows.length + ' förare'));
+  if (om) ch.append(el('span', { class: 'chip warn' }, el('span', { class: 'dot' }), om + ' passager utan förare'));
+  if (!S.demo && !S.db) ch.append(el('span', { class: 'chip bad', title: 'Kontot nås inte just nu. Ladda om sidan, eller logga in igen på app.flodia.se. Ändringar sparas bara i webbläsaren tills dess.' }, el('span', { class: 'dot' }), 'Sparas bara i webbläsaren'));
+  if (S.saveFel) ch.append(el('span', { class: 'chip bad' }, el('span', { class: 'dot' }), 'Senaste ändringen är inte sparad'));
+  $('#btnExport').hidden = S.demo;
+  [['#dropLdl', '#sLdl', 'ldl', 'Löneunderlag, 1:a till 1:a nästa månad, Skapa LDL fil'], ['#dropBro', '#sBro', 'bro', 'PDF med bro och CPH-avgifter'], ['#dropStu', '#sStu', 'stu', 'PDF med passager per bil'], ['#dropAvr', '#sAvr', 'avr', 'Fakturan med kontokort, krediter och avgifter']].forEach(([d, s, k, def]) => { $(d).classList.toggle('done', !!S.files[k]); $(s).textContent = S.files[k] || def; });
+  $('#banner').replaceChildren(!S.demo && !S.shifts.length && S.month.ldl === ' ' ? el('div', { class: 'banner' }, el('b', {}, MON[+S.period.slice(5) - 1].replace(/^./, x => x.toUpperCase()) + ' är startad för fast lön.'), ' När månaden är slut: hämta LDL-filen i Megtax (1:a till 1:a nästa månad) och släpp den ovan, så räknas provisionslönerna.') : !S.demo && !S.shifts.length ? el('div', { class: 'banner' }, el('b', {}, 'Ingen månad inläst.'), ' Hämta LDL-filen i Megtax: Löneunderlag, från den 1:a till den 1:a nästa månad, Skapa LDL fil. Släpp den ovan.') : S.demo ? el('div', { class: 'banner' }, el('b', {}, 'Exempeldata.'), ' Siffrorna nedan är påhittade. Släpp din LDL-fil från Megtax ovan för att räkna din riktiga månad, lägg sedan till bro- och Sturupfakturan.') : '');
+  // flikar
+  const tb = $('#tabs'); tb.replaceChildren(...TABS.map(([k, t]) => el('button', { class: 'tab', role: 'tab', 'aria-selected': String(S.tab === k), onclick: () => { S.tab = k; try { localStorage.setItem('ak_tab', k); } catch (e) {} render(); } }, t, k === 'avg' && om ? el('span', { class: 'cnt' }, om) : null, k === 'pers' && noName ? el('span', { class: 'cnt' }, noName) : null)));
+  const m = $('#main'); m.replaceChildren(({ oversikt: vOversikt, eko: vEko, lon: vLon, pers: vPersonal, kassa: vKassa, avg: vAvg, avr: vAvr, pass: vPass, inst: vInst }[S.tab] || vOversikt)(R));
+}
+function sum(a, f) { return a.reduce((s, x) => s + (f(x) || 0), 0); }
+/* Förare som kört under månaden men ligger utanför sin anställningsperiod. De räknas inte i lönen, så de ska synas som varning. */
+function ejAnstallda(R) { return S.demo ? [] : R.rows.filter(r => r.modell === 'ingen' && r.pass && (S.settings.forare[r.id] || {}).modell !== 'ingen'); }
+function nameCell(id) { const n = namnFor(id); return el('div', { class: 'name' }, n || 'Förare ' + id, el('small', {}, id)); }
+
+function vOversikt(R) {
+  const c = R.cfg; const ink = sum(R.rows, r => r.ink), ex = sum(R.rows, r => r.exkl), kont = sum(R.rows, r => r.kont), kred = sum(R.rows, r => r.kred);
+  const LK = (S.month.lonekorning && S.month.lonekorning.rader) || {}; const brutto = sum(R.rows, r => LK[r.id] ? LK[r.id].brutto : r.brutto), ag = sum(R.rows, r => LK[r.id] ? LK[r.id].ag : r.agAvg);
+  const broN = R.bro.filter(p => p.typ === 'bro').length, stuN = R.bro.filter(p => p.typ === 'sturup').length;
+  const k = (l, v, s) => el('div', { class: 'kpi' }, el('span', { class: 'lbl' }, l), el('span', { class: 'v' }, v), el('span', { class: 's' }, s));
+  const kp = el('div', { class: 'kpis' },
+    k('Inkört inkl. moms', krs(ink), krs(ex) + ' exkl. moms'),
+    k('Kontanter i bilarna', krs(kont), Math.round(kont / (ink || 1) * 100) + ' % av inkört'),
+    k('Kredit och kort', krs(kred), 'betalas ut via centralen'),
+    k('Bruttolön förare', krs(brutto), krs(ag) + ' arbetsgivaravgift'),
+    k('Lönekostnad', Math.round((brutto + ag) / (ex || 1) * 100) + ' %', 'av inkört exkl. moms'),
+    k('Bro och Sturup', broN + ' + ' + stuN, 'passager i egna bilar'));
+  // per bil
+  const bil = Object.values(R.bilar).map(b => { let d = 0, n = 0; Object.values(b.dagar).forEach(x => { d += x.dag ? x.dag.kassa : 0; n += x.natt ? x.natt.kassa : 0; }); return { b, d, n, t: d + n }; }).sort((a, b) => b.t - a.t);
+  const mx = Math.max(1, ...bil.map(x => x.t));
+  const bars = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h2', {}, 'Inkört per bil'), el('div', { class: 'spacer' }), el('div', { class: 'legend' }, el('span', { style: '--c:var(--sign)' }, 'Dagpass'), el('span', { style: '--c:var(--night)' }, 'Kvällspass'))),
+    el('div', { class: 'bars' }, bil.map(x => el('div', { class: 'bar' }, el('span', { class: 'num' }, x.b.regnr), el('div', { class: 'track', title: 'Dag ' + krs(x.d) + ', kväll ' + krs(x.n) }, el('i', { class: 'd', style: `width:${x.d / mx * 100}%` }), el('i', { class: 'nn', style: `width:${x.n / mx * 100}%` })), el('span', { class: 'num', style: 'text-align:right' }, krs(x.t))))),
+    el('p', { class: 'note' }, 'Delningen följer förarnas in- och utloggning i Megtax: varje pass räknas i sin helhet som dag- eller kvällspass, inkörningen delas aldrig vid ett klockslag. Den som loggar in först i bilen kör dagpass och den som tar över efter kör kvällspass.'));
+  // att göra
+  const todo = [];
+  const om = R.bro.filter(p => !p.forare).length; if (om) todo.push(['warn', om + ' bro- eller Sturuppassager saknar förare', 'Välj förare under Bro och Sturup.', 'avg']);
+  const nn = R.rows.filter(r => !namnFor(r.id)); if (nn.length && !S.demo) todo.push(['warn', nn.length + ' förarnummer saknar namn', 'Fyll i under Personal.', 'pers']);
+  const ej = ejAnstallda(R); if (ej.length) todo.push(['bad', ej.length + ' förare har körpass men är inte anställda ' + MON[+S.period.slice(5) - 1], ej.map(r => namnFor(r.id) || r.id).join(', ') + '. De får ingen lön för månaden. Kontrollera Anställd från och Anställd till under Personal.', 'pers']);
+  if (!S.demo && !S.files.bro) todo.push(['warn', 'Brofakturan är inte inläst', 'Utan den blir brobizz-avdraget 0 kr.', null]);
+  if (!S.demo && !S.files.stu) todo.push(['', 'Sturupfakturan är inte inläst', 'Behövs för Sturupkolumnen i kassaredovisningen.', null]);
+  const neg = R.rows.filter(r => r.kontant > r.brutto); if (neg.length) todo.push(['bad', neg.length + ' förare har mer kontanter än bruttolön', 'Nettolönen i LDL blir negativ, alltså är föraren skyldig bolaget mellanskillnaden.', 'lon']);
+  if (!todo.length) todo.push(['ok', 'Allt underlag är på plats', 'Gå till Lön, kontrollera och godkänn lönekörningen.', 'lon']);
+  const td = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h2', {}, 'Att göra')), el('div', { class: 'bars' }, todo.map(([lv, t, s, tab]) => el('div', { style: 'display:flex;gap:10px;align-items:flex-start' }, el('span', { class: 'chip ' + (lv || ''), style: 'margin-top:2px' }, el('span', { class: 'dot' })), el('div', { style: 'flex:1;min-width:0' }, el('strong', {}, t), el('div', { class: 'small muted' }, s)), tab ? el('button', { class: 'ghost', onclick: () => { S.tab = tab; render(); } }, 'Öppna') : null))));
+  // förare
+  const rows = R.rows.map(r => el('tr', {}, el('td', {}, nameCell(r.id)), el('td', { class: 'n' }, r.pass), el('td', { class: 'n' }, kr(r.tim)), el('td', { class: 'n' }, kr(r.ink)), el('td', { class: 'n' }, kr(r.kont)), el('td', { class: 'n' }, r.broN || ''), el('td', { class: 'n' }, kr(LK[r.id] ? LK[r.id].brutto : r.brutto)), el('td', { class: 'n' }, r.tim ? kr(r.ink / r.tim) : '')));
+  const t = el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['Förare', 'Pass', 'Timmar', 'Inkört', 'Kontant', 'Bro', 'Brutto', 'Kr/tim'].map((h, i) => el('th', { class: i ? 'n' : '' }, h)))), el('tbody', {}, rows)));
+  return el('section', { class: 'view' }, kp, el('div', { class: 'grid2' }, bars, td), el('h2', {}, 'Förare'), t);
+}
+
+/* ---------- lönekörning ---------- */
+/* Utbetalningsmånad: fast månadslön samma månad (den 25:e enligt anställningsavtalet), provision månaden efter (den 10:e). */
+function utbMan(mod) { if (!S.period) return ''; if (cfg().utbSamma && mod !== 'procent') return S.period; const y = +S.period.slice(0, 4), m = +S.period.slice(5); return m === 12 ? (y + 1) + '-01' : y + '-' + String(m + 1).padStart(2, '0'); }
+function utbDatum(c, m) { const dag = m === 'procent' ? (c.utbetDagProv || 10) : (c.utbetDag || 25); return utbMan(m) + '-' + String(dag).padStart(2, '0'); }
+function person(id) { return (S.settings.forare[id] || {}).person || {}; }
+function tabellFor(nr) { const t = S.skatt && S.skatt[String(nr || 33)]; return t ? (t.B ? t : ENG.unpackTabell(t)) : null; }
+const parseKr = s => s == null ? 0 : typeof s === 'number' ? s : parseFloat(String(s).replace(/\s/g, '').replace(',', '.')) || 0;
+/* Lön hittills i år räknas på UTBETALNINGSÅRET (kontantprincipen, samma som arbetsgivardeklarationen).
+   Provision för december betalas ut i januari och hör till det nya året. Med: tidigare utbetalningar samma år, i datumordning. */
+function ytd(id, brutto, skatt, mod, utb) {
+  utb = utb || utbDatum(cfg(), mod); const p = person(id), ar = utb.slice(0, 4); let lon = 0, sk = 0;
+  const hist = (S.settings.lonHist || {})[id] || {};
+  const bas = p.ytd && p.ytd.tom && p.ytd.tom.slice(0, 4) === ar && p.ytd.tom < S.period ? p.ytd : null;
+  if (bas) { lon += parseKr(bas.lon); sk += parseKr(bas.skatt); }
+  Object.entries(hist).forEach(([per, h]) => { if (per !== S.period && h.utb && h.utb.slice(0, 4) === ar && (h.utb < utb || (h.utb === utb && per < S.period)) && (!bas || per > bas.tom)) { lon += h.brutto; sk -= h.skatt; } });
+  return { lon: ENG.r2(lon + brutto), skatt: ENG.r2(sk - skatt) };
+}
+function lonOf(r, c) {
+  const p = person(r.id); const fel = [];
+  const rader = [];
+  const add = (kod, text, antal, apris, belopp, info) => rader.push({ kod, text, antal, apris, belopp: ENG.r2(belopp), info: !!info });
+  if (r.modell === 'procent') {
+    add('020', 'Procentlön', c.procent / 100, r.exkl, r.proc);
+    if (r.broApris) add('009', 'Bro, Sturup och CPH', c.broAndel / 100, -r.broApris, -r.broAvdr);
+    if (r.sem) add('420', 'Semesterersättning ' + c.semester + ' %', 1, r.sem, r.sem);
+    if (r.bonus) add('010', 'Bonus', 1, r.bonus, r.bonus);
+    add('804', r.boltProv ? 'Inkört exkl. moms, efter plattformsavgift' : 'Inkört exkl. moms', 1, r.exkl, r.exkl, true);
+    if (r.boltProv) add('806', 'Plattformsavgift Bolt/Uber, avdragen från underlaget', 1, -r.boltProv, -r.boltProv, true);
+  } else if (r.modell === 'fast') {
+    add('001', 'Månadslön', 1, r.fast, r.fast);
+    if (r.sem) add('420', 'Semesterersättning ' + c.semester + ' %', 1, r.sem, r.sem);
+    if (r.bonus) add('010', 'Bonus', 1, r.bonus, r.bonus);
+  }
+  (r.extra || []).filter(x => x.sida === 'brutto').forEach(x => add(x.kod, x.text, x.antal, x.apris, x.belopp));
+  rader.sort((x, y) => x.info - y.info); // informationsrader sist
+  const brutto0 = sum(rader.filter(x => !x.info), x => x.belopp);
+  const brutto = Math.round(brutto0); const avr = ENG.r2(brutto - brutto0);
+  if (Math.abs(avr) >= 0.005) add('990', 'Avrundning', 1, avr, avr);
+  const ar = +utbMan(r.modell).slice(0, 4);
+  const kol = p.kolumn || ENG.skattekolumn(p.personnr, ar);
+  let skatt = 0, skattTxt = '';
+  const formon = r.formon || 0, und = brutto + formon;
+  if (+p.engang > 0) { skatt = Math.floor(und * p.engang / 100); skattTxt = 'Engångsskatt ' + p.engang + ' %'; }
+  else if (p.jamkning !== undefined && p.jamkning !== '' && p.jamkning !== null) { skatt = +p.jamkning; skattTxt = 'Skatt enligt jämkningsbeslut'; }
+  else { const t = tabellFor(p.tabell || 33); if (!t) fel.push('Skattetabell ' + (p.tabell || 33) + ' saknas'); skatt = ENG.tabellSkatt(t, kol, und); skattTxt = 'Tabellskatt ' + (p.tabell || 33) + ', kolumn ' + kol; }
+  (r.extra || []).filter(x => x.sida === 'formon').forEach(x => add(x.kod, x.text + ' (förmån, betalas inte ut)', x.antal, x.apris, x.belopp, true));
+  if (und > 0) add('912', skattTxt, 1, -skatt, -skatt);
+  if (r.extraSkatt) { add('915', 'Frivillig extra skatt', 1, -r.extraSkatt, -r.extraSkatt); skatt = ENG.r2(skatt + r.extraSkatt); }
+  (r.extra || []).filter(x => x.sida === 'skattefri' || x.sida === 'netto').forEach(x => add(x.kod, x.text + (x.sida === 'skattefri' ? ' (skattefritt)' : ''), x.antal, x.apris, x.belopp));
+  const kTxt = r.modell === 'fast' && kontEfter() ? 'Kontanter i bilen ' + MON[+prevPer(S.period).slice(5) - 1] + ', kvittas' : 'Kontanter i bilen, kvittas';
+  if (r.kontant) add('008', kTxt, 1, -r.kontant, -r.kontant);
+  if (r.forskott) add('970', 'Avdrag löneförskott', 1, -r.forskott, -r.forskott);
+  const netto = ENG.r2(brutto - skatt - (r.kontant || 0) - (r.forskott || 0) + (r.skattefri || 0) + (r.nettoJust || 0));
+  const ag = ENG.agAvgift(p.personnr, und, utbMan(r.modell));
+  if (!p.personnr) fel.push('Personnummer saknas');
+  if (netto > 0 && !p.bank) fel.push('Bankkonto saknas');
+  if (S.skattAr && String(S.skattAr) !== String(ar) && !(+p.engang > 0) && !(p.jamkning !== undefined && p.jamkning !== '' && p.jamkning !== null)) fel.push('Skattetabell för ' + ar + ' saknas (inläst: ' + S.skattAr + ')');
+  const y = ytd(r.id, brutto, skatt, r.modell);
+  return { rader, brutto, formon, skatt, kol, netto, ag, fel, ytd: y, p };
+}
+function lonRowsText(L) {
+  const f = (n, x) => nf2.format(x).padStart(n);
+  return L.rader.map(x => x.kod.padEnd(4) + (x.text + (x.info ? ' (info)' : '')).padEnd(34) + f(8, x.antal) + f(14, x.apris) + f(14, x.belopp)).join('\n')
+    + '\n' + ''.padEnd(46) + 'Bruttolön' + f(15, L.brutto) + '\n' + ''.padEnd(46) + 'Skatt' + f(19, -L.skatt) + '\n' + ''.padEnd(46) + 'Att utbetala' + f(12, L.netto);
+}
+/* Manuella lönerader per förare och månad (S.month.forare[id].rader). */
+function laEditor(r, c, last) {
+  const mf = S.month.forare[r.id] = S.month.forare[r.id] || {}; const rader = mf.rader = mf.rader || [];
+  const arter = ENG.lonearter(c.lonearter, c.lonearterEgna).filter(a => a.aktiv && a.typ !== 'auto');
+  const spara = () => { saveMonth(); render(); };
+  const lista = el('div', { class: 'tw' }, el('table', {}, el('tbody', {}, (r.extra || []).map((x, i) => el('tr', {},
+    el('td', { class: 'num muted' }, x.kod), el('td', {}, x.text), el('td', { class: 'n' }, x.antal === 1 ? '' : kr(x.antal, 1)), el('td', { class: 'n' }, kr(x.belopp, 1)),
+    el('td', { class: 'n' }, last ? '' : el('button', { class: 'ghost', 'aria-label': 'Ta bort', onclick: () => { rader.splice(i, 1); spara(); } }, 'Ta bort')))))));
+  const sel = el('select', { 'aria-label': 'Löneart' }, el('option', { value: '' }, 'Välj löneart'), arter.map(a => el('option', { value: a.nr }, a.nr + ' ' + a.namn)));
+  const antal = el('input', { type: 'number', step: '0.01', inputmode: 'decimal', placeholder: 'Antal', style: 'width:90px' });
+  const pris = el('input', { type: 'number', step: '0.01', inputmode: 'decimal', placeholder: 'À-pris', style: 'width:100px' });
+  const bel = el('input', { type: 'number', step: '0.01', inputmode: 'decimal', placeholder: 'Belopp, kr', style: 'width:120px' });
+  const hj = el('span', { class: 'small muted' });
+  const vis = () => { const a = arter.find(x => x.nr === sel.value); antal.hidden = !a || a.typ === 'belopp'; pris.hidden = !a || a.typ !== 'antal'; bel.hidden = !a || a.typ !== 'belopp';
+    pris.placeholder = a && a.apris ? 'À-pris ' + nf2.format(a.apris) : 'À-pris'; antal.placeholder = a && a.enhet ? 'Antal ' + a.enhet : 'Antal';
+    hj.textContent = a ? (a.hjalp || '') + (a.typ === 'faktor' && !(+mf.manadslon || +(S.settings.forare[r.id] || {}).manadslon) ? ' Kräver månadslön.' : '') : ''; };
+  sel.onchange = vis; vis();
+  const laggTill = el('button', { onclick: () => { const a = arter.find(x => x.nr === sel.value); if (!a) { toast('Välj en löneart'); return; }
+    const x = { nr: a.nr }; if (a.typ === 'belopp') { if (!bel.value) { toast('Fyll i belopp'); return; } x.belopp = +bel.value; } else { if (!antal.value) { toast('Fyll i antal'); return; } x.antal = +antal.value; if (a.typ === 'antal' && pris.value !== '') x.apris = +pris.value; }
+    rader.push(x); spara(); } }, 'Lägg till');
+  return el('div', { style: 'margin-top:12px' }, el('h4', { style: 'margin:0 0 6px' }, 'Övriga lönearter denna månad'), (r.extra || []).length ? lista : el('p', { class: 'note' }, 'Inga. Lägg till OB, sjuklön, traktamente, förmån med mera här.'),
+    last ? '' : el('div', { class: 'chips', style: 'align-items:center' }, sel, antal, pris, bel, laggTill), hj);
+}
+function vLon(R) {
+  const c = R.cfg; const wrap = el('div', { class: 'panel' }); const lst = S.month.lonekorning;
+  const LS = R.rows.filter(r => r.modell !== 'ingen').map(r => ({ r, L: lonOf(r, c) }));
+  if (lst && lst.rader) LS.forEach(x => { const s = lst.rader[x.r.id]; if (!s) return; x.L = { ...x.L, rader: s.rader, brutto: s.brutto, skatt: s.skatt, netto: s.netto, ag: { ...x.L.ag, belopp: s.ag }, fel: [], utb: s.utb }; x.r = { ...x.r, kontant: s.kontant || 0, forskott: s.forskott || 0, exkl: s.exkl ?? x.r.exkl, broN: s.broN ?? x.r.broN }; if (s.ytd) x.L.ytd = s.ytd; });
+  S.LS = LS;
+  const locked = id => !!(lst && lst.rader && lst.rader[id]);
+  const oFast = LS.filter(x => x.r.modell === 'fast' && !locked(x.r.id)), oProv = LS.filter(x => x.r.modell === 'procent' && !locked(x.r.id)), nLas = LS.filter(x => locked(x.r.id)).length;
+  const ny = nastaManad();
+  const flt = el('input', { type: 'search', id: 'ldlSearch', placeholder: 'Sök förare', value: S.ldlFilter, oninput: e => { S.ldlFilter = e.target.value; list.replaceChildren(...items()); } });
+  const actions = el('div', { class: 'chips' },
+    el('button', { onclick: () => pdfLonespec(LS) }, 'Lönespecar som PDF'),
+    el('button', { onclick: () => exportLonelista(LS) }, 'Lönelista och utbetalning (Excel)'),
+    ...['bolt', 'uber'].map(src => { const nm = src === 'bolt' ? 'Bolt' : 'Uber'; return el('label', { class: 'btn' }, S.month.files?.[src] ? 'Plattformsavgift ' + nm + ': ' + S.month.files[src] : 'Läs in plattformsavgift från ' + nm + ' (CSV)', el('input', { type: 'file', accept: '.csv,text/csv', hidden: true, disabled: oProv.length ? null : true, onchange: e => e.target.files[0] && importPlatt(e.target.files[0], src) })); }),
+    nLas ? el('span', { class: 'chip ok' }, el('span', { class: 'dot' }), nLas + ' godkända') : null,
+    oFast.length ? el('button', { class: 'primary', disabled: S.demo || null, onclick: () => lasLon(oFast, 'fast') }, 'Godkänn fast lön (' + oFast.length + ')') : null,
+    oProv.length ? el('button', { class: 'primary', disabled: S.demo || !S.shifts.length || null, onclick: () => lasLon(oProv, 'prov') }, 'Godkänn provisionslön (' + oProv.length + ')') : null,
+    ny && !S.demo && cfg().utbSamma ? el('button', { onclick: () => startaManad(ny) }, 'Starta ' + MON[+ny.slice(5) - 1] + ' (fast lön)') : null);
+  wrap.append(el('div', { class: 'panel-h' }, el('h2', {}, 'Lön för ' + (S.period ? MON[+S.period.slice(5) - 1] : '')), el('span', { class: 'chip' }, 'Utbetalning ' + ([...new Set(LS.map(x => x.L.utb || utbDatum(c, x.r.modell)))].sort().join(' och ') || utbDatum(c, 'procent'))), el('div', { class: 'spacer' }), flt), actions,
+    el('p', { class: 'note' }, `Fast månadslön betalas ut samma månad, den ${c.utbetDag}:e${kontEfter() ? ', och förra månadens kontanter kvittas i den' : ''}. Provisionslön betalas ut den ${c.utbetDagProv}:e månaden efter. Procentlön ${c.procent} % på inkört exkl. moms, minus ${c.broAndel} % av bro, Sturup och CPH. Semesterersättning ${c.semester} % betalas varje månad för provisionsanställda. Skatt enligt Skatteverkets tabell för utbetalningsåret (${[...new Set(LS.map(x => utbMan(x.r.modell).slice(0, 4)))].join(' och ') || utbMan('procent').slice(0, 4)}), kolumn 3 för den som fyllt 66 vid årets ingång. Förarens kontanter kvittas mot lönen. Blir nettot negativt ska föraren sätta in mellanskillnaden.`));
+  const items = () => LS.filter(({ r }) => !S.ldlFilter || (namnFor(r.id) + ' ' + r.id).toLowerCase().includes(S.ldlFilter.toLowerCase())).map(({ r, L }) => {
+    const mf = S.month.forare[r.id] || {};
+    const inp = (k, lbl, ph) => el('label', {}, lbl, el('input', { id: 'm-' + r.id + '-' + k, type: 'number', step: '0.01', inputmode: 'decimal', value: mf[k] ?? '', placeholder: ph ?? '0', disabled: locked(r.id) ? true : null, onchange: e => { (S.month.forare[r.id] = S.month.forare[r.id] || {})[k] = e.target.value === '' ? undefined : +e.target.value; saveMonth(); render(); } }));
+    const txt = lonRowsText(L);
+    return el('details', { class: 'drv', open: S.lonOpen === r.id || null, ontoggle: e => { if (e.target.open) S.lonOpen = r.id; else if (S.lonOpen === r.id) S.lonOpen = null; } }, el('summary', {}, el('div', { class: 'drv-h' },
+      el('div', { class: 'nm' }, nameCell(r.id)),
+      locked(r.id) ? el('span', { class: 'chip ok' }, 'Godkänd, utbetalning ' + (L.utb || utbDatum(c, r.modell))) : L.fel.length ? el('span', { class: 'chip warn' }, L.fel[0]) : el('span', { class: 'chip' }, (r.modell === 'procent' ? 'Provision, ' : 'Månadslön, ') + utbDatum(c, r.modell)),
+      el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Brutto'), el('b', {}, kr(L.brutto, 1))),
+      el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Skatt'), el('b', {}, kr(L.skatt, 1))),
+      el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Kontant'), el('b', {}, kr(r.kontant, 1))),
+      el('div', { class: 'fig' }, el('span', { class: 'lbl' }, L.netto < 0 ? 'Ska betala in' : 'Att utbetala'), el('b', { style: L.netto < 0 ? 'color:var(--bad)' : '' }, kr(Math.abs(L.netto), 1))))),
+      el('div', { class: 'drv-b' },
+        el('div', {}, el('div', { class: 'ldl' }, txt),
+          el('p', { class: 'note' }, `${r.pass ? r.pass + ' pass, ' + kr(r.tim) + ' timmar på ' + r.bilar.join(', ') : 'Inga körpass inlästa för månaden ännu'}. ${r.broN} bropassager, ${r.cphN} CPH, ${r.stuN} Sturup. Kontanter enligt Megtax ${krs(r.kont)}${r.modell === 'fast' && kontEfter() ? ' denna månad (kvittas i nästa månadslön), ' + krs((S.prevKont || {})[r.id] || 0) + ' i ' + MON[+prevPer(S.period).slice(5) - 1] + (S.prevKontPer ? '' : ' (förra månaden finns inte i appen)') : ''}.${r.bom ? ' BOM ' + krs(r.bom) + ' borträknat.' : ''} Arbetsgivaravgift ${krs(L.ag.belopp)} (${L.ag.sats}). Lön hittills i år ${krs(L.ytd.lon)}.`)),
+        el('div', {}, el('div', { class: 'form' }, inp('kontant', r.modell === 'fast' && kontEfter() ? 'Kontanter ' + MON[+prevPer(S.period).slice(5) - 1] + ' att kvitta, kr' : 'Kontanter att kvitta, kr', kr(r.modell === 'fast' && kontEfter() ? ((S.prevKont || {})[r.id] || 0) : r.kont, 1).replace(/\s/g, '')), inp('bonus', 'Bonus, kr'), inp('forskott', 'Löneförskott att dra, kr'), inp('boltProv', 'Plattformsavgift Bolt, kr'), inp('uberProv', 'Plattformsavgift Uber, kr')), laEditor(r, c, locked(r.id)))));
+  });
+  const list = el('div', {}, LS.length ? items() : el('p', { class: 'note' }, 'Ingen lön för ' + (S.period ? MON[+S.period.slice(5) - 1] : 'månaden') + '.')); wrap.append(list);
+  const tot = el('div', { class: 'kpis' }, [['Bruttolön', sum(LS, x => x.L.brutto)], ['Skatt att betala in', sum(LS, x => x.L.skatt)], ['Arbetsgivaravgift', sum(LS, x => x.L.ag.belopp)], ['Kvittade kontanter', sum(LS, x => x.r.kontant)], ['Att utbetala till förare', sum(LS, x => Math.max(0, x.L.netto))], ['Förare ska betala in', sum(LS, x => Math.max(0, -x.L.netto))]].map(([l, v]) => el('div', { class: 'kpi' }, el('span', { class: 'lbl' }, l), el('span', { class: 'v' }, krs(v)))));
+  const fel = LS.filter(x => x.L.fel.length); const ej = ejAnstallda(R);
+  return el('section', { class: 'view' }, tot, ej.length ? el('div', { class: 'banner', style: 'background:var(--bad-soft);color:var(--bad)' }, el('b', {}, ej.length + ' förare har körpass men saknas i lönen.'), ' ' + ej.map(r => (namnFor(r.id) || r.id) + ' (' + r.pass + ' pass)').join(', ') + ' ligger utanför sin anställningsperiod. Rätta Anställd från och Anställd till under Personal om de ska ha lön.') : '', fel.length ? el('div', { class: 'banner' }, el('b', {}, fel.length + ' förare saknar uppgifter.'), ' ' + fel.map(x => (namnFor(x.r.id) || x.r.id) + ': ' + x.L.fel.join(', ')).join('. ') + '. Fyll i under Personal.') : '', wrap);
+}
+/* Bolt Fleet: förarrapport (CSV). Provisionen dras från förarens underlag, lönen räknas på Bolt-netto. */
+function csvRows(t) { const out = []; let row = [], cur = '', q = false; for (let i = 0; i < t.length; i++) { const c = t[i]; if (q) { if (c === '"') { if (t[i + 1] === '"') { cur += '"'; i++; } else q = false; } else cur += c; } else if (c === '"') q = true; else if (c === ',' || c === ';') { row.push(cur); cur = ''; } else if (c === '\n' || c === '\r') { if (c === '\r' && t[i + 1] === '\n') i++; row.push(cur); out.push(row); row = []; cur = ''; } else cur += c; } if (cur || row.length) { row.push(cur); out.push(row); } return out; }
+const tok = s => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z ]/g, ' ').split(/\s+/).filter(Boolean);
+function matchForare(namn, ids) {
+  const a = tok(namn); let best = null, bs = 0;
+  ids.forEach(id => { const b = tok(namnFor(id)); if (!b.length) return; let sc = a.filter(x => b.includes(x)).length; if (a[0] === b[0]) sc += 0.5; if (sc > bs) { bs = sc; best = id; } });
+  return bs >= 1.5 ? best : null;
+}
+/* Plattformsrapport (CSV) från Bolt Fleet eller Uber. Avgiften dras från förarens underlag. Kolumner hittas på namn, så både svensk och engelsk export fungerar. */
+async function importPlatt(file, src) {
+  const F = { bolt: ['boltProv', 'Bolt'], uber: ['uberProv', 'Uber'] }[src]; const fld = F[0], nm = F[1];
+  try {
+    const rows = csvRows(ENG.decode(await file.arrayBuffer())).filter(r => r.length > 3); const h = rows[0].map(x => x.trim());
+    const col = re => h.findIndex(x => re.test(x));
+    let iN = col(/^(Förare|Förarens namn|Driver|Driver name|Namn|Name)$/i);
+    const iF = col(/^(Förnamn|First name|Driver first name)/i), iE = col(/^(Efternamn|Last name|Surname|Driver surname|Driver last name)/i);
+    const iP = col(/^(Provisionsavgifter|Provision|Serviceavgift|Service ?fee|Uber service fee|Commission|Avgift till Uber|Uber fee)/i);
+    if ((iN < 0 && iF < 0) || iP < 0) { toast('Hittade inte förarnamn och avgift i filen från ' + nm + '. Kolumner: ' + h.slice(0, 12).join(', ') + '. Skicka filen till Claude så läggs formatet in.'); return; }
+    const namn = r => iN >= 0 ? r[iN] : [r[iF], iE >= 0 ? r[iE] : ''].join(' ');
+    const ids = [...new Set([...S.shifts.map(s => s.forare), ...Object.keys(S.settings.forare)])];
+    const num = x => Math.abs(parseFloat(String(x || '0').replace(/[^\d,.-]/g, '').replace(',', '.')) || 0);
+    const ok = [], miss = [];
+    Object.values(S.month.forare || {}).forEach(f => { delete f[fld]; });
+    rows.slice(1).forEach(r => { const prov = num(r[iP]); if (!prov) return; const id = matchForare(namn(r), ids); if (!id) { miss.push(namn(r)); return; }
+      const f = (S.month.forare[id] = S.month.forare[id] || {}); f[fld] = ENG.r2((f[fld] || 0) + prov); ok.push((namnFor(id) || id) + ' ' + kr(prov, 1)); });
+    S.month.files = { ...(S.month.files || {}), [src]: file.name + ', ' + ok.length + ' förare' }; S.files[src] = S.month.files[src];
+    if (await saveMonthNow()) { render(); toast(ok.length ? 'Plattformsavgift från ' + nm + ' inläst: ' + ok.join(', ') + (miss.length ? '. Hittade inte: ' + miss.join(', ') : '') : 'Ingen avgift i filen' + (miss.length ? '. Hittade inte: ' + miss.join(', ') : '')); }
+  } catch (e) { toast('Kunde inte läsa filen från ' + nm + ': ' + e.message); }
+}
+function nastaManad() {
+  if (S.demo || !S.months || !S.months.length) return null;
+  const last = S.months[S.months.length - 1]; const y = +last.slice(0, 4), m = +last.slice(5);
+  const ny = m === 12 ? (y + 1) + '-01' : y + '-' + String(m + 1).padStart(2, '0');
+  const nu = new Date(); const idag = nu.getFullYear() + '-' + String(nu.getMonth() + 1).padStart(2, '0');
+  return ny <= idag ? ny : null;
+}
+/* Startar en månad utan LDL-fil, så att fast månadslön kan godkännas och betalas ut samma månad. LDL-filen släpps in i månaden när den är slut. */
+function startaManad(per) {
+  S.ovPending = {}; S.period = per; S.month = { forare: {}, overrides: {}, ldl: ' ' }; S.shifts = []; S.passages = { bro: [], stu: [] }; S.files = {}; S.avr = null;
+  S.months = [...new Set([...(S.months || []), per])].sort(); saveMonth(); S.tab = 'lon'; S.prevKont = {}; loadPrevKont(per).then(render); render(); toast(MON[+per.slice(5) - 1] + ' är startad. Fast lön kan godkännas nu, provision när LDL-filen är inläst.');
+}
+/* Godkänn en grupp (fast eller provision). Godkända förare låses var för sig, resten kan godkännas senare samma månad. */
+async function lasLon(LS, grp) {
+  if (S.lasConfirm !== grp) { S.lasConfirm = grp; toast('Klicka igen för att godkänna. ' + (grp === 'fast' ? 'Fast lön' : 'Provisionslön') + ' låses för ' + S.period + '.'); setTimeout(() => S.lasConfirm = null, 5000); return; }
+  S.lasConfirm = null;
+  const c = cfg(); const dat = new Date().toISOString().slice(0, 10);
+  const lk = S.month.lonekorning = S.month.lonekorning || { datum: dat, utb: utbDatum(c, 'procent'), rader: {} }; lk.rader = lk.rader || {};
+  Object.assign(lk.rader, Object.fromEntries(LS.map(({ r, L }) => [r.id, { datum: dat, brutto: L.brutto, skatt: L.skatt, netto: L.netto, ag: L.ag.belopp, kontant: r.kontant, forskott: r.forskott, exkl: r.exkl, broN: r.broN, ytd: L.ytd, utb: L.utb || utbDatum(c, r.modell), rader: L.rader }])));
+  const H = S.settings.lonHist = S.settings.lonHist || {};
+  LS.forEach(({ r, L }) => { (H[r.id] = H[r.id] || {})[S.period] = { brutto: L.brutto, skatt: L.skatt, utb: L.utb || utbDatum(c, r.modell) }; });
+  saveMonth(); saveSettings(); render(); toast((grp === 'fast' ? 'Fast lön' : 'Provisionslön') + ' är godkänd och låst');
+}
+async function saveFile(name, data) {
+  try { const dl = await window.claude?.use?.('downloads'); if (!dl) { toast('Nedladdning är inte tillgänglig i den här vyn'); return; } await dl.save({ filename: name, data }); toast('Sparad'); }
+  catch (e) { if (e && e.code === 'declined') return; toast('Kunde inte spara filen' + (e && e.code ? ' (' + e.code + ')' : '')); }
+}
+function pdfLonespec(LS) {
+  const J = window.jspdf && window.jspdf.jsPDF; if (!J) { toast('PDF-modulen laddades inte. Ladda om sidan.'); return; }
+  const c = cfg(); const doc = new J({ unit: 'mm', format: 'a4' }); const co = S.settings.bolag || {};
+  const clean = s => String(s ?? '').replace(/[\u2212\u2012\u2013\u2014]/g, '-').replace(/[\u202f\u2009]/g, ' ');
+  const fmt = x => clean(nf2.format(x || 0));
+  const INK = [22, 33, 43], ACC = [31, 79, 140], MUT = [107, 117, 125], LIN = [216, 221, 215], SOFT = [243, 245, 242], ASOFT = [227, 236, 247], BAD = [179, 54, 31], BSOFT = [248, 227, 222];
+  const fill = a => doc.setFillColor(...a), draw = a => doc.setDrawColor(...a);
+  const T = (t, x, y, o = {}) => { doc.setFont('helvetica', o.b ? 'bold' : 'normal'); doc.setFontSize(o.s || 9); doc.setTextColor(...(o.c || INK)); doc.text(clean(t), x, y, o.a ? { align: o.a } : undefined); };
+  const P = (t, x, y, w, o = {}) => { doc.setFont('helvetica', 'normal'); doc.setFontSize(o.s || 7.5); doc.setTextColor(...(o.c || MUT)); const ln = doc.splitTextToSize(clean(t), w); doc.text(ln, x, y); return ln.length * (o.s || 7.5) * 0.42; };
+  const L0 = 18, R0 = 192, W = R0 - L0;
+  const yr = +S.period.slice(0, 4), mo = +S.period.slice(5), last = new Date(yr, mo, 0).getDate();
+  const manad = MON[mo - 1].charAt(0).toUpperCase() + MON[mo - 1].slice(1);
+  const n = LS.length;
+  LS.forEach(({ r, L }, i) => {
+    if (i) doc.addPage();
+    const utb = L.utb || utbDatum(c, r.modell);
+    const p = L.p, f = S.settings.forare[r.id] || {};
+    const bank = p.bank ? '•••• ' + String(p.bank).replace(/\s/g, '').slice(-4) : 'Saknas';
+    const skTxt = +p.engang > 0 ? 'Engångsskatt ' + p.engang + ' %' : (p.jamkning !== undefined && p.jamkning !== '' && p.jamkning !== null) ? 'Jämkningsbeslut' : 'Tabell ' + (p.tabell || 33) + ', kolumn ' + L.kol;
+    fill(ACC); doc.rect(0, 0, 210, 3.5, 'F');
+    T(S.settings.foretag || '', L0, 19, { b: 1, s: 15 });
+    T([co.orgnr ? 'Org.nr ' + co.orgnr : '', co.adress, co.postadress].filter(Boolean).join('   ·   '), L0, 25, { s: 8, c: MUT });
+    T('LÖNESPECIFIKATION', R0, 13, { b: 1, s: 7.5, c: ACC, a: 'right' });
+    T(manad + ' ' + yr, R0, 19.5, { b: 1, s: 15, a: 'right' });
+    T('Utbetalning ' + utb, R0, 25, { s: 8, c: MUT, a: 'right' });
+    draw(LIN); doc.setLineWidth(0.3); doc.line(L0, 31, R0, 31);
+    T('ANSTÄLLD', L0, 40, { b: 1, s: 6.5, c: MUT });
+    T(namnFor(r.id) || r.id, L0, 46, { b: 1, s: 11.5 });
+    [p.adress, p.postadress].filter(Boolean).forEach((t, k) => T(t, L0, 51.5 + k * 4.6, { s: 9 }));
+    const meta = [['Anställningsnr', f.anst || ''], ['Förarnr', r.id], ['Löneperiod', '1 till ' + last + ' ' + MON[mo - 1] + ' ' + yr], ['Utbetalningsdag', utb], ['Skatteavdrag', skTxt], ['Bankkonto', bank]];
+    meta.forEach(([k, v], j) => { const x = 104 + (j % 2) * 46, y = 40 + Math.floor(j / 2) * 10; T(k.toUpperCase(), x, y, { b: 1, s: 6.5, c: MUT }); T(v, x, y + 4.6, { s: 9 }); });
+    let y = 77;
+    fill(SOFT); doc.roundedRect(L0, y - 5, W, 8, 1.2, 1.2, 'F');
+    T('KOD', L0 + 3, y, { b: 1, s: 6.5, c: MUT }); T('LÖNEART', L0 + 17, y, { b: 1, s: 6.5, c: MUT });
+    T('ANTAL', 130, y, { b: 1, s: 6.5, c: MUT, a: 'right' }); T('À-PRIS', 160, y, { b: 1, s: 6.5, c: MUT, a: 'right' }); T('BELOPP', R0 - 3, y, { b: 1, s: 6.5, c: MUT, a: 'right' });
+    y += 9;
+    const efter = new Set((r.extra || []).filter(x => x.sida === 'skattefri' || x.sida === 'netto').map(x => x.kod));
+    L.rader.filter(x => !['912', '008', '970', '915'].includes(x.kod) && !efter.has(x.kod)).forEach(x => {
+      const cc = x.info ? MUT : INK;
+      const an = x.antal === 1 ? '' : (x.antal > 0 && x.antal < 1) ? clean(nf0.format(x.antal * 100)) + ' %' : fmt(x.antal);
+      T(x.kod, L0 + 3, y, { s: 8, c: MUT }); T(x.text + (x.info ? '  (information)' : ''), L0 + 17, y, { s: 9, c: cc });
+      T(an, 130, y, { s: 9, c: cc, a: 'right' }); T(fmt(x.apris), 160, y, { s: 9, c: cc, a: 'right' }); T(x.info ? '' : fmt(x.belopp), R0 - 3, y, { s: 9, a: 'right' });
+      draw(LIN); doc.setLineWidth(0.15); doc.line(L0, y + 2.8, R0, y + 2.8); y += 7.4;
+    });
+    y += 8;
+    draw(LIN); doc.setLineWidth(0.3); doc.roundedRect(L0, y - 5, 82, 19, 1.5, 1.5, 'S');
+    T('HITTILLS I ÅR', L0 + 4, y, { b: 1, s: 6.5, c: MUT });
+    T('Bruttolön', L0 + 4, y + 6, { s: 8.5, c: MUT }); T(fmt(L.ytd.lon), L0 + 78, y + 6, { s: 9, a: 'right' });
+    T('Skatt', L0 + 4, y + 11.5, { s: 8.5, c: MUT }); T(fmt(Math.abs(L.ytd.skatt)), L0 + 78, y + 11.5, { s: 9, a: 'right' });
+    const sr = [['Bruttolön', L.brutto], ['Preliminär skatt', -L.skatt]];
+    (r.extra || []).filter(x => x.sida === 'skattefri' || x.sida === 'netto').forEach(x => sr.push([x.text, x.belopp]));
+    if (r.kontant) sr.push([r.modell === 'fast' && kontEfter() ? 'Kontanter i bilen ' + MON[+prevPer(S.period).slice(5) - 1] + ', kvittade' : 'Kontanter i bilen, kvittade', -r.kontant]);
+    if (r.forskott) sr.push(['Löneförskott', -r.forskott]);
+    let ys = y; const X1 = 110;
+    sr.forEach(([k, v]) => { T(k, X1 + 4, ys, { s: 9, c: MUT }); T(fmt(v), R0 - 3, ys, { s: 9, a: 'right' }); ys += 6; });
+    const neg = L.netto < 0;
+    fill(neg ? BSOFT : ASOFT); doc.roundedRect(X1, ys - 1.5, R0 - X1, 14, 1.5, 1.5, 'F');
+    T(neg ? 'ATT BETALA IN TILL BOLAGET' : 'ATT UTBETALA', X1 + 4, ys + 4, { b: 1, s: 6.5, c: neg ? BAD : ACC });
+    T(neg ? 'Sätt in beloppet på bolagets konto' : 'Till konto ' + bank, X1 + 4, ys + 9, { s: 7.5, c: MUT });
+    T(fmt(Math.abs(L.netto)) + ' kr', R0 - 3, ys + 8, { b: 1, s: 14, a: 'right', c: neg ? BAD : INK });
+    y = Math.max(ys + 26, y + 30);
+    if (r.modell === 'procent') {
+      T('UNDERLAG FÖR MÅNADEN', L0, y, { b: 1, s: 6.5, c: MUT }); y += 3;
+      const und = [['Körpass', String(r.pass)], ['Inkört exkl. moms', krs(r.exkl)], ['Bropassager', String(r.broN || 0)], ['CPH', String(r.cphN || 0)], ['Sturup', String(r.stuN || 0)]];
+      fill(SOFT); doc.roundedRect(L0, y, W, 15, 1.5, 1.5, 'F');
+      und.forEach(([k, v], j) => { const x = L0 + 4 + j * (W / und.length); T(v, x, y + 6.5, { b: 1, s: 10 }); T(k, x, y + 11, { s: 7, c: MUT }); });
+      y += 23;
+    }
+    let t = `Arbetsgivaravgift ${fmt(L.ag.belopp)} kr (${L.ag.sats}) betalas av arbetsgivaren och dras inte från lönen.`;
+    if (r.modell === 'procent') t += ` Procentlön ${c.procent} % på inkört exkl. moms${r.boltProv ? ', efter avdrag för plattformsavgift till Bolt/Uber (' + fmt(r.boltProv) + ' kr)' : ''}. Avdrag med ${c.broAndel} % av kostnaden för bro, Sturup och CPH. Semesterersättning ${c.semester} % betalas ut löpande med lönen.`;
+    if (neg) t += ' Kontanterna i bilen överstiger lönen efter skatt, mellanskillnaden ska betalas in till bolaget.';
+    P(t, L0, y, W);
+    draw(LIN); doc.setLineWidth(0.3); doc.line(L0, 282, R0, 282);
+    T((S.settings.foretag || '') + (co.orgnr ? '   ·   Org.nr ' + co.orgnr : ''), L0, 287, { s: 7, c: MUT });
+    T('Sida ' + (i + 1) + ' av ' + n, R0, 287, { s: 7, c: MUT, a: 'right' });
+  });
+  saveFile('Lonespecar ' + S.period + '.pdf', doc.output('arraybuffer'));
+}
+function exportLonelista(LS) {
+  const wb = XLSX.utils.book_new();
+  const c = cfg(); const a = [['Anst.nr', 'Förarnr', 'Namn', 'Utbetalning', 'Personnummer', 'Bruttolön', 'Skatt', 'Kolumn', 'Kontanter kvittade', 'Förskott', 'Netto', 'Att betala in', 'Bankkonto', 'Arbetsgivaravgift', 'Avgiftssats', 'Lön i år', 'Skatt i år']];
+  LS.forEach(({ r, L }) => a.push([(S.settings.forare[r.id] || {}).anst || '', r.id, namnFor(r.id), L.utb || utbDatum(c, r.modell), L.p.personnr || '', L.brutto, L.skatt, L.kol, r.kontant, r.forskott, Math.max(0, L.netto), Math.max(0, -L.netto), L.p.bank || '', L.ag.belopp, L.ag.sats, L.ytd.lon, L.ytd.skatt]));
+  a.push([], ['', '', 'Summa', '', '', sum(LS, x => x.L.brutto), sum(LS, x => x.L.skatt), '', sum(LS, x => x.r.kontant), sum(LS, x => x.r.forskott), sum(LS, x => Math.max(0, x.L.netto)), sum(LS, x => Math.max(0, -x.L.netto)), '', sum(LS, x => x.L.ag.belopp)]);
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(a), 'Lönelista');
+  const r = [['Anst.nr', 'Namn', 'Kod', 'Löneart', 'Antal', 'À-pris', 'Belopp']]; LS.forEach(({ r: x, L }) => L.rader.forEach(y => r.push([(S.settings.forare[x.id] || {}).anst || '', namnFor(x.id), y.kod, y.text, y.antal, y.apris, y.info ? '' : y.belopp])));
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(r), 'Lönerader');
+  saveFile('Lonelista ' + S.period + '.xlsx', new Uint8Array(XLSX.write(wb, { type: 'array', bookType: 'xlsx' })));
+}
+
+async function copy(txt, btn) {
+  try { await navigator.clipboard.writeText(txt); toast('Kopierat'); }
+  catch (e) { const pre = btn.closest('.drv-b')?.querySelector('.ldl'); if (pre) { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } toast('Markerat, tryck Ctrl+C'); }
+}
+
+function vKassa(R) {
+  const c = R.cfg; const regs = Object.keys(R.bilar).sort(); if (!S.bil || !R.bilar[S.bil]) S.bil = regs[0];
+  const seg = el('div', { class: 'seg', role: 'group', 'aria-label': 'Välj bil' }, regs.map(rg => el('button', { 'aria-pressed': String(rg === S.bil), onclick: () => { S.bil = rg; render(); } }, R.bilar[rg].regnr)));
+  const b = R.bilar[S.bil]; if (!b) return el('section', { class: 'view' }, el('p', {}, 'Inga pass.'));
+  const andel = 100 - c.redovForarandel;
+  const H = ['Kassa', 'Kontant', 'Kredit', 'Kastrup', 'Sturup', andel + ' %', 'Hos förare'];
+  const head = el('thead', {}, el('tr', {}, el('th', { rowspan: 2 }, 'V'), el('th', { rowspan: 2 }, 'Datum'), el('th', { colspan: 7, class: 'grpd' }, 'Dagpass'), el('th', { colspan: 7, class: 'grpn' }, 'Kvällspass')),
+    el('tr', {}, [...H.map((h, i) => el('th', { class: 'n' + (i ? '' : ' grpd') }, h)), ...H.map((h, i) => el('th', { class: 'n' + (i ? '' : ' grpn') }, h))]));
+  const cells = (x, g) => x ? [x.kassa, x.kont, x.kred, x.bro, x.stu, x.andel, x.hosForare].map((v, i) => el('td', { class: 'n' + (i ? '' : ' ' + g) + (i === 6 && v < 0 ? ' neg' : ''), title: i === 0 && x.forare ? x.forare.map(f => namnFor(f) || f).join(', ') : null }, v ? kr(v) : '')) : Array.from({ length: 7 }, (_, i) => el('td', { class: i ? '' : g }, ''));
+  const acc = () => ({ kassa: 0, kont: 0, kred: 0, bro: 0, stu: 0, andel: 0, hosForare: 0 });
+  const add = (a, x) => { if (x) for (const k in a) a[k] += x[k]; };
+  const days = Object.values(b.dagar).sort((p, q) => p.datum < q.datum ? -1 : 1);
+  const body = el('tbody'); let wk = null, wd = acc(), wn = acc(); const md = acc(), mn = acc();
+  const flush = () => { if (wk == null) return; body.append(el('tr', { class: 'wk' }, el('td', {}, 'v' + wk), el('td', {}, 'Summa'), cells(wd, 'grpd'), cells(wn, 'grpn'))); wd = acc(); wn = acc(); };
+  days.forEach(d => { if (wk !== d.vecka) { flush(); wk = d.vecka; } add(wd, d.dag); add(wn, d.natt); add(md, d.dag); add(mn, d.natt);
+    body.append(el('tr', {}, el('td', { class: 'muted' }, d.vecka), el('td', {}, WD[d.wd] + ' ' + d.datum.slice(8) + '/' + +d.datum.slice(5, 7)), cells(d.dag, 'grpd'), cells(d.natt, 'grpn'))); });
+  flush();
+  body.append(el('tr', { class: 'sum' }, el('td', {}, ''), el('td', {}, 'Månad'), cells(md, 'grpd'), cells(mn, 'grpn')));
+  const tot = md.hosForare + mn.hosForare;
+  return el('section', { class: 'view' },
+    el('div', { class: 'panel-h' }, el('h2', {}, 'Kassaredovisning per bil'), seg),
+    el('p', { class: 'note' }, `Samma uppställning som redovisningsmallen. ${andel} % av kassan exkl. bro och Sturup är bolagets andel. Hos förare = bolagets andel + Kastrup + Sturup − kredit, alltså de kontanter föraren ska lämna in. Negativt belopp betyder att bolaget är skyldigt föraren. Förarandel ${c.redovForarandel} % ändrar du under Inställningar.`),
+    el('div', { class: 'kpis' }, [['Kassa', md.kassa + mn.kassa], ['Kredit', md.kred + mn.kred], ['Kastrup', md.bro + mn.bro], ['Sturup', md.stu + mn.stu], ['Hos förare, netto', tot]].map(([l, v]) => el('div', { class: 'kpi' }, el('span', { class: 'lbl' }, l), el('span', { class: 'v' }, krs(v))))),
+    el('div', { class: 'tw' }, el('table', {}, head, body)));
+}
+
+async function saveMonthNow() {
+  const k = monthKey(); if (!k || S.demo) { toast('Exempeldata sparas inte'); return false; }
+  clearTimeout(saveM);
+  try { localStorage.setItem('ak_' + k, JSON.stringify(S.month)); } catch (e) {}
+  if (S.db) {
+    try { await S.db.collection('data/users/' + S.uid).doc(k).set(JSON.parse(JSON.stringify(S.month))); } catch (e) { toast('Kunde inte spara: ' + (e.message || e.code)); return false; }
+    try { const d = await S.db.collection('data/users/' + S.uid).doc(k).get(); const sparat = d.exists ? stable(d.data().overrides || {}) : ''; if (sparat !== stable(S.month.overrides || {})) { toast('Sparningen gick inte igenom. Ladda om sidan och försök igen.'); return false; } } catch (e) {}
+  }
+  return true;
+}
+function vAvg(R) {
+  const c = R.cfg; const regs = Object.keys(R.bilar).sort();
+  S.ovPending = S.ovPending || {};
+  const pend = Object.keys(S.ovPending).length;
+  const alla = [...new Set([...S.shifts.map(s => s.forare), ...Object.keys(S.settings.forare || {})])].sort((a, b) => (namnFor(a) || 'ö' + a).localeCompare(namnFor(b) || 'ö' + b, 'sv'));
+  const opts = id => [el('option', { value: '' }, 'Välj förare'), ...alla.map(f => el('option', { value: f, selected: f === id }, (namnFor(f) || 'Förare') + ' ' + f))];
+  const pris = p => p.typ === 'bro' ? c.broPris : p.typ === 'sturup' ? p.kost : c.cphPris;
+  const typTxt = { bro: 'Bro', avgift: 'CPH', sturup: 'Sturup' };
+  const sumRows = regs.map(rg => { const ps = R.bro.filter(p => p.reg === rg); const n = (t, per) => ps.filter(p => p.typ === t && p.period === per).length;
+    return el('tr', {}, el('td', { class: 'num' }, R.bilar[rg].regnr), el('td', { class: 'n' }, n('bro', 'dag')), el('td', { class: 'n' }, n('bro', 'natt')), el('td', { class: 'n' }, n('avgift', 'dag') + n('avgift', 'natt')), el('td', { class: 'n' }, n('sturup', 'dag')), el('td', { class: 'n' }, n('sturup', 'natt')), el('td', { class: 'n' }, kr(sum(ps.filter(p => p.typ !== 'sturup'), pris), 1)), el('td', { class: 'n' }, kr(sum(ps.filter(p => p.typ === 'sturup'), p => p.kost), 1))); });
+  const st = el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['Bil', 'Bro dag', 'Bro kväll', 'CPH', 'Sturup dag', 'Sturup kväll', 'Bro+CPH', 'Sturup exkl. moms'].map((h, i) => el('th', { class: i ? 'n' : '' }, h)))), el('tbody', {}, sumRows)));
+  const met = { pass: ['ok', 'Inom passet'], marginal: ['ok', 'Nära passet'], manuell: ['', 'Manuellt'], omatchad: ['bad', 'Saknar förare'] };
+  const tid = p => p.ts.slice(8, 10) + '/' + p.ts.slice(5, 7) + ' ' + p.ts.slice(11, 16);
+  // 1. passager som saknar förare
+  const saknar = R.bro.filter(p => !p.forare || S.ovPending[p.key] !== undefined).sort((a, b) => a.ts < b.ts ? -1 : 1);
+  const saveBtn = el('button', { class: 'primary', disabled: pend ? null : true, onclick: async () => {
+    Object.assign(S.month.overrides = S.month.overrides || {}, S.ovPending);
+    const val = Object.values(S.ovPending).filter(Boolean);
+    if (await saveMonthNow()) { const n = Object.keys(S.ovPending).length; S.ovPending = {}; if (val.length === 1) { S.avgQ = val[0]; } toast(n + (n === 1 ? ' passage sparad på ' : ' passager sparade, senast på ') + (namnFor(val[val.length - 1]) || val[val.length - 1] || 'ingen förare')); render(); }
+  } }, pend ? `Spara (${pend})` : 'Spara');
+  const ovRows = saknar.map(p => el('tr', { class: S.ovPending[p.key] !== undefined ? 'pending' : '' },
+    el('td', { class: 'num' }, tid(p)), el('td', { class: 'num' }, R.bilar[p.reg]?.regnr || p.reg), el('td', {}, typTxt[p.typ] || p.typ),
+    el('td', {}, el('span', { class: 'chip ' + p.period }, p.period === 'dag' ? 'Dag' : 'Kväll')),
+    el('td', {}, el('select', { 'aria-label': 'Förare för passagen ' + tid(p), onchange: e => { S.ovPending[p.key] = e.target.value; e.target.closest('tr').classList.add('pending'); const n = Object.keys(S.ovPending).length; saveBtn.disabled = false; saveBtn.textContent = `Spara (${n})`; } }, opts(S.ovPending[p.key] ?? p.forare))),
+    el('td', { class: 'small muted' }, p.forslag ? 'Närmaste pass: ' + (namnFor(p.forslag.forare) || p.forslag.forare) + ' ' + p.forslag.start.slice(8, 10) + '/' + +p.forslag.start.slice(5, 7) + ' ' + p.forslag.start.slice(11, 16) + ' till ' + p.forslag.slut.slice(11, 16) + ', ' + p.forslag.min + ' min ifrån' + (p.forslag.annan ? '. Mellan två pass, även ' + (namnFor(p.forslag.annan) || p.forslag.annan) + ' möjlig' : '') : 'Inget pass i bilen nära tiden'),
+    el('td', { class: 'n' }, kr(pris(p), 1))));
+  const ovPanel = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h2', {}, saknar.length ? `Passager utan förare (${R.bro.filter(p => !p.forare).length})` : 'Alla passager har förare'), el('div', { class: 'spacer' }), saveBtn),
+    saknar.length ? el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['Tid', 'Bil', 'Typ', 'Pass', 'Förare', 'Förslag från Megtax', 'Kostnad'].map((h, i) => el('th', { class: i > 5 ? 'n' : '' }, h)))), el('tbody', {}, ovRows))) : el('p', { class: 'note' }, 'Varje passage är kopplad till en förare. Ändra en koppling under förarens rad nedan.'),
+    pend ? el('p', { class: 'note' }, 'Du har osparade val. Tryck på Spara.') : null);
+  // 2. per förare, flest bropassager först, passagerna i tidsordning
+  const per = {}; R.bro.filter(p => p.forare).forEach(p => (per[p.forare] = per[p.forare] || []).push(p));
+  const fr = Object.entries(per).map(([id, ps]) => ({ id, ps: ps.sort((a, b) => a.ts < b.ts ? -1 : 1), bro: ps.filter(p => p.typ === 'bro').length, cph: ps.filter(p => p.typ === 'avgift').length, stu: ps.filter(p => p.typ === 'sturup').length, kost: sum(ps, pris), bcK: sum(ps.filter(p => p.typ !== 'sturup'), pris), sK: sum(ps.filter(p => p.typ === 'sturup'), pris), avdr: sum(ps.filter(p => p.iLon), p => pris(p) * c.broAndel / 100) }))
+    .sort((a, b) => S.avgSort === 'bro' ? (b.bro - a.bro || b.kost - a.kost) : (namnFor(a.id) || 'ö' + a.id).localeCompare(namnFor(b.id) || 'ö' + b.id, 'sv'));
+  const drvBox = el('div', { class: 'panel' }); const cnt = el('span', { class: 'small muted' });
+  const mkDrv = x => el('details', { class: 'drv' }, el('summary', {}, el('div', { class: 'drv-h' }, el('div', { class: 'nm' }, nameCell(x.id)),
+      el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Bro'), el('b', {}, x.bro)), el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'CPH'), el('b', {}, x.cph)), el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Sturup'), el('b', {}, x.stu)),
+      el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Bro + CPH kr'), el('b', {}, kr(x.bcK))), el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Sturup kr'), el('b', {}, kr(x.sK))), el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Totalt'), el('b', {}, kr(x.kost))), el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Avdrag lön'), el('b', {}, kr(x.avdr, 1))))),
+    el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['#', 'Tid', 'Bil', 'Typ', 'Pass', 'Koppling', 'Förare', 'Kostnad'].map((h, i) => el('th', { class: i > 6 || i === 0 ? 'n' : '' }, h)))),
+      el('tbody', {}, x.ps.map((p, i) => el('tr', { class: S.ovPending[p.key] !== undefined ? 'pending' : '' }, el('td', { class: 'n muted' }, i + 1), el('td', { class: 'num' }, tid(p)), el('td', { class: 'num' }, R.bilar[p.reg]?.regnr || p.reg), el('td', {}, typTxt[p.typ] || p.typ),
+        el('td', {}, el('span', { class: 'chip ' + p.period }, p.period === 'dag' ? 'Dag' : 'Kväll')), el('td', {}, el('span', { class: 'chip ' + met[p.metod][0] }, met[p.metod][1])),
+        el('td', {}, el('select', { 'aria-label': 'Förare', onchange: e => { S.ovPending[p.key] = e.target.value; e.target.closest('tr').classList.add('pending'); const n = Object.keys(S.ovPending).length; saveBtn.disabled = false; saveBtn.textContent = `Spara (${n})`; } }, opts(S.ovPending[p.key] ?? p.forare))),
+        el('td', { class: 'n' }, kr(pris(p), 1))))))));
+  const fill = () => {
+    const q = (S.avgQ || '').trim().toLowerCase();
+    const hit = x => !q || (namnFor(x.id) + ' ' + x.id + ' ' + [...new Set(x.ps.map(p => (R.bilar[p.reg]?.regnr || '') + ' ' + p.reg))].join(' ')).toLowerCase().includes(q);
+    const vis = fr.filter(hit);
+    drvBox.replaceChildren(...(vis.length ? vis.map(mkDrv) : [el('p', { class: 'note' }, 'Ingen förare matchar sökningen.')]));
+    if (q && vis.length === 1) drvBox.querySelector('details').open = true;
+    cnt.textContent = q ? vis.length + ' av ' + fr.length + ' förare' : fr.length + ' förare';
+  };
+  fill();
+  const sok = el('input', { type: 'search', id: 'avgSearch', placeholder: 'Sök förare, förarnr eller bil', value: S.avgQ || '', style: 'min-width:240px', oninput: e => { S.avgQ = e.target.value; fill(); } });
+  const sortSeg = el('div', { class: 'seg', role: 'group', 'aria-label': 'Sortera förare' }, [['namn', 'Namn A till Ö'], ['bro', 'Flest bropassager']].map(([k, t]) => el('button', { 'aria-pressed': String((S.avgSort || 'namn') === k), onclick: () => { S.avgSort = k; render(); } }, t)));
+  const bN = R.bro.filter(p => p.typ === 'bro').length, cN = R.bro.filter(p => p.typ === 'avgift').length, sP = R.bro.filter(p => p.typ === 'sturup'), oN = R.bro.filter(p => !p.forare).length;
+  const bcK = sum(R.bro.filter(p => p.typ !== 'sturup'), pris), sK = sum(sP, pris);
+  const tot = el('div', { class: 'kpis' }, [['Bro + CPH', kr(bcK, 1) + ' kr', bN + ' bro + ' + cN + ' CPH'], ['Sturup', kr(sK, 1) + ' kr', sP.length + ' passager, exkl. moms'], ['Totalt', kr(bcK + sK, 1) + ' kr', (bN + cN + sP.length) + ' passager'], ['Utan förare', String(oN), oN ? 'välj förare nedan' : 'alla kopplade']].map(([l, v, t]) => el('div', { class: 'kpi' }, el('span', { class: 'lbl' }, l), el('span', { class: 'v' }, v), el('span', { class: 's' }, t))));
+  if (!R.bro.length) return el('section', { class: 'view' }, el('h2', {}, 'Bro, CPH och Sturup'), el('p', { class: 'note' }, 'Ingen faktura inläst ännu. Släpp Øresundsbrons samlingsfaktura och Sturupfakturan ovan.'));
+  return el('section', { class: 'view' }, tot, ovPanel,
+    el('div', { class: 'panel-h' }, el('h2', {}, 'Per förare'), sok, sortSeg, cnt, el('div', { class: 'spacer' }), el('span', { class: 'small muted' }, 'Öppna en förare för passagerna i tidsordning.')),
+    drvBox,
+    el('h2', {}, 'Per bil'), st,
+    el('p', { class: 'note' }, `Passagerna kopplas på Megtax start- och sluttid: samma bil och inom passet, eller högst ${c.broMarginalMin} minuter före start eller efter slut. Ligger en passage utanför alla pass får den ingen förare automatiskt, utan hamnar under Passager utan förare med närmaste pass som förslag. Bro ${kr(c.broPris, 1)} kr och CPH ${kr(c.cphPris, 1)} kr per gång, Sturup exkl. moms. ${c.broAndel} % dras på lönen.`));
+}
+
+function vAvr(R) {
+  const A = S.avr;
+  if (!A) return el('section', { class: 'view' }, el('h2', {}, 'Avräkning från Taxi Malmö'), el('p', { class: 'note' }, 'Släpp avräkningsfakturan från Taxi Malmö ovan. Appen stämmer av kontokort per bil mot Megtax, bropassager mot Øresundsfakturan och räknar månadens bidrag efter löner och avgifter.'));
+  const bilar = {}; S.shifts.forEach(s => { bilar[s.bilId] = bilar[s.bilId] || { id: s.bilId, reg: s.reg, regnr: s.regnr, kort: 0 }; s.pay.forEach(p => { if (p.kod === '4') bilar[s.bilId].kort += p.belopp; }); });
+  const tm = (art, bil) => A.rows.filter(r => r.art === art && (bil == null || r.bil === bil));
+  const ids = [...new Set([...Object.keys(bilar), ...A.rows.filter(r => r.bil).map(r => r.bil)])].sort();
+  const diffTd = (a, b, d) => { const x = ENG.r2(a - b); return el('td', { class: 'n' + (Math.abs(x) > (d || 0.5) ? ' neg' : '') }, Math.abs(x) > (d || 0.5) ? kr(x) : 'Stämmer'); };
+  const rows = ids.map(id => { const b = bilar[id] || { regnr: '', reg: '', kort: 0 }; const kortTM = -sum(tm(52, id), r => r.summa); const broTM = sum(tm(16, id), r => r.antal);
+    const broF = R.bro.filter(p => p.reg === b.reg && p.typ === 'bro').length;
+    return el('tr', {}, el('td', { class: 'num' }, id), el('td', { class: 'num' }, b.regnr), el('td', { class: 'n' }, kr(b.kort)), el('td', { class: 'n' }, kr(kortTM)), diffTd(kortTM, b.kort), el('td', { class: 'n' }, broF), el('td', { class: 'n' }, broTM), diffTd(broTM, broF, 0)); });
+  const stuTM = sum(tm(15), r => r.antal), stuF = R.bro.filter(p => p.typ === 'sturup').length, cphTM = sum(tm(17), r => r.antal), cphF = R.bro.filter(p => p.typ === 'avgift').length;
+  const ctl = el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['Bil', 'Reg.nr', 'Kontokort Megtax', 'Kontokort Taxi Malmö', 'Skillnad', 'Bro enl. faktura', 'Bro debiterat', 'Skillnad'].map((h, i) => el('th', { class: i > 1 ? 'n' : '' }, h)))), el('tbody', {}, rows,
+    el('tr', { class: 'sum' }, el('td', {}, ''), el('td', {}, 'Sturup'), el('td', { colspan: 3 }, ''), el('td', { class: 'n' }, stuF), el('td', { class: 'n' }, stuTM), el('td', { class: 'n small muted' }, 'kan avse flera månader')),
+    el('tr', { class: 'sum' }, el('td', {}, ''), el('td', {}, 'CPH'), el('td', { colspan: 3 }, ''), el('td', { class: 'n' }, cphF), el('td', { class: 'n' }, cphTM), diffTd(cphTM, cphF, 0)))));
+  // bidrag
+  const avg = sum(A.rows.filter(r => [1, 8, 15, 16, 17, 53].includes(r.art)), r => r.summa);
+  const ex = sum(R.rows, r => r.exklMegtax ?? r.exkl), lon = sum(R.rows, r => r.brutto + r.agAvg);
+  const res = ex - lon - avg;
+  const kp = el('div', { class: 'kpis' }, [['Inkört exkl. moms', ex, 'alla pass'], ['Lönekostnad', -lon, 'brutto + arbetsgivaravgift'], ['Avgifter Taxi Malmö', -avg, 'växel, taklampa, service, bro, Sturup, CPH exkl. moms'], ['Bidrag', res, 'före bränsle, leasing, försäkring, service']].map(([l, v, s]) => el('div', { class: 'kpi' }, el('span', { class: 'lbl' }, l), el('span', { class: 'v', style: l === 'Bidrag' && v < 0 ? 'color:var(--bad)' : '' }, krs(v)), el('span', { class: 's' }, s))));
+  const list = el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['Art', 'Benämning', 'Bil', 'Antal', 'Summa'].map((h, i) => el('th', { class: i > 2 ? 'n' : '' }, h)))), el('tbody', {}, A.rows.map(r => el('tr', {}, el('td', { class: 'num' }, r.art), el('td', {}, r.text), el('td', { class: 'num' }, r.bil), el('td', { class: 'n' }, r.antal ?? ''), el('td', { class: 'n' + (r.summa < 0 ? ' neg' : '') }, kr(r.summa, 1)))),
+    A.attBetala != null ? el('tr', { class: 'sum' }, el('td', {}, ''), el('td', {}, 'Att betala enligt fakturan (inkl. moms och tidigare fakturor)'), el('td', {}, ''), el('td', {}, ''), el('td', { class: 'n' }, kr(A.attBetala, 1))) : null)));
+  return el('section', { class: 'view' }, el('div', { class: 'panel-h' }, el('h2', {}, 'Avräkning från Taxi Malmö'), el('span', { class: 'chip' }, 'Faktura ' + (A.nr || '?') + (A.datum ? ', ' + A.datum : ''))),
+    el('h3', {}, 'Månadens bidrag'), kp,
+    el('p', { class: 'note' }, 'Lönekostnaden är beräknad i appen. Avgifterna tas från avräkningen exkl. moms. Krediter, kontokort och appbetalningar är pengar Taxi Malmö betalar ut till er och ingår redan i inkört.'),
+    el('h3', {}, 'Kontroll mot Megtax och Øresundsbron'), ctl, el('h3', {}, 'Fakturans rader'), list);
+}
+function setAlias(fel, ratt) {
+  const A = S.settings.alias = S.settings.alias || {};
+  if (ratt) A[fel] = ratt; else delete A[fel];
+  saveSettings(); applyAlias(S.shifts); render(); toast(ratt ? 'Förarnr ' + fel + ' räknas nu som ' + (namnFor(ratt) || ratt) : 'Kopplingen för ' + fel + ' är borttagen');
+}
+function aliasPanel() {
+  if (S.demo) return null;
+  const A = S.settings.alias || {}; const kanda = Object.keys(S.settings.forare || {});
+  const okanda = [...new Set(S.shifts.map(s => s.forareMegtax))].filter(id => !kanda.includes(id) && !A[id]);
+  const ids = [...new Set([...Object.keys(A), ...okanda])].sort();
+  if (!ids.length) return null;
+  const opts = cur => [el('option', { value: '' }, 'Egen förare (ingen koppling)'), ...kanda.slice().sort((a, b) => (namnFor(a) || 'ö').localeCompare(namnFor(b) || 'ö', 'sv')).map(f => el('option', { value: f, selected: f === cur }, (namnFor(f) || 'Förare') + ' ' + f))];
+  const rows = ids.map(id => { const ps = S.shifts.filter(s => s.forareMegtax === id);
+    return el('tr', {}, el('td', { class: 'num' }, id), el('td', { class: 'n' }, ps.length), el('td', { class: 'small' }, ps.map(s => s.regnr + ' ' + s.start.slice(8, 10) + '/' + +s.start.slice(5, 7) + ' ' + s.start.slice(11, 16) + ' till ' + s.slut.slice(11, 16)).join(', ')),
+      el('td', {}, el('select', { 'aria-label': 'Koppla förarnr ' + id, onchange: e => setAlias(id, e.target.value) }, opts(A[id]))),
+      el('td', {}, A[id] ? el('span', { class: 'chip ok' }, 'Kopplad') : el('span', { class: 'chip warn' }, 'Okänt nummer'))); });
+  return el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h2', {}, 'Felinloggade förarnummer')),
+    el('p', { class: 'note' }, 'Förarnummer i Megtax som inte finns under Personal. Koppla ett felinmatat nummer till rätt förare, så räknas passen med i hans lön, bro och kassaredovisning. Kopplingen sparas och gäller alla månader.'),
+    el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['Förarnr i Megtax', 'Pass', 'Pass (bil, datum, tid)', 'Räknas som', ''].map((h, i) => el('th', { class: i === 1 ? 'n' : '' }, h)))), el('tbody', {}, rows))));
+}
+function vPass(R) {
+  const c = R.cfg;
+  const rows = S.shifts.slice().sort((a, b) => a.a - b.a).map(s => { const per = ENG.shiftPeriod(s, c); const ex = ENG.exkl(s, c);
+    return el('tr', {}, el('td', { class: 'num' }, s.rap), el('td', { class: 'num' }, s.regnr), el('td', {}, nameCell(s.forare), s.forareMegtax && s.forareMegtax !== s.forare ? el('small', { class: 'muted' }, 'inloggad som ' + s.forareMegtax) : null), el('td', { class: 'num' }, s.start.slice(5).replace('-', '/')), el('td', { class: 'num' }, s.slut.slice(11)), el('td', {}, el('span', { class: 'chip ' + per }, per === 'dag' ? 'Dag' : 'Kväll')), el('td', { class: 'n' }, kr(s.tim, 1)), el('td', { class: 'n' }, kr(s.kont)), el('td', { class: 'n' }, kr(s.kred)), el('td', { class: 'n' }, kr(ex, 1)), el('td', { class: 'small muted' }, s.pay.map(p => p.namn + ' ' + kr(p.belopp)).join(', '))); });
+  return el('section', { class: 'view' }, aliasPanel(), el('h2', {}, 'Körpass'), el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['Nr', 'Bil', 'Förare', 'Start', 'Slut', 'Pass', 'Tim', 'Kontant', 'Kredit', 'Exkl. moms', 'Betalsätt'].map((h, i) => el('th', { class: i > 5 && i < 10 ? 'n' : '' }, h)))), el('tbody', {}, rows))));
+}
+
+/* ---------- personal ---------- */
+function maskPnr(p) { return p ? String(p).slice(0, 6) + '-****' : ''; }
+/* ---------- ekonomi ---------- */
+const MONK = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+function ekoRad(v) {
+  const tmS = Object.values(v.tm || {}).reduce((a, b) => a + b, 0), k = v.kostnader || {};
+  const ovr = Object.entries(k).filter(([n]) => !['Bränsle', 'Försäkring'].includes(n)).reduce((a, [, b]) => a + b, 0);
+  return { ink: v.intakt.inkExkl, nys: v.intakt.nystartsjobb || 0, lon: v.lon.brutto, ag: v.lon.agavgift, tm: tmS, bolt: v.bolt || 0, bransle: k['Bränsle'] || 0, fors: k['Försäkring'] || 0, ovr, res: v.resultat, fin: v.bilfinans || 0 };
+}
+function barChart(months, E) {
+  const W = 760, H = 240, padL = 56, padR = 12, padT = 16, padB = 30;
+  const vals = months.map(m => ({ m, r: E.manader[m].resultat, f: E.manader[m].resultat - (E.manader[m].bilfinans || 0) }));
+  const max = Math.max(1, ...vals.map(v => Math.max(v.r, v.f, 0))), min = Math.min(0, ...vals.map(v => Math.min(v.r, v.f)));
+  const step = (() => { const raw = (max - min) / 4; const p = Math.pow(10, Math.floor(Math.log10(raw))); return Math.ceil(raw / p / 2.5) * 2.5 * p; })();
+  const top = Math.ceil(max / step) * step, bot = Math.floor(min / step) * step;
+  const y = v => padT + (top - v) / (top - bot) * (H - padT - padB);
+  const bw = (W - padL - padR) / months.length; const ns = 'http://www.w3.org/2000/svg';
+  const s = document.createElementNS(ns, 'svg'); s.setAttribute('viewBox', `0 0 ${W} ${H}`); s.setAttribute('role', 'img'); s.setAttribute('aria-label', 'Resultat per månad'); s.style.width = '100%'; s.style.height = 'auto';
+  const mk = (t, a) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
+  for (let v = bot; v <= top + 1; v += step) { s.append(mk('line', { x1: padL, x2: W - padR, y1: y(v), y2: y(v), stroke: v === 0 ? 'var(--muted)' : 'var(--line2)', 'stroke-width': v === 0 ? 1.2 : 1 })); const t = mk('text', { x: padL - 8, y: y(v) + 4, 'text-anchor': 'end', fill: 'var(--muted)', 'font-size': 11, 'font-family': 'var(--f-num)' }); t.textContent = Math.round(v / 1000) + ' tkr'; s.append(t); }
+  const tip = el('div', { class: 'ctip', hidden: true });
+  vals.forEach((v, i) => {
+    const x0 = padL + i * bw; const w = Math.min(34, bw * 0.36);
+    [[v.r, 'var(--accent)', -w / 2 - 1], [v.f, 'var(--night)', w / 2 + 1]].forEach(([val, col, off]) => {
+      const yy = Math.min(y(0), y(val)), hh = Math.max(1, Math.abs(y(val) - y(0)));
+      s.append(mk('rect', { x: x0 + bw / 2 + off - w / 2, y: yy, width: w, height: hh, rx: 3, fill: val < 0 ? 'var(--bad)' : col }));
+    });
+    const t = mk('text', { x: x0 + bw / 2, y: H - 10, 'text-anchor': 'middle', fill: 'var(--muted)', 'font-size': 12 }); t.textContent = MONK[+v.m.slice(5) - 1]; s.append(t);
+    const hit = mk('rect', { x: x0, y: padT, width: bw, height: H - padT - padB, fill: 'transparent', style: 'cursor:pointer' });
+    hit.addEventListener('mousemove', e => { tip.hidden = false; tip.innerHTML = `<b>${MON[+v.m.slice(5) - 1]}</b><br>Resultat ${krs(v.r)}<br>Efter bilfinansiering ${krs(v.f)}`; const r = s.getBoundingClientRect(); tip.style.left = (e.clientX - r.left + 12) + 'px'; tip.style.top = (e.clientY - r.top - 10) + 'px'; });
+    hit.addEventListener('mouseleave', () => tip.hidden = true);
+    hit.addEventListener('click', () => { S.ekoMan = v.m; render(); });
+    s.append(hit);
+  });
+  return el('div', { style: 'position:relative' }, s, tip);
+}
+function vEko() {
+  const E = S.eko;
+  if (!E) return el('section', { class: 'view' }, el('h2', {}, 'Ekonomi'), el('p', { class: 'note' }, S.db ? 'Ekonomidata laddas eller saknas. Be Claude köra månadsavstämningen.' : 'Logga in i Claude för att se ekonomin.'));
+  const months = Object.keys(E.manader).sort(); if (!S.ekoMan || !E.manader[S.ekoMan]) S.ekoMan = months[months.length - 1];
+  const R = Object.fromEntries(months.map(m => [m, ekoRad(E.manader[m])]));
+  const tot = k => months.reduce((a, m) => a + R[m][k], 0);
+  const resTot = tot('res'), finTot = tot('fin');
+  const kp = el('div', { class: 'kpis' },
+    [['Inkört exkl. moms', tot('ink'), 'januari till ' + MON[+months[months.length - 1].slice(5) - 1]], ['Löner inkl. avgifter', tot('lon') + tot('ag'), Math.round((tot('lon') + tot('ag')) / tot('ink') * 100) + ' % av inkört'], ['Bränsle exkl. moms', tot('bransle'), Math.round(tot('bransle') / tot('ink') * 100) + ' % av inkört'], ['Resultat före bilfinansiering', resTot, 'snitt ' + krs(resTot / months.length) + ' per månad'], ['Bilfinansiering betald', finTot, 'lån och leasing, inkl. amortering'], ['Kvar efter bilfinansiering', resTot - finTot, 'före bolagsskatt']]
+      .map(([l, v, s]) => el('div', { class: 'kpi' }, el('span', { class: 'lbl' }, l), el('span', { class: 'v', style: v < 0 && /Resultat|Kvar/.test(l) ? 'color:var(--bad)' : '' }, krs(v)), el('span', { class: 's' }, s))));
+  const chart = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h2', {}, 'Resultat per månad'), el('div', { class: 'spacer' }), el('div', { class: 'legend' }, el('span', { style: '--c:var(--accent)' }, 'Resultat'), el('span', { style: '--c:var(--night)' }, 'Efter bilfinansiering'), el('span', { style: '--c:var(--bad)' }, 'Förlust'))), barChart(months, E), el('p', { class: 'note' }, 'Klicka på en månad för detaljer.'));
+  const rows = [['Inkört exkl. moms', 'ink', 1], ['Nystartsjobb', 'nys', 1], ['Bruttolöner', 'lon', -1], ['Arbetsgivaravgift', 'ag', -1], ['Taxi Malmö avgifter', 'tm', -1], ['Bolt provision', 'bolt', -1], ['Bränsle', 'bransle', -1], ['Försäkring', 'fors', -1], ['Övriga kostnader', 'ovr', -1], ['Resultat', 'res', 1], ['Bilfinansiering', 'fin', -1]];
+  const tbl = el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, el('th', {}, ''), months.map(m => el('th', { class: 'n' }, el('button', { class: 'ghost', style: 'padding:0;border:0;font:inherit;color:' + (m === S.ekoMan ? 'var(--accent)' : 'inherit'), onclick: () => { S.ekoMan = m; render(); } }, MONK[+m.slice(5) - 1]))), el('th', { class: 'n' }, 'Summa'))),
+    el('tbody', {}, rows.map(([l, k, sg]) => el('tr', { class: k === 'res' ? 'sum' : '' }, el('td', {}, l), months.map(m => { const v = R[m][k] * (k === 'res' ? 1 : sg); return el('td', { class: 'n' + (v < 0 && k === 'res' ? ' neg' : '') }, kr(v)); }), el('td', { class: 'n' }, kr(tot(k) * (k === 'res' ? 1 : sg))))),
+      el('tr', { class: 'wk' }, el('td', {}, 'Kvar efter bilfinansiering'), months.map(m => { const v = R[m].res - R[m].fin; return el('td', { class: 'n' + (v < 0 ? ' neg' : '') }, kr(v)); }), el('td', { class: 'n' }, kr(resTot - finTot))))));
+  // månadsdetalj
+  const m = S.ekoMan, V = E.manader[m];
+  const kost = [['Bruttolöner' + (V.lon.uppskattad ? ' (uppskattat)' : ''), V.lon.brutto], ['Arbetsgivaravgift', V.lon.agavgift], ...Object.entries(V.tm).map(([k, v]) => ['Taxi Malmö: ' + k, v]), ['Bolt provision', V.bolt], ...Object.entries(V.kostnader)].filter(x => x[1]).sort((a, b) => b[1] - a[1]);
+  const kmax = Math.max(1, ...kost.map(x => x[1]));
+  const kostEl = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h3', {}, 'Kostnader i ' + MON[+m.slice(5) - 1])),
+    el('div', { class: 'bars' }, kost.map(([l, v]) => el('div', { class: 'bar', style: 'grid-template-columns:minmax(0,190px) minmax(0,1fr) 96px' }, el('span', { class: 'small' }, l), el('div', { class: 'track' }, el('i', { style: `width:${v / kmax * 100}%;background:var(--accent)` })), el('span', { class: 'num', style: 'text-align:right' }, krs(v))))),
+    el('p', { class: 'note' }, 'Kostnader från banken är räknade exkl. 25 % moms där moms ingår. Taxi Malmös avgifter avser månadens körningar och är tagna från avräkningen' + (V.tmFaktura ? ' (faktura ' + V.tmFaktura + ').' : '.')));
+  const pb = V.perbil || {};
+  const bilT = el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['Bil', 'Pass', 'Km', 'Inkört exkl.', 'Lön inkl. avg.', 'Taxi Malmö', 'Bränsle', 'Övrigt', 'Resultat', 'Bilfinans.', 'Kvar'].map((h, i) => el('th', { class: i ? 'n' : '' }, h)))),
+    el('tbody', {}, Object.entries(pb).sort((a, b) => b[1].resultat - a[1].resultat).map(([reg, x]) => el('tr', {}, el('td', { class: 'num' }, (S.settings.bilar[reg] || {}).regnr || reg), el('td', { class: 'n' }, x.pass), el('td', { class: 'n' }, kr(x.km)), el('td', { class: 'n' }, kr(x.exkl)), el('td', { class: 'n' }, kr(x.lon)), el('td', { class: 'n' }, kr(x.tm)), el('td', { class: 'n' }, kr(x.bransle)), el('td', { class: 'n' }, kr(x.ovrigt)), el('td', { class: 'n' + (x.resultat < 0 ? ' neg' : '') }, kr(x.resultat)), el('td', { class: 'n' }, kr(x.finans)), el('td', { class: 'n' + (x.resultat - x.finans < 0 ? ' neg' : '') }, kr(x.resultat - x.finans)))))));
+  const inb = Object.entries(V.bank).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+  const varn = [];
+  const ak = (E.agikontroll || []).find(x => x.man === m); if (ak && Math.abs(ak.specSkatt - ak.agiSkatt) > 1000) varn.push(['bad', 'Arbetsgivardeklarationen stämmer inte med lönespecarna', `Lönespecar utbetalda i ${MON[+m.slice(5) - 1]}: skatt ${krs(ak.specSkatt)}. Deklarerat till Skatteverket: ${krs(ak.agiSkatt)}. Kontrollera och rätta deklarationen.`]);
+  if (V.skatt.ranta) varn.push(['warn', 'Kostnadsränta på skattekontot ' + krs(V.skatt.ranta), 'Betala skatten senast den 12:e så slipper bolaget räntan.']);
+  if (V.skatt.kfm) varn.push(['bad', 'Skuld överlämnad till Kronofogden ' + krs(V.skatt.kfm), 'Undvik genom att betala in skatten i tid varje månad.']);
+  if (!V.intakt.nystartsjobb) varn.push(['warn', 'Inget nystartsjobbsstöd bokat denna månad', 'Kontrollera att stödet är begärt för de anställda med nystartsjobb.']);
+  
+  if ((V.granska || []).length) varn.push(['', V.granska.length + ' bankposter att granska', V.granska.slice(0, 6).map(g => g[1] + ' ' + kr(g[2])).join(', ') + (V.granska.length > 6 ? ' med flera' : '') + '. Privata köp ska inte betalas från bolagskontot.']);
+  const varnEl = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h3', {}, 'Att åtgärda')), el('div', { class: 'bars' }, varn.length ? varn.map(([lv, t, s]) => el('div', { style: 'display:flex;gap:10px;align-items:flex-start' }, el('span', { class: 'chip ' + lv, style: 'margin-top:2px' }, el('span', { class: 'dot' })), el('div', { style: 'flex:1;min-width:0' }, el('strong', {}, t), el('div', { class: 'small muted' }, s)))) : el('p', { class: 'note' }, 'Inget att åtgärda.')));
+  const inbEl = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h3', {}, 'Pengar in på banken')), el('div', { class: 'tw' }, el('table', {}, el('tbody', {}, inb.map(([k, v]) => el('tr', {}, el('td', {}, k), el('td', { class: 'n' }, kr(v))))))), el('p', { class: 'note' }, `Moms tillbaka från Skatteverket för månaden: ${krs(V.skatt.moms)}. Preliminärskatt bolaget: ${krs(V.skatt.prel)} per månad.`));
+  const d = V; const det = el('div', { class: 'kpis' }, [['Inkört exkl. moms', d.intakt.inkExkl, d.intakt.pass + ' pass'], ['Löner inkl. avgifter', d.lon.brutto + d.lon.agavgift, d.lon.kalla || (d.lon.uppskattad ? 'uppskattat från arbetsgivardeklarationen' : 'enligt lönespecar')], ['Resultat', d.resultat, 'före bilfinansiering'], ['Kvar efter bilfinansiering', d.resultat - d.bilfinans, 'bilfinansiering ' + krs(d.bilfinans)]].map(([l, v, s]) => el('div', { class: 'kpi' }, el('span', { class: 'lbl' }, l), el('span', { class: 'v', style: v < 0 ? 'color:var(--bad)' : '' }, krs(v)), el('span', { class: 's' }, s))));
+  return el('section', { class: 'view' },
+    el('div', { class: 'panel-h' }, el('h2', {}, 'Ekonomi 2026'), el('span', { class: 'chip' }, 'Uppdaterad ' + E.skapad)), kp, chart, tbl,
+    el('div', { class: 'panel-h', style: 'margin-top:8px' }, el('h2', {}, MON[+m.slice(5) - 1].replace(/^./, c => c.toUpperCase()) + ' ' + m.slice(0, 4)), el('div', { class: 'seg' }, months.map(x => el('button', { 'aria-pressed': String(x === m), onclick: () => { S.ekoMan = x; render(); } }, MONK[+x.slice(5) - 1])))),
+    det, el('div', { class: 'grid2' }, kostEl, varnEl), el('h3', {}, 'Resultat per bil'), bilT,
+    el('p', { class: 'note' }, 'Fördelning per bil: lön efter vad förarna körde in på bilen, bränsle efter körda km, bro direkt per bil, serviceavtal på två av bilarna (ABC55E, ABC66F), övriga kostnader och bilfinansiering lika per bil. Bambora är kortterminalerna i ABC55E, ABC66F och ABC44D. De betalningarna finns redan med i Megtax, så de räknas inte en gång till.'), inbEl);
+}
+
+/* ---------- anställningsavtal ---------- */
+const AV = { cache: {} };
+const avKey = id => 'avtal-' + id;
+async function avLoad(id) {
+  if (AV.cache[id]) return AV.cache[id];
+  let d = null;
+  if (S.db) { try { const s = await S.db.collection('data/users/' + S.uid).doc(avKey(id)).get(); if (s.exists) d = clone(s.data()); } catch (e) {} }
+  if (!d) { try { const ls = localStorage.getItem('ak_' + avKey(id)); if (ls) d = JSON.parse(ls); } catch (e) {} }
+  AV.cache[id] = d || { versioner: [] }; return AV.cache[id];
+}
+async function avSave(id) {
+  const d = JSON.parse(JSON.stringify(AV.cache[id]));
+  try { localStorage.setItem('ak_' + avKey(id), JSON.stringify(d)); } catch (e) {}
+  if (S.db) { try { await S.db.collection('data/users/' + S.uid).doc(avKey(id)).set(d); } catch (e) { toast('Kunde inte spara avtalet: ' + (e.message || e.code)); return false; } }
+  return true;
+}
+async function avPreload() { const ids = Object.keys(S.settings.forare || {}); await Promise.all([...ids, ...ids.map(i => TP + i)].map(avLoad)); }
+function avStatus(id) { const v = (AV.cache[id] || { versioner: [] }).versioner; const a = v[v.length - 1]; if (!a) return null; return a.sign && a.sign.anst && a.sign.arbg ? 'signerat' : 'utkast'; }
+const avDatum = s => { if (!s) return ''; const d = new Date(s); return isNaN(d) ? s : d.getDate() + ' ' + MON[d.getMonth()] + ' ' + d.getFullYear(); };
+const TP = 'tp:'; const rid = id => String(id).startsWith(TP) ? String(id).slice(TP.length) : id; const isTP = id => String(id).startsWith(TP);
+function avSaknas(id) {
+  if (isTP(id)) { const f = S.settings.forare[rid(id)] || {}, p = f.person || {}; return [!f.namn && 'namn', !p.personnr && 'personnummer', !p.adress && 'adress'].filter(Boolean); }
+  const f = S.settings.forare[id] || {}, p = f.person || {};
+  return [!f.namn && 'namn', !p.personnr && 'personnummer', !p.adress && 'adress', !f.anstForm && 'anställningsform', !f.start && 'anställd från', (f.anstForm === 'sava' && !f.slut) && 'slutdatum', (f.modell === 'fast' && !f.manadslon) && 'månadslön'].filter(Boolean);
+}
+/* Tillägg till anställningsavtal: provisionslön vid körningar via bokningsplattformar (Bolt, Uber). */
+function tpText(id) {
+  const c = cfg(), f = S.settings.forare[id] || {}, p = f.person || {}, co = S.settings.bolag || {}, fo = S.settings.foretag || '';
+  const fran = f.plattFran || '2026-09-01'; const d = new Date(fran); const manad = MON[d.getMonth()] + ' ' + d.getFullYear(); const utb = new Date(d.getFullYear(), d.getMonth() + 1, 1); const utbM = MON[utb.getMonth()] + ' ' + utb.getFullYear();
+  const ref = f.start ? `sedan den ${avDatum(f.start)}` : 'enligt gällande anställningsvillkor';
+  return [
+    { h: 'Parter', p: [`Arbetsgivare: ${fo}, org.nr ${co.orgnr || ''}, ${[co.adress, co.postadress].filter(Boolean).join(', ')}.`, `Arbetstagare: ${f.namn || ''}, personnummer ${p.personnr || ''}, ${[p.adress, p.postadress].filter(Boolean).join(', ')}${f.anst ? ', anställningsnummer ' + f.anst : ''}.`] },
+    { h: 'Bakgrund', p: [`Arbetstagaren är anställd som taxiförare hos arbetsgivaren ${ref}. Arbetstagaren har provisionslön om ${c.procent} % av det belopp arbetstagaren kör in exklusive mervärdesskatt enligt taxameterns redovisning, samt semesterersättning om ${c.semester} % som betalas ut löpande med lönen.`] },
+    { h: 'Ändrat villkor', p: ['För körningar som förmedlas via externa bokningsplattformar, till exempel Bolt och Uber, beräknas provisionslönen på körningens belopp exklusive mervärdesskatt efter avdrag för den avgift (provision) som plattformen tar ut av arbetsgivaren för körningen, enligt plattformens månadsredovisning.', `Semesterersättningen om ${c.semester} % beräknas på provisionslönen efter avdraget. För övriga körningar gäller provisionslönen oförändrad.`, `Exempel: en Boltkörning på 106 kr inklusive moms är 100 kr exklusive moms. Tar Bolt ut 25 kr i avgift blir underlaget 75 kr och provisionslönen ${nf2.format(75 * c.procent / 100)} kr.`] },
+    { h: 'Redovisning', p: ['Avdraget för plattformsavgift redovisas varje månad på lönespecifikationen. Arbetstagaren har rätt att på begäran ta del av plattformens redovisning för sina körningar.'] },
+    { h: 'Giltighet', p: [`Villkoret gäller för körningar som utförts från och med den ${avDatum(fran)}. Arbetstagaren godkänner genom sin underskrift uttryckligen att villkoret tillämpas på lönen för ${manad}, som betalas ut i ${utbM}.`] },
+    { h: 'Övrigt', p: ['I övrigt gäller anställningsavtalet och tidigare överenskomna villkor oförändrade. Detta tillägg utgör skriftlig information om ändrade anställningsvillkor enligt 6 e § lagen (1982:80) om anställningsskydd. Tillägget har upprättats i elektronisk form och signerats elektroniskt av båda parter. Vardera parten har rätt till en kopia.'] }
+  ];
+}
+function avText(id) {
+  if (isTP(id)) return tpText(rid(id));
+  const c = cfg(), f = S.settings.forare[id] || {}, p = f.person || {}, co = S.settings.bolag || {}, fo = S.settings.foretag || '';
+  const fast = f.modell === 'fast', form = f.anstForm, sem = c.semester || 12;
+  const formTxt = {
+    prov: `Anställningen inleds med en provanställning från och med ${avDatum(f.start)}${f.slut ? ' till och med ' + avDatum(f.slut) : ' om sex månader'} (6 § LAS). Provanställningen övergår därefter i en tillsvidareanställning om inte någon av parterna senast två veckor före provanställningens slut har lämnat besked om att den ska upphöra (31 § LAS). Provanställningen kan avbrytas före prövotidens utgång.`,
+    tills: `Anställningen är en tillsvidareanställning från och med ${avDatum(f.start)}.`,
+    sava: `Anställningen är en särskild visstidsanställning (5 § LAS) från och med ${avDatum(f.start)} till och med ${avDatum(f.slut)}. Anställningen upphör utan föregående uppsägning vid anställningstidens slut.`,
+    behov: `Anställningen avser arbete vid behov från och med ${avDatum(f.start)}. Varje arbetspass utgör en särskild visstidsanställning (5 § LAS). Arbetstagaren är fri att tacka ja eller nej till erbjudna pass.`
+  }[form] || '';
+  const lon = fast
+    ? [`Arbetstagaren har en fast månadslön om ${krs(f.manadslon)} före skatt.${f.semFast ? ` Utöver månadslönen betalas semesterersättning om ${sem} % ut löpande med lönen.` : ''}`,
+       'Lönen betalas ut den 25:e varje månad för innevarande månad, till det bankkonto arbetstagaren har uppgett. Infaller dagen på en helgdag betalas lönen ut närmast föregående bankdag.']
+    : [`Arbetstagaren har provisionslön om ${c.procent} % av det belopp arbetstagaren kör in exklusive mervärdesskatt, enligt taxameterns redovisning (Megtax). Bomkörning ingår inte i underlaget. Någon särskild ersättning för obekväm arbetstid utgår inte.`,
+       'För körningar som förmedlas via externa bokningsplattformar, till exempel Bolt och Uber, beräknas provisionslönen på körningens belopp exklusive mervärdesskatt efter avdrag för den avgift (provision) som plattformen tar ut av arbetsgivaren för körningen, enligt plattformens månadsredovisning. Avdraget redovisas på lönespecifikationen. Villkoret gäller för körningar som utförs från och med den dag avtalet har undertecknats av båda parter.',
+       `Semesterersättning om ${sem} % av provisionslönen betalas ut löpande med lönen (16 a § semesterlagen).`,
+       'Provisionslönen för en kalendermånad betalas ut omkring den 10:e i påföljande månad, senast den 12:e, till det bankkonto arbetstagaren har uppgett.'];
+  return [
+    { h: 'Parter', p: [`Arbetsgivare: ${fo}, org.nr ${co.orgnr || ''}, ${[co.adress, co.postadress].filter(Boolean).join(', ')}.`, `Arbetstagare: ${f.namn || ''}, personnummer ${p.personnr || ''}, ${[p.adress, p.postadress].filter(Boolean).join(', ')}.`] },
+    { h: 'Befattning och arbetsuppgifter', p: ['Arbetstagaren anställs som taxiförare. Arbetet omfattar persontransporter och budkörning med arbetsgivarens fordon i trafik ansluten till Taxi Malmö AB, kontanthantering och redovisning av körningar enligt arbetsgivarens rutiner samt omvårdnad av fordonet under passet.', 'Arbetstagaren ska under hela anställningen inneha giltig taxiförarlegitimation (taxitrafiklagen (2012:211)) och giltigt körkort. Arbetstagaren ska omedelbart underrätta arbetsgivaren om legitimationen eller körkortet återkallas, upphör eller ifrågasätts.'] },
+    { h: 'Arbetsplats', p: ['Arbetet utförs i arbetsgivarens fordon med utgångspunkt i Malmö. Körningarna sker inom och utanför Malmö, inklusive Malmö Airport (Sturup) och Köpenhamn.'] },
+    { h: 'Anställningsform och tillträde', p: [formTxt] },
+    { h: 'Arbetstid', p: [`Anställningen avser ${f.omfattning === 'deltid' ? 'deltid' : 'heltid, 40 timmar per vecka i genomsnitt'}. Arbetet förläggs i pass enligt schema, normalt dagpass 04.00 till 16.00 eller kvällspass 16.00 till 04.00. Schema meddelas i god tid.`, 'Arbetstidslagen (1982:673) gäller, bland annat om dygnsvila, veckovila och raster. Övertid utförs endast efter överenskommelse med arbetsgivaren.'] },
+    { h: 'Lön', p: lon },
+    { h: 'Avdrag och kvittning', p: [`Arbetstagaren medger att arbetsgivaren får göra följande avdrag från nettolönen (1 § lagen (1970:215) om arbetsgivares kvittningsrätt): kontanter som arbetstagaren har tagit emot för arbetsgivarens räkning och inte redovisat in, ${c.broAndel} % av kostnaden exklusive mervärdesskatt för passager över Øresundsbron, parkering vid Köpenhamns flygplats och passager vid Malmö Airport (Sturup) under arbetstagarens pass, samt utbetalda löneförskott.`, 'Överstiger avdragen nettolönen ska arbetstagaren betala in mellanskillnaden till arbetsgivaren senast på lönedagen. Varje avdrag redovisas på lönespecifikationen.'] },
+    { h: 'Semester', p: [`Arbetstagaren har rätt till semester enligt semesterlagen (1977:480), 25 semesterdagar per semesterår. Semesterns förläggning bestäms efter samråd med arbetstagaren.${fast && !f.semFast ? ' Semesterlön betalas enligt semesterlagen.' : ''}`] },
+    { h: 'Uppsägning', p: ['Vid uppsägning gäller uppsägningstider enligt 11 § LAS. Arbetstagarens uppsägningstid är en månad. Arbetsgivarens uppsägningstid är en månad och förlängs till två månader efter två års sammanlagd anställningstid, tre månader efter fyra år, fyra månader efter sex år, fem månader efter åtta år och sex månader efter tio år.', 'Uppsägning ska vara skriftlig. Uppsägning från arbetsgivarens sida kräver saklig grund (7 § LAS).'] },
+    { h: 'Kollektivavtal och försäkringar', p: ['Arbetsgivaren är inte bunden av kollektivavtal. Arbetsgivaren betalar lagstadgade arbetsgivaravgifter, vilket ger arbetstagaren socialförsäkringsskydd enligt socialförsäkringsbalken. Fordonen är trafikförsäkrade.'] },
+    { h: 'Kompetensutveckling', p: ['Arbetsgivaren erbjuder den introduktion och utbildning som krävs för arbetet, bland annat i taxameter, betalterminaler och Taxi Malmö AB:s rutiner. Sådan utbildning sker på arbetstid.'] },
+    { h: 'Fordon, kontanter och utrustning', p: ['Fordon, taxameter, betalterminal och övrig utrustning tillhör arbetsgivaren och får endast användas i tjänsten. Arbetstagaren ska följa arbetsgivarens och Taxi Malmö AB:s instruktioner för redovisning av körningar och kontanter. Skador och fel ska rapporteras samma dag.'] },
+    { h: 'Tystnadsplikt', p: ['Arbetstagaren får inte till obehörig lämna ut uppgifter om resenärer, beställare eller arbetsgivarens affärsförhållanden. Tystnadsplikten gäller även efter anställningens slut.'] },
+    { h: 'Personuppgifter', p: [`${fo} behandlar arbetstagarens personuppgifter (bland annat namn, personnummer, kontaktuppgifter, bankkonto, lön och körpass) för att fullgöra anställningsavtalet och rättsliga förpliktelser inom lön, skatt och bokföring, enligt dataskyddsförordningen (EU) 2016/679 artikel 6.1 b och c. Uppgifterna lämnas till Skatteverket och banken i den mån det krävs och sparas så länge lagen kräver, för räkenskapsinformation sju år (bokföringslagen 7 kap.). Arbetstagaren har rätt att begära tillgång till och rättelse av sina uppgifter.`] },
+    { h: 'Övrigt', p: ['Detta avtal ersätter tidigare muntliga och skriftliga överenskommelser om anställningen. Ändringar ska göras skriftligt. Avtalet har upprättats i elektronisk form och signerats elektroniskt av båda parter. Vardera parten har rätt till en kopia.'] }
+  ];
+}
+async function avHash(obj) { const b = new TextEncoder().encode(JSON.stringify(obj)); const h = await crypto.subtle.digest('SHA-256', b); return [...new Uint8Array(h)].map(x => x.toString(16).padStart(2, '0')).join(''); }
+
+function avPad(label) {
+  const cv = el('canvas', { class: 'sigpad', width: 900, height: 280 }); const ctx = cv.getContext('2d'); let draw = false, last = null, dirty = false;
+  const pos = e => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * cv.width / r.width, (e.clientY - r.top) * cv.height / r.height]; };
+  ctx.lineWidth = 4.5; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#16212B';
+  cv.addEventListener('pointerdown', e => { draw = true; last = pos(e); cv.setPointerCapture(e.pointerId); e.preventDefault(); });
+  cv.addEventListener('pointermove', e => { if (!draw) return; const p = pos(e); ctx.beginPath(); ctx.moveTo(...last); ctx.lineTo(...p); ctx.stroke(); last = p; dirty = true; e.preventDefault(); });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev => cv.addEventListener(ev, () => draw = false));
+  const clr = el('button', { class: 'ghost', type: 'button', onclick: () => { ctx.clearRect(0, 0, cv.width, cv.height); dirty = false; typ.value = ''; } }, 'Rensa');
+  const typ = el('input', { placeholder: 'Eller skriv ditt namn här', autocomplete: 'off', oninput: e => { ctx.clearRect(0, 0, cv.width, cv.height); const t = e.target.value.trim(); dirty = !!t; if (!t) return; let fs = 120; ctx.fillStyle = '#16212B'; do { ctx.font = 'italic ' + fs + 'px "Segoe Script", "Brush Script MT", "Snell Roundhand", cursive'; fs -= 4; } while (ctx.measureText(t).width > cv.width - 60 && fs > 30); ctx.textBaseline = 'alphabetic'; ctx.fillText(t, 30, cv.height - 70); } });
+  const wrap = el('div', { class: 'sigbox' }, el('div', { class: 'sighead' }, el('strong', {}, label), clr), cv, el('div', { class: 'sigline' }, 'Rita med finger, penna, mus eller styrplatta ovanför linjen, eller skriv namnet nedan'), typ);
+  return { wrap, isDirty: () => dirty, png: () => { const o = document.createElement('canvas'); o.width = 450; o.height = 140; o.getContext('2d').drawImage(cv, 0, 0, 450, 140); return o.toDataURL('image/png'); } };
+}
+
+async function avOpen(id) {
+  await avLoad(id); const D = AV.cache[id]; const f = S.settings.forare[rid(id)] || {};
+  let v = D.versioner[D.versioner.length - 1];
+  const ov = el('div', { class: 'avov', role: 'dialog', 'aria-modal': 'true' });
+  const close = () => { ov.remove(); document.body.style.overflow = ''; render(); };
+  const body = el('div', { class: 'avdoc' });
+  const draw = () => {
+    v = D.versioner[D.versioner.length - 1];
+    const signed = v && v.sign && v.sign.anst && v.sign.arbg;
+    const sec = v ? v.text : avText(id);
+    const head = el('div', { class: 'avtop' }, el('div', {}, el('div', { class: 'avkick' }, isTP(id) ? 'TILLÄGG TILL ANSTÄLLNINGSAVTAL, PLATTFORMSAVGIFT' : 'ANSTÄLLNINGSAVTAL'), el('h2', {}, f.namn || rid(id)), el('div', { class: 'small muted' }, v ? `Version ${D.versioner.length}, upprättad ${avDatum(v.skapad)}` + (signed ? ', signerad' : ', ej signerad') : 'Förhandsgranskning, inte sparad')), el('button', { class: 'ghost', onclick: close, 'aria-label': 'Stäng' }, 'Stäng'));
+    const txt = el('div', { class: 'avtext' }, sec.map((s, i) => el('section', {}, el('h3', {}, (i + 1) + '. ' + s.h), s.p.map(t => el('p', {}, t)))));
+    const acts = el('div', { class: 'avacts' });
+    const sak = avSaknas(id);
+    if (!v || (signed && D.ny)) {
+      if (sak.length) acts.append(el('div', { class: 'banner' }, el('b', {}, 'Uppgifter saknas: '), sak.join(', ') + '. Fyll i under Personal innan avtalet upprättas.'));
+      else acts.append(el('button', { class: 'primary', onclick: async () => { const t = avText(id); const nv = { skapad: new Date().toISOString(), text: t, hash: await avHash(t), sign: {} }; D.versioner.push(nv); D.ny = false; if (await avSave(id)) { toast('Avtalet är upprättat och låst för signering'); draw(); } } }, 'Upprätta avtalet för signering'));
+    } else if (!signed) {
+      const role = !v.sign.anst ? 'anst' : 'arbg';
+      const co = S.settings.bolag || {};
+      const nm = el('input', { value: role === 'anst' ? (f.namn || '') : (co.firmatecknare || ''), placeholder: 'Namnförtydligande' });
+      const ort = el('input', { value: 'Malmö', placeholder: 'Ort' });
+      const pad = avPad(role === 'anst' ? 'Arbetstagarens underskrift' : 'Arbetsgivarens underskrift, ' + (S.settings.foretag || ''));
+      const ok = el('label', { class: 'avok' }, el('input', { type: 'checkbox' }), role === 'anst' ? ' Jag har läst avtalet och godkänner villkoren.' : ' Jag har behörighet att teckna avtalet för bolaget.');
+      acts.append(el('h3', {}, role === 'anst' ? 'Steg 1 av 2: arbetstagaren signerar' : 'Steg 2 av 2: arbetsgivaren signerar'), pad.wrap, el('div', { class: 'form' }, el('label', {}, 'Namnförtydligande', nm), el('label', {}, 'Ort', ort)), ok,
+        el('button', { class: 'primary', onclick: async () => {
+          if (!ok.querySelector('input').checked) { toast('Bekräfta rutan först'); return; }
+          if (!pad.isDirty() || !nm.value.trim()) { toast('Underskrift och namn krävs'); return; }
+          if (await avHash(v.text) !== v.hash) { toast('Avtalstexten har ändrats, signering avbruten'); return; }
+          v.sign[role] = { namn: nm.value.trim(), ort: ort.value.trim(), tid: new Date().toISOString(), png: pad.png(), ua: navigator.userAgent.slice(0, 120) };
+          if (role === 'arbg') { (S.settings.bolag = S.settings.bolag || {}).firmatecknare = nm.value.trim(); saveSettings(); }
+          if (await avSave(id)) { toast(role === 'anst' ? 'Arbetstagaren har signerat' : 'Avtalet är signerat av båda parter'); draw(); }
+        } }, 'Signera'));
+    } else {
+      acts.append(el('div', { class: 'chips' }, el('span', { class: 'chip ok' }, el('span', { class: 'dot' }), 'Signerat ' + avDatum(v.sign.arbg.tid)), el('button', { class: 'primary', onclick: () => avPdf(id, v) }, 'Ladda ner signerat avtal (PDF)'), el('button', { class: 'ghost', onclick: () => { D.ny = true; draw(); } }, 'Nytt avtal (ersätter detta)')));
+      acts.append(el('p', { class: 'note' }, `Kontrollsumma SHA-256 ${v.hash.slice(0, 16)}… Texten kan inte ändras efter signering. Ett nytt avtal sparas som ny version och det gamla finns kvar.`));
+    }
+    const sig = v && (v.sign.anst || v.sign.arbg) ? el('div', { class: 'avsigs' }, ['anst', 'arbg'].map(k => v.sign[k] ? el('div', {}, el('img', { src: v.sign[k].png, alt: 'Underskrift ' + v.sign[k].namn }), el('div', { class: 'small' }, v.sign[k].namn + ', ' + v.sign[k].ort + ' ' + avDatum(v.sign[k].tid))) : el('div', { class: 'small muted' }, 'Väntar på ' + (k === 'anst' ? 'arbetstagaren' : 'arbetsgivaren')))) : null;
+    body.replaceChildren(head, txt, sig || '', acts);
+  };
+  draw(); ov.append(body); document.body.append(ov); document.body.style.overflow = 'hidden';
+}
+
+function avPdf(id, v) {
+  const J = window.jspdf && window.jspdf.jsPDF; if (!J) { toast('PDF-modulen laddades inte. Ladda om sidan.'); return; }
+  const doc = new J({ unit: 'mm', format: 'a4' }); const f = S.settings.forare[rid(id)] || {}, fo = S.settings.foretag || '', co = S.settings.bolag || {}; const rub = isTP(id) ? 'Tillägg till anställningsavtal' : 'Anställningsavtal';
+  const clean = s => String(s ?? '').replace(/[\u2212\u2012\u2013\u2014]/g, '-').replace(/[\u202f\u2009\u00a0]/g, ' ').replace(/…/g, '...');
+  const INK = [22, 33, 43], ACC = [31, 79, 140], MUT = [107, 117, 125], LIN = [216, 221, 215];
+  const L0 = 20, R0 = 190, W = R0 - L0; let y = 0, page = 1;
+  const foot = () => { doc.setDrawColor(...LIN); doc.setLineWidth(0.3); doc.line(L0, 283, R0, 283); doc.setFont('helvetica', 'normal'); doc.setFontSize(7); doc.setTextColor(...MUT); doc.text(clean(fo + (co.orgnr ? '   ·   Org.nr ' + co.orgnr : '') + '   ·   ' + rub + ' ' + (f.namn || '')), L0, 288); doc.text('Sida ' + page, R0, 288, { align: 'right' }); };
+  const top = first => { doc.setFillColor(...ACC); doc.rect(0, 0, 210, 3.5, 'F'); if (first) { doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(...ACC); doc.text(isTP(id) ? 'TILLÄGG TILL ANSTÄLLNINGSAVTAL, PLATTFORMSAVGIFT' : 'ANSTÄLLNINGSAVTAL', L0, 16); doc.setFontSize(18); doc.setTextColor(...INK); doc.text(clean(f.namn || ''), L0, 25); doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5); doc.setTextColor(...MUT); doc.text(clean(fo + ', org.nr ' + (co.orgnr || '')), L0, 31); doc.text(clean('Upprättat ' + avDatum(v.skapad)), R0, 31, { align: 'right' }); doc.setDrawColor(...LIN); doc.line(L0, 36, R0, 36); y = 46; } else y = 20; };
+  const need = h => { if (y + h > 274) { foot(); doc.addPage(); page++; top(false); } };
+  top(true);
+  v.text.forEach((s, i) => {
+    need(14); doc.setFont('helvetica', 'bold'); doc.setFontSize(10); doc.setTextColor(...INK); doc.text(clean((i + 1) + '. ' + s.h), L0, y); y += 5.5;
+    s.p.forEach(t => { doc.setFont('helvetica', 'normal'); doc.setFontSize(9.2); doc.setTextColor(...INK); const ln = doc.splitTextToSize(clean(t), W); ln.forEach(l => { need(5); doc.text(l, L0, y); y += 4.5; }); y += 2; });
+    y += 2.5;
+  });
+  need(62); y += 4; doc.setFont('helvetica', 'bold'); doc.setFontSize(10); doc.text('Underskrifter', L0, y); y += 4;
+  [['arbg', 'För arbetsgivaren, ' + fo], ['anst', 'Arbetstagare']].forEach(([k, lbl], j) => {
+    const s = v.sign[k], x = L0 + j * (W / 2 + 3), w = W / 2 - 3;
+    doc.addImage(s.png, 'PNG', x, y + 2, 58, 18); doc.setDrawColor(...INK); doc.setLineWidth(0.25); doc.line(x, y + 22, x + w, y + 22);
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(9); doc.setTextColor(...INK); doc.text(clean(s.namn), x, y + 27);
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(7.8); doc.setTextColor(...MUT); doc.text(clean(lbl), x, y + 31.5); doc.text(clean(s.ort + ', ' + avDatum(s.tid)), x, y + 35.5);
+  });
+  y += 39; need(19);
+  doc.setFillColor(243, 245, 242); doc.roundedRect(L0, y, W, 18, 1.5, 1.5, 'F');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(6.5); doc.setTextColor(...MUT); doc.text('SIGNERINGSLOGG', L0 + 4, y + 5);
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(7.2);
+  const ts = t => new Date(t).toLocaleString('sv-SE', { timeZone: 'Europe/Stockholm' });
+  doc.text(clean(`Arbetstagaren ${v.sign.anst.namn}: ${ts(v.sign.anst.tid)}.   Arbetsgivaren ${v.sign.arbg.namn}: ${ts(v.sign.arbg.tid)}.`), L0 + 4, y + 10);
+  doc.text(clean('Kontrollsumma (SHA-256) för avtalstexten: ' + v.hash), L0 + 4, y + 14.5);
+  foot();
+  saveFile((isTP(id) ? 'Tillagg anstallningsavtal ' : 'Anstallningsavtal ') + (f.namn || id) + '.pdf', doc.output('arraybuffer'));
+}
+
+function vPersonal(R) {
+  const ids = [...new Set([...S.shifts.map(s => s.forare), ...Object.keys(S.settings.forare)])].sort((a, b) => (namnFor(a) || 'ö' + a).localeCompare(namnFor(b) || 'ö' + b, 'sv'));
+  // Ändringar hålls som utkast per förare tills man trycker Spara.
+  const DR = S.persDraft = S.persDraft || {};
+  const draft = id => DR[id] = DR[id] || { f: {}, p: {} };
+  const setF = (id, k, v) => { draft(id).f[k] = v; if (!S.quiet) render(); };
+  const setP = (id, k, v) => { draft(id).p[k] = v; if (!S.quiet) render(); };
+  const markDirty = t => { const c = t.closest('details'); if (!c) return; c.querySelectorAll('.persSave').forEach(b => { b.disabled = false; b.hidden = false; }); if (!c.querySelector('.chipDirty')) c.querySelector('.drv-h .nm')?.after(el('span', { class: 'chip bad chipDirty' }, 'Osparade ändringar')); };
+  const commit = id => { const d = DR[id]; if (!d) return; const f = S.settings.forare[id] = S.settings.forare[id] || {}; Object.assign(f, d.f); f.person = { ...(f.person || {}), ...d.p }; delete DR[id]; saveSettings(); };
+  const ar = +(utbMan('procent') || '2026').slice(0, 4);
+  const cards = ids.map(id => {
+    const f0 = S.settings.forare[id] || {}, dr = DR[id]; const f = dr ? { ...f0, ...dr.f, person: { ...(f0.person || {}), ...dr.p } } : f0; const p = f.person || {}; const fy = ENG.fodelsear(p.personnr);
+    const age = fy ? ar - 1 - fy : null; const pass = S.shifts.filter(s => s.forare === id).length;
+    const fld = (k, lbl, val, on, attrs = {}) => el('label', {}, lbl, el('input', { id: 'p-' + id + '-' + k, value: val ?? '', onchange: e => { S.quiet = true; try { on(e.target.value.trim()); } finally { S.quiet = false; } markDirty(e.target); }, ...attrs }));
+    const sel = (k, lbl, val, opts, on) => el('label', {}, lbl, el('select', { id: 'p-' + id + '-' + k, onchange: e => on(e.target.value) }, opts.map(([v, t]) => el('option', { value: v, selected: String(val ?? '') === v }, t))));
+    const saknas = [!p.personnr && 'personnummer', !p.bank && 'bankkonto', !f.anstForm && 'anställningsform'].filter(Boolean);
+    return el('details', { class: 'drv', open: S.persOpen === id || null, ontoggle: e => { if (e.target.open) S.persOpen = id; else if (S.persOpen === id) S.persOpen = null; } }, el('summary', {}, el('div', { class: 'drv-h' }, el('div', { class: 'nm' }, nameCell(id)),
+      el('span', { class: 'chip' }, f.modell === 'fast' ? 'Månadslön' : f.modell === 'ingen' ? 'Ingen lön' : 'Provision'),
+      age != null && age >= 66 ? el('span', { class: 'chip' }, '66+, kolumn 3') : null,
+      dr ? el('span', { class: 'chip bad chipDirty' }, 'Osparade ändringar') : null,
+      saknas.length ? el('span', { class: 'chip warn' }, 'Saknar ' + saknas.join(', ')) : el('span', { class: 'chip ok' }, 'Komplett'),
+      avStatus(id) === 'signerat' ? el('span', { class: 'chip ok' }, 'Avtal signerat') : el('span', { class: 'chip warn' }, avStatus(id) === 'utkast' ? 'Avtal väntar på signering' : 'Avtal saknas'),
+      el('div', { class: 'fig' }, el('span', { class: 'lbl' }, 'Pass'), el('b', {}, pass || '0')))),
+      el('div', { style: 'padding-top:12px;display:flex;flex-direction:column;gap:14px' },
+        el('div', { class: 'form' },
+          fld('namn', 'Namn', f.namn, v => setF(id, 'namn', v)),
+          fld('anst', 'Anst.nr', f.anst, v => setF(id, 'anst', v)),
+          fld('pnr', 'Personnummer', p.personnr, v => setP(id, 'personnr', v), { placeholder: 'ÅÅMMDD-NNNN', autocomplete: 'off' }),
+          fld('adr', 'Adress', p.adress, v => setP(id, 'adress', v)),
+          fld('padr', 'Postnummer och ort', p.postadress, v => setP(id, 'postadress', v)),
+          fld('bank', 'Bankkonto (clearing + konto)', p.bank, v => setP(id, 'bank', v), { autocomplete: 'off' }),
+          fld('tel', 'Telefon', p.telefon, v => setP(id, 'telefon', v)),
+          fld('mail', 'E-post', p.epost, v => setP(id, 'epost', v))),
+        el('div', { class: 'form' },
+          sel('modell', 'Lön', f.modell || 'procent', [['procent', 'Provision'], ['fast', 'Fast månadslön'], ['ingen', 'Ingen lön här']], v => setF(id, 'modell', v)),
+          f.modell === 'fast' ? fld('lon', 'Månadslön, kr', f.manadslon, v => setF(id, 'manadslon', +v), { type: 'number' }) : null,
+          f.modell === 'fast' ? sel('semf', 'Semesterersättning på månadslön', f.semFast ? '1' : '', [['', 'Nej'], ['1', 'Ja, 12 %']], v => setF(id, 'semFast', !!v)) : null,
+          fld('tab', 'Skattetabell', p.tabell || 33, v => setP(id, 'tabell', +v || 33), { type: 'number' }),
+          sel('kol', 'Kolumn', p.kolumn || '', [['', 'Automatiskt efter ålder'], ['1', '1'], ['3', '3 (66+)']], v => setP(id, 'kolumn', v ? +v : undefined)),
+          fld('eng', 'Engångsskatt % (sidoinkomst)', p.engang && +p.engang ? p.engang : '', v => setP(id, 'engang', v === '' ? 0 : +v), { type: 'number' }),
+          fld('jamk', 'Jämkning, skatt kr per månad', p.jamkning ?? '', v => setP(id, 'jamkning', v === '' ? undefined : +v), { type: 'number' })),
+        el('div', { class: 'form' },
+          sel('form', 'Anställningsform', f.anstForm || '', [['', 'Välj'], ['prov', 'Provanställning, sedan tillsvidare'], ['tills', 'Tillsvidare'], ['sava', 'Särskild visstid'], ['behov', 'Vid behov (timanställd)']], v => setF(id, 'anstForm', v)),
+          sel('omf', 'Omfattning', f.omfattning || 'heltid', [['heltid', 'Heltid'], ['deltid', 'Deltid']], v => setF(id, 'omfattning', v)),
+          fld('start', 'Anställd från', f.start, v => setF(id, 'start', v), { type: 'date' }),
+          fld('slut', f.anstForm === 'prov' ? 'Provanställning slutar' : 'Anställd till', f.slut, v => setF(id, 'slut', v), { type: 'date' }),
+          fld('leg', 'Taxiförarlegitimation giltig till', f.legTill, v => setF(id, 'legTill', v), { type: 'date' })),
+        el('div', { class: 'chips' }, el('button', { class: 'primary persSave', hidden: dr ? null : true, onclick: () => { commit(id); render(); toast('Sparat för ' + (namnFor(id) || id)); } }, 'Spara ändringar'), el('button', { class: 'ghost persSave', hidden: dr ? null : true, onclick: () => { delete DR[id]; render(); } }, 'Ångra'),
+          el('button', { class: avStatus(id) === 'signerat' ? '' : (dr ? '' : 'primary'), onclick: () => { if (DR[id]) { commit(id); render(); } avOpen(id); } }, avStatus(id) === 'signerat' ? 'Visa anställningsavtal' : avStatus(id) === 'utkast' ? 'Signera anställningsavtal' : 'Förbered anställningsavtal'),
+          f.modell !== 'fast' ? el('button', { class: avStatus(TP + id) === 'utkast' ? 'primary' : '', onclick: () => { if (DR[id]) { commit(id); render(); } avOpen(TP + id); } }, avStatus(TP + id) === 'signerat' ? 'Visa tillägg plattformsavgift' : avStatus(TP + id) === 'utkast' ? 'Signera tillägg plattformsavgift' : 'Förbered tillägg plattformsavgift (Bolt/Uber)') : null,
+          f.modell !== 'fast' && avStatus(TP + id) !== 'signerat' ? el('label', { class: 'small muted', style: 'display:flex;gap:6px;align-items:center' }, 'Plattformsavgift gäller från', el('input', { type: 'date', value: f.plattFran || '2026-09-01', onchange: e => setF(id, 'plattFran', e.target.value) })) : null,
+          avStatus(TP + id) === 'signerat' ? el('span', { class: 'chip ok' }, 'Tillägg plattformsavgift signerat') : null),
+        el('p', { class: 'note' }, 'Personnummer och bankkonto syns bara för dig. De behövs för skatteavdrag, arbetsgivardeklaration och utbetalning.')));
+  });
+  const lista = el('label', { class: 'btn' }, 'Fyll i namn från förarlista (xlsx)', el('input', { type: 'file', accept: '.xlsx,.xls', hidden: true, onchange: e => e.target.files[0] && importForare(e.target.files[0]) }));
+  return el('section', { class: 'view' }, el('div', { class: 'panel-h' }, el('h2', {}, 'Personal'), el('div', { class: 'spacer' }), lista), el('div', { class: 'panel' }, cards));
+}
+
+function vInst(R) {
+  const c = R.cfg; const set = (k, v) => { S.settings.cfg[k] = v; saveSettings(); render(); };
+  const num = (k, lbl, step = '0.01') => el('label', {}, lbl, el('input', { id: 'c-' + k, type: 'number', step, value: c[k], onchange: e => set(k, +e.target.value) }));
+  const chk = (k, lbl) => el('label', { style: 'flex-direction:row;align-items:center;gap:8px' }, el('input', { id: 'c-' + k, type: 'checkbox', checked: !!c[k], onchange: e => set(k, e.target.checked) }), lbl);
+  const lon = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h2', {}, 'Lön och avdrag')), el('div', { class: 'form' },
+    num('procent', 'Procentlön, %'), num('semester', 'Semesterersättning, %'), num('broAndel', 'Brobizz andel som dras, %'), num('broPris', 'Pris per bropassage till förare, kr'), num('cphPris', 'CPH-avgift per gång, kr'), num('agAvgift', 'Arbetsgivaravgift, %'), num('redovForarandel', 'Förarandel i kassaredovisning, %'), num('dagStart', 'Dagpass börjar, timme', '1'), num('dagSlut', 'Kvällspass börjar, timme', '1'), num('broMarginalMin', 'Marginal kring pass, minuter', '1')),
+    el('div', { class: 'form', style: 'margin-top:10px' }, chk('inklPickup', 'Dra CPH-avgifter på lönen'), chk('inklSturup', 'Dra Sturup på lönen'), chk('bomBortLon', 'Räkna bort bomkörningar (BOM) från lönen'), chk('utbSamma', 'Fast månadslön betalas ut samma månad (annars månaden efter, som provisionen)')),
+    el('div', { class: 'form', style: 'margin-top:10px' }, c.momsKlass.map((v, i) => el('label', {}, 'Momsklass ' + (i + 1) + ', %', el('input', { id: 'mk' + i, type: 'number', step: '1', value: v, onchange: e => { const a = c.momsKlass.slice(); a[i] = +e.target.value; set('momsKlass', a); } })))),
+    el('p', { class: 'note' }, 'Momsklasserna följer Megtax: klass 1 är budkörning med 25 %, klass 3 är persontransport med 6 % och klass 4 och 5 är momsfria. Taxi Malmö fakturerar 201 kr exkl. moms per bropassage och 17,04 kr per CPH-avgift (Øresundsbrons samlingsfaktura). Avdraget på föraren räknas på samma pris.'));
+  const setF = () => {};
+  const co = S.settings.bolag = S.settings.bolag || {};
+  const cf = (k, lbl, val, on, attrs = {}) => el('label', {}, lbl, el('input', { id: 'co-' + k, value: val ?? '', onchange: e => on(e.target.value.trim()), ...attrs }));
+  const bol = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h2', {}, 'Bolag')), el('div', { class: 'form' },
+    cf('namn', 'Bolagsnamn', S.settings.foretag, v => { S.settings.foretag = v; S.settings.foretagLast = true; saveSettings(); render(); }),
+    cf('org', 'Organisationsnummer', co.orgnr, v => { co.orgnr = v; saveSettings(); }),
+    cf('adr', 'Adress', co.adress, v => { co.adress = v; saveSettings(); }),
+    cf('padr', 'Postnummer och ort', co.postadress, v => { co.postadress = v; saveSettings(); }),
+    cf('bank', 'Lönekonto (bank)', co.bank, v => { co.bank = v; saveSettings(); }),
+    num('utbetDag', 'Fast lön betalas ut dag i månaden', '1'), num('utbetDagProv', 'Provisionslön betalas ut dag i månaden efter', '1'),
+    el('label', {}, 'Månadslön kvittar förra månadens kontanter från lönemånad', el('input', { id: 'c-kontEfterFran', type: 'month', value: c.kontEfterFran || '', onchange: e => { S.settings.cfg.kontEfterFran = e.target.value; saveSettings(); render(); } }))),
+    el('p', { class: 'note' }, (S.db ? 'Inställningar, personal och månader sparas på ditt konto och syns bara för dig.' : 'Inställningarna sparas bara i den här webbläsaren.') + ' Körpass och fakturor läses i webbläsaren.'));
+  const tabs = Object.keys(S.skatt || {}).sort();
+  const skatt = el('div', { class: 'panel' }, el('div', { class: 'panel-h' }, el('h2', {}, 'Skattetabeller'), el('div', { class: 'spacer' }), el('label', { class: 'btn' }, 'Läs in Skatteverkets fil', el('input', { type: 'file', accept: '.txt', hidden: true, onchange: e => e.target.files[0] && importSkatt(e.target.files[0]) }))),
+    el('p', { class: 'note' }, (tabs.length ? 'Inlästa tabeller ' + (S.skattAr || '') + ': ' + tabs.join(', ') + '. ' : 'Ingen skattetabell inläst. ') + 'Varje december: hämta "allmanna-tabeller-manad.txt" för nästa år från skatteverket.se (Skattetabeller, Teknisk beskrivning) och läs in den här.'));
+  return el('section', { class: 'view' }, bol, lon, laPanel(c), skatt);
+}
+/* Register över lönearter, per bolag: slå på/av, ändra à-pris och lägg till egna. Sparas i settings.cfg.lonearter och settings.cfg.lonearterEgna. */
+function laPanel(c) {
+  const own = S.settings.cfg.lonearter = S.settings.cfg.lonearter || {};
+  const egna = S.settings.cfg.lonearterEgna = S.settings.cfg.lonearterEgna || [];
+  const put = (nr, k, v) => { own[nr] = { ...(own[nr] || {}), [k]: v }; saveSettings(); };
+  const typTxt = a => a.typ === 'auto' ? 'Räknas av appen' : a.typ === 'belopp' ? 'Belopp' : a.typ === 'faktor' ? 'Dagar × månadslön × ' + nf2.format(a.faktor * 100).replace(/,?0+$/, '') + ' %' : 'Antal × à-pris';
+  const sidaTxt = { brutto: 'Lön', formon: 'Förmån', skattefri: 'Skattefri', skatt: 'Skatt', netto: 'Efter skatt', info: 'Info' };
+  const alla = ENG.lonearter(own, egna);
+  const rows = alla.map(a => el('tr', {},
+    el('td', {}, el('input', { type: 'checkbox', 'aria-label': 'Använd ' + a.namn, checked: a.aktiv, disabled: a.typ === 'auto' || null, onchange: e => put(a.nr, 'aktiv', e.target.checked) })),
+    el('td', { class: 'num' }, a.nr), el('td', {}, a.namn, a.egen ? el('span', { class: 'chip', style: 'margin-left:6px' }, 'Egen') : null, a.hjalp ? el('div', { class: 'small muted' }, a.hjalp) : ''), el('td', { class: 'small' }, typTxt(a)),
+    el('td', { class: 'n' }, a.typ === 'antal' ? el('input', { type: 'number', step: '0.01', value: a.apris, style: 'width:90px;text-align:right', 'aria-label': 'À-pris ' + a.namn, onchange: e => put(a.nr, 'apris', +e.target.value) }) : ''),
+    el('td', { class: 'small' }, sidaTxt[a.sida] || a.sida), el('td', { class: 'num' }, a.agi || ''), el('td', {}, a.sem ? 'Ja' : ''),
+    el('td', {}, a.egen ? el('button', { class: 'ghost', onclick: () => { const i = egna.findIndex(x => x.nr === a.nr); if (i >= 0) { egna.splice(i, 1); delete own[a.nr]; saveSettings(); render(); toast('Löneart ' + a.nr + ' borttagen'); } } }, 'Ta bort') : '')));
+  // ny egen löneart (utan bokföringskonto, Åkarkassan har ingen bokföring)
+  const f = S.laNy = S.laNy || { nr: '', namn: '', typ: 'belopp', apris: '', enhet: 'st', sida: 'brutto', sem: '0' };
+  const inp = (k, lbl, attrs = {}) => el('label', {}, lbl, el('input', { value: f[k], onchange: e => { f[k] = e.target.value; }, ...attrs }));
+  const sel = (k, lbl, opts) => el('label', {}, lbl, el('select', { onchange: e => { f[k] = e.target.value; render(); } }, opts.map(([v, t]) => el('option', { value: v, selected: f[k] === v || null }, t))));
+  const agiFor = s => ({ brutto: '011', formon: '012', skattefri: '', netto: '' }[s] ?? '');
+  const ny = el('div', { style: 'margin-top:14px' }, el('h3', {}, 'Lägg till egen löneart'),
+    el('div', { class: 'form', style: 'margin-top:8px' },
+      inp('nr', 'Nummer (3 siffror)', { inputmode: 'numeric', placeholder: 't.ex. 610' }), inp('namn', 'Benämning', { placeholder: 't.ex. Städtillägg' }),
+      sel('typ', 'Beräkning', [['belopp', 'Belopp'], ['antal', 'Antal × à-pris']]),
+      f.typ === 'antal' ? inp('apris', 'À-pris, kr', { type: 'number', step: '0.01' }) : null, f.typ === 'antal' ? inp('enhet', 'Enhet', { placeholder: 'tim, dag, st' }) : null,
+      sel('sida', 'Typ', [['brutto', 'Lön (skatt och avgift)'], ['skattefri', 'Skattefri ersättning (utan skatt)'], ['formon', 'Förmån (skatt, betalas inte ut)'], ['netto', 'Justering efter skatt']]),
+      f.sida === 'brutto' ? sel('sem', 'Semestergrundande', [['0', 'Nej'], ['1', 'Ja']]) : null),
+    el('div', { class: 'chips', style: 'margin-top:10px' }, el('button', { class: 'primary', onclick: () => {
+      const nr = String(f.nr).trim();
+      if (!/^\d{3}$/.test(nr)) { toast('Numret ska vara tre siffror'); return; }
+      if (alla.some(a => a.nr === nr)) { toast('Löneart ' + nr + ' finns redan'); return; }
+      if (!String(f.namn).trim()) { toast('Skriv en benämning'); return; }
+      const e = { nr, namn: String(f.namn).trim(), typ: f.typ, sida: f.sida, agi: agiFor(f.sida), sem: f.sida === 'brutto' && f.sem === '1' ? 1 : 0 };
+      if (f.typ === 'antal') { e.apris = +f.apris || 0; e.enhet = f.enhet || 'st'; }
+      egna.push(e); egna.sort((x, y) => x.nr.localeCompare(y.nr)); S.laNy = null; saveSettings(); render(); toast('Löneart ' + nr + ' tillagd. Den kan nu väljas under Lön.');
+    } }, 'Lägg till löneart')),
+    el('p', { class: 'note' }, 'Egna lönearter gäller bara det här bolaget och läggs till per förare under Lön, precis som de färdiga. Numret får inte krocka med registret.'));
+  return el('details', { class: 'panel', open: S.laOpen || null, ontoggle: e => { S.laOpen = e.target.open; } }, el('summary', {}, el('h2', { style: 'display:inline' }, 'Lönearter'), el('span', { class: 'small muted', style: 'margin-left:10px' }, alla.filter(a => a.aktiv).length + ' av ' + alla.length + ' används')),
+    el('p', { class: 'note' }, 'Samma numrering som LDL TaxiLön. Bocka i de lönearter bolaget använder, de kan sedan läggas till per förare under Lön. AGI-rutan används när arbetsgivardeklarationen byggs. Semestergrundande lönearter ingår i underlaget för semesterersättningen. Registerversion ' + ENG.LA_VER + ', samma register i Lön och kassa och Lön och bokföring. Egna lönearter gäller bara det här bolaget.'),
+    el('div', { class: 'tw' }, el('table', {}, el('thead', {}, el('tr', {}, ['', 'Nr', 'Benämning', 'Formel', 'À-pris', 'Typ', 'AGI', 'Sem.grund.', ''].map((h, i) => el('th', { class: i === 4 ? 'n' : '' }, h)))), el('tbody', {}, rows))), ny);
+}
+
+async function importSkatt(file) {
+  const T = ENG.parseSkattetabell(ENG.decode(await file.arrayBuffer())); const keys = Object.keys(T);
+  if (!keys.length) { toast('Filen ser inte ut som Skatteverkets månadstabeller.'); return; }
+  const ar = (file.name.match(/20\d\d/) || [utbMan('procent').slice(0, 4)])[0];
+  const tabeller = Object.fromEntries(keys.map(k => [k, ENG.packTabell(T[k])])); S.skatt = tabeller; S.skattAr = ar;
+  try { localStorage.setItem('ak_skatt', JSON.stringify({ ar, tabeller })); } catch (e) {}
+  if (S.db) { try { await S.db.collection('data/users/' + S.uid).doc('skatt').set({ ar, tabeller }); } catch (e) { toast('Kunde inte spara tabellerna: ' + (e.message || e.code)); return; } }
+  render(); toast(keys.length + ' skattetabeller inlästa');
+}
+async function importForare(file) {
+  try {
+    const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' }); let n = 0;
+    wb.SheetNames.forEach(sn => { const rows = XLSX.utils.sheet_to_json(wb.Sheets[sn], { header: 1, raw: false });
+      const hi = rows.findIndex(r => r && r.some(c => /operator license/i.test(c || ''))); if (hi < 0) return;
+      const h = rows[hi].map(x => String(x || '').toLowerCase()); const iL = h.findIndex(x => x.includes('operator license')), iF = h.findIndex(x => x.includes('first')), iN = h.findIndex(x => x.includes('last'));
+      rows.slice(hi + 1).forEach(r => { const id = String(r[iL] || '').trim(); if (!/^\d{5,7}$/.test(id)) return; const nm = [r[iF], r[iN]].filter(Boolean).join(' ').trim(); const f = S.settings.forare[id] = S.settings.forare[id] || {}; if (!f.namn && nm) { f.namn = nm; n++; } }); });
+    saveSettings(); render(); toast(n ? n + ' namn ifyllda' : 'Hittade inga nya namn i filen');
+  } catch (e) { toast('Kunde inte läsa förarlistan: ' + e.message); }
+}
+
+/* ---------- export ---------- */
+async function exportXlsx() {
+  const R = S.R, c = R.cfg; const wb = XLSX.utils.book_new();
+  const lon = [['Förarnr', 'Namn', 'Anst.nr', 'Lönemodell', 'Pass', 'Timmar', 'Inkört inkl. moms', 'BOM inkl. moms', 'Budkörning inkl. moms', '804 Inkört exkl. moms', '020 Procentlön', 'Bropassager', '009 Brobizz à-pris', '009 Brobizz avdrag', '420 Semester', '202 OB', '010 Bonus', '001 Månadslön', 'Bruttolön', '008 Kontant', '970 Förskott', 'Arbetsgivaravgift', 'Kortdricks']];
+  R.rows.forEach(r => { const f = S.settings.forare[r.id] || {}; lon.push([r.id, namnFor(r.id), f.anst || '', r.modell, r.pass, ENG.r2(r.tim), r.ink, ENG.r2(r.bom), ENG.r2(r.bud), r.exkl, r.proc, r.broN, r.broApris, -r.broAvdr, r.sem, r.ob, r.bonus, r.fast, r.brutto, r.kontant, r.forskott, r.agAvg, r.kredDr]); });
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(lon), 'Löneunderlag');
+  const kas = [['Bil', 'Datum', 'Vecka', 'Pass', 'Förare', 'Kassa', 'Kontant', 'Kredit', 'Kastrup', 'Sturup', 'Kassa exkl. bro', 'Bolagets andel', 'Hos förare']];
+  Object.values(R.bilar).forEach(b => Object.values(b.dagar).sort((p, q) => p.datum < q.datum ? -1 : 1).forEach(d => ['dag', 'natt'].forEach(k => { const x = d[k]; if (!x) return; kas.push([b.regnr, d.datum, d.vecka, k === 'dag' ? 'Dag' : 'Kväll', x.forare.map(f => namnFor(f) || f).join(', '), x.kassa, x.kont, x.kred, x.bro, ENG.r2(x.stu), ENG.r2(x.exBro), ENG.r2(x.andel), ENG.r2(x.hosForare)]); })));
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(kas), 'Kassaredovisning');
+  const br = [['Tid', 'Bil', 'Typ', 'Dag/kväll', 'Förare', 'Namn', 'Koppling', 'Kostnad', 'Avdrag lön']];
+  R.bro.forEach(p => br.push([p.ts, p.reg, p.desc, p.period, p.forare || '', namnFor(p.forare), p.metod, p.kost, p.iLon ? ENG.r2(p.kost * c.broAndel / 100) : 0]));
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(br), 'Bro och Sturup');
+  const ps = [['Nr', 'Bil', 'Förarnr', 'Namn', 'Start', 'Slut', 'Timmar', 'Kontant', 'Kredit', 'Exkl. moms']];
+  S.shifts.forEach(s => ps.push([s.rap, s.regnr, s.forare, namnFor(s.forare), s.start, s.slut, ENG.r2(s.tim), s.kont, s.kred, ENG.r2(ENG.exkl(s, c))]));
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(ps), 'Körpass');
+  const data = XLSX.write(wb, { type: 'array', bookType: 'xlsx' });
+  const name = 'Lön och kassa ' + (S.settings.foretag || '').replace(/[^\wåäöÅÄÖ ]/g, '') + ' ' + S.period + '.xlsx';
+  try { const dl = await window.claude?.use?.('downloads'); if (!dl) { toast('Nedladdning är inte tillgänglig i den här vyn'); return; } await dl.save({ filename: name, data: new Uint8Array(data) }); toast('Sparad'); }
+  catch (e) { if (e && e.code === 'declined') return; toast('Kunde inte spara filen' + (e && e.code ? ' (' + e.code + ')' : '')); }
+}
+
+/* ---------- start ---------- */
+wireDrop('#dropLdl', '#fLdl', onLdl); wireDrop('#dropBro', '#fBro', onBro); wireDrop('#dropStu', '#fStu', onStu); wireDrop('#dropAvr', '#fAvr', onAvr);
+$('#btnExport').addEventListener('click', exportXlsx);
+window.addEventListener('beforeunload', e => { if (S.persDraft && Object.keys(S.persDraft).length) { e.preventDefault(); e.returnValue = ''; } });
+loadDemo(); render(); initStore();
+})();
+</script>
+<script>window.MC={sticky:'#tabs',titel:['Förare','Namn','Bolag','Kostnad','Post']};</script>
+<style>@media (max-width:700px){.top{position:static}#tabs.mc-sticky{background:var(--bg)}.chip{white-space:normal;max-width:100%;height:auto}}</style>
+<!-- Mobilkort v1 (2026-10-07): breda tabeller blir kort på skärmar under 700 px. Rör inga data. -->
+<style id="mc-style">
+@media (max-width:700px){
+  :root{--mc-card:var(--surface,var(--panel,var(--card,#fff)));--mc-sunk:var(--sunk,var(--panel2,var(--bg,#f4f4f4)));--mc-line:var(--line,#ddd);--mc-muted:var(--muted,#666);--mc-mark:var(--accent,var(--amber,var(--brand,#e9a200)))}
+  input,select,textarea{font-size:16px!important}
+  .mc-wrap{overflow:visible!important;border:0!important;background:transparent!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
+  table.mc,table.mc>tbody,table.mc>tfoot{display:block;width:100%!important;min-width:0!important}
+  table.mc>thead,table.mc>tbody>tr.mc-head{display:none}
+  table.mc>tbody>tr,table.mc>tfoot>tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-auto-flow:row dense;gap:6px 12px;background:var(--mc-card);border:1px solid var(--mc-line);border-radius:10px;padding:10px 12px;margin:0 0 8px;position:relative;height:auto}
+  table.mc>*>tr>td,table.mc>*>tr>th{display:block;padding:0!important;border:0!important;text-align:left!important;white-space:normal!important;min-width:0!important;width:auto!important;max-width:none!important;overflow-wrap:anywhere;background:transparent!important;position:static!important;height:auto}
+  table.mc td::before,table.mc th::before{content:attr(data-l);display:block;font:500 11px/1.3 var(--f-body,system-ui,sans-serif);letter-spacing:0;text-transform:none;color:var(--mc-muted);margin-bottom:1px}
+  table.mc .mc-e{display:none!important}
+  table.mc .mc-w{grid-column:1/-1}
+  table.mc .mc-t{grid-column:1/-1;order:-2;font-weight:600;font-size:15px;padding-bottom:6px!important;border-bottom:1px solid var(--mc-line)!important;margin-bottom:2px}
+  table.mc .mc-t::before,table.mc .mc-nl::before{display:none}
+  table.mc td input:not([type=checkbox]):not([type=radio]),table.mc td select,table.mc td textarea{width:100%!important;min-width:0!important;max-width:100%!important}
+  table.mc td button,table.mc td .btn{margin:2px 6px 2px 0}
+  table.mc tr.mc-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  table.mc tr.mc-pair{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 12px}
+  table.mc tr.mc-pair>td{flex:0 1 auto}
+  table.mc tr.mc-pair>.mc-t{border:0!important;padding:0!important;margin:0;font-size:13.5px;font-weight:500;flex:1}
+  table.mc tr.mc-pair>:not(.mc-t){text-align:right!important;flex:none;max-width:45%}
+  table.mc tr.mc-pair>*::before{display:none}
+  table.mc tr.mc-full{display:block;padding:0;border:0;background:transparent;margin:-2px 0 14px}
+  table.mc tr.mc-full>*{padding:10px 0 0 10px!important;border-left:3px solid var(--mc-mark)!important}
+  table.mc tr.mc-full>*::before{display:none}
+  table.mc tr.mc-trip{padding:8px 12px;gap:3px 12px;grid-auto-flow:row}
+  table.mc tr.mc-trip>.mc-t{grid-column:auto;border:0!important;padding:0!important;margin:0;font-size:14px}
+  table.mc tr.mc-trip>.mc-tid{order:-1;text-align:right!important;font-weight:600}
+  table.mc tr.mc-sum,table.mc>tfoot>tr{background:var(--mc-sunk)}
+  .mc-sticky{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;scrollbar-width:none}
+  .mc-sticky::-webkit-scrollbar{display:none}
+}
+</style>
+<script id="mc-script">
+(() => {
+  const C = window.MC || {}, MQ = matchMedia('(max-width:700px)');
+  const TITEL = (C.titel || ['Förare', 'Namn', 'Bolag', 'Åkare', 'Kund', 'Ägare', 'Benämning', 'Beskrivning', 'Post', 'Kostnad', 'Text']).map(s => s.toLowerCase());
+  const NUM = /^[−\-+]?\s?[\d\s.,:]+\s?(kr|%|st|km|mkr|tkr|sek|usd)?$/i;
+  const wrapOf = tb => { let e = tb.parentElement; for (let i = 0; e && i < 3; i++, e = e.parentElement) { const o = getComputedStyle(e).overflowX; if (o === 'auto' || o === 'scroll') return e; } return null; };
+  function heads(tb) {
+    let hrs = tb.tHead ? [...tb.tHead.rows] : [];
+    if (!hrs.length) for (const r of tb.rows) { if (r.cells.length && [...r.cells].every(c => c.tagName === 'TH')) { hrs.push(r); r.classList.add('mc-head'); } else break; }
+    const G = [];
+    hrs.forEach((r, ri) => { G[ri] = G[ri] || []; let c = 0;
+      for (const th of r.cells) { while (G[ri][c] !== undefined) c++; const t = th.textContent.replace(/\s+/g, ' ').trim();
+        for (let dr = 0; dr < (th.rowSpan || 1); dr++) { G[ri + dr] = G[ri + dr] || []; for (let dc = 0; dc < (th.colSpan || 1); dc++) G[ri + dr][c + dc] = t; }
+        c += th.colSpan || 1; } });
+    const n = Math.max(0, ...G.map(r => r.length)), h = [];
+    for (let c = 0; c < n; c++) { const parts = []; for (const r of G) { const t = r[c]; if (t && !parts.includes(t)) parts.push(t); } h.push(parts.join(' ')); }
+    return h;
+  }
+  function label(tb) {
+    const H = heads(tb), hl = H.map(s => s.toLowerCase());
+    const prio = TITEL.map(t => hl.findIndex(h => h === t || h.startsWith(t + ' '))).filter(i => i >= 0);
+    const rows = [...(tb.tBodies.length ? [...tb.tBodies].flatMap(b => [...b.rows]) : []), ...(tb.tFoot ? [...tb.tFoot.rows] : [])];
+    for (const tr of rows) {
+      if (tr.classList.contains('mc-head')) continue;
+      tr.classList.remove('mc-full', 'mc-pair', 'mc-3', 'mc-trip');
+      const cells = [...tr.cells];
+      if (cells.length === 1 && (cells[0].colSpan || 1) >= Math.max(2, H.length - 1)) { tr.classList.add('mc-full'); continue; }
+      let col = 0; const info = cells.map(td => { const x = { td, col, ctl: !!td.querySelector('input,select,textarea,button,a.btn'), txt: td.textContent.replace(/\s+/g, ' ').trim() }; col += td.colSpan || 1; return x; });
+      for (const x of info) {
+        x.td.classList.remove('mc-e', 'mc-w', 'mc-t', 'mc-nl', 'mc-tid');
+        x.td.dataset.l = H[x.col] || '';
+        if (!x.ctl && !x.txt && !x.td.querySelector('img,svg')) x.td.classList.add('mc-e');
+        if (!x.td.dataset.l) x.td.classList.add('mc-nl');
+        if ((x.td.colSpan || 1) > 1 || x.txt.length > 26 || x.td.querySelectorAll('button,a.btn').length > 1 || x.td.querySelector('textarea')) x.td.classList.add('mc-w');
+      }
+      const ok = x => x && !x.ctl && x.txt;
+      let t = null;
+      for (const i of prio) { const x = info.find(y => y.col === i); if (ok(x)) { t = x; break; } }
+      if (!t) t = info.find(y => ok(y) && !NUM.test(y.txt)) || null;
+      if (t) t.td.classList.add('mc-t');
+      if (tr.classList.contains('sum') || tr.classList.contains('total') || /^(summa|totalt?)\b/i.test(t ? t.txt : '')) tr.classList.add('mc-sum');
+      const iD = hl.indexOf('datum'), iT = hl.indexOf('tid');
+      const tid = iT >= 0 && info.find(y => y.col === iT && y.txt);
+      if (t && tid && t.col === iD) { tr.classList.add('mc-trip'); tid.td.classList.add('mc-tid', 'mc-nl'); }
+      const vis = info.filter(y => !y.td.classList.contains('mc-e'));
+      if (vis.length <= 2 && t) tr.classList.add('mc-pair');
+      else if (!tr.classList.contains('mc-trip') && vis.filter(y => !/mc-(t|w)\b/.test(y.td.className) && !y.td.querySelector('input,select')).length >= 5) tr.classList.add('mc-3');
+    }
+  }
+  function scan() {
+    if (!MQ.matches) return;
+    document.querySelectorAll('table').forEach(tb => {
+      if (tb.closest('.mc-skip')) return;
+      if (!tb.classList.contains('mc')) {
+        const w = wrapOf(tb), avail = (w || tb.parentElement).clientWidth;
+        if (!avail || tb.scrollWidth <= avail + 2) return;
+        tb.classList.add('mc'); if (w) w.classList.add('mc-wrap');
+      }
+      label(tb);
+    });
+    const over = [...document.querySelectorAll('table.mc td:not(.mc-w):not(.mc-e)')].filter(td => td.scrollWidth > td.clientWidth + 2);
+    over.forEach(td => td.classList.add('mc-w'));
+    if (C.sticky) document.querySelectorAll(C.sticky).forEach(e => e.classList.add('mc-sticky'));
+    if (C.stickyBox) { const box = document.querySelector(C.stickyBox), keep = box && box.querySelector(C.keep); if (box && keep) { box.style.position = 'sticky'; box.style.zIndex = '20'; box.style.top = 'calc(env(safe-area-inset-top,0px) - ' + (box.offsetHeight - keep.offsetHeight) + 'px)'; } }
+  }
+  MQ.addEventListener('change', () => { if (!MQ.matches && C.stickyBox) { const box = document.querySelector(C.stickyBox); if (box) { box.style.position = ''; box.style.top = ''; box.style.zIndex = ''; } } });
+  let raf = 0; const q = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(scan); };
+  new MutationObserver(q).observe(document.body, { childList: true, subtree: true });
+  MQ.addEventListener('change', q); addEventListener('resize', q); q();
+})();
+</script>
+
+</body></html>

@@ -1,0 +1,13 @@
+{
+  "stop_reason": "end_turn",
+  "content": [
+    {
+      "type": "thinking",
+      "thinking": ""
+    },
+    {
+      "type": "text",
+      "text": "{\"rader\":[{\"datum\":\"2026-10-03\",\"bilnummer\":\"103\",\"utbildning\":true,\"jacka\":1,\"sommarjacka\":0,\"vast\":0,\"troja\":1,\"skjorta\":2,\"pike\":0,\"mossa\":0,\"osaker\":false,\"forare\":\"TESTFÖRARE A\",\"akare\":\"TESTÅKERI A\",\"utlamnad\":\"XY\"},{\"datum\":\"2026-10-07\",\"bilnummer\":\"104 TESTFÖRARE B\",\"utbildning\":\"TESTÅKERI B\",\"jacka\":0,\"sommarjacka\":1,\"vast\":0,\"troja\":0,\"skjorta\":0,\"pike\":0,\"mossa\":\"XY\",\"osaker\":false}]}"
+    }
+  ]
+}

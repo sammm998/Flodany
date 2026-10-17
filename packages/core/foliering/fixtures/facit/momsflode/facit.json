@@ -1,0 +1,3225 @@
+{
+ "logg": [
+  {
+   "tid": "2026-09-01 09:00",
+   "steg": {
+    "typ": "nytt"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "",
+       "skadenr": "",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "utkast",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [],
+        "godkandAv": ""
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-01 09:01",
+   "steg": {
+    "typ": "text",
+    "id": "amtibhwg0i",
+    "f": "reg",
+    "v": "abc 12a"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "",
+       "forsakring": "lf",
+       "agare": "",
+       "bil": null,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "utkast",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [],
+        "godkandAv": ""
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:01:00.000Z"
+      }
+     ],
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "utkast",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [],
+        "godkandAv": ""
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:01:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-01 09:02",
+   "steg": {
+    "typ": "text",
+    "id": "amtibhwg0i",
+    "f": "skadenr",
+    "v": "SK-1001-26"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "utkast",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [],
+        "godkandAv": ""
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:02:00.000Z"
+      }
+     ],
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "utkast",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [],
+        "godkandAv": ""
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:02:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-01 09:03",
+   "steg": {
+    "typ": "pris",
+    "id": "amtibhwg0i",
+    "pid": "sf-fram"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "utkast",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:03:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-01 09:04",
+   "steg": {
+    "typ": "pris",
+    "id": "amtibhwg0i",
+    "pid": "dorr"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "utkast",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 1 dörr",
+          "antal": 1,
+          "apris": 1500
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:04:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-01 09:05",
+   "steg": {
+    "typ": "rad",
+    "id": "amtibhwg0i",
+    "i": 1,
+    "falt": "antal",
+    "v": "2"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "vanlig",
+       "skadedatum": "",
+       "notering": "",
+       "status": "utkast",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 4000
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 1500
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:05:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-01 09:06",
+   "steg": {
+    "typ": "val",
+    "id": "amtibhwg0i",
+    "f": "storlek",
+    "v": "storre"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "utkast",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": ""
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:06:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-01 09:07",
+   "steg": {
+    "typ": "klick",
+    "act": "skickad",
+    "id": "amtibhwg0i"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "skickad",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": "",
+        "skickad": "2026-09-01"
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-01T07:07:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Offerten är markerad som skickad."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-05 08:00",
+   "kontroll": {
+    "idag": "2026-09-05",
+    "arenden": [
+     {
+      "id": "amtibhwg0i",
+      "fak": null,
+      "moms": null,
+      "belopp": 9500,
+      "fnOffert": "offert_F1_SK-1001-26_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1001,
+    "momsAttSkicka": [],
+    "fakturor": [],
+    "oppna": [],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "9 500 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "0 kr",
+       "0 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 0,
+     "todo": []
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "key": "kost:k1",
+        "datum": "2026-08-20",
+        "typ": "auto",
+        "text": "Folie och material Leverantör 1 AB faktura 501",
+        "rader": [
+         {
+          "k": 4010,
+          "b": 1200,
+          "t": "Folie"
+         },
+         {
+          "k": 2641,
+          "b": 300,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -1500,
+          "t": "Leverantör 1 AB"
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "A1: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 1200,
+       "utg": 0,
+       "ing": 300,
+       "bank": -1500,
+       "res": -1200,
+       "moms": -300
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNWRVIgQSAxIDIwMjYwODIwICJGb2xpZSBvY2ggbWF0ZXJpYWwgTGV2ZXJhbnSUciAxIEFCIGZha3R1cmEgNTAxIiAyMDI2MDkwNQ0Kew0KI1RSQU5TIDQwMTAge30gMTIwMC4wMCAyMDI2MDgyMCAiRm9saWUiDQojVFJBTlMgMjY0MSB7fSAzMDAuMDAgMjAyNjA4MjAgIkluZ4ZlbmRlIG1vbXMiDQojVFJBTlMgMTkzMCB7fSAtMTUwMC4wMCAyMDI2MDgyMCAiTGV2ZXJhbnSUciAxIEFCIg0KfQ0K"
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwNQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-09-06 08:00",
+   "kontroll": {
+    "idag": "2026-09-06",
+    "arenden": [
+     {
+      "id": "amtibhwg0i",
+      "fak": null,
+      "moms": null,
+      "belopp": 9500,
+      "fnOffert": "offert_F1_SK-1001-26_ABC12A.pdf",
+      "fnFaktura": null,
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1001,
+    "momsAttSkicka": [],
+    "fakturor": [],
+    "oppna": [],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "9 500 kr",
+       "1 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "0 kr",
+       "0 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 1,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Offert utan svar i 5 dagar, påminn",
+       "s": "Försäkring 1 AB · 9 500 kr · skickad 2026-09-01",
+       "id": "amtibhwg0i",
+       "btn": "Påminn"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "key": "kost:k1",
+        "datum": "2026-08-20",
+        "typ": "auto",
+        "text": "Folie och material Leverantör 1 AB faktura 501",
+        "rader": [
+         {
+          "k": 4010,
+          "b": 1200,
+          "t": "Folie"
+         },
+         {
+          "k": 2641,
+          "b": 300,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -1500,
+          "t": "Leverantör 1 AB"
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "A1: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 1200,
+       "utg": 0,
+       "ing": 300,
+       "bank": -1500,
+       "res": -1200,
+       "moms": -300
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNWRVIgQSAxIDIwMjYwODIwICJGb2xpZSBvY2ggbWF0ZXJpYWwgTGV2ZXJhbnSUciAxIEFCIGZha3R1cmEgNTAxIiAyMDI2MDkwNg0Kew0KI1RSQU5TIDQwMTAge30gMTIwMC4wMCAyMDI2MDgyMCAiRm9saWUiDQojVFJBTlMgMjY0MSB7fSAzMDAuMDAgMjAyNjA4MjAgIkluZ4ZlbmRlIG1vbXMiDQojVFJBTlMgMTkzMCB7fSAtMTUwMC4wMCAyMDI2MDgyMCAiTGV2ZXJhbnSUciAxIEFCIg0KfQ0K"
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkwNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-09-07 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "offertIgen",
+    "id": "amtibhwg0i"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "skickad",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": "",
+        "skickad": "2026-09-01",
+        "paminnelse": "2026-09-07"
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-07",
+         "t": "Påminnelse om offerten skickad till Försäkring 1 AB (9 500 kr)"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-07T08:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Noterat i historiken."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-08 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "godkand",
+    "id": "amtibhwg0i",
+    "form": {
+     "#godkAv": " Handläggare Ett "
+    }
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "godkand",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": "Handläggare Ett",
+        "skickad": "2026-09-01",
+        "paminnelse": "2026-09-07"
+       },
+       "faktura": null,
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-07",
+         "t": "Påminnelse om offerten skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-08",
+         "t": "Offert godkänd av Handläggare Ett"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-08T08:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-09-10 10:00",
+   "steg": {
+    "typ": "klick",
+    "act": "skapaFaktura",
+    "id": "amtibhwg0i"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": "Handläggare Ett",
+        "skickad": "2026-09-01",
+        "paminnelse": "2026-09-07"
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-09-10",
+        "forfall": "2026-09-20",
+        "utfort": "2026-09-10",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": ""
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-07",
+         "t": "Påminnelse om offerten skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-08",
+         "t": "Offert godkänd av Handläggare Ett"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skapad (9 500 kr), förfaller 2026-09-20"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-10T08:00:00.000Z"
+      }
+     ],
+     [
+      "installningar/serie",
+      {
+       "nasta": 1002
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Faktura 1001 skapad. Registret är uppdaterat."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-10 10:05",
+   "steg": {
+    "typ": "klick",
+    "act": "fakturaSkickad",
+    "id": "amtibhwg0i"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": "Handläggare Ett",
+        "skickad": "2026-09-01",
+        "paminnelse": "2026-09-07"
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-09-10",
+        "forfall": "2026-09-20",
+        "utfort": "2026-09-10",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": ""
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-07",
+         "t": "Påminnelse om offerten skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-08",
+         "t": "Offert godkänd av Handläggare Ett"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skapad (9 500 kr), förfaller 2026-09-20"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skickad till Försäkring 1 AB"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-10T08:05:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Noterat i historiken."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-20 12:00",
+   "kontroll": {
+    "idag": "2026-09-20",
+    "arenden": [
+     {
+      "id": "amtibhwg0i",
+      "fak": "obetald",
+      "moms": null,
+      "belopp": 9500,
+      "fnOffert": "offert_F1_SK-1001-26_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-1001-26.pdf",
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 9500,
+      "datum": "2026-09-10",
+      "forfall": "2026-09-20",
+      "st": "obetald",
+      "bd": "",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 9500,
+      "fs": "lf",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "9 500 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 0,
+     "todo": []
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "key": "kost:k1",
+        "datum": "2026-08-20",
+        "typ": "auto",
+        "text": "Folie och material Leverantör 1 AB faktura 501",
+        "rader": [
+         {
+          "k": 4010,
+          "b": 1200,
+          "t": "Folie"
+         },
+         {
+          "k": 2641,
+          "b": 300,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -1500,
+          "t": "Leverantör 1 AB"
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "A1: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 1200,
+       "utg": 0,
+       "ing": 300,
+       "bank": -1500,
+       "res": -1200,
+       "moms": -300
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkyMA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNWRVIgQSAxIDIwMjYwODIwICJGb2xpZSBvY2ggbWF0ZXJpYWwgTGV2ZXJhbnSUciAxIEFCIGZha3R1cmEgNTAxIiAyMDI2MDkyMA0Kew0KI1RSQU5TIDQwMTAge30gMTIwMC4wMCAyMDI2MDgyMCAiRm9saWUiDQojVFJBTlMgMjY0MSB7fSAzMDAuMDAgMjAyNjA4MjAgIkluZ4ZlbmRlIG1vbXMiDQojVFJBTlMgMTkzMCB7fSAtMTUwMC4wMCAyMDI2MDgyMCAiTGV2ZXJhbnSUciAxIEFCIg0KfQ0K"
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkyMA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-09-21 08:00",
+   "kontroll": {
+    "idag": "2026-09-21",
+    "arenden": [
+     {
+      "id": "amtibhwg0i",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 9500,
+      "fnOffert": "offert_F1_SK-1001-26_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-1001-26.pdf",
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 9500,
+      "datum": "2026-09-10",
+      "forfall": "2026-09-20",
+      "st": "forfallen",
+      "bd": "",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 9500,
+      "fs": "lf",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "9 500 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "9 500 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 1,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Faktura 1001 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 9 500 kr · förföll 2026-09-20 (1 dagar)",
+       "id": "amtibhwg0i",
+       "btn": "Påminn"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "key": "kost:k1",
+        "datum": "2026-08-20",
+        "typ": "auto",
+        "text": "Folie och material Leverantör 1 AB faktura 501",
+        "rader": [
+         {
+          "k": 4010,
+          "b": 1200,
+          "t": "Folie"
+         },
+         {
+          "k": 2641,
+          "b": 300,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -1500,
+          "t": "Leverantör 1 AB"
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "A1: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 1200,
+       "utg": 0,
+       "ing": 300,
+       "bank": -1500,
+       "res": -1200,
+       "moms": -300
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkyMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNWRVIgQSAxIDIwMjYwODIwICJGb2xpZSBvY2ggbWF0ZXJpYWwgTGV2ZXJhbnSUciAxIEFCIGZha3R1cmEgNTAxIiAyMDI2MDkyMQ0Kew0KI1RSQU5TIDQwMTAge30gMTIwMC4wMCAyMDI2MDgyMCAiRm9saWUiDQojVFJBTlMgMjY0MSB7fSAzMDAuMDAgMjAyNjA4MjAgIkluZ4ZlbmRlIG1vbXMiDQojVFJBTlMgMTkzMCB7fSAtMTUwMC4wMCAyMDI2MDgyMCAiTGV2ZXJhbnSUciAxIEFCIg0KfQ0K"
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkyMQ0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-09-21 08:30",
+   "steg": {
+    "typ": "klick",
+    "act": "paminnelseKlar",
+    "id": "amtibhwg0i"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "fakturerad",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": "Handläggare Ett",
+        "skickad": "2026-09-01",
+        "paminnelse": "2026-09-07"
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-09-10",
+        "forfall": "2026-09-20",
+        "utfort": "2026-09-10",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "betald": false,
+        "betaldDatum": "",
+        "paminnelse": "2026-09-21"
+       },
+       "moms": null,
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-07",
+         "t": "Påminnelse om offerten skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-08",
+         "t": "Offert godkänd av Handläggare Ett"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skapad (9 500 kr), förfaller 2026-09-20"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skickad till Försäkring 1 AB"
+        },
+        {
+         "d": "2026-09-21",
+         "t": "Påminnelse skickad för faktura 1001"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-21T06:30:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Påminnelsen är noterad."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-27 08:00",
+   "kontroll": {
+    "idag": "2026-09-27",
+    "arenden": [
+     {
+      "id": "amtibhwg0i",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 9500,
+      "fnOffert": "offert_F1_SK-1001-26_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-1001-26.pdf",
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 9500,
+      "datum": "2026-09-10",
+      "forfall": "2026-09-20",
+      "st": "forfallen",
+      "bd": "",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 9500,
+      "fs": "lf",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "9 500 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "9 500 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 1,
+     "todo": [
+      {
+       "sev": "info",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Faktura 1001 förfallen, påmind 2026-09-21",
+       "s": "Försäkring 1 AB · 9 500 kr · förföll 2026-09-20 (7 dagar) · senaste påminnelse 2026-09-21 · ny påminnelse 2026-09-28",
+       "id": "amtibhwg0i",
+       "btn": "Öppna"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "key": "kost:k1",
+        "datum": "2026-08-20",
+        "typ": "auto",
+        "text": "Folie och material Leverantör 1 AB faktura 501",
+        "rader": [
+         {
+          "k": 4010,
+          "b": 1200,
+          "t": "Folie"
+         },
+         {
+          "k": 2641,
+          "b": 300,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -1500,
+          "t": "Leverantör 1 AB"
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "A1: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 1200,
+       "utg": 0,
+       "ing": 300,
+       "bank": -1500,
+       "res": -1200,
+       "moms": -300
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkyNw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNWRVIgQSAxIDIwMjYwODIwICJGb2xpZSBvY2ggbWF0ZXJpYWwgTGV2ZXJhbnSUciAxIEFCIGZha3R1cmEgNTAxIiAyMDI2MDkyNw0Kew0KI1RSQU5TIDQwMTAge30gMTIwMC4wMCAyMDI2MDgyMCAiRm9saWUiDQojVFJBTlMgMjY0MSB7fSAzMDAuMDAgMjAyNjA4MjAgIkluZ4ZlbmRlIG1vbXMiDQojVFJBTlMgMTkzMCB7fSAtMTUwMC4wMCAyMDI2MDgyMCAiTGV2ZXJhbnSUciAxIEFCIg0KfQ0K"
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkyNw0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-09-28 08:00",
+   "kontroll": {
+    "idag": "2026-09-28",
+    "arenden": [
+     {
+      "id": "amtibhwg0i",
+      "fak": "forfallen",
+      "moms": null,
+      "belopp": 9500,
+      "fnOffert": "offert_F1_SK-1001-26_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-1001-26.pdf",
+      "fnMoms": null
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 9500,
+      "datum": "2026-09-10",
+      "forfall": "2026-09-20",
+      "st": "forfallen",
+      "bd": "",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oppna": [
+     {
+      "typ": "f",
+      "nr": "1001",
+      "belopp": 9500,
+      "fs": "lf",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "9 500 kr",
+       "1 fakturor ej betalda"
+      ],
+      [
+       "hot",
+       "Förfallet",
+       "9 500 kr",
+       "1 fakturor har passerat förfallodatum"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 1,
+     "todo": [
+      {
+       "sev": "bad",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Faktura 1001 är förfallen, påminnelse behövs",
+       "s": "Försäkring 1 AB · 9 500 kr · förföll 2026-09-20 (8 dagar) · senaste påminnelse 2026-09-21",
+       "id": "amtibhwg0i",
+       "btn": "Påminn"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "key": "kost:k1",
+        "datum": "2026-08-20",
+        "typ": "auto",
+        "text": "Folie och material Leverantör 1 AB faktura 501",
+        "rader": [
+         {
+          "k": 4010,
+          "b": 1200,
+          "t": "Folie"
+         },
+         {
+          "k": 2641,
+          "b": 300,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -1500,
+          "t": "Leverantör 1 AB"
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "A1: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 1200,
+       "utg": 0,
+       "ing": 300,
+       "bank": -1500,
+       "res": -1200,
+       "moms": -300
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNWRVIgQSAxIDIwMjYwODIwICJGb2xpZSBvY2ggbWF0ZXJpYWwgTGV2ZXJhbnSUciAxIEFCIGZha3R1cmEgNTAxIiAyMDI2MDkyOA0Kew0KI1RSQU5TIDQwMTAge30gMTIwMC4wMCAyMDI2MDgyMCAiRm9saWUiDQojVFJBTlMgMjY0MSB7fSAzMDAuMDAgMjAyNjA4MjAgIkluZ4ZlbmRlIG1vbXMiDQojVFJBTlMgMTkzMCB7fSAtMTUwMC4wMCAyMDI2MDgyMCAiTGV2ZXJhbnSUciAxIEFCIg0KfQ0K"
+     },
+     "2026-09": {
+      "V": [],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkyOA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-09-30 09:00",
+   "steg": {
+    "typ": "klick",
+    "act": "betald",
+    "id": "amtibhwg0i",
+    "form": {
+     "#betDat": "2026-09-29"
+    }
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": "Handläggare Ett",
+        "skickad": "2026-09-01",
+        "paminnelse": "2026-09-07"
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-09-10",
+        "forfall": "2026-09-20",
+        "utfort": "2026-09-10",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-09-29",
+        "paminnelse": "2026-09-21"
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-09-30",
+        "forfall": "2026-10-10",
+        "till": "Ägare Ett AB",
+        "betald": false,
+        "betaldDatum": "",
+        "skickad": ""
+       },
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-07",
+         "t": "Påminnelse om offerten skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-08",
+         "t": "Offert godkänd av Handläggare Ett"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skapad (9 500 kr), förfaller 2026-09-20"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skickad till Försäkring 1 AB"
+        },
+        {
+         "d": "2026-09-21",
+         "t": "Påminnelse skickad för faktura 1001"
+        },
+        {
+         "d": "2026-09-30",
+         "t": "Faktura 1001 betald 2026-09-29"
+        },
+        {
+         "d": "2026-09-30",
+         "t": "Momsfaktura M-1001 klar att skicka till Ägare Ett AB (2 375,00 kr), daterad 2026-09-30"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-09-30T07:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Momsfaktura M-1001 är klar att skicka till Ägare Ett AB."
+    ]
+   }
+  },
+  {
+   "tid": "2026-09-30 09:01",
+   "kontroll": {
+    "idag": "2026-09-30",
+    "arenden": [
+     {
+      "id": "amtibhwg0i",
+      "fak": "betald",
+      "moms": "ejskickad",
+      "belopp": 9500,
+      "fnOffert": "offert_F1_SK-1001-26_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-1001-26.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [
+     "amtibhwg0i"
+    ],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 2375,
+      "datum": "2026-09-30",
+      "forfall": "2026-10-10",
+      "st": "ejskickad",
+      "bd": "",
+      "id": "amtibhwg0i"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 9500,
+      "datum": "2026-09-10",
+      "forfall": "2026-09-20",
+      "st": "betald",
+      "bd": "2026-09-29",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oppna": [],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "0 kr",
+       "0 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt september",
+       "9 500 kr",
+       "1 fakturor betalda"
+      ]
+     ],
+     "antal": 1,
+     "todo": [
+      {
+       "sev": "warn",
+       "b": "<span class=\"plate\"><i>S</i><span>ABC 12A</span></span> Momsfaktura M-1001 ska skickas till ägaren",
+       "s": "Ägare Ett AB · moms 2 375,00 kr · Försäkring 1 AB betalade 2026-09-29",
+       "id": "amtibhwg0i",
+       "btn": "Skicka"
+      }
+     ]
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09"
+    ],
+    "forstaOppna": "2026-08",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "key": "kost:k1",
+        "datum": "2026-08-20",
+        "typ": "auto",
+        "text": "Folie och material Leverantör 1 AB faktura 501",
+        "rader": [
+         {
+          "k": 4010,
+          "b": 1200,
+          "t": "Folie"
+         },
+         {
+          "k": 2641,
+          "b": 300,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -1500,
+          "t": "Leverantör 1 AB"
+         }
+        ],
+        "varn": "Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag.",
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "A1: Bokas som betald på fakturadatum. Ändra datumet i kostnaden om den betalades en annan dag."
+       ],
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 1200,
+       "utg": 0,
+       "ing": 300,
+       "bank": -1500,
+       "res": -1200,
+       "moms": -300
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkzMA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNWRVIgQSAxIDIwMjYwODIwICJGb2xpZSBvY2ggbWF0ZXJpYWwgTGV2ZXJhbnSUciAxIEFCIGZha3R1cmEgNTAxIiAyMDI2MDkzMA0Kew0KI1RSQU5TIDQwMTAge30gMTIwMC4wMCAyMDI2MDgyMCAiRm9saWUiDQojVFJBTlMgMjY0MSB7fSAzMDAuMDAgMjAyNjA4MjAgIkluZ4ZlbmRlIG1vbXMiDQojVFJBTlMgMTkzMCB7fSAtMTUwMC4wMCAyMDI2MDgyMCAiTGV2ZXJhbnSUciAxIEFCIg0KfQ0K"
+     },
+     "2026-09": {
+      "V": [
+       {
+        "key": "fbet:amtibhwg0i",
+        "datum": "2026-09-29",
+        "typ": "auto",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-1001-26",
+        "rader": [
+         {
+          "k": 1930,
+          "b": 9500,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -9500,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ],
+        "nr": 1
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 9500,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 9500,
+       "res": 9500,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MDkzMA0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNjA5MjkgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stMTAwMS0yNiIgMjAyNjA5MzANCnsNCiNUUkFOUyAxOTMwIHt9IDk1MDAuMDAgMjAyNjA5MjkgIkaUcnOEa3JpbmcgMSBBQiBmYWt0dXJhIDEwMDEiDQojVFJBTlMgMzAwMSB7fSAtOTUwMC4wMCAyMDI2MDkyOSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEiDQp9DQo="
+     }
+    }
+   }
+  },
+  {
+   "tid": "2026-10-02 09:00",
+   "steg": {
+    "typ": "klick",
+    "act": "momsSkickad",
+    "id": "amtibhwg0i"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": "Handläggare Ett",
+        "skickad": "2026-09-01",
+        "paminnelse": "2026-09-07"
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-09-10",
+        "forfall": "2026-09-20",
+        "utfort": "2026-09-10",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-09-29",
+        "paminnelse": "2026-09-21"
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-09-30",
+        "forfall": "2026-10-10",
+        "till": "Ägare Ett AB",
+        "betald": false,
+        "betaldDatum": "",
+        "skickad": "2026-10-02"
+       },
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-07",
+         "t": "Påminnelse om offerten skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-08",
+         "t": "Offert godkänd av Handläggare Ett"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skapad (9 500 kr), förfaller 2026-09-20"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skickad till Försäkring 1 AB"
+        },
+        {
+         "d": "2026-09-21",
+         "t": "Påminnelse skickad för faktura 1001"
+        },
+        {
+         "d": "2026-09-30",
+         "t": "Faktura 1001 betald 2026-09-29"
+        },
+        {
+         "d": "2026-09-30",
+         "t": "Momsfaktura M-1001 klar att skicka till Ägare Ett AB (2 375,00 kr), daterad 2026-09-30"
+        },
+        {
+         "d": "2026-10-02",
+         "t": "Momsfaktura M-1001 skickad till Ägare Ett AB"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-10-02T07:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": [
+     "Noterat i historiken."
+    ]
+   }
+  },
+  {
+   "tid": "2026-10-15 09:00",
+   "steg": {
+    "typ": "klick",
+    "act": "momsBetald",
+    "id": "amtibhwg0i",
+    "form": {
+     "#mBetDat": "2026-10-14"
+    }
+   },
+   "utfall": {
+    "spara": [
+     [
+      "arenden/amtibhwg0i",
+      {
+       "id": "amtibhwg0i",
+       "reg": "ABC12A",
+       "skadenr": "SK-1001-26",
+       "forsakring": "lf",
+       "agare": "Ägare Ett AB",
+       "bil": 650,
+       "storlek": "storre",
+       "skadedatum": "",
+       "notering": "",
+       "status": "betald",
+       "offert": {
+        "datum": "2026-09-01",
+        "giltigTom": "2026-10-01",
+        "rader": [
+         {
+          "pid": "sf-fram",
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "pid": "dorr",
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "godkandAv": "Handläggare Ett",
+        "skickad": "2026-09-01",
+        "paminnelse": "2026-09-07"
+       },
+       "faktura": {
+        "nr": 1001,
+        "datum": "2026-09-10",
+        "forfall": "2026-09-20",
+        "utfort": "2026-09-10",
+        "rader": [
+         {
+          "text": "Foliering stötfångare fram",
+          "antal": 1,
+          "apris": 5500
+         },
+         {
+          "text": "Foliering 2 dörrar",
+          "antal": 2,
+          "apris": 2000
+         }
+        ],
+        "betald": true,
+        "betaldDatum": "2026-09-29",
+        "paminnelse": "2026-09-21"
+       },
+       "moms": {
+        "nr": "M-1001",
+        "datum": "2026-09-30",
+        "forfall": "2026-10-10",
+        "till": "Ägare Ett AB",
+        "betald": true,
+        "betaldDatum": "2026-10-14",
+        "skickad": "2026-10-02"
+       },
+       "logg": [
+        {
+         "d": "2026-09-01",
+         "t": "Ärendet skapat"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Storlek ändrad till större bil, priser uppdaterade"
+        },
+        {
+         "d": "2026-09-01",
+         "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-07",
+         "t": "Påminnelse om offerten skickad till Försäkring 1 AB (9 500 kr)"
+        },
+        {
+         "d": "2026-09-08",
+         "t": "Offert godkänd av Handläggare Ett"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skapad (9 500 kr), förfaller 2026-09-20"
+        },
+        {
+         "d": "2026-09-10",
+         "t": "Faktura 1001 skickad till Försäkring 1 AB"
+        },
+        {
+         "d": "2026-09-21",
+         "t": "Påminnelse skickad för faktura 1001"
+        },
+        {
+         "d": "2026-09-30",
+         "t": "Faktura 1001 betald 2026-09-29"
+        },
+        {
+         "d": "2026-09-30",
+         "t": "Momsfaktura M-1001 klar att skicka till Ägare Ett AB (2 375,00 kr), daterad 2026-09-30"
+        },
+        {
+         "d": "2026-10-02",
+         "t": "Momsfaktura M-1001 skickad till Ägare Ett AB"
+        },
+        {
+         "d": "2026-10-15",
+         "t": "Momsfaktura M-1001 betald 2026-10-14"
+        }
+       ],
+       "skapad": "2026-09-01",
+       "andrad": "2026-10-15T07:00:00.000Z"
+      }
+     ]
+    ],
+    "filer": [],
+    "meddelanden": []
+   }
+  },
+  {
+   "tid": "2026-10-16 09:00",
+   "steg": {
+    "typ": "export",
+    "p": "2026-08"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "bokforing/2026-08",
+      {
+       "period": "2026-08",
+       "status": "last",
+       "exporterad": "2026-10-16T07:00:00.000Z",
+       "fil": "SIE_DemoFoliering_2026-08.se",
+       "manuella": [],
+       "keys": [
+        "kost:k1"
+       ],
+       "summa": {
+        "int": 0,
+        "kost": 1200,
+        "utg": 0,
+        "ing": 300,
+        "bank": -1500,
+        "res": -1200,
+        "moms": -300
+       },
+       "ver": [
+        {
+         "nr": 1,
+         "datum": "2026-08-20",
+         "text": "Folie och material Leverantör 1 AB faktura 501",
+         "key": "kost:k1",
+         "typ": "auto",
+         "bokslut": false,
+         "rader": [
+          {
+           "k": 4010,
+           "b": 1200,
+           "t": "Folie"
+          },
+          {
+           "k": 2641,
+           "b": 300,
+           "t": "Ingående moms"
+          },
+          {
+           "k": 1930,
+           "b": -1500,
+           "t": "Leverantör 1 AB"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    ],
+    "filer": [
+     {
+      "namn": "SIE_DemoFoliering_2026-08.se",
+      "data": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAxNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNWRVIgQSAxIDIwMjYwODIwICJGb2xpZSBvY2ggbWF0ZXJpYWwgTGV2ZXJhbnSUciAxIEFCIGZha3R1cmEgNTAxIiAyMDI2MTAxNg0Kew0KI1RSQU5TIDQwMTAge30gMTIwMC4wMCAyMDI2MDgyMCAiRm9saWUiDQojVFJBTlMgMjY0MSB7fSAzMDAuMDAgMjAyNjA4MjAgIkluZ4ZlbmRlIG1vbXMiDQojVFJBTlMgMTkzMCB7fSAtMTUwMC4wMCAyMDI2MDgyMCAiTGV2ZXJhbnSUciAxIEFCIg0KfQ0K",
+      "mapp": "Bokföring"
+     }
+    ],
+    "meddelanden": [
+     "Aug 2026 är exporterad och låst."
+    ]
+   }
+  },
+  {
+   "tid": "2026-10-16 09:01",
+   "steg": {
+    "typ": "export",
+    "p": "2026-09"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "bokforing/2026-09",
+      {
+       "period": "2026-09",
+       "status": "last",
+       "exporterad": "2026-10-16T07:01:00.000Z",
+       "fil": "SIE_DemoFoliering_2026-09.se",
+       "manuella": [],
+       "keys": [
+        "fbet:amtibhwg0i"
+       ],
+       "summa": {
+        "int": 9500,
+        "kost": 0,
+        "utg": 0,
+        "ing": 0,
+        "bank": 9500,
+        "res": 9500,
+        "moms": 0
+       },
+       "ver": [
+        {
+         "nr": 1,
+         "datum": "2026-09-29",
+         "text": "Inbetalning faktura 1001 ABC12A skada SK-1001-26",
+         "key": "fbet:amtibhwg0i",
+         "typ": "auto",
+         "bokslut": false,
+         "rader": [
+          {
+           "k": 1930,
+           "b": 9500,
+           "t": "Försäkring 1 AB faktura 1001"
+          },
+          {
+           "k": 3001,
+           "b": -9500,
+           "t": "Foliering faktura 1001 ABC12A"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    ],
+    "filer": [
+     {
+      "namn": "SIE_DemoFoliering_2026-09.se",
+      "data": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTAxNg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNjA5MjkgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stMTAwMS0yNiIgMjAyNjEwMTYNCnsNCiNUUkFOUyAxOTMwIHt9IDk1MDAuMDAgMjAyNjA5MjkgIkaUcnOEa3JpbmcgMSBBQiBmYWt0dXJhIDEwMDEiDQojVFJBTlMgMzAwMSB7fSAtOTUwMC4wMCAyMDI2MDkyOSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEiDQp9DQo=",
+      "mapp": "Bokföring"
+     }
+    ],
+    "meddelanden": [
+     "Sep 2026 är exporterad och låst."
+    ]
+   }
+  },
+  {
+   "tid": "2026-11-02 09:00",
+   "steg": {
+    "typ": "export",
+    "p": "2026-10"
+   },
+   "utfall": {
+    "spara": [
+     [
+      "bokforing/2026-10",
+      {
+       "period": "2026-10",
+       "status": "last",
+       "exporterad": "2026-11-02T08:00:00.000Z",
+       "fil": "SIE_DemoFoliering_2026-10.se",
+       "manuella": [],
+       "keys": [
+        "mbet:amtibhwg0i"
+       ],
+       "summa": {
+        "int": 0,
+        "kost": 0,
+        "utg": 2375,
+        "ing": 0,
+        "bank": 2375,
+        "res": 0,
+        "moms": 2375
+       },
+       "ver": [
+        {
+         "nr": 2,
+         "datum": "2026-10-14",
+         "text": "Inbetalning momsfaktura M-1001 ABC12A",
+         "key": "mbet:amtibhwg0i",
+         "typ": "auto",
+         "bokslut": false,
+         "rader": [
+          {
+           "k": 1930,
+           "b": 2375,
+           "t": "Ägare Ett AB M-1001"
+          },
+          {
+           "k": 2611,
+           "b": -2375,
+           "t": "Utg moms 25 % M-1001"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    ],
+    "filer": [
+     {
+      "namn": "SIE_DemoFoliering_2026-10.se",
+      "data": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI1ZFUiBBIDIgMjAyNjEwMTQgIkluYmV0YWxuaW5nIG1vbXNmYWt0dXJhIE0tMTAwMSBBQkMxMkEiIDIwMjYxMTAyDQp7DQojVFJBTlMgMTkzMCB7fSAyMzc1LjAwIDIwMjYxMDE0ICKOZ2FyZSBFdHQgQUIgTS0xMDAxIg0KI1RSQU5TIDI2MTEge30gLTIzNzUuMDAgMjAyNjEwMTQgIlV0ZyBtb21zIDI1ICUgTS0xMDAxIg0KfQ0K",
+      "mapp": "Bokföring"
+     }
+    ],
+    "meddelanden": [
+     "Okt 2026 är exporterad och låst."
+    ]
+   }
+  },
+  {
+   "tid": "2026-11-02 09:01",
+   "kontroll": {
+    "idag": "2026-11-02",
+    "arenden": [
+     {
+      "id": "amtibhwg0i",
+      "fak": "betald",
+      "moms": "betald",
+      "belopp": 9500,
+      "fnOffert": "offert_F1_SK-1001-26_ABC12A.pdf",
+      "fnFaktura": "faktura_1001_ABC12A_SK-1001-26.pdf",
+      "fnMoms": "moms_M-1001_ABC12A_fak1001.pdf"
+     }
+    ],
+    "nasta": 1002,
+    "momsAttSkicka": [],
+    "fakturor": [
+     {
+      "typ": "Moms",
+      "nr": "M-1001",
+      "till": "Ägare Ett AB",
+      "belopp": 2375,
+      "datum": "2026-09-30",
+      "forfall": "2026-10-10",
+      "st": "betald",
+      "bd": "2026-10-14",
+      "id": "amtibhwg0i"
+     },
+     {
+      "typ": "Faktura",
+      "nr": "1001",
+      "till": "Försäkring 1 AB",
+      "belopp": 9500,
+      "datum": "2026-09-10",
+      "forfall": "2026-09-20",
+      "st": "betald",
+      "bd": "2026-09-29",
+      "id": "amtibhwg0i"
+     }
+    ],
+    "oppna": [],
+    "oversikt": {
+     "kpi": [
+      [
+       "acc",
+       "Väntande offerter",
+       "0 kr",
+       "0 offerter väntar på svar"
+      ],
+      [
+       "",
+       "Att fakturera",
+       "0 kr",
+       "0 godkända offerter"
+      ],
+      [
+       "",
+       "Utestående fakturor",
+       "0 kr",
+       "0 fakturor ej betalda"
+      ],
+      [
+       "",
+       "Förfallet",
+       "0 kr",
+       "Inget förfallet"
+      ],
+      [
+       "",
+       "Moms att få in",
+       "0 kr",
+       "0 momsfakturor till fordonsägare"
+      ],
+      [
+       "",
+       "Inbetalt november",
+       "0 kr",
+       "0 fakturor betalda"
+      ]
+     ],
+     "antal": 0,
+     "todo": []
+    },
+    "perioder": [
+     "2026-08",
+     "2026-09",
+     "2026-10",
+     "2026-11"
+    ],
+    "forstaOppna": "2026-11",
+    "bok": {
+     "2026-08": {
+      "V": [
+       {
+        "nr": 1,
+        "datum": "2026-08-20",
+        "text": "Folie och material Leverantör 1 AB faktura 501",
+        "key": "kost:k1",
+        "typ": "auto",
+        "bokslut": false,
+        "rader": [
+         {
+          "k": 4010,
+          "b": 1200,
+          "t": "Folie"
+         },
+         {
+          "k": 2641,
+          "b": 300,
+          "t": "Ingående moms"
+         },
+         {
+          "k": 1930,
+          "b": -1500,
+          "t": "Leverantör 1 AB"
+         }
+        ]
+       }
+      ],
+      "varningar": [
+       [
+        "info",
+        "Räkenskapsårets sista månad: kontrollera upplupen lön och andra skulder per 2026-08-31 och lägg in dem som manuell verifikation markerad som bokslut."
+       ]
+      ],
+      "summa": {
+       "int": 0,
+       "kost": 1200,
+       "utg": 0,
+       "ing": 300,
+       "bank": -1500,
+       "res": -1200,
+       "moms": -300
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjUwOTAxIDIwMjYwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2NDEgIkRlYml0ZXJhZCBpbmeGZW5kZSBtb21zIg0KI0tPTlRPIDQwMTAgIklua5RwIG1hdGVyaWFsIG9jaCB2YXJvciINCiNWRVIgQSAxIDIwMjYwODIwICJGb2xpZSBvY2ggbWF0ZXJpYWwgTGV2ZXJhbnSUciAxIEFCIGZha3R1cmEgNTAxIiAyMDI2MTEwMg0Kew0KI1RSQU5TIDQwMTAge30gMTIwMC4wMCAyMDI2MDgyMCAiRm9saWUiDQojVFJBTlMgMjY0MSB7fSAzMDAuMDAgMjAyNjA4MjAgIkluZ4ZlbmRlIG1vbXMiDQojVFJBTlMgMTkzMCB7fSAtMTUwMC4wMCAyMDI2MDgyMCAiTGV2ZXJhbnSUciAxIEFCIg0KfQ0K"
+     },
+     "2026-09": {
+      "V": [
+       {
+        "nr": 1,
+        "datum": "2026-09-29",
+        "text": "Inbetalning faktura 1001 ABC12A skada SK-1001-26",
+        "key": "fbet:amtibhwg0i",
+        "typ": "auto",
+        "bokslut": false,
+        "rader": [
+         {
+          "k": 1930,
+          "b": 9500,
+          "t": "Försäkring 1 AB faktura 1001"
+         },
+         {
+          "k": 3001,
+          "b": -9500,
+          "t": "Foliering faktura 1001 ABC12A"
+         }
+        ]
+       }
+      ],
+      "varningar": [
+       [
+        "warn",
+        "1 jobb utförda i perioden men ingen lön bokad. Lägg in löneutbetalningen som verifikation när lönen betalas (eller som upplupen lön i bokslutet)."
+       ]
+      ],
+      "summa": {
+       "int": 9500,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 9500,
+       "res": 9500,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDMwMDEgIkaUcnOEbGpuaW5nIGlub20gU3ZlcmlnZSwgMjUgJSBtb21zIg0KI1ZFUiBBIDEgMjAyNjA5MjkgIkluYmV0YWxuaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEgc2thZGEgU0stMTAwMS0yNiIgMjAyNjExMDINCnsNCiNUUkFOUyAxOTMwIHt9IDk1MDAuMDAgMjAyNjA5MjkgIkaUcnOEa3JpbmcgMSBBQiBmYWt0dXJhIDEwMDEiDQojVFJBTlMgMzAwMSB7fSAtOTUwMC4wMCAyMDI2MDkyOSAiRm9saWVyaW5nIGZha3R1cmEgMTAwMSBBQkMxMkEiDQp9DQo="
+     },
+     "2026-10": {
+      "V": [
+       {
+        "nr": 2,
+        "datum": "2026-10-14",
+        "text": "Inbetalning momsfaktura M-1001 ABC12A",
+        "key": "mbet:amtibhwg0i",
+        "typ": "auto",
+        "bokslut": false,
+        "rader": [
+         {
+          "k": 1930,
+          "b": 2375,
+          "t": "Ägare Ett AB M-1001"
+         },
+         {
+          "k": 2611,
+          "b": -2375,
+          "t": "Utg moms 25 % M-1001"
+         }
+        ]
+       }
+      ],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 2375,
+       "ing": 0,
+       "bank": 2375,
+       "res": 0,
+       "moms": 2375
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCiNLT05UTyAxOTMwICJGlHJldGFnc2tvbnRvIg0KI0tPTlRPIDI2MTEgIlV0Z4ZlbmRlIG1vbXMgcIYgZpRyc4Rsam5pbmcgaW5vbSBTdmVyaWdlLCAyNSAlIg0KI1ZFUiBBIDIgMjAyNjEwMTQgIkluYmV0YWxuaW5nIG1vbXNmYWt0dXJhIE0tMTAwMSBBQkMxMkEiIDIwMjYxMTAyDQp7DQojVFJBTlMgMTkzMCB7fSAyMzc1LjAwIDIwMjYxMDE0ICKOZ2FyZSBFdHQgQUIgTS0xMDAxIg0KI1RSQU5TIDI2MTEge30gLTIzNzUuMDAgMjAyNjEwMTQgIlV0ZyBtb21zIDI1ICUgTS0xMDAxIg0KfQ0K"
+     },
+     "2026-11": {
+      "V": [],
+      "varningar": [],
+      "summa": {
+       "int": 0,
+       "kost": 0,
+       "utg": 0,
+       "ing": 0,
+       "bank": 0,
+       "res": 0,
+       "moms": 0
+      },
+      "sie": "base64:I0ZMQUdHQSAwDQojRk9STUFUIFBDOA0KI1NJRVRZUCA0DQojUFJPR1JBTSAiRm9saWVyaW5nIERlbW8iIDEuMA0KI0dFTiAyMDI2MTEwMg0KI0ZOQU1OICJEZW1vIEZvbGllcmluZyBBQiINCiNPUkdOUiA1NTkwMDAtMDAwMQ0KI1JBUiAwIDIwMjYwOTAxIDIwMjcwODMxDQojS1BUWVAgQkFTMjAxNA0KI1ZBTFVUQSBTRUsNCg=="
+     }
+    }
+   }
+  }
+ ],
+ "slut": {
+  "arenden": {
+   "amtibhwg0i": {
+    "id": "amtibhwg0i",
+    "reg": "ABC12A",
+    "skadenr": "SK-1001-26",
+    "forsakring": "lf",
+    "agare": "Ägare Ett AB",
+    "bil": 650,
+    "storlek": "storre",
+    "skadedatum": "",
+    "notering": "",
+    "status": "betald",
+    "offert": {
+     "datum": "2026-09-01",
+     "giltigTom": "2026-10-01",
+     "rader": [
+      {
+       "pid": "sf-fram",
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 5500
+      },
+      {
+       "pid": "dorr",
+       "text": "Foliering 2 dörrar",
+       "antal": 2,
+       "apris": 2000
+      }
+     ],
+     "godkandAv": "Handläggare Ett",
+     "skickad": "2026-09-01",
+     "paminnelse": "2026-09-07"
+    },
+    "faktura": {
+     "nr": 1001,
+     "datum": "2026-09-10",
+     "forfall": "2026-09-20",
+     "utfort": "2026-09-10",
+     "rader": [
+      {
+       "text": "Foliering stötfångare fram",
+       "antal": 1,
+       "apris": 5500
+      },
+      {
+       "text": "Foliering 2 dörrar",
+       "antal": 2,
+       "apris": 2000
+      }
+     ],
+     "betald": true,
+     "betaldDatum": "2026-09-29",
+     "paminnelse": "2026-09-21"
+    },
+    "moms": {
+     "nr": "M-1001",
+     "datum": "2026-09-30",
+     "forfall": "2026-10-10",
+     "till": "Ägare Ett AB",
+     "betald": true,
+     "betaldDatum": "2026-10-14",
+     "skickad": "2026-10-02"
+    },
+    "logg": [
+     {
+      "d": "2026-09-01",
+      "t": "Ärendet skapat"
+     },
+     {
+      "d": "2026-09-01",
+      "t": "Storlek ändrad till större bil, priser uppdaterade"
+     },
+     {
+      "d": "2026-09-01",
+      "t": "Offert skickad till Försäkring 1 AB (9 500 kr)"
+     },
+     {
+      "d": "2026-09-07",
+      "t": "Påminnelse om offerten skickad till Försäkring 1 AB (9 500 kr)"
+     },
+     {
+      "d": "2026-09-08",
+      "t": "Offert godkänd av Handläggare Ett"
+     },
+     {
+      "d": "2026-09-10",
+      "t": "Faktura 1001 skapad (9 500 kr), förfaller 2026-09-20"
+     },
+     {
+      "d": "2026-09-10",
+      "t": "Faktura 1001 skickad till Försäkring 1 AB"
+     },
+     {
+      "d": "2026-09-21",
+      "t": "Påminnelse skickad för faktura 1001"
+     },
+     {
+      "d": "2026-09-30",
+      "t": "Faktura 1001 betald 2026-09-29"
+     },
+     {
+      "d": "2026-09-30",
+      "t": "Momsfaktura M-1001 klar att skicka till Ägare Ett AB (2 375,00 kr), daterad 2026-09-30"
+     },
+     {
+      "d": "2026-10-02",
+      "t": "Momsfaktura M-1001 skickad till Ägare Ett AB"
+     },
+     {
+      "d": "2026-10-15",
+      "t": "Momsfaktura M-1001 betald 2026-10-14"
+     }
+    ],
+    "skapad": "2026-09-01",
+    "andrad": "2026-10-15T07:00:00.000Z"
+   }
+  },
+  "fordon": {
+   "ABC12A": {
+    "reg": "ABC12A",
+    "bil": 650,
+    "agare": "Ägare Ett AB",
+    "adress": "Exempelgatan 1",
+    "epost": "agare1@example.se",
+    "id": "ABC12A"
+   },
+   "ABC34B": {
+    "reg": "ABC34B",
+    "bil": 651,
+    "agare": "Ägare Två AB",
+    "epost": "",
+    "id": "ABC34B"
+   }
+  },
+  "forsakring": {
+   "lf": {
+    "namn": "Försäkring 1 AB",
+    "kort": "F1",
+    "kontakt": "Kontakt Ett",
+    "epost": "skador@example.se",
+    "adress1": "Box 1",
+    "adress2": "100 00 Exempelstad",
+    "id": "lf"
+   },
+   "f2": {
+    "namn": "Försäkring 2 AB",
+    "kort": "F2",
+    "kontakt": "",
+    "epost": "skada@example.com",
+    "id": "f2"
+   }
+  },
+  "kostnader": {
+   "k1": {
+    "datum": "2026-08-20",
+    "typ": "material",
+    "leverantor": "Leverantör 1 AB",
+    "beskrivning": "Folie",
+    "fakturanr": "501",
+    "belopp": 1200,
+    "moms": 300,
+    "id": "k1"
+   }
+  },
+  "bokforing": {
+   "2026-08": {
+    "period": "2026-08",
+    "status": "last",
+    "exporterad": "2026-10-16T07:00:00.000Z",
+    "fil": "SIE_DemoFoliering_2026-08.se",
+    "manuella": [],
+    "keys": [
+     "kost:k1"
+    ],
+    "summa": {
+     "int": 0,
+     "kost": 1200,
+     "utg": 0,
+     "ing": 300,
+     "bank": -1500,
+     "res": -1200,
+     "moms": -300
+    },
+    "ver": [
+     {
+      "nr": 1,
+      "datum": "2026-08-20",
+      "text": "Folie och material Leverantör 1 AB faktura 501",
+      "key": "kost:k1",
+      "typ": "auto",
+      "bokslut": false,
+      "rader": [
+       {
+        "k": 4010,
+        "b": 1200,
+        "t": "Folie"
+       },
+       {
+        "k": 2641,
+        "b": 300,
+        "t": "Ingående moms"
+       },
+       {
+        "k": 1930,
+        "b": -1500,
+        "t": "Leverantör 1 AB"
+       }
+      ]
+     }
+    ]
+   },
+   "2026-09": {
+    "period": "2026-09",
+    "status": "last",
+    "exporterad": "2026-10-16T07:01:00.000Z",
+    "fil": "SIE_DemoFoliering_2026-09.se",
+    "manuella": [],
+    "keys": [
+     "fbet:amtibhwg0i"
+    ],
+    "summa": {
+     "int": 9500,
+     "kost": 0,
+     "utg": 0,
+     "ing": 0,
+     "bank": 9500,
+     "res": 9500,
+     "moms": 0
+    },
+    "ver": [
+     {
+      "nr": 1,
+      "datum": "2026-09-29",
+      "text": "Inbetalning faktura 1001 ABC12A skada SK-1001-26",
+      "key": "fbet:amtibhwg0i",
+      "typ": "auto",
+      "bokslut": false,
+      "rader": [
+       {
+        "k": 1930,
+        "b": 9500,
+        "t": "Försäkring 1 AB faktura 1001"
+       },
+       {
+        "k": 3001,
+        "b": -9500,
+        "t": "Foliering faktura 1001 ABC12A"
+       }
+      ]
+     }
+    ]
+   },
+   "2026-10": {
+    "period": "2026-10",
+    "status": "last",
+    "exporterad": "2026-11-02T08:00:00.000Z",
+    "fil": "SIE_DemoFoliering_2026-10.se",
+    "manuella": [],
+    "keys": [
+     "mbet:amtibhwg0i"
+    ],
+    "summa": {
+     "int": 0,
+     "kost": 0,
+     "utg": 2375,
+     "ing": 0,
+     "bank": 2375,
+     "res": 0,
+     "moms": 2375
+    },
+    "ver": [
+     {
+      "nr": 2,
+      "datum": "2026-10-14",
+      "text": "Inbetalning momsfaktura M-1001 ABC12A",
+      "key": "mbet:amtibhwg0i",
+      "typ": "auto",
+      "bokslut": false,
+      "rader": [
+       {
+        "k": 1930,
+        "b": 2375,
+        "t": "Ägare Ett AB M-1001"
+       },
+       {
+        "k": 2611,
+        "b": -2375,
+        "t": "Utg moms 25 % M-1001"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "inst": {
+   "serie": {
+    "nasta": 1002
+   }
+  }
+ }
+}

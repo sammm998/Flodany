@@ -1,0 +1,19 @@
+#FLAGGA 0
+#FORMAT PC8
+#SIETYP 4
+#PROGRAM "Foliering Demo" 1.0
+#GEN 20261016
+#FNAMN "Demo Foliering AB"
+#ORGNR 559000-0001
+#RAR 0 20250901 20260831
+#KPTYP BAS2014
+#VALUTA SEK
+#KONTO 1930 "F”retagskonto"
+#KONTO 2641 "Debiterad ing†ende moms"
+#KONTO 4010 "Ink”p material och varor"
+#VER A 1 20260820 "Folie och material Leverant”r 1 AB faktura 501" 20261016
+{
+#TRANS 4010 {} 1200.00 20260820 "Folie"
+#TRANS 2641 {} 300.00 20260820 "Ing†ende moms"
+#TRANS 1930 {} -1500.00 20260820 "Leverant”r 1 AB"
+}
