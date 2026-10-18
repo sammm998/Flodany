@@ -81,7 +81,7 @@ function exempel(vag: string): Response {
     return new Response(f.innehall, { status: 200, headers: { 'Content-Type': `${f.namn.endsWith('.csv') ? 'text/csv' : 'text/plain'}; charset=utf-8`, 'Content-Disposition': `attachment; filename="${f.namn}"` } });
   }
   const rader = filer.map(f => `<tr><td>${esc(f.app)}</td><td><a href="/_demo/exempelfiler/${encodeURIComponent(f.namn)}" download>${esc(f.namn)}</a></td><td>${esc(f.text)}</td></tr>`).join('');
-  return new Response(`<!doctype html><html lang="sv"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Exempelfiler</title>
+  return new Response(`<!doctype html><html lang="sv"><meta charset="utf-8"><meta name="viewport" content="initial-scale=1,width=device-width"><title>Exempelfiler</title>
 <style>body{font:15px/1.5 system-ui,sans-serif;color:#0E1E35;background:#FBF8F2;max-width:860px;margin:6vh auto;padding:0 20px}table{border-collapse:collapse;width:100%;background:#fff;border-radius:12px}td,th{padding:10px 12px;border-bottom:1px solid #E7E9ED;text-align:left;vertical-align:top}a{color:#1F4D3A;font-weight:600}</style>
 <h1>Exempelfiler för oktober 2026</h1><p>Påhittade filer att läsa in i demon. Ladda ner dem och släpp dem i appen (Avräkning: Filer. Lön och kassa: LDL, bro och Sturup).</p>
 <table><thead><tr><th>App</th><th>Fil</th><th>Vad</th></tr></thead><tbody>${rader}</tbody></table><p><a href="/">Tillbaka till demon</a></p></html>`, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
