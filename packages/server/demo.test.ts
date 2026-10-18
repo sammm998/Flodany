@@ -10,7 +10,7 @@ describe('demoläget', () => {
     expect(await (await anrop('/rest/v1/memberships?select=role')).json()).toMatchObject([{ role: 'admin', tenant: { id: DEMO_KONTO, slug: 'demo' } }]);
     expect((await (await anrop('/rest/v1/licenses')).json() as unknown[]).length).toBe(3);
     const bilar = await (await anrop(`/rest/v1/documents?select=data&tenant_id=eq.${DEMO_KONTO}&module_key=eq.avrakning&path=eq.settings/bilar`, { headers: { accept: 'application/vnd.pgrst.object+json' } })).json() as { data: { list: unknown[] } };
-    expect(bilar.data.list).toHaveLength(4);
+    expect(bilar.data.list).toHaveLength(12);
     await anrop('/rest/v1/rpc/dok_skriv', { method: 'POST', body: JSON.stringify({ konto: DEMO_KONTO, modul: 'avrakning', sokvag: 'settings/test', innehall: { a: 1 }, lage: 'ersatt' }) });
     const samling = await (await anrop(`/rest/v1/documents?module_key=eq.avrakning&parent=eq.settings`)).json() as { path: string }[];
     expect(samling.map(d => d.path)).toContain('settings/test');
@@ -25,9 +25,21 @@ describe('demoläget', () => {
   });
 
   it('motorn gör en åtgärd i Verkstad på demodatan', async () => {
-    const r = await anrop('/functions/v1/motor', { method: 'POST', headers: { authorization: 'Bearer demo' }, body: JSON.stringify({ konto: DEMO_KONTO, modul: 'foliering', operation: 'atgard', data: { namn: 'betald', arende: 'a2', args: ['2026-10-17'] } }) });
+    const r = await anrop('/functions/v1/motor', { method: 'POST', headers: { authorization: 'Bearer demo' }, body: JSON.stringify({ konto: DEMO_KONTO, modul: 'foliering', operation: 'atgard', data: { namn: 'betald', arende: 'a08', args: ['2026-10-17'] } }) });
     expect(r.status).toBe(200);
-    expect(((await r.json()) as { resultat: { sparat: string[] } }).resultat.sparat).toContain('arenden/a2');
+    expect(((await r.json()) as { resultat: { sparat: string[] } }).resultat.sparat).toContain('arenden/a08');
+  });
+
+  it('exempelfilerna för oktober går att ladda ner, och historiken är räknad av motorn', async () => {
+    const sida = await (await anrop('/exempelfiler')).text();
+    expect(sida).toContain('LDL_2026-10.txt');
+    const fil = await anrop('/exempelfiler/Bambora_2026-10.csv');
+    expect(fil.headers.get('content-disposition')).toContain('Bambora_2026-10.csv');
+    expect((await fil.text()).split('\n')[0]).toContain('TERMINAL ID');
+    const sep = await (await anrop(`/rest/v1/documents?module_key=eq.avrakning&path=eq.months/2026-09`)).json() as { data: { last: boolean; summary: { bolag: unknown[]; kund: unknown[] } } }[];
+    expect(sep[0]!.data.last).toBe(true);
+    expect(sep[0]!.data.summary.bolag).toHaveLength(4);
+    expect(sep[0]!.data.summary.kund).toHaveLength(5);
   });
 
   it('dokumenten i minnet följer documents-API:t', async () => {

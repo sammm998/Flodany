@@ -4,13 +4,14 @@
 //
 // Motorerna och assistenten körs här på servern, som i drift (beslut 26). Utan ANTHROPIC_API_KEY svarar en
 // enkel demoassistent som väljer verktyg efter nyckelord, så att chatten och panelen går att prova.
-// Legacy-apparna (motorerna i klartext) lämnas bara ut med DEMO_NUVARANDE_APPAR=ja.
+// Legacy-apparna (motorerna i klartext) visas i panelen utom med DEMO_NUVARANDE_APPAR=nej. Sätt DEMO_LOSENORD.
 import { normalisera, type ColRef, type ColSnap, type Data, type Db, type DocRef, type DocSnap } from '@flodia/api';
 import { assistentTjansterFranMiljo, claudeFranMiljo } from './assistent-tjanster';
 import { hanteraAssistent, type AssistentTjanster, type Claude, type SamtalPost, type StromAnrop, type StromHandelse } from './assistent';
 import { STANDARD_TAK, hantera, type Tjanster } from './motor';
 import { fotolasareFranMiljo } from './tjanster';
 import { hanteraLegacy, type LegacyApp } from './legacy';
+import { demodokument, exempelfiler } from './demo-data';
 
 export const DEMO_KONTO = '00000000-0000-4000-8000-0000000000d0';
 export const DEMO_ANVANDARE = '00000000-0000-4000-8000-0000000000d1';
@@ -62,46 +63,28 @@ export function minnesDb(lager: Lager, modul: string): Db {
 
 // ============ Påhittad data ============
 
-const rader = [{ pid: 'sf-fram', text: 'Foliering stötfångare fram', antal: 1, apris: 4000 }, { text: 'Foliering extra', antal: 2, apris: 750 }];
-function arende(id: string, reg: string, o: { status: string; nr?: number; fdatum?: string; forfall?: string; betald?: string; forsakring?: string }): Data {
-  return {
-    id, reg, skadenr: 'SK-' + id.toUpperCase(), forsakring: o.forsakring ?? 'f1', agare: 'Ägare ' + reg, bil: null, storlek: 'vanlig', skadedatum: '', notering: '', status: o.status,
-    offert: { datum: '2026-09-15', giltigTom: '2026-10-15', rader, godkandAv: '' },
-    faktura: o.nr ? { nr: o.nr, datum: o.fdatum ?? '2026-10-01', forfall: o.forfall ?? '2026-10-11', utfort: o.fdatum ?? '2026-10-01', rader, betald: !!o.betald, betaldDatum: o.betald ?? '', paminnelse: '' } : null,
-    moms: null, logg: [{ d: '2026-09-15', t: 'Ärendet skapat' }], skapad: '2026-09-15',
-  };
-}
-
+/** Lagret fyllt med demodatan (demo-data.ts). */
 export function demoData(): Lager {
   const l: Lager = new Map();
-  const satt = (modul: string, path: string, d: Data) => l.set(nyckel(modul, path), d);
-  // Avräkning: bilar, åkerier och två månader räknade av motorn.
-  satt('avrakning', 'settings/bolag', { list: [{ namn: 'Demoåkeriet 1 AB', orgnr: '559000-0001' }, { namn: 'Demoåkeriet 2 AB', orgnr: '559000-0002' }] });
-  satt('avrakning', 'settings/bilar', { list: [{ bil: 101, avr: 'Demoåkeriet 1 AB' }, { bil: 102, avr: 'Demoåkeriet 1 AB' }, { bil: 103, avr: 'Demoåkeriet 2 AB' }, { bil: 104, avr: 'Demoåkeriet 2 AB' }] });
-  satt('avrakning', 'settings/params', { provision: 12.5, kortavgift: 1.9, bro: 290 });
-  const manad = (k: number, f: number): Data => ({
-    summary: {
-      kpi: { korningar: k, oms: Math.round(k * 312.5), kort: Math.round(k * 190), app: Math.round(k * 60) },
-      bolag: [
-        { namn: 'Demoåkeriet 1 AB', bilar: [101, 102], korningar: Math.round(k * 0.55), oms: Math.round(k * 0.55 * 312.5), utbetalning: Math.round(k * 0.55 * 312.5 * f) },
-        { namn: 'Demoåkeriet 2 AB', bilar: [103, 104], korningar: Math.round(k * 0.45), oms: Math.round(k * 0.45 * 312.5), utbetalning: Math.round(k * 0.45 * 312.5 * f) },
-      ],
-      kund: [{ nr: 1001, namn: 'Demokund Sjukresor', korn: 120, belopp: 41200 }, { nr: 1002, namn: 'Demokund Skola', korn: 64, belopp: 18650 }],
-      kontroll: [],
-    },
-    last: true,
-  });
-  satt('avrakning', 'months/2026-08', manad(1840, 0.82));
-  satt('avrakning', 'months/2026-09', manad(1975, 0.81));
-  // Verkstad: försäkringsbolag och ärenden i olika lägen.
-  satt('foliering', 'forsakring/f1', { id: 'f1', namn: 'Demoförsäkring 1 AB', kort: 'D1', kontakt: '', epost: 'skador@example.se' });
-  satt('foliering', 'forsakring/f2', { id: 'f2', namn: 'Demoförsäkring 2 AB', kort: 'D2', kontakt: '', epost: 'skada@example.com' });
-  satt('foliering', 'arenden/a1', arende('a1', 'DEM101', { status: 'fakturerad', nr: 1041, fdatum: '2026-09-20', forfall: '2026-09-30' }));
-  satt('foliering', 'arenden/a2', arende('a2', 'DEM202', { status: 'fakturerad', nr: 1042, fdatum: '2026-10-05', forfall: '2026-10-25', forsakring: 'f2' }));
-  satt('foliering', 'arenden/a3', arende('a3', 'DEM303', { status: 'fakturerad', nr: 1040, fdatum: '2026-09-10', forfall: '2026-09-20', betald: '2026-09-18' }));
-  satt('foliering', 'arenden/a4', arende('a4', 'DEM404', { status: 'skickad' }));
-  satt('foliering', 'arenden/a5', arende('a5', 'DEM505', { status: 'utkast' }));
+  for (const [modul, path, d] of demodokument()) l.set(nyckel(modul, path), d);
   return l;
+}
+
+const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+/** Sidan med exempelfilerna, och filerna själva. */
+function exempel(vag: string): Response {
+  const filer = exempelfiler();
+  const namn = decodeURIComponent(vag.replace(/^\/exempelfiler\/?/, ''));
+  if (namn) {
+    const f = filer.find(x => x.namn === namn);
+    if (!f) return new Response('Finns inte', { status: 404 });
+    return new Response(f.innehall, { status: 200, headers: { 'Content-Type': `${f.namn.endsWith('.csv') ? 'text/csv' : 'text/plain'}; charset=utf-8`, 'Content-Disposition': `attachment; filename="${f.namn}"` } });
+  }
+  const rader = filer.map(f => `<tr><td>${esc(f.app)}</td><td><a href="/_demo/exempelfiler/${encodeURIComponent(f.namn)}" download>${esc(f.namn)}</a></td><td>${esc(f.text)}</td></tr>`).join('');
+  return new Response(`<!doctype html><html lang="sv"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Exempelfiler</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;color:#0E1E35;background:#FBF8F2;max-width:860px;margin:6vh auto;padding:0 20px}table{border-collapse:collapse;width:100%;background:#fff;border-radius:12px}td,th{padding:10px 12px;border-bottom:1px solid #E7E9ED;text-align:left;vertical-align:top}a{color:#1F4D3A;font-weight:600}</style>
+<h1>Exempelfiler för oktober 2026</h1><p>Påhittade filer att läsa in i demon. Ladda ner dem och släpp dem i appen (Avräkning: Filer. Lön och kassa: LDL, bro och Sturup).</p>
+<table><thead><tr><th>App</th><th>Fil</th><th>Vad</th></tr></thead><tbody>${rader}</tbody></table><p><a href="/">Tillbaka till demon</a></p></html>`, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
 
 // ============ Demoassistenten (utan AI-nyckel) ============
@@ -116,7 +99,11 @@ export function demoClaude(): Claude {
     if (/bil/.test(q)) return { name: 'hamta_data', input: { app: 'avrakning', typ: 'dokument', sokvag: 'settings/bilar', del: null } };
     if (/åker|bolag/.test(q) && app === 'avrakning') return { name: 'hamta_data', input: { app: 'avrakning', typ: 'dokument', sokvag: 'settings/bolag', del: null } };
     if (/avräkning|månad|september|augusti/.test(q) && app === 'avrakning') return { name: 'hamta_data', input: { app: 'avrakning', typ: 'dokument', sokvag: /augusti/.test(q) ? 'months/2026-08' : 'months/2026-09', del: 'summary' } };
-    if (/betald|påminn/.test(q) && /1041|dem101/.test(q)) return { name: 'foresla_atgard', input: { namn: /påminn/.test(q) ? 'paminnelseNoterad' : 'betald', arende: 'a1', args: [], beskrivning: /påminn/.test(q) ? 'Påminnelse noteras för faktura 1041 (DEM101).' : 'Faktura 1041 (DEM101) markeras som betald.' } };
+    const nr = q.match(/\b(10[3-4]\d)\b/)?.[1];
+    const FAKTUROR: Record<string, string> = { 1041: 'a06', 1044: 'a07', 1046: 'a08' };
+    if (/betald|påminn/.test(q) && nr && FAKTUROR[nr]) return { name: 'foresla_atgard', input: { namn: /påminn/.test(q) ? 'paminnelseNoterad' : 'betald', arende: FAKTUROR[nr], args: [], beskrivning: /påminn/.test(q) ? `Påminnelse noteras för faktura ${nr}.` : `Faktura ${nr} markeras som betald.` } };
+    if (/moms/.test(q)) return { name: 'foresla_atgard', input: { namn: 'skapaMoms', arende: 'a10', args: [], beskrivning: 'Momsfaktura skapas till fordonsägaren för faktura 1042 (försäkringen är betald).' } };
+    if (/offert/.test(q) && /skick/.test(q)) return { name: 'foresla_atgard', input: { namn: 'offertSkickad', arende: 'a01', args: [], beskrivning: 'Offerten för DEM01A markeras som skickad.' } };
     if (app === 'foliering') return { name: 'berakna', input: { app: 'foliering', period: null } };
     if (/ärende/.test(q)) return { name: 'hamta_data', input: { app: 'foliering', typ: 'samling', sokvag: 'arenden', del: null } };
     return null;
@@ -140,7 +127,11 @@ export function demoClaude(): Claude {
       const fraga = String(sista.content.find(b => b.type === 'text')?.text ?? '').replace(/^\[[^\]]*\]\n/, '');
       const v = verktyg(fraga);
       if (!v) {
-        for (const h of text('Det här är en demo av assistenten. Prova till exempel "Vilka fakturor är obetalda?", "Visa septembers avräkning", "Vilka bilar finns?", "Markera faktura 1041 som betald" eller "Öppna Verkstad".')) { await vantan(); yield h; }
+        for (const h of text('Det här är en demo av assistenten. Prova till exempel "Vilka fakturor är obetalda?", "Visa septembers avräkning", "Vilka åkerier har vi?", "Markera faktura 1046 som betald", "Skapa momsfaktura", "Var finns exempelfilerna?" eller "Öppna Avräkning".')) { await vantan(); yield h; }
+        return;
+      }
+      if (/exempelfil|filer att|ladda upp|ladda ner/.test(fraga.toLocaleLowerCase('sv'))) {
+        for (const h of text('Exempelfilerna för oktober finns här: [Exempelfiler](/_demo/exempelfiler). Ladda ner dem och släpp dem i Avräkning (TaxiCaller, Bambora och app) eller i Lön och kassa (LDL, bro och Sturup). Öppna appen i menyn till vänster.')) { await vantan(); yield h; }
         return;
       }
       for (const h of text('Jag tittar på det.')) { await vantan(); yield h; }
@@ -247,6 +238,7 @@ export function demo(m: DemoMiljo) {
   return async function hanteraDemo(req: Request, filer: Record<LegacyApp, string> | null): Promise<Response> {
     const url = new URL(req.url);
     const vag = url.pathname.replace(/^\/_demo/, '');
+    if (vag.startsWith('/exempelfiler')) return exempel(vag);
     if (vag === '/functions/v1/motor') return hantera(req, motor, { tillatnaUrsprung: [url.origin] });
     if (vag === '/functions/v1/assistent') return hanteraAssistent(req, assistent, { tillatnaUrsprung: [url.origin] });
     if (vag === '/functions/v1/legacy') {

@@ -4,8 +4,8 @@
 //
 // Demoläget: finns dist-demo/demo.mjs (npm run bygg:demo) svarar servern på /_demo som Supabase, med påhittad
 // data i minnet (packages/server/demo.ts). Plattformen använder det när den är byggd utan Supabase.
-// Miljövariabler: DEMO=av stänger av, DEMO_LOSENORD kräver lösenord för hela sidan, DEMO_NUVARANDE_APPAR=ja
-// lämnar ut de nuvarande apparna, ANTHROPIC_API_KEY och ASSISTENT_MODELL ger riktiga svar från Claude.
+// Miljövariabler: DEMO=av stänger av, DEMO_LOSENORD kräver lösenord för hela sidan, DEMO_NUVARANDE_APPAR=nej
+// stänger av de nuvarande apparna i panelen, ANTHROPIC_API_KEY och ASSISTENT_MODELL ger riktiga svar från Claude.
 import { createHash } from 'node:crypto';
 import { createServer } from 'node:http';
 import { existsSync } from 'node:fs';
@@ -22,7 +22,8 @@ const LOSENORD = process.env.DEMO_LOSENORD ?? '';
 let demo = null;
 if (process.env.DEMO !== 'av' && existsSync(DEMO_FIL)) {
   const { demo: skapa, FILER } = await import(DEMO_FIL);
-  const legacy = process.env.DEMO_NUVARANDE_APPAR === 'ja';
+  // De nuvarande apparna visas i demon om de inte stängs av (DEMO_NUVARANDE_APPAR=nej). Sätt DEMO_LOSENORD.
+  const legacy = process.env.DEMO_NUVARANDE_APPAR !== 'nej';
   const hantera = skapa({ anthropic: process.env.ANTHROPIC_API_KEY, modell: process.env.ASSISTENT_MODELL, insats: process.env.ASSISTENT_INSATS, fotoModell: process.env.FOTOLASNING_MODELL, legacy });
   demo = req => hantera(req, legacy ? FILER : null);
   console.log(`Demoläget är på (${process.env.ANTHROPIC_API_KEY ? 'Claude' : 'demoassistent utan AI'}${legacy ? ', med de nuvarande apparna' : ''}${LOSENORD ? ', med lösenord' : ''}).`);
