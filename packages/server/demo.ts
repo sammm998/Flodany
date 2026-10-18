@@ -94,6 +94,8 @@ export function demoClaude(): Claude {
   const verktyg = (fraga: string): { name: string; input: Record<string, unknown> } | null => {
     const q = fraga.toLocaleLowerCase('sv');
     const app = /verkstad|ärende|faktur|offert/.test(q) ? 'foliering' : /lön|kassa/.test(q) ? 'akarkassan' : 'avrakning';
+    if (/lägg till|ny förare|anställ/.test(q) && /förare/.test(q)) return { name: 'foresla_andring', input: { app: 'akarkassan', sokvag: 'settings', andringar: [{ falt: 'forare.1006', varde_json: JSON.stringify({ namn: 'Förare Sex', modell: 'procent', start: '2026-11-01' }) }], beskrivning: 'Förare Sex (1006) läggs till med procentlön från 2026-11-01.' } };
+    if (/lägg till|nytt/.test(q) && /åkeri/.test(q)) return { name: 'foresla_andring', input: { app: 'avrakning', sokvag: 'settings/bolag', andringar: [{ falt: 'list', varde_json: JSON.stringify([{ namn: 'Demoåkeriet Norr AB', kn: 91190001, vx: 3, tl: 3 }, { namn: 'Demoåkeriet Syd AB', kn: 91190002, vx: 3, tl: 3 }, { namn: 'Demotaxi Öst AB', kn: 91190003, vx: 3, tl: 2 }, { namn: 'Demobil Väst AB', kn: 91190004, vx: 3, tl: 3 }, { namn: 'Demoåkeriet Nytt AB', kn: 91190005, vx: 1, tl: 1 }]) }], beskrivning: 'Demoåkeriet Nytt AB läggs till som femte åkeri.' } };
     if (/öppna|starta|gå till/.test(q)) return { name: 'oppna_app', input: { app, vy: null } };
     if (/hjälp|hur |vad betyder|var hittar/.test(q)) return { name: 'hjalp', input: { app } };
     if (/bil/.test(q)) return { name: 'hamta_data', input: { app: 'avrakning', typ: 'dokument', sokvag: 'settings/bilar', del: null } };
@@ -127,7 +129,12 @@ export function demoClaude(): Claude {
       const fraga = String(sista.content.find(b => b.type === 'text')?.text ?? '').replace(/^\[[^\]]*\]\n/, '');
       const v = verktyg(fraga);
       if (!v) {
-        for (const h of text('Det här är en demo av assistenten. Prova till exempel "Vilka fakturor är obetalda?", "Visa septembers avräkning", "Vilka åkerier har vi?", "Markera faktura 1046 som betald", "Skapa momsfaktura", "Var finns exempelfilerna?" eller "Öppna Avräkning".')) { await vantan(); yield h; }
+        for (const h of text('Det här är en demo av assistenten. Prova till exempel "Vilka fakturor är obetalda?", "Visa septembers avräkning", "Vilka åkerier har vi?", "Markera faktura 1046 som betald", "Lägg till en förare", "Skapa momsfaktura", "Var finns exempelfilerna?" eller "Öppna Avräkning".')) { await vantan(); yield h; }
+        return;
+      }
+      if (/^Jag (godkände|avböjde|försökte)/.test(fraga)) {
+        const svar = fraga.startsWith('Jag godkände') ? 'Klart, det är sparat. Appen i panelen visar ändringen.' : fraga.startsWith('Jag avböjde') ? 'Okej, jag ändrade ingenting.' : 'Det gick inte att spara. Kontrollera behörigheten eller försök igen.';
+        for (const h of text(svar)) { await vantan(); yield h; }
         return;
       }
       if (/exempelfil|filer att|ladda upp|ladda ner/.test(fraga.toLocaleLowerCase('sv'))) {

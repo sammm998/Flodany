@@ -399,3 +399,30 @@ describe('assistenten: beslut om förslag', () => {
     expect(t.sparade.get(id)!.paneler[0]).toMatchObject({ beslut: { utfall: 'utford', meddelanden: ['Klart'], tid: '2026-10-17T10:00:00.000Z' } });
   });
 });
+
+describe('assistenten: ändringar av data', () => {
+  it('föreslår en ny förare med före och efter, men ändrar ingenting', async () => {
+    await minne.doc('settings').set({ foretag: 'Demo', forare: { 1001: { namn: 'Förare Ett' } } });
+    t.svar.push(strom([{ verktyg: 'foresla_andring', id: 'a', input: { app: 'akarkassan', sokvag: 'settings', andringar: [{ falt: 'forare.1006', varde_json: '{"namn":"Förare Sex","modell":"procent"}' }, { falt: 'foretag', varde_json: null }], beskrivning: 'Förare Sex läggs till.' } }], 'tool_use'));
+    t.svar.push(strom([{ text: 'Väntar på ditt godkännande.' }], 'end_turn'));
+    const h = await fraga('Lägg till Förare Sex');
+    const panel = (h.find(x => x.typ === 'panel') as Extract<AssistentHandelse, { typ: 'panel' }>).panel;
+    expect(panel).toMatchObject({ typ: 'andring', app: 'akarkassan', andring: { sokvag: 'settings', nytt: false, rader: [{ falt: 'forare.1006', fore: null, efter: { namn: 'Förare Sex', modell: 'procent' } }, { falt: 'foretag', fore: 'Demo', efter: null }] } });
+    expect((await minne.doc('settings').get()).data()).toEqual({ foretag: 'Demo', forare: { 1001: { namn: 'Förare Ett' } } });
+    expect(t.anrop[1]!.messages.at(-1)!.content[0]!.content).toContain('Inget är ändrat än');
+  });
+
+  it('läs-rollen, ogiltiga fält och trasig JSON nekas', async () => {
+    const forsok = async (input: unknown, token = 'token-ekonomi') => {
+      t.svar.push(strom([{ verktyg: 'foresla_andring', id: 'x', input }], 'tool_use'));
+      t.svar.push(strom([{ text: 'Nej.' }], 'end_turn'));
+      await fraga('Ändra', { token });
+      return t.anrop.at(-1)!.messages.at(-1)!.content[0]!;
+    };
+    const bas = { app: 'avrakning', sokvag: 'settings/params', beskrivning: 'x' };
+    expect(await forsok({ ...bas, andringar: [{ falt: 'bro', varde_json: '210' }] }, 'token-las')).toMatchObject({ is_error: true });
+    expect(await forsok({ ...bas, andringar: [{ falt: '__proto__.x', varde_json: '1' }] })).toMatchObject({ is_error: true });
+    expect(await forsok({ ...bas, andringar: [{ falt: 'bro', varde_json: '{trasig' }] })).toMatchObject({ is_error: true });
+    expect(await forsok({ ...bas, andringar: [] })).toMatchObject({ is_error: true });
+  });
+});

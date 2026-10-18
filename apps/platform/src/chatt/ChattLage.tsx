@@ -29,6 +29,8 @@ export interface ChattLage {
   oppnaApp: (app: string, rubrik: string) => void;
   /** Uppdaterar ett förslag i panelen efter användarens beslut och berättar det för assistenten. */
   beslut: (b: Beslut, text: string) => void;
+  /** Ökar när data i en app ändrats via panelen, så att appen i panelen läses in på nytt. */
+  version: Record<string, number>;
 }
 
 const Kontext = createContext<ChattLage | null>(null);
@@ -141,15 +143,19 @@ export function ChattLeverantor({ konto, slug, children }: { konto: string; slug
     setPanelOppen(true);
   }, []);
 
+  const [version, setVersion] = useState<Record<string, number>>({});
   const beslut = useCallback((b: Beslut, text: string) => {
-    setPaneler(lista => lista.map(p => (p.id === b.panel && p.typ === 'atgard' ? { ...p, beslut: { ...b, tid: new Date().toISOString() } } : p)));
+    setPaneler(lista => lista.map(p => (p.id === b.panel && (p.typ === 'atgard' || p.typ === 'andring') ? { ...p, beslut: { ...b, tid: new Date().toISOString() } } : p)));
+    // En sparad ändring: appen i panelen läses in på nytt (vissa appar läser sina inställningar bara när de startar).
+    const app = nu.current.paneler.find(p => p.id === b.panel)?.app;
+    if (b.utfall === 'utford' && app) setVersion(v => ({ ...v, [app]: (v[app] ?? 0) + 1 }));
     void skicka(text, b);
   }, [skicka]);
 
   const varde = useMemo<ChattLage>(() => ({
     samtal, meddelanden, paneler, aktivPanel, panelOppen, arbetar, laddar, fel, panelFor,
-    skicka, stoppa, nytt, ladda, visaPanel, stangPanel, setPanelOppen, oppnaApp, beslut,
-  }), [samtal, meddelanden, paneler, aktivPanel, panelOppen, arbetar, laddar, fel, panelFor, skicka, stoppa, nytt, ladda, visaPanel, stangPanel, oppnaApp, beslut]);
+    skicka, stoppa, nytt, ladda, visaPanel, stangPanel, setPanelOppen, oppnaApp, beslut, version,
+  }), [samtal, meddelanden, paneler, aktivPanel, panelOppen, arbetar, laddar, fel, panelFor, skicka, stoppa, nytt, ladda, visaPanel, stangPanel, oppnaApp, beslut, version]);
 
   return <Kontext.Provider value={varde}>{children}</Kontext.Provider>;
 }

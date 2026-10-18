@@ -11,7 +11,7 @@
 // Historiken till modellen är append-only: system och verktyg är desamma under hela samtalet (systemtexten sparas
 // med samtalet), och användarens sammanhang (datum, öppen panel) skrivs i hennes meddelande. Då gäller
 // tankeblocken, som skickas tillbaka oförändrade, och cachen håller.
-import type { AssistentAnrop, AssistentHandelse, Atgardsforslag, Beslut, ChattMeddelande, Del, Panel, VerktygRad } from '@flodia/api';
+import { giltigtFalt, lasFalt, tillampaAndringar, type Andring, type AssistentAnrop, type AssistentHandelse, type Atgardsforslag, type Beslut, type ChattMeddelande, type Del, type Panel, type VerktygRad } from '@flodia/api';
 import { FORKRAV } from '@flodia/core/foliering';
 import { stockholmDatum } from '@flodia/core/tid';
 import { guideFor } from '@flodia/guides';
@@ -173,6 +173,16 @@ export const VERKTYG: ApiVerktyg[] = [
     }),
   },
   {
+    name: 'foresla_andring', strict: true,
+    description: 'Föreslår en ändring av data i en app: lägga till, ändra eller ta bort fält i ett dokument, till exempel en ny förare i Lön och kassa, ett nytt åkeri i Avräkning eller ett ändrat pris. Ändringen sparas INTE av dig: användaren ser före och efter i panelen och godkänner med ett klick. Läs dokumentet med hamta_data först, så att du vet vad som finns. sokvag är dokumentets sökväg (till exempel settings i Lön och kassa, settings/bolag i Avräkning). andringar är en lista: falt är en punktad väg (till exempel forare.1006.namn), varde_json är det nya värdet som JSON (till exempel "\\"Förare Sex\\"", 28000 eller {"namn":"Förare Sex"}), eller null för att ta bort fältet. För listor (som list i settings/bolag) ersätts hela listan: skicka hela den nya listan.',
+    input_schema: strikt({
+      app: APP_SCHEMA,
+      sokvag: { type: 'string' },
+      andringar: { type: 'array', items: strikt({ falt: { type: 'string' }, varde_json: { type: ['string', 'null'] } }) },
+      beskrivning: { type: 'string', description: 'En mening om vad som ändras, till exempel "Förare Sex (1006) läggs till med procentlön från 2026-11-01."' },
+    }),
+  },
+  {
     name: 'hjalp', strict: true,
     description: 'Hämtar hjälptexterna för en app: välkomstguiden, hjälp per vy och var filerna finns. Visas i panelen. Använd för frågor om hur appen fungerar.',
     input_schema: strikt({ app: APP_SCHEMA }),
@@ -187,6 +197,7 @@ export function etikett(namn: string, input: Record<string, unknown>): string {
     case 'hamta_data': return `Hämtar ${typeof input.sokvag === 'string' ? input.sokvag : 'data'} från ${app}`;
     case 'berakna': return `Räknar i ${app}${typeof input.period === 'string' ? ' för ' + input.period : ''}`;
     case 'foresla_atgard': return `Förbereder en åtgärd i ${app}`;
+    case 'foresla_andring': return `Förbereder en ändring i ${app}`;
     case 'hjalp': return `Läser hjälpen för ${app}`;
     default: return 'Arbetar';
   }
@@ -197,7 +208,7 @@ export function etikett(namn: string, input: Record<string, unknown>): string {
 const DATAMODELL = [
   'Avräkning (avrakning): dokumenten settings/params (priser och procentsatser), settings/bilar (bilregistret, list), settings/bolag (åkerierna, list), settings/terminaler, samlingen months (en per månad ÅÅÅÅ-MM med summary.bolag, summary.kund, summary.kpi och summary.kontroll, räknat av motorn när månaden gjordes), samlingen utskick och dokumenten klader/ÅÅÅÅ-MM (klädlistan).',
   'Verkstad (foliering): samlingarna arenden (ärenden med offert, faktura och moms), fordon, forsakring, kostnader, bokforing och installningar. Verktyget berakna ger nyckeltal, att göra och obetalda fakturor.',
-  'Lön och kassa (akarkassan) och Lön och bokföring (tripkassan): dokumenten settings, skatt, ekonomi-ÅÅÅÅ och en per månad m-ÅÅÅÅ-MM, på toppnivån. Innehåller personuppgifter om förare.',
+  'Lön och kassa (akarkassan) och Lön och bokföring (tripkassan): dokumenten settings, skatt, ekonomi-ÅÅÅÅ och en per månad m-ÅÅÅÅ-MM, på toppnivån. Innehåller personuppgifter om förare. settings.forare är förarna per förar-id (siffror, som 1001): namn, modell (procent, fast eller ingen), manadslon (vid fast), start och slut (ÅÅÅÅ-MM-DD), anstForm, och person med bank, adress, tabell (skattetabell), kolumn, telefon och epost. settings.foretag är bolagets namn.',
 ].join('\n');
 
 /** Den fasta delen av systemtexten. Lika för alla, så att den cachas. */
@@ -206,7 +217,7 @@ export const SYSTEM_FAST = [
   'Användaren arbetar i en chatt. Det du hämtar och öppnar med verktygen visas i en panel till höger om chatten. Hänvisa till panelen i stället för att upprepa långa tabeller. Sammanfatta det viktigaste i några meningar eller en kort lista.',
   '',
   'Regler:',
-  '1. Du utför aldrig en ändring själv. Du kan öppna appen åt användaren eller föreslå en åtgärd med foresla_atgard, som användaren godkänner i panelen. Säg att åtgärden väntar på godkännande.',
+  '1. När användaren vill ändra något gör du det åt henne: föreslå ändringen med foresla_andring (data i alla appar) eller foresla_atgard (Verkstadens åtgärder som faktura, betald och moms). Användaren godkänner med ett klick i panelen, och först då sparas den. Säg kort vad som ändras och att det väntar på godkännande. Fråga bara efter det som verkligen saknas (till exempel namnet på en ny förare), och föreslå rimliga standardvärden för resten.',
   '2. Belopp och siffror kommer från motorn eller de sparade resultaten, aldrig från dig. Räkna inte om och hitta inte på siffror. Ange källan, till exempel "Avräkning september, summary.kpi".',
   '3. Du ser bara det användaren själv får se. Om ett verktyg svarar att behörighet saknas, säg det och föreslå att användaren frågar sin admin.',
   '4. Vet du inte, säg det. Gissa aldrig. Erbjud att användaren kontaktar supporten.',
@@ -348,6 +359,32 @@ export async function korVerktyg(namn: string, input: Record<string, unknown>, k
       return {
         resultat: `Förslaget visas i panelen och väntar på att användaren godkänner det. Inget är ändrat än.`,
         panel: { id: panelId, typ: 'atgard', rubrik: ATGARDER[namnA]!.text, app: 'foliering', atgard },
+      };
+    }
+
+    case 'foresla_andring': {
+      if (k.roll === 'las') return { resultat: 'Användaren har rollen läs och kan inte ändra något.', fel: true };
+      const sokvag = typeof input.sokvag === 'string' ? input.sokvag.trim() : '';
+      if (!sokvag || sokvag.length > 200) return { resultat: 'Ange dokumentets sökväg.', fel: true };
+      const lista = Array.isArray(input.andringar) ? input.andringar as { falt?: unknown; varde_json?: unknown }[] : [];
+      if (!lista.length || lista.length > 30) return { resultat: 'Ange mellan 1 och 30 ändringar.', fel: true };
+      const andringar: Andring[] = [];
+      for (const a of lista) {
+        const falt = typeof a.falt === 'string' ? a.falt.trim() : '';
+        if (!giltigtFalt(falt)) return { resultat: `Fältet "${falt}" är ogiltigt. Använd en punktad väg, till exempel forare.1006.namn.`, fel: true };
+        if (a.varde_json === null) { andringar.push({ falt, taBort: true }); continue; }
+        if (typeof a.varde_json !== 'string' || a.varde_json.length > 20_000) return { resultat: `Värdet för ${falt} saknas eller är för stort.`, fel: true };
+        try { andringar.push({ falt, varde: JSON.parse(a.varde_json) as unknown }); } catch { return { resultat: `Värdet för ${falt} är inte giltig JSON.`, fel: true }; }
+      }
+      const s = await t.motor.dokument(k.token, k.konto, app).doc(sokvag).get();
+      const fore = s.exists ? s.data() : undefined;
+      let efter: Record<string, unknown>;
+      try { efter = tillampaAndringar(fore, andringar); } catch (e) { return { resultat: (e as Error).message, fel: true }; }
+      const rader = andringar.map(a => ({ falt: a.falt, fore: lasFalt(fore, a.falt) ?? null, efter: lasFalt(efter, a.falt) ?? null }));
+      const beskrivning = String(input.beskrivning ?? '').slice(0, 300) || `Ändring i ${appNamn(app)}, ${sokvag}.`;
+      return {
+        resultat: `Förslaget visas i panelen med före och efter, och väntar på att användaren godkänner det. Inget är ändrat än.\nFöre och efter: ${tillModell(rader, 4000)}`,
+        panel: { id: panelId, typ: 'andring', rubrik: `Ändring: ${appNamn(app)}`, app, andring: { sokvag, andringar, beskrivning, rader, nytt: !s.exists } },
       };
     }
 
@@ -506,7 +543,7 @@ export async function assistera(token: string | null, kropp: unknown, t: Assiste
   // Beslutet om ett förslag sparas med panelen (bara visning: åtgärden kördes av klienten mot motor).
   if (anrop.beslut) {
     const p = post.paneler.find(x => x.id === anrop.beslut!.panel);
-    if (p?.typ === 'atgard' && !p.beslut) p.beslut = { ...anrop.beslut, tid: new Date(t.motor.nu()).toISOString() };
+    if ((p?.typ === 'atgard' || p?.typ === 'andring') && !p.beslut) p.beslut = { ...anrop.beslut, tid: new Date(t.motor.nu()).toISOString() };
   }
   skicka({ typ: 'samtal', id: post.id, titel: post.titel });
   post.visning.push({ id: t.id(), roll: 'anvandare', delar: [{ typ: 'text', text: anrop.text }] });

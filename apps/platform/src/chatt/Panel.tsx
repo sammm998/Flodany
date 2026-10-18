@@ -2,15 +2,16 @@
 // Apparna ligger kvar i panelen när man byter flik, så att ett påbörjat arbete inte laddas om.
 import { useState } from 'react';
 import { Link } from '@tanstack/react-router';
-import { anropaMotor, MotorSvarFel, type Beslut, type Panel } from '@flodia/api';
+import { anropaMotor, MotorSvarFel, skapaDb, tillampaAndringar, type Beslut, type Panel } from '@flodia/api';
 import { Fellage, Knapp, Laddning } from '@flodia/ui';
 import { supabase } from '../supabase';
 import { LegacyRam } from '../sidor/Brygga';
 import { ModulInnehall } from '../sidor/Modul';
 import { useKonto } from '../sidor/KontoSkal';
 import { DataVisning, Tabell, csv, text } from './DataVisning';
+import { useChatt } from './ChattLage';
 
-const IKON: Record<Panel['typ'], string> = { app: '▣', data: '▤', berakning: '∑', atgard: '✓', hjalp: '?' };
+const IKON: Record<Panel['typ'], string> = { app: '▣', data: '▤', berakning: '∑', atgard: '✓', hjalp: '?', andring: '✎' };
 export const panelIkon = (p: Panel) => IKON[p.typ];
 
 /** Sparar en fil i webbläsaren. data är text, eller { base64 } från motor. */
@@ -132,6 +133,64 @@ function AtgardPanel({ p, beslut }: { p: Extract<Panel, { typ: 'atgard' }>; besl
   );
 }
 
+/** Ett värde i jämförelsen: text som den är, annat som kort JSON. */
+const visaVarde = (v: unknown) => (v === null || v === undefined ? '' : typeof v === 'string' ? v : typeof v === 'number' || typeof v === 'boolean' ? text(v) : JSON.stringify(v, null, 1));
+
+/**
+ * En ändring av data som agenten föreslår, med före och efter. Godkänn: dokumentet läses på nytt, samma ändringar
+ * görs och det sparas med användarens rättigheter (documents-API:t). Appen i panelen ser ändringen direkt.
+ */
+function AndringPanel({ p, beslut }: { p: Extract<Panel, { typ: 'andring' }>; beslut: (b: Beslut, text: string) => void }) {
+  const k = useKonto();
+  const [arbetar, setArbetar] = useState(false), [fel, setFel] = useState<string | null>(null);
+  const kanGora = k.medlemskap.roll === 'admin' || k.medlemskap.roll === 'ekonomi';
+  const a = p.andring;
+
+  async function godkann() {
+    setArbetar(true); setFel(null);
+    try {
+      const ref = skapaDb({ supabase, konto: k.medlemskap.konto.id, modul: p.app }).doc(a.sokvag);
+      await ref.set(tillampaAndringar((await ref.get()).data(), a.andringar));
+      beslut({ panel: p.id, utfall: 'utford', meddelanden: [`Sparat i ${a.sokvag}.`] }, `Jag godkände ändringen: ${a.beskrivning} Den är sparad.`);
+    } catch (e) {
+      const t = (e as { code?: string }).code === 'not_granted' ? 'Du har inte behörighet att ändra det här.' : 'Ändringen kunde inte sparas. Försök igen.';
+      setFel(t);
+      beslut({ panel: p.id, utfall: 'misslyckad', meddelanden: [t] }, `Jag försökte godkänna ändringen, men det gick inte: ${t}`);
+    } finally { setArbetar(false); }
+  }
+
+  return (
+    <div className="fl-panel-sida">
+      <section className="fl-kort fl-forslag" aria-labelledby={p.id + '-r'}>
+        <h3 id={p.id + '-r'}>{a.beskrivning}</h3>
+        <p className="fl-hjalptext">{p.rubrik.replace(/^Ändring: /, '')}, {a.sokvag}{a.nytt ? ' (nytt dokument)' : ''}</p>
+        <div className="fl-tabell-yta">
+          <table className="fl-tabell fl-diff">
+            <thead><tr><th scope="col">Fält</th><th scope="col">Före</th><th scope="col">Efter</th></tr></thead>
+            <tbody>{a.rader.map(r => (
+              <tr key={r.falt}><td>{r.falt}</td><td className="fl-diff-fore">{visaVarde(r.fore) || <span className="fl-hjalptext">tomt</span>}</td><td className="fl-diff-efter">{visaVarde(r.efter) || <span className="fl-hjalptext">tas bort</span>}</td></tr>
+            ))}</tbody>
+          </table>
+        </div>
+        {p.beslut ? (
+          <p role="status" className={`fl-status ${p.beslut.utfall === 'utford' ? 'fl-status-klar' : p.beslut.utfall === 'avbojd' ? 'fl-status-vantar' : 'fl-status-avvikelse'}`}>
+            {p.beslut.utfall === 'utford' ? 'Godkänt och sparat' : p.beslut.utfall === 'avbojd' ? 'Avböjt' : 'Gick inte att spara'} {p.beslut.tid.slice(0, 16).replace('T', ' ')}
+          </p>
+        ) : kanGora ? (
+          <>
+            {arbetar && <Laddning text="Sparar" />}
+            {fel && <Fellage text={fel} />}
+            <div className="fl-dialog-knappar">
+              <Knapp variant="diskret" disabled={arbetar} onClick={() => beslut({ panel: p.id, utfall: 'avbojd', meddelanden: [] }, 'Jag avböjde ändringen.')}>Avböj</Knapp>
+              <Knapp variant="primar" disabled={arbetar} onClick={() => void godkann()}>Godkänn och spara</Knapp>
+            </div>
+          </>
+        ) : <p className="fl-hjalptext">Din roll kan inte ändra något. Be en admin eller ekonomi.</p>}
+      </section>
+    </div>
+  );
+}
+
 function HjalpPanel({ p }: { p: Extract<Panel, { typ: 'hjalp' }> }) {
   return <div className="fl-panel-sida">{p.stycken.map((s, i) => <section key={i} className="fl-hjalp-stycke"><h3>{s.rubrik}</h3><p>{s.text}</p></section>)}</div>;
 }
@@ -140,7 +199,7 @@ export function Panelyta({ paneler, aktiv, setAktiv, stang, beslut, helskarm, se
   paneler: Panel[]; aktiv: string | null; setAktiv: (id: string) => void; stang: (id: string | null) => void;
   beslut: (b: Beslut, text: string) => void; helskarm: boolean; setHelskarm: (pa: boolean) => void;
 }) {
-  const k = useKonto();
+  const k = useKonto(), { version } = useChatt();
   const vald = paneler.find(p => p.id === aktiv) ?? paneler.at(-1);
   if (!vald) return null;
   const bas = `/${k.medlemskap.konto.slug}`;
@@ -164,10 +223,11 @@ export function Panelyta({ paneler, aktiv, setAktiv, stang, beslut, helskarm, se
       </div>
       {paneler.map(p => (
         <div key={p.id} id={'panel-' + p.id} role="tabpanel" aria-label={p.rubrik} hidden={p.id !== vald.id} className="fl-panel-innehall">
-          {p.typ === 'app' ? <AppPanel p={p} />
+          {p.typ === 'app' ? <AppPanel key={version[p.app] ?? 0} p={p} />
             : p.typ === 'data' ? <DataPanel p={p} />
             : p.typ === 'berakning' ? <BerakningPanel p={p} />
             : p.typ === 'atgard' ? <AtgardPanel p={p} beslut={beslut} />
+            : p.typ === 'andring' ? <AndringPanel p={p} beslut={beslut} />
             : <HjalpPanel p={p} />}
         </div>
       ))}

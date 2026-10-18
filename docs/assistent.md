@@ -33,6 +33,7 @@ Svaret är en ström av händelser (`text/event-stream`), en JSON per rad: `samt
 | `oppna_app` | Öppnar en app så att användaren kan arbeta i den. Interna konton får den nuvarande appen (legacy-bryggan), andra kunder appens sida i plattformen. | App |
 | `hamta_data` | Läser ett dokument eller en samling i en app, till exempel `months/2026-09` eller `arenden`. | Data, med CSV och JSON |
 | `berakna` | Kör Verkstadens motor: nyckeltal, att göra, fakturor och periodens bokföring. | Beräkning |
+| `foresla_andring` | Föreslår en ändring av data i vilken app som helst (till exempel en ny förare i Lön och kassa eller ett nytt åkeri). Panelen visar före och efter. Godkänn sparar med användarens rättigheter och laddar om appen i panelen. | Ändring med Godkänn och Avböj |
 | `foresla_atgard` | Föreslår en åtgärd i Verkstad (till exempel markera en faktura som betald). Utförs inte av agenten. | Förslag med Godkänn och Avböj |
 | `hjalp` | Läser välkomstguiden, hjälpen per vy och filhjälpen. | Hjälp |
 

@@ -77,3 +77,17 @@ describe('chatten: data i panelen', () => {
     expect(csv(rader)).toBe('id;belopp;betald;rader;ny\r\na;1234,5;Ja;2 st;\r\n"b;c";2;;;x');
   });
 });
+
+describe('chatten: ändringar som godkänns', () => {
+  it('tillampaAndringar sätter och tar bort på punktade vägar utan att ändra originalet', async () => {
+    const { tillampaAndringar, giltigtFalt } = await import('@flodia/api');
+    const fore = Object.freeze({ forare: Object.freeze({ 1001: Object.freeze({ namn: 'Ett' }) }), foretag: 'Demo', lista: [1] });
+    const efter = tillampaAndringar(fore, [{ falt: 'forare.1006.namn', varde: 'Sex' }, { falt: 'foretag', taBort: true }, { falt: 'lista', varde: [1, 2] }]);
+    expect(efter).toEqual({ forare: { 1001: { namn: 'Ett' }, 1006: { namn: 'Sex' } }, lista: [1, 2] });
+    expect(fore.foretag).toBe('Demo');
+    expect(giltigtFalt('a.b.c')).toBe(true);
+    expect(giltigtFalt('a..b')).toBe(false);
+    expect(giltigtFalt('constructor')).toBe(false);
+    expect(() => tillampaAndringar({}, [{ falt: '__proto__.x', varde: 1 }])).toThrow();
+  });
+});
